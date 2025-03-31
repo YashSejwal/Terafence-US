@@ -24,7 +24,7 @@ const newsItems = [
     category: "Critical Alert",
     date: "March 29, 2025",
     readTime: "6 min read",
-    imageUrl: "/api/placeholder/800/500",
+    imageUrl: "/images/news/1.svg",
     link: "/news/critical-zero-day-vulnerability",
     tags: ["Cloud Security", "Zero-Day"]
   },
@@ -35,7 +35,7 @@ const newsItems = [
     category: "Threat Intelligence",
     date: "March 27, 2025",
     readTime: "4 min read",
-    imageUrl: "/api/placeholder/800/500",
+    imageUrl: "/images/news/2.svg",
     link: "/news/ransomware-attacks-rise-q1-2025",
     tags: ["Ransomware", "Threat Intelligence"]
   },
@@ -46,7 +46,7 @@ const newsItems = [
     category: "Regulation",
     date: "March 25, 2025",
     readTime: "5 min read",
-    imageUrl: "/api/placeholder/800/500",
+    imageUrl: "/images/news/3.svg",
     link: "/news/eu-cybersecurity-regulations-2025",
     tags: ["Compliance", "Regulations"]
   },
@@ -57,7 +57,7 @@ const newsItems = [
     category: "Product Launch",
     date: "March 23, 2025",
     readTime: "3 min read",
-    imageUrl: "/api/placeholder/800/500",
+    imageUrl: "/images/news/4.svg",
     link: "/news/ot-security-solution",
     tags: ["OT Security", "Critical Infrastructure"]
   },
@@ -68,7 +68,7 @@ const newsItems = [
     category: "Industry News",
     date: "March 20, 2025",
     readTime: "4 min read",
-    imageUrl: "/api/placeholder/800/500",
+    imageUrl: "/images/news/5.svg",
     link: "/news/financial-institutions-cybersecurity-alliance",
     tags: ["Financial Security", "Threat Intelligence"]
   }
