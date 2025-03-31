@@ -30,7 +30,6 @@ interface ContainerProps {
 }
 
 const Container = ({ children, delay = 0, className = "" }: ContainerProps) => {
-  // Instead of using Framer Motion directly, we'll use a simple fade-in effect with React
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -43,7 +42,7 @@ const Container = ({ children, delay = 0, className = "" }: ContainerProps) => {
 
   return (
     <div
-      className={`transition-all duration-500 ${
+      className={`transition-all duration-700 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
       } ${className}`}
     >
@@ -54,6 +53,7 @@ const Container = ({ children, delay = 0, className = "" }: ContainerProps) => {
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const darkBlue = "#0A2463"; // Dark blue color for icons and underlines
 
   const socialLinks = [
     {
@@ -84,18 +84,20 @@ const Footer: React.FC = () => {
         <div className="py-10 lg:py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
             <Container className="lg:col-span-4 flex flex-col">
-              <Link href="/" className="flex items-center">
-                <Image
-                  src="/images/terafence.png"
-                  alt="Terafence Logo"
-                  width={210}
-                  height={60}
-                  priority
-                  // className="h-12 w-auto"
-                />
-              </Link>
+              <div className="flex items-center h-8 mb-4">
+                <Link href="/" className="flex items-center transform hover:scale-105 transition-transform">
+                  <Image
+                    src="/images/terafence.png"
+                    alt="Terafence Logo"
+                    width={210}
+                    height={60}
+                    priority
+                    className="drop-shadow-md"
+                  />
+                </Link>
+              </div>
 
-              <p className="text-slate-900  text-sm leading-relaxed">
+              <p className="text-slate-700 text-sm leading-relaxed">
                 Terafence delivers cutting-edge cybersecurity solutions that
                 protect critical infrastructure and sensitive data across
                 industries. Our award-winning technology creates impenetrable
@@ -126,43 +128,46 @@ const Footer: React.FC = () => {
             </Container>
 
             <Container delay={0.1} className="lg:col-span-2 space-y-4">
-              <h3 className="text-base font-semibold text-slate-950 tracking-wide">
-                <span className="border-b-2 border-primary pb-1">Products</span>
+              <h3 className="text-base font-semibold text-slate-900 tracking-wide">
+                <span className={`border-b-2 pb-1`} style={{ borderColor: darkBlue }}>Products</span>
               </h3>
               <ul className="space-y-3 text-sm">
                 {[
                   {
                     name: "121",
                     href: "/devices",
-                    icon: <Shield className="h-4 w-4" />,
+                    icon: <Shield className="h-4 w-4" style={{ color: darkBlue }} />,
                   },
                   {
                     name: "1-URP",
                     href: "/devices",
-                    icon: <Lock className="h-4 w-4" />,
+                    icon: <Lock className="h-4 w-4" style={{ color: darkBlue }} />,
                   },
                   {
                     name: "BSG",
                     href: "/devices",
-                    icon: <Server className="h-4 w-4" />,
+                    icon: <Server className="h-4 w-4" style={{ color: darkBlue }} />,
                   },
                   {
                     name: "MBSecure+",
                     href: "/devices",
-                    icon: <Database className="h-4 w-4" />,
+                    icon: <Database className="h-4 w-4" style={{ color: darkBlue }} />,
                   },
                   {
                     name: "VSecure",
                     href: "/devices",
-                    icon: <Shield className="h-4 w-4" />,
+                    icon: <Shield className="h-4 w-4" style={{ color: darkBlue }} />,
                   },
                 ].map((item, idx) => (
                   <li key={idx}>
-                    <Link href={item.href} className="group flex items-center">
-                      <span className="mr-2 text-primary/80 group-hover:text-primary transition-colors">
+                    <Link 
+                      href={item.href} 
+                      className="group flex items-center transition-all duration-300"
+                    >
+                      <span className="mr-2 transition-transform">
                         {item.icon}
                       </span>
-                      <span className="text-slate-900  group-hover:text-white transition-colors">
+                      <span className="text-slate-700 group-hover:text-slate-900 transition-all">
                         {item.name}
                       </span>
                     </Link>
@@ -172,8 +177,8 @@ const Footer: React.FC = () => {
             </Container>
 
             <Container delay={0.2} className="lg:col-span-2 space-y-4">
-              <h3 className="text-base font-semibold text-slate-950 tracking-wide">
-                <span className="border-b-2 border-primary pb-1">
+              <h3 className="text-base font-semibold text-slate-900 tracking-wide">
+                <span className={`border-b-2 pb-1`} style={{ borderColor: darkBlue }}>
                   Solutions
                 </span>
               </h3>
@@ -186,7 +191,7 @@ const Footer: React.FC = () => {
                   <li key={idx}>
                     <Link
                       href={item.href}
-                      className="text-slate-900 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block"
+                      className="text-slate-700 hover:text-slate-900 transition-all duration-300 hover:translate-x-1 inline-block"
                     >
                       {item.name}
                     </Link>
@@ -196,10 +201,10 @@ const Footer: React.FC = () => {
             </Container>
 
             <Container delay={0.3} className="lg:col-span-2 space-y-4">
-              <h3 className="text-base font-semibold text-slate-950 tracking-wide">
-                <span className="border-b-2 border-primary pb-1">Company</span>
+              <h3 className="text-base font-semibold text-slate-900 tracking-wide">
+                <span className={`border-b-2 pb-1`} style={{ borderColor: darkBlue }}>Company</span>
               </h3>
-              <ul className="space-y-3 text-sm text-slate-500">
+              <ul className="space-y-3 text-sm">
                 {[
                   { name: "Our Story", href: "/about" },
                   { name: "Meet the Team", href: "/about/team" },
@@ -210,7 +215,7 @@ const Footer: React.FC = () => {
                   <li key={idx}>
                     <Link
                       href={item.href}
-                      className="text-slate-900 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block"
+                      className="text-slate-700 hover:text-slate-900 transition-all duration-300 hover:translate-x-1 inline-block hover:font-medium p-2 hover:bg-slate-100 rounded-md w-full"
                     >
                       {item.name}
                     </Link>
@@ -220,21 +225,21 @@ const Footer: React.FC = () => {
             </Container>
 
             <Container delay={0.4} className="lg:col-span-2 space-y-4">
-              <h3 className="text-base font-semibold text-slate-950 tracking-wide">
-                <span className="border-b-2 border-primary pb-1">Contact</span>
+              <h3 className="text-base font-semibold text-slate-900 tracking-wide">
+                <span className={`border-b-2 pb-1`} style={{ borderColor: darkBlue }}>Contact</span>
               </h3>
               <ul className="space-y-4 text-sm">
                 <li className="flex items-start">
-                  <MapPin className="h-5 w-5 text-slate-500  mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="text-slate-900 ">
+                  <MapPin className="h-5 w-5 text-slate-500 mr-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-slate-700">
                     12788 ROYAL OAKS LN FARMERS BRANCH, TX 75234
                   </span>
                 </li>
                 <li className="flex items-center">
-                  <Mail className="h-5 w-5 text-slate-500  mr-3 flex-shrink-0" />
+                  <Mail className="h-5 w-5 text-slate-500 mr-3 flex-shrink-0" />
                   <a
                     href="mailto:info@terafence.us"
-                    className="text-slate-900  hover:text-blue-300 transition-colors"
+                    className="text-slate-700 hover:text-slate-900 transition-colors"
                   >
                     info@terafence.us
                   </a>
@@ -244,14 +249,14 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <Separator className="bg-zinc-400" />
+        <Separator className="bg-slate-300" />
 
         <div className="py-8">
           <Container
             delay={0.5}
             className="flex flex-col md:flex-row items-center justify-between gap-4"
           >
-            <p className="text-sm text-slate-900 ">
+            <p className="text-sm text-slate-900">
               &copy; {currentYear} Terafence US. All rights
               reserved.
             </p>

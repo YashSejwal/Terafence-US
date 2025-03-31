@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useInView } from "react-intersection-observer";
+import ReCAPTCHA from "react-google-recaptcha";
 import {
   Form,
   FormControl,
@@ -32,6 +33,7 @@ import {
   ExternalLink,
   Send,
   Building,
+  AlertCircle,
 } from "lucide-react";
 import Navbar from "@/components/marketing/navbar";
 import Footer from "@/components/marketing/footer";
@@ -41,7 +43,13 @@ const formSchema = z.object({
   firstName: z.string().min(2, { message: "First name is required" }),
   lastName: z.string().min(2, { message: "Last name is required" }),
   email: z.string().email({ message: "Invalid email address" }),
-  phone: z.string().min(10, { message: "Valid phone number is required" }),
+  phone: z
+    .string()
+    .min(10, { message: "Phone number must be at least 10 digits" })
+    .regex(
+      /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,4}[-\s.]?[0-9]{1,9}$/,
+      { message: "Please enter a valid phone number" }
+    ),
   company: z.string().min(2, { message: "Company name is required" }),
   jobTitle: z.string().min(2, { message: "Job title is required" }),
   businessSegment: z
@@ -59,6 +67,8 @@ type FormValues = z.infer<typeof formSchema>;
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   // Animation triggers based on scroll position
   const [heroRef, heroInView] = useInView({
@@ -103,27 +113,51 @@ export default function ContactPage() {
     helpType: string;
     referralSource: string;
     additionalDetails?: string;
+    recaptchaToken?: string;
   }
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
+    setFormError(null);
+    
     try {
+      // Execute reCAPTCHA and get token
+      const recaptchaToken = await recaptchaRef.current?.executeAsync();
+      
+      if (!recaptchaToken) {
+        setFormError("reCAPTCHA verification failed. Please try again.");
+        setIsSubmitting(false);
+        return;
+      }
+      
+      // Reset reCAPTCHA after getting token
+      recaptchaRef.current?.reset();
+      
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          recaptchaToken,
+        }),
       });
 
-      if (response.ok) {
+      const result = await response.json();
+
+      if (response.ok && result.success) {
         setIsSubmitted(true);
+        form.reset(); // Clear the form after successful submission
       } else {
-        console.error("Failed to send email");
+        setFormError(result.error || "Failed to send your message. Please try again.");
+        console.error("Failed to send email", result);
       }
     } catch (error) {
+      setFormError("An unexpected error occurred. Please try again later.");
       console.error("Error submitting form", error);
     }
+    
     setIsSubmitting(false);
   };
 
@@ -309,6 +343,17 @@ export default function ContactPage() {
                     onSubmit={form.handleSubmit(onSubmit)}
                     className="space-y-6"
                   >
+                    {formError && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: -10 }} 
+                        animate={{ opacity: 1, y: 0 }}
+                        className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md mb-4 flex items-start"
+                      >
+                        <AlertCircle className="h-5 w-5 mr-3 mt-0.5" />
+                        <span>{formError}</span>
+                      </motion.div>
+                    )}
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <FormField
                         control={form.control}
@@ -542,6 +587,46 @@ export default function ContactPage() {
                           </FormItem>
                         )}
                       />
+                      <FormField
+                        control={form.control}
+                        name="referralSource"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-blue-900 font-medium">
+                              How Did You Hear About Us?
+                            </FormLabel>
+                            <Select
+                              onValueChange={field.onChange}
+                              defaultValue={field.value}
+                            >
+                              <FormControl>
+                                <SelectTrigger className="border-gray-300 focus:border-blue-400 focus:ring-blue-200">
+                                  <SelectValue placeholder="Select" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                <SelectItem value="search">
+                                  Search Engine
+                                </SelectItem>
+                                <SelectItem value="social">
+                                  Social Media
+                                </SelectItem>
+                                <SelectItem value="referral">
+                                  Personal Referral
+                                </SelectItem>
+                                <SelectItem value="tradeshow">
+                                  Trade Show / Conference
+                                </SelectItem>
+                                <SelectItem value="advertisement">
+                                  Advertisement
+                                </SelectItem>
+                                <SelectItem value="other">Other</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            <FormMessage className="text-red-500" />
+                          </FormItem>
+                        )}
+                      />
                     </div>
 
                     <FormField
@@ -575,6 +660,13 @@ export default function ContactPage() {
                       services. You may unsubscribe at any time from these
                       communications via our Privacy Policy.
                     </div>
+
+                    {/* Invisible reCAPTCHA */}
+                    <ReCAPTCHA
+                      ref={recaptchaRef}
+                      size="invisible"
+                      sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                    />
 
                     <motion.div
                       whileHover={{ scale: 1.02 }}
@@ -659,10 +751,10 @@ export default function ContactPage() {
                     <p>
                       <span className="font-medium">Email: </span>
                       <a
-                        href="mailto:info@terafence.us"
+                        href="mailto:info@terafence.in"
                         className="text-blue-600 hover:underline"
                       >
-                        info@terafence.us
+                        info@terafence.in
                       </a>
                     </p>
                   </div>

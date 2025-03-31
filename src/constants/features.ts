@@ -2,8 +2,6 @@ import {
     ShieldCheckIcon,
     LockIcon,
     NetworkIcon,
-    EyeOffIcon,
-    ZapIcon
 } from "lucide-react";
 
 export const FEATURES = [
@@ -25,16 +23,4 @@ export const FEATURES = [
         icon: LockIcon,
         image: "/images/feature-three.svg",
     },
-    {
-        title: "Stealth Protection",
-        description: "Keep your systems invisible to cyber threats by ensuring no direct exposure to external networks.",
-        icon: EyeOffIcon,
-        image: "/images/feature-four.svg",
-    },
-    {
-        title: "Real-Time Threat Prevention",
-        description: "Eliminate cyber risks instantly with proactive, data diode-driven security mechanisms.",
-        icon: ZapIcon,
-        image: "/images/feature-five.svg",
-    }
 ];
