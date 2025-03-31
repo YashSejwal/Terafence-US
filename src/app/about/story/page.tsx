@@ -4,16 +4,15 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import {
-  FileText,
-  Database,
-  Share2,
-  Usb,
+  Lock,
+  Send,
   Search,
-  Mail,
   Globe,
-  Cpu,
+  Camera, 
+  Server, 
+  Activity,
+  Heart,
   Shield,
-  Server,
   Cloud,
   FileDigit,
   Box,
@@ -59,11 +58,11 @@ function SolutionsHero() {
             className="space-y-6"
           >
             <div className="inline-flex items-center px-3 py-1 bg-blue-800/30 backdrop-blur-sm rounded-full border border-blue-400/20 text-blue-200 text-sm">
-              <span className="w-2 h-2 bg-blue-300 rounded-full mr-2 animate-pulse"></span>
-              Advanced Cybersecurity Solutions
+              <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+              Unidirectional Security Gateway
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
-              Protecting India&apos;s <br />
+              Protecting the US&apos;s <br />
               <span className="text-yellow-300">Critical Infrastructure</span>
             </h1>
             <p className="text-lg text-blue-100 max-w-lg">
@@ -139,8 +138,7 @@ function CybersecurityPhilosophy() {
 
           <div className="max-w-3xl mx-auto">
             <p className="text-lg text-gray-600">
-              Terafence&apos;s solutions ensure security by preventing
-              malware and zero-day attacks before they happen. Our technology
+              Terafence&apos;s solutions ensure security and our technology
               protects critical infrastructure by securing data transfer and
               device access at all levels.
             </p>
@@ -170,12 +168,7 @@ function IndiaPresence() {
   const [activeLocation, setActiveLocation] = useState<string | null>(null);
 
   const locations = [
-    { id: "ahmedabad", name: "Ahmedabad", x: 41, y: 47 },
-    { id: "bangalore", name: "Bangalore", x: 44.3, y: 76 },
-    { id: "noida", name: "Duhai, Ghaziabad", x: 45.6, y: 30 },
-    { id: "kerala", name: "Kerala", x: 43, y: 85 },
-    { id: "tamilnadu", name: "Tamil Nadu", x: 45.4, y: 84 },
-    // { id: "noida", name: "Duhai, Ghaziabad", x: 45.6, y: 30 },
+    { id: "Dallas, Texas", name: "Dallas, Texas", x: 50, y: 69 },
   ];
 
   return (
@@ -193,11 +186,11 @@ function IndiaPresence() {
             STRATEGIC LOCATIONS
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Our Presence in India
+            Our Presence in the United States
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Terafence India provides cutting-edge cybersecurity solutions across
-            the nation, with a focus on protecting India&apos;s critical
+            the nation, with a focus on protecting the United State&apos;s critical
             infrastructure.
           </p>
         </motion.div>
@@ -260,47 +253,47 @@ function IndiaPresence() {
 function SolutionsGrid() {
   const solutions = [
     {
-      icon: <FileText className="h-8 w-8 text-blue-600" />,
-      title: "File Security",
+      icon: <Shield className="h-8 w-8 text-blue-600" />,
+      title: "SecureOT",
       description:
-        "Protect sensitive files with advanced scanning and sanitization",
+        "Physically isolates OT systems like SCADA, HMI, and PLCs, ensuring they remain inaccessible to unauthorized entities while maintaining necessary data flow.",
     },
     {
-      icon: <Database className="h-8 w-8 text-blue-600" />,
-      title: "Storage Security",
-      description: "Secure data at rest with encryption and access controls",
+      icon: <Camera className="h-8 w-8 text-blue-600" />,
+      title: "SecureCAM",
+      description: "Protects IP-CCTV networks and video storage by preventing unauthorized access, ensuring the integrity and confidentiality of surveillance data.",
     },
     {
-      icon: <Share2 className="h-8 w-8 text-blue-600" />,
-      title: "Managed File Transfer",
+      icon: <Send className="h-8 w-8 text-blue-600" />,
+      title: "SecureIT",
       description:
-        "Safely transfer files between networks with different security levels",
+        "Implements unidirectional data flow in IT networks, allowing data transmission without the risk of reverse communication or external commands.",
     },
     {
-      icon: <Usb className="h-8 w-8 text-blue-600" />,
-      title: "Peripheral Security",
-      description: "Control and secure external devices and media",
+      icon: <Heart className="h-8 w-8 text-blue-600" />,
+      title: "SecureCOM",
+      description: "Secures wearable medical devices like pacemakers and insulin injectors from unauthorized access, ensuring patient safety and device reliability.",
     },
     {
-      icon: <Search className="h-8 w-8 text-blue-600" />,
-      title: "Threat Intelligence",
-      description: "Identify and mitigate threats with advanced analytics",
+      icon: <Server className="h-8 w-8 text-blue-600" />,
+      title: "Data Diode Technology",
+      description: "Ensures one-way data transfer, providing a physical barrier that prevents data breaches while allowing continuous data monitoring.",
     },
     {
-      icon: <Mail className="h-8 w-8 text-blue-600" />,
-      title: "Email Security",
-      description: "Protect against phishing and email-borne threats",
+      icon: <Activity className="h-8 w-8 text-blue-600" />,
+      title: "Industrial IoT Protection",
+      description: "Safeguards industrial control systems and critical infrastructure from cyber threats without disrupting operational processes.",
     },
     {
       icon: <Globe className="h-8 w-8 text-blue-600" />,
-      title: "Cross-Domain Security",
-      description: "Secure communication between different security domains",
+      title: "Smart Building Security",
+      description: "Protects smart building components, such as elevators and air-conditioning systems, from cyber threats, ensuring occupant safety and system reliability.",
     },
     {
-      icon: <Cpu className="h-8 w-8 text-blue-600" />,
-      title: "OT Security",
+      icon: <Lock className="h-8 w-8 text-blue-600" />,
+      title: "Unidirectional Secure Gateway",
       description:
-        "Protect operational technology and industrial control systems",
+        "Provides a hardware-based solution that isolates IP devices, preventing penetration while maintaining data outflow and device control.",
     },
   ];
 
@@ -334,10 +327,9 @@ function SolutionsGrid() {
             COMPREHENSIVE PROTECTION
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Advanced Cyberthreat Prevention Solutions
-          </h2>
+          Unidirectional Secure Gateway          </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Comprehensive security solutions designed to protect critical
+            Comprehensive solutions designed to protect critical
             infrastructure across all environments.
           </p>
         </motion.div>
@@ -497,8 +489,8 @@ function TerafencePlatform() {
             <div className="absolute inset-0 bg-blue-900/80 backdrop-blur-md rounded-xl border border-blue-500/30"></div>
             <div className="absolute inset-0 flex items-center justify-center">
               <Image
-                src="/images/about/info.svg"
-                alt="MetaDefender Platform Infographic"
+                src="/images/about/info1.svg"
+                alt="terafence-us"
                 fill
                 className="object-contain p-8"
               />
