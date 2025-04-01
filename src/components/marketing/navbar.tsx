@@ -324,7 +324,7 @@ const MobileMenu = () => {
                   className="w-full"
                   onClick={() =>
                     (window.location.href = "mailto:info@terafence.us")
-                  }
+                  } 
                 >
                   Get Started
                 </Button>

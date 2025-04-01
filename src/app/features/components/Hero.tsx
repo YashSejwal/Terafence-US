@@ -41,23 +41,23 @@ export function Hero() {
             <div className="mt-10 flex items-center space-x-4">
               <div className="flex -space-x-2">
                 <img 
-                  src="/api/placeholder/32/32" 
+                  src="/images/testimonials/1.svg" 
                   alt="Avatar" 
                   className="w-8 h-8 rounded-full border-2 border-white"
                 />
                 <img 
-                  src="/api/placeholder/32/32" 
+                  src="/images/testimonials/2.svg" 
                   alt="Avatar" 
                   className="w-8 h-8 rounded-full border-2 border-white"
                 />
                 <img 
-                  src="/api/placeholder/32/32" 
+                  src="/images/testimonials/3.svg" 
                   alt="Avatar" 
                   className="w-8 h-8 rounded-full border-2 border-white"
                 />
               </div>
               <p className="text-sm text-[#6B7280]">
-                <span className="font-medium text-[#111827]">500+ organizations</span> trust Terafence
+                <span className="font-medium text-[#111827]">50+ organizations</span> trust Terafence
               </p>
             </div>
           </motion.div>
@@ -75,7 +75,7 @@ export function Hero() {
                 <div className="w-3 h-3 rounded-full bg-[#6EE7B7]"></div>
               </div>
               <div className="mx-auto px-16 py-1.5 rounded-md bg-[#F3F4F6] text-[#4B5563] text-xs font-medium">
-                secure.terafence.com
+                https://192.168.4.2:3000
               </div>
             </div>
             

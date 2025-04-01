@@ -46,7 +46,7 @@ const CTA = () => {
                     <p className="text-sm md:text-lg text-center text-accent-foreground/80 max-w-2xl mx-auto mt-4">
                         Transform your security infrastructure with our dedicated solutions. Enhance the security by <span className="hidden lg:inline"> just plugging-in and play our device!</span>
                     </p>
-                    <Link href="#pricing" className="mt-8">
+                    <Link href="mailto:info@terafence.us" className="mt-8">
                         <Button size="lg">
                             Let&apos;s get started
                         </Button>

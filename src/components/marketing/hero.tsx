@@ -73,7 +73,7 @@ const Hero = () => {
                     </Container>
                     <Container delay={0.25} className="z-20">
                         <div className="flex items-center justify-center mt-6 gap-x-4">
-                            <Link href="mailto:info@terafence.in" className="flex items-center gap-2 group">
+                            <Link href="mailto:info@terafence.us" className="flex items-center gap-2 group">
                                 <Button size="lg">
                                     Secure Your Network
                                     <ShieldCheckIcon className="size-4 ml-1 group-hover:scale-110 transition-all duration-300" />
