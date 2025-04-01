@@ -48,23 +48,28 @@ export async function POST(request: Request) {
       <p>Best regards,<br>The Terafence Team</p>
     `;
 
-    // Send email to the company
-    await transporter.sendMail({
-      from: `"Terafence Website" <${process.env.EMAIL_FROM}>`,
-      to: 'info@terafence.in',
-      subject: `New Contact Form: ${data.firstName} ${data.lastName} from ${data.company}`,
-      html: companyEmailContent,
-      replyTo: data.email,
-    });
+    try {
+      // Send email to the company
+      await transporter.sendMail({
+        from: `"Terafence Website" <${process.env.EMAIL_FROM}>`,
+        to: 'info@terafence.in',
+        subject: `New Contact Form: ${data.firstName} ${data.lastName} from ${data.company}`,
+        html: companyEmailContent,
+        replyTo: data.email,
+      });
 
-    // Send acknowledgment email to the customer
-    await transporter.sendMail({
-      from: `"Terafence" <${process.env.EMAIL_FROM}>`,
-      to: data.email,
-      subject: 'Thank you for contacting Terafence',
-      html: customerEmailContent,
-      replyTo: 'info@terafence.us',
-    });
+      // Send acknowledgment email to the customer
+      await transporter.sendMail({
+        from: `"Terafence" <${process.env.EMAIL_FROM}>`,
+        to: data.email,
+        subject: 'Thank you for contacting Terafence',
+        html: customerEmailContent,
+        replyTo: 'info@terafence.us',
+      });
+    } catch (emailError) {
+      console.error('Error sending email:', emailError);
+      // Continue execution even if email fails, to provide feedback to user
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
