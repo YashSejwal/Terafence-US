@@ -76,9 +76,9 @@ export const resources: Resource[] = [
   },
   {
     id: "9",
-    title: "Major Utility Provider Secures Grid Operations with TeraWall",
+    title: "Major Utility Provider Secures Grid Operations with Terafence",
     description:
-      "This case study examines how a major utility provider implemented TeraWall to secure their grid operations against sophisticated cyber threats while maintaining operational efficiency.",
+      "This case study examines how a major utility provider implemented Terafence to secure their grid operations against sophisticated cyber threats while maintaining operational efficiency.",
     type: "Case Study",
     product: "URP",
     downloadUrl: "#",
@@ -94,18 +94,18 @@ export const resources: Resource[] = [
   },
   {
     id: "11",
-    title: "Threat Intelligence Integration with TeraMonitor",
+    title: "Threat Intelligence Integration with Terafence",
     description:
-      "Learn how to enhance your security posture by integrating threat intelligence feeds with TeraMonitor for proactive threat detection and response in industrial environments.",
+      "Learn how to enhance your security posture by integrating threat intelligence feeds with Terafence for proactive threat detection and response in industrial environments.",
     type: "Technical Brief",
     product: "MBSecure+",
     downloadUrl: "#",
   },
   {
     id: "12",
-    title: "Manufacturing Plant Reduces Cyber Risk with TeraGate",
+    title: "Manufacturing Plant Reduces Cyber Risk with Terafence",
     description:
-      "Case study showing how a leading manufacturing plant implemented TeraGate to reduce cyber risk while improving operational visibility and control.",
+      "Case study showing how a leading manufacturing plant implemented Terafence to reduce cyber risk while improving operational visibility and control.",
     type: "Case Study",
     product: "BSG",
     downloadUrl: "#",

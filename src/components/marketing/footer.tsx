@@ -167,7 +167,8 @@ const Footer: React.FC = () => {
                       <span className="mr-2 transition-transform">
                         {item.icon}
                       </span>
-                      <span className="text-slate-700 group-hover:text-slate-900 transition-all">
+                      <span className="text-slate-700 hover:text-slate-950 transition-all duration-300 hover:translate-x-1 inline-block"
+                      >
                         {item.name}
                       </span>
                     </Link>
@@ -201,8 +202,8 @@ const Footer: React.FC = () => {
             </Container>
 
             <Container delay={0.3} className="lg:col-span-2 space-y-4">
-              <h3 className="text-base font-semibold text-slate-900 tracking-wide">
-                <span className={`border-b-2 pb-1`} style={{ borderColor: darkBlue }}>Company</span>
+            <h3 className="text-base font-semibold text-slate-900 tracking-wide">
+            <span className={`border-b-2 pb-1`} style={{ borderColor: darkBlue }}>Company</span>
               </h3>
               <ul className="space-y-3 text-sm">
                 {[
@@ -213,9 +214,9 @@ const Footer: React.FC = () => {
                   { name: "Support", href: "/support" },
                 ].map((item, idx) => (
                   <li key={idx}>
-                    <Link
-                      href={item.href}
-                      className="text-slate-700 hover:text-slate-900 transition-all duration-300 hover:translate-x-1 inline-block hover:font-medium p-2 hover:bg-slate-100 rounded-md w-full"
+                    <Link 
+                      href={item.href} 
+                      className="text-slate-700 hover:text-slate-950 transition-all duration-300 hover:translate-x-1 inline-block"
                     >
                       {item.name}
                     </Link>
