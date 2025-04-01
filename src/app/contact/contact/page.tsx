@@ -726,10 +726,10 @@ export default function ContactPage() {
                     <p>
                       <span className="font-medium">Email: </span>
                       <a
-                        href="mailto:info@terafence.in"
+                        href="mailto:info@terafence.us"
                         className="text-blue-600 hover:underline"
                       >
-                        info@terafence.in
+                        info@terafence.us
                       </a>
                     </p>
                   </div>
