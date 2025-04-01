@@ -41,6 +41,10 @@ const NAV_LINKS: NavLink[] = [
     href: "/technology",
   },
   {
+    name: "Features",
+    href: "/features",
+  },
+  {
     name: "Products",
     href: "/products",
     subMenu: [
