@@ -1,12 +1,11 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useInView } from "react-intersection-observer";
-import ReCAPTCHA from "react-google-recaptcha";
 import {
   Form,
   FormControl,
@@ -68,7 +67,6 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   // Animation triggers based on scroll position
   const [heroRef, heroInView] = useInView({
@@ -113,7 +111,6 @@ export default function ContactPage() {
     helpType: string;
     referralSource: string;
     additionalDetails?: string;
-    recaptchaToken?: string;
   }
 
   const onSubmit = async (data: FormData) => {
@@ -121,27 +118,12 @@ export default function ContactPage() {
     setFormError(null);
     
     try {
-      // Execute reCAPTCHA and get token
-      const recaptchaToken = await recaptchaRef.current?.executeAsync();
-      
-      if (!recaptchaToken) {
-        setFormError("reCAPTCHA verification failed. Please try again.");
-        setIsSubmitting(false);
-        return;
-      }
-      
-      // Reset reCAPTCHA after getting token
-      recaptchaRef.current?.reset();
-      
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          ...data,
-          recaptchaToken,
-        }),
+        body: JSON.stringify(data),
       });
 
       const result = await response.json();
@@ -660,13 +642,6 @@ export default function ContactPage() {
                       services. You may unsubscribe at any time from these
                       communications via our Privacy Policy.
                     </div>
-
-                    {/* Invisible reCAPTCHA */}
-                    <ReCAPTCHA
-                      ref={recaptchaRef}
-                      size="invisible"
-                      sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-                    />
 
                     <motion.div
                       whileHover={{ scale: 1.02 }}
