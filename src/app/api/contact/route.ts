@@ -213,7 +213,7 @@ export async function POST(request: Request) {
       // Send email to company recipients
       await transporter.sendMail({
         from: `"Terafence Website" <${process.env.EMAIL_FROM}>`,
-        to: 'amandeep@terafence.in, info@terafence.in', // Send to both addresses
+        to: 'amandeep@terafence.in', 
         subject: `New Contact Form: ${data.firstName} ${data.lastName} from ${data.company}`,
         html: companyEmailContent,
         replyTo: data.email,
