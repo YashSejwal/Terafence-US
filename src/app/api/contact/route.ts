@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
@@ -9,30 +10,186 @@ export async function POST(request: Request) {
     // Create a nodemailer transporter
     const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_SERVER_HOST,
-      port: Number(process.env.EMAIL_SERVER_PORT),
+      port: Number(process.env.EMAIL_SERVER_PORT || '587'),
       secure: Boolean(process.env.EMAIL_SERVER_SECURE === 'true'),
       auth: {
         user: process.env.EMAIL_SERVER_USER,
         pass: process.env.EMAIL_SERVER_PASSWORD,
-      },
+      }
     });
 
-    // Prepare the email to the company
-    const companyEmailContent = `
-      <h2>New Contact Form Submission</h2>
-      <p><strong>Name:</strong> ${data.firstName} ${data.lastName}</p>
-      <p><strong>Email:</strong> ${data.email}</p>
-      <p><strong>Phone:</strong> ${data.phone}</p>
-      <p><strong>Company:</strong> ${data.company}</p>
-      <p><strong>Job Title:</strong> ${data.jobTitle}</p>
-      <p><strong>Business Segment:</strong> ${data.businessSegment}</p>
-      <p><strong>Help Type:</strong> ${data.helpType}</p>
-      <p><strong>Referral Source:</strong> ${data.referralSource || 'Not specified'}</p>
-      <p><strong>Additional Details:</strong> ${data.additionalDetails || 'None provided'}</p>
-    `;
+    // Template for company staff email
+    const companyEmailTemplate = `<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Contact Form Submission</title>
+    <!--[if mso]>
+    <style type="text/css">
+        body, table, td {font-family: Arial, Helvetica, sans-serif !important;}
+    </style>
+    <![endif]-->
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Arial, Helvetica, sans-serif; background-color: #f6f9fc; color: #333333; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
+    <!-- Email container -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%; background-color: #f6f9fc;">
+        <tr>
+            <td align="center" valign="top" style="padding: 30px 10px;">
+                <!-- Email content -->
+                <table border="0" cellpadding="0" cellspacing="0" width="600" style="max-width: 600px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);">
+                    <!-- Header -->
+                    <tr>
+                        <td align="center" valign="top">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);">
+                                <tr>
+                                    <td align="center" valign="middle" style="padding: 30px 0;">
+                                        <img src="https://terafence-us.vercel.app/images/terafence.png" alt="Terafence" width="180" style="display: block; border: 0; max-width: 180px;">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <!-- Main content -->
+                    <tr>
+                        <td align="center" valign="top" style="padding: 30px 40px;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <!-- Heading -->
+                                <tr>
+                                    <td style="padding-bottom: 20px; border-bottom: 1px solid #e5e7eb;">
+                                        <h1 style="color: #1e3a8a; font-size: 24px; margin: 0; font-weight: 600;">New Contact Form Submission</h1>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Message -->
+                                <tr>
+                                    <td style="padding-top: 25px; padding-bottom: 10px;">
+                                        <p style="margin: 0 0 15px 0; line-height: 1.5; font-size: 16px;">A new inquiry has been submitted through the contact form. Here are the details:</p>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Information summary -->
+                                <tr>
+                                    <td style="padding: 20px 0;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f8fafc; border-radius: 6px; border-left: 4px solid #3b82f6;">
+                                            <tr>
+                                                <td style="padding: 20px;">
+                                                    <p style="margin: 0 0 15px 0; color: #1e3a8a; font-weight: 600; font-size: 16px;">Contact Information</p>
+                                                    
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td width="35%" style="padding: 8px 0; color: #64748b; font-weight: 500; font-size: 15px; vertical-align: top;">Name:</td>
+                                                            <td width="65%" style="padding: 8px 0; color: #0f172a; font-size: 15px; vertical-align: top;">${data.firstName} ${data.lastName}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="35%" style="padding: 8px 0; color: #64748b; font-weight: 500; font-size: 15px; vertical-align: top; border-top: 1px solid #e5e7eb;">Email:</td>
+                                                            <td width="65%" style="padding: 8px 0; color: #0f172a; font-size: 15px; vertical-align: top; border-top: 1px solid #e5e7eb;">
+                                                                <a href="mailto:${data.email}" style="color: #3b82f6; text-decoration: none;">${data.email}</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="35%" style="padding: 8px 0; color: #64748b; font-weight: 500; font-size: 15px; vertical-align: top; border-top: 1px solid #e5e7eb;">Phone:</td>
+                                                            <td width="65%" style="padding: 8px 0; color: #0f172a; font-size: 15px; vertical-align: top; border-top: 1px solid #e5e7eb;">${data.phone}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="35%" style="padding: 8px 0; color: #64748b; font-weight: 500; font-size: 15px; vertical-align: top; border-top: 1px solid #e5e7eb;">Company:</td>
+                                                            <td width="65%" style="padding: 8px 0; color: #0f172a; font-size: 15px; vertical-align: top; border-top: 1px solid #e5e7eb;">${data.company}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="35%" style="padding: 8px 0; color: #64748b; font-weight: 500; font-size: 15px; vertical-align: top; border-top: 1px solid #e5e7eb;">Job Title:</td>
+                                                            <td width="65%" style="padding: 8px 0; color: #0f172a; font-size: 15px; vertical-align: top; border-top: 1px solid #e5e7eb;">${data.jobTitle}</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Inquiry Details -->
+                                <tr>
+                                    <td style="padding: 20px 0;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f8fafc; border-radius: 6px; border-left: 4px solid #3b82f6;">
+                                            <tr>
+                                                <td style="padding: 20px;">
+                                                    <p style="margin: 0 0 15px 0; color: #1e3a8a; font-weight: 600; font-size: 16px;">Inquiry Details</p>
+                                                    
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td width="35%" style="padding: 8px 0; color: #64748b; font-weight: 500; font-size: 15px; vertical-align: top;">Business Segment:</td>
+                                                            <td width="65%" style="padding: 8px 0; color: #0f172a; font-size: 15px; vertical-align: top;">${data.businessSegment}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="35%" style="padding: 8px 0; color: #64748b; font-weight: 500; font-size: 15px; vertical-align: top; border-top: 1px solid #e5e7eb;">Help Type:</td>
+                                                            <td width="65%" style="padding: 8px 0; color: #0f172a; font-size: 15px; vertical-align: top; border-top: 1px solid #e5e7eb;">${data.helpType}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="35%" style="padding: 8px 0; color: #64748b; font-weight: 500; font-size: 15px; vertical-align: top; border-top: 1px solid #e5e7eb;">Referral Source:</td>
+                                                            <td width="65%" style="padding: 8px 0; color: #0f172a; font-size: 15px; vertical-align: top; border-top: 1px solid #e5e7eb;">${data.referralSource || 'Not specified'}</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Additional Details -->
+                                ${data.additionalDetails ? `
+                                <tr>
+                                    <td style="padding: 20px 0;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f8fafc; border-radius: 6px; border-left: 4px solid #3b82f6;">
+                                            <tr>
+                                                <td style="padding: 20px;">
+                                                    <p style="margin: 0 0 10px 0; color: #1e3a8a; font-weight: 600; font-size: 16px;">Additional Details</p>
+                                                    <p style="margin: 0; line-height: 1.6; color: #0f172a; font-size: 15px;">${data.additionalDetails}</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                ` : ''}
+                                
+                                <!-- CTA -->
+                                <tr>
+                                    <td align="center" style="padding: 30px 0;">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td align="center" style="border-radius: 6px; background-color: #1e3a8a;">
+                                                    <a href="mailto:${data.email}" target="_blank" style="border: none; border-radius: 6px; color: #ffffff; display: inline-block; font-size: 16px; font-weight: 500; line-height: 1.2; padding: 15px 25px; text-decoration: none; text-align: center;">Reply to Inquiry</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td align="center" valign="top">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f8fafc; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
+                                <tr>
+                                    <td align="center" valign="top" style="padding: 20px;">
+                                        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #64748b;">
+                                            This is an automated notification from the Terafence US website contact form.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>`;
 
-    // Advanced professional template for customer email
-    const advancedEmailTemplate = `<!DOCTYPE html>
+    // Template for customer email
+    const customerEmailTemplate = `<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -62,7 +219,7 @@ export async function POST(request: Request) {
                             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);">
                                 <tr>
                                     <td align="center" valign="middle" style="padding: 30px 0;">
-                                        <img src="/images/terafence.png" alt="Terafence" width="180" style="display: block; border: 0; max-width: 180px;">
+                                        <img src="https://terafence-us.vercel.app/images/terafence.png" alt="Terafence" width="180" style="display: block; border: 0; max-width: 180px;">
                                     </td>
                                 </tr>
                             </table>
@@ -209,31 +366,71 @@ export async function POST(request: Request) {
 </body>
 </html>`;
 
+    // Plain text versions for email clients that don't support HTML
+    const companyPlainTextEmail = `
+New Contact Form Submission
+
+Name: ${data.firstName} ${data.lastName}
+Email: ${data.email}
+Phone: ${data.phone}
+Company: ${data.company}
+Job Title: ${data.jobTitle}
+Business Segment: ${data.businessSegment}
+Help Type: ${data.helpType}
+Referral Source: ${data.referralSource || 'Not specified'}
+Additional Details: ${data.additionalDetails || 'None provided'}
+
+This is an automated notification from the Terafence US website contact form.
+`;
+
+    const customerPlainTextEmail = `
+Hello ${data.firstName},
+
+Thank you for contacting Terafence US. We've received your inquiry and will be in touch shortly.
+
+Your Information:
+- Name: ${data.firstName} ${data.lastName}
+- Email: ${data.email}
+- Phone: ${data.phone}
+- Company: ${data.company}
+- Inquiry Type: ${data.helpType}
+
+A member of our team will contact you shortly to discuss how we can help with your specific needs.
+
+Best regards,
+Terafence US Team
+`;
+
     try {
-      // Send email to company recipients
+      // Send styled email to company
       await transporter.sendMail({
         from: `"Terafence Website" <${process.env.EMAIL_FROM}>`,
-        to: 'amandeep@terafence.in', 
+        to: 'yashksejwal13@gmail.com', 
         subject: `New Contact Form: ${data.firstName} ${data.lastName} from ${data.company}`,
-        html: companyEmailContent,
+        html: companyEmailTemplate,
+        text: companyPlainTextEmail,
         replyTo: data.email,
       });
 
-      // Send advanced acknowledgment email to the customer
+      // Send acknowledgment email to customer with nicely formatted template
       await transporter.sendMail({
         from: `"Terafence" <${process.env.EMAIL_FROM}>`,
         to: data.email,
-        subject: 'Thank You for Contacting Terafence',
-        html: advancedEmailTemplate,
+        subject: 'Thank You for Contacting Terafence US',
+        html: customerEmailTemplate,
+        text: customerPlainTextEmail,
         replyTo: 'info@terafence.us',
       });
-    } catch (emailError) {
-      console.error('Error sending email:', emailError);
-      // Continue execution even if email fails, to provide feedback to user
-    }
 
-    return NextResponse.json({ success: true });
-  } catch (error) {
+      return NextResponse.json({ success: true });
+    } catch (emailError: any) {
+      console.error('Error sending email:', emailError);
+      return NextResponse.json(
+        { success: false, error: 'Failed to send email: ' + emailError.message },
+        { status: 500 }
+      );
+    }
+  } catch (error: any) {
     console.error('Error processing contact form:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to process your request' },
