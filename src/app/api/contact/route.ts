@@ -405,7 +405,7 @@ Terafence US Team
       // Send styled email to company
       await transporter.sendMail({
         from: `"Terafence Website" <${process.env.EMAIL_FROM}>`,
-        to: 'yashksejwal13@gmail.com', 
+        to: 'amandeep@terafence.in', 
         subject: `New Contact Form: ${data.firstName} ${data.lastName} from ${data.company}`,
         html: companyEmailTemplate,
         text: companyPlainTextEmail,
