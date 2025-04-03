@@ -16,8 +16,8 @@ interface MetadataProps {
 }
 
 export const generateMetadata = ({
-    title = `Terafence US | Leading Company that provides the Data Diode Technology & Cybersecurity Solutions across the United States | FPGA based Data Diode Technology`,
-    description = `Terafence US is a leading and solution provider of FPGA-based Data Diode (Unidirectional Gateway) technology, enabling air-gapped, isolated, and secured industrial network communication. Our cutting-edge cybersecurity solutions protect critical infrastructure, OT/IT networks, and industrial systems from advanced cyber threats.`,
+    title = `Terafence US | Leading Company that provides the Data Diode Technology & Cybersecurity Solutions across the United States of America ( USA ) | FPGA based Data Diode Technology`,
+    description = `Terafence US is a leading solution provider of FPGA-based Data Diode (Unidirectional Gateway) technology, enabling air-gapped, isolated, and secured industrial network communication. Our cutting-edge cybersecurity solutions protect critical infrastructure, OT/IT networks, and industrial systems from advanced cyber threats. Implemented across various critical infrastructures and industries like Oil and Gas, Pharmaceutical Manufacturing, Power Generation, Railways, Defense, and Space Research, our technology ensures secure data transfer and compliance with cybersecurity standards. With a focus on hardware-based security, we offer solutions for secure data flow control, network segmentation, and advanced threat protection. Our products are designed to meet the stringent requirements of government and military applications, providing unmatched protection for sensitive data and systems. Explore our range of products including 1U-RP, BSG, VSecure, and MBSecure+ to enhance your cybersecurity posture.`,
     icons = [
         {
             rel: "icon",
