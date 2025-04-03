@@ -29,11 +29,6 @@ const NAV_LINKS: NavLink[] = [
         href: "/about/story",
         description: "Learn about our company's journey",
       },
-      {
-        name: "Team",
-        href: "/about/team",
-        description: "Meet our leadership team",
-      },
     ],
   },
   {
