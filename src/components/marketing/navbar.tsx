@@ -23,13 +23,6 @@ const NAV_LINKS: NavLink[] = [
   {
     name: "About",
     href: "/about",
-    subMenu: [
-      {
-        name: "Our Story",
-        href: "/about/story",
-        description: "Learn about our company's journey",
-      },
-    ],
   },
   {
     name: "Technology",
