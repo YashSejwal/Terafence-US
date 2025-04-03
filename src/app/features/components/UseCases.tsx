@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { IconBolt, IconBuildingFactory, IconGauge, IconGlobe, IconMicroscope, IconShieldLock, IconArrowRight } from "@tabler/icons-react";
-import { Button } from "@/components/ui/button";
+import { IconBolt, IconBuildingFactory, IconGauge, IconGlobe, IconMicroscope, IconShieldLock } from "@tabler/icons-react";
 
 const useCases = [
   {
@@ -106,19 +105,6 @@ export function UseCases() {
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-16 text-center"
-        >
-          <Button variant="outline" className="border-[#D1D5DB] text-[#374151] hover:bg-[#F3F4F6] px-6 py-3 rounded-lg font-medium inline-flex items-center gap-2">
-            Download Industry Case Studies
-            <IconArrowRight size={18} />
-          </Button>
-        </motion.div>
       </div>
     </section>
   );

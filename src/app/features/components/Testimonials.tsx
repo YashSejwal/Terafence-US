@@ -93,24 +93,6 @@ export function Testimonials() {
             </motion.div>
           ))}
         </div>
-        
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-16 max-w-3xl mx-auto text-center"
-        >
-          <div className="bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl p-8">
-            <h3 className="text-xl font-semibold text-[#111827] mb-4">Join our growing list of satisfied customers</h3>
-            <p className="text-[#4B5563] mb-6">
-              Discover how organizations like yours are using Terafence&lsquo;s data diode technology to solve their most critical security challenges.
-            </p>
-            <button className="px-6 py-3 bg-[#2563EB] hover:bg-[#1D4ED8] text-white rounded-lg font-medium transition-colors">
-              View Customer Case Studies
-            </button>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

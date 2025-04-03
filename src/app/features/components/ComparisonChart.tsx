@@ -86,7 +86,7 @@ export function ComparisonChart() {
             Comparison with Alternative Solutions
           </h2>
           <p className="mt-4 text-[#4B5563] text-lg">
-            See how Terafence Data Diode technology delivers superior security without compromising performance.
+            See how our technology delivers superior security without compromising performance.
           </p>
         </motion.div>
 

@@ -80,40 +80,6 @@ export function CTASection() {
             </div>
           </div>
         </motion.div>
-        
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-16 mx-auto max-w-4xl"
-        >
-          <div className="grid md:grid-cols-3 gap-6 text-center">
-            <div className="p-6 bg-white rounded-xl border border-[#E5E7EB] shadow-sm">
-              <div className="w-12 h-12 rounded-full bg-[#EEF2FF] flex items-center justify-center mx-auto mb-4">
-                <IconShieldLock size={24} className="text-[#2563EB]" />
-              </div>
-              <h3 className="text-lg font-semibold text-[#111827] mb-2">Advanced Protection</h3>
-              <p className="text-[#4B5563]">Hardware-enforced security against all cyber threats</p>
-            </div>
-            
-            <div className="p-6 bg-white rounded-xl border border-[#E5E7EB] shadow-sm">
-              <div className="w-12 h-12 rounded-full bg-[#EEF2FF] flex items-center justify-center mx-auto mb-4">
-                <IconClock size={24} className="text-[#2563EB]" />
-              </div>
-              <h3 className="text-lg font-semibold text-[#111827] mb-2">24/7 Support</h3>
-              <p className="text-[#4B5563]">Dedicated technical assistance whenever you need it</p>
-            </div>
-            
-            <div className="p-6 bg-white rounded-xl border border-[#E5E7EB] shadow-sm">
-              <div className="w-12 h-12 rounded-full bg-[#EEF2FF] flex items-center justify-center mx-auto mb-4">
-                <IconArrowsMaximize size={24} className="text-[#2563EB]" />
-              </div>
-              <h3 className="text-lg font-semibold text-[#111827] mb-2">Scalable Solution</h3>
-              <p className="text-[#4B5563]">Grows with your organization&apos;s security needs</p>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import { generateMetadata } from "@/utils";
 import { base, heading } from "@/constants";
 import { Toaster } from "@/components/ui/sonner";
 import { subheading } from "@/constants/fonts";
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata = generateMetadata();
 
@@ -25,6 +26,7 @@ export default function RootLayout({
                     <Toaster richColors theme="dark" position="top-right" />
                     {children}
             </body>
+            <Analytics />
         </html>
     );
 };
