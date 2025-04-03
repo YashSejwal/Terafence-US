@@ -20,7 +20,7 @@ export interface Device {
 
 export const devices: Record<string, Device> = {
 "121": {
-    name: "Terafence 121",
+    name: "TFG 121",
     tagline: "File Transfer for Air Gapped Networks",
     uspBadge: "Total Galvanic Network Separation",
     keyFeatures: [
@@ -82,7 +82,7 @@ export const devices: Record<string, Device> = {
       },
     ],
     support: {
-      email: "support@terafence.com",
+      email: "support@terafence.us",
       phone: "+1-800-555-0121",
       hours: "24/7/365",
     },
@@ -95,8 +95,8 @@ export const devices: Record<string, Device> = {
     ],
   },
 
- "1-URP": {
-    name: "Terafence 1-URP",
+ "1U-RP": {
+    name: "TFG 1U-RP",
     tagline: "Unified Remote Protection for IoT and IIoT",
     uspBadge: "Total Galvanic Network Separation",
     keyFeatures: [
@@ -130,7 +130,7 @@ export const devices: Record<string, Device> = {
     },
     resources: [
       {
-        title: "1-URP Technical Datasheet",
+        title: "1U-RP Technical Datasheet",
         description: "Complete technical specifications and capabilities",
         url: "/datasheets/1-urp-datasheet.pdf",
       },
@@ -161,7 +161,7 @@ export const devices: Record<string, Device> = {
       },
     ],
     support: {
-      email: "support@terafence.com",
+      email: "support@terafence.us",
       phone: "+1-800-555-0122",
       hours: "24/7/365",
     },
@@ -174,7 +174,7 @@ export const devices: Record<string, Device> = {
   },
 
   BSG: {
-    name: "Terafence BSG",
+    name: "TFG BSG",
     tagline: "Bi-Directional Secure Gateway for Network Protection",
     uspBadge: "Total Galvanic Network Separation",
     keyFeatures: [
@@ -244,7 +244,7 @@ export const devices: Record<string, Device> = {
       },
     ],
     support: {
-      email: "support@terafence.com",
+      email: "support@terafence.us",
       phone: "+1-800-555-0123",
       hours: "24/7/365",
     },
@@ -257,7 +257,7 @@ export const devices: Record<string, Device> = {
   },
 
   VSecure: {
-    name: "Terafence VSecure",
+    name: "TFG VSecure",
     tagline: "Air-Gap Protection for IoT and IIoT Security",
     uspBadge: "Unidirectional Gateway with Protocol Proxy",
     keyFeatures: [
@@ -326,7 +326,7 @@ export const devices: Record<string, Device> = {
       },
     ],
     support: {
-      email: "support@terafence.com",
+      email: "support@terafence.us",
       phone: "+1-800-555-0124",
       hours: "24/7/365",
     },
@@ -339,7 +339,7 @@ export const devices: Record<string, Device> = {
   },
 
 "MBSecure+": {
-    name: "Terafence MBSecure+",
+    name: "TFG MBSecure+",
     tagline: "Air-Gap Security for SCADA and Industrial Networks",
     uspBadge: "Hardware-Based Isolation for Critical Infrastructure",
     keyFeatures: [
@@ -407,7 +407,7 @@ export const devices: Record<string, Device> = {
       },
     ],
     support: {
-      email: "support@terafence.com",
+      email: "support@terafence.us",
       phone: "+1-800-555-0125",
       hours: "24/7/365",
     },
