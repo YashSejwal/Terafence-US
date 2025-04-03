@@ -42,105 +42,104 @@ const Companies = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center w-full py-20 mt-16 overflow-hidden">
+    <div className="relative flex flex-col items-center justify-center w-full py-16 md:py-24 mt-8 md:mt-16 overflow-hidden">
       <Container>
         <div className="flex flex-col items-center justify-center">
-          <motion.h4 
-            className="text-2xl lg:text-4xl font-medium"
-            transition={{ duration: 0.5 }}
+          <motion.h2 
+            className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-800"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
           >
-            Trusted by <span className="font-subheading italic">leading</span> companies
-          </motion.h4>
-          <motion.div 
-            className="h-1 w-64 mt-2 bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 rounded-full"
-            initial={{ width: 0 }}
-            animate={{ width: "16rem" }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-          />
+            Trusted by <span className="font-subheading italic text-blue-800">leading</span> companies
+          </motion.h2>
+          
           <motion.p
-            className="text-gray-500 mt-4 text-center"
-            transition={{ delay: 0.4, duration: 0.5 }}
+            className="text-gray-600 mt-6 text-center text-lg max-w-2xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.7 }}
           >
-            Partnering with industry leaders to deliver exceptional solutions and innovative experiences
+            Collaborating with industry leaders for innovative, exceptional solutions.
           </motion.p>
         </div>
-      </Container>
+      </Container>  
 
       <Container delay={0.1}>
         <motion.div 
           ref={containerRef}
-          className="flex flex-col items-center justify-center gap-16 max-w-6xl mx-auto pt-16 text-muted-foreground transition-all"
+          className="flex flex-col items-center justify-center gap-12 md:gap-16 max-w-6xl mx-auto pt-12 md:pt-16 text-muted-foreground transition-all"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
           {/* First row - 3 logos */}
-          <div className="flex flex-row items-center justify-center gap-10 md:gap-20 flex-wrap md:flex-nowrap">
-            <motion.div variants={itemVariants} whileHover={{ scale: 1.05 }} className="flex items-center justify-center">
+          <div className="flex flex-row items-center justify-center gap-8 md:gap-16 lg:gap-24 flex-wrap md:flex-nowrap">
+            <motion.div variants={itemVariants} whileHover={{ scale: 1.05 }} className="flex items-center justify-center p-4">
               <Image 
                 src={company1} 
                 alt="Company 1" 
-                className="h-10 md:h-32 lg:h-40 object-contain w-auto object-fit hover:opacity-80 transition-opacity"
-                onMouseOver={(e) => { e.currentTarget.style.filter = "grayscale(0%)" }}
-                onMouseLeave={(e) => { e.currentTarget.style.filter = "grayscale(40%)" }}
+                height={40}
+                width={120}
+                className="h-10 sm:h-12 md:h-16 w-auto object-contain hover:opacity-80 transition-all duration-300"
               />
             </motion.div>
-            <motion.div variants={itemVariants} whileHover={{ scale: 1.05 }} className="flex items-center justify-center">
+            <motion.div variants={itemVariants} whileHover={{ scale: 1.05 }} className="flex items-center justify-center p-4">
               <Image 
                 src={company2} 
                 alt="Company 2" 
-                className="h-10 md:h-32 lg:h-40 object-contain w-auto hover:opacity-80 transition-opacity"
-                onMouseOver={(e) => { e.currentTarget.style.filter = "grayscale(0%)" }}
-                onMouseLeave={(e) => { e.currentTarget.style.filter = "grayscale(40%)" }}
+                height={40}
+                width={120}
+                className="h-10 sm:h-12 md:h-16 w-auto object-contain hover:opacity-80 transition-all duration-300"
               />
             </motion.div>
-            <motion.div variants={itemVariants} whileHover={{ scale: 1.05 }} className="flex items-center justify-center">
+            <motion.div variants={itemVariants} whileHover={{ scale: 1.05 }} className="flex items-center justify-center p-4">
               <Image 
                 src={company3} 
                 alt="Company 3" 
-                className="h-10 md:h-32 lg:h-40 object-contain w-auto hover:opacity-80 transition-opacity"
-                onMouseOver={(e) => { e.currentTarget.style.filter = "grayscale(0%)" }}
-                onMouseLeave={(e) => { e.currentTarget.style.filter = "grayscale(40%)" }}
+                height={40}
+                width={120}
+                className="h-10 sm:h-12 md:h-16 w-auto object-contain hover:opacity-80 transition-all duration-300"
               />
             </motion.div>
           </div>
 
           {/* Second row - 4 logos */}
-          <div className="flex flex-row items-center justify-center gap-10 md:gap-16 flex-wrap md:flex-nowrap">
-            <motion.div variants={itemVariants} whileHover={{ scale: 1.05 }} className="flex items-center justify-center">
+          <div className="flex flex-row items-center justify-center gap-8 md:gap-16 flex-wrap md:flex-nowrap">
+            <motion.div variants={itemVariants} whileHover={{ scale: 1.05 }} className="flex items-center justify-center p-4">
               <Image 
                 src={company4} 
                 alt="Company 4" 
-                className="h-10 md:h-32 lg:h-40 object-contain w-auto hover:opacity-80 transition-opacity"
-                onMouseOver={(e) => { e.currentTarget.style.filter = "grayscale(0%)" }}
-                onMouseLeave={(e) => { e.currentTarget.style.filter = "grayscale(40%)" }}
+                height={40}
+                width={120}
+                className="h-10 sm:h-12 md:h-16 w-auto object-contain hover:opacity-80 transition-all duration-300"
               />
             </motion.div>
-            <motion.div variants={itemVariants} whileHover={{ scale: 1.05 }} className="flex items-center justify-center">
+            <motion.div variants={itemVariants} whileHover={{ scale: 1.05 }} className="flex items-center justify-center p-4">
               <Image 
                 src={company6} 
                 alt="Company 6" 
-                className="h-10 md:h-32 lg:h-40 object-contain w-auto hover:opacity-80 transition-opacity"
-                onMouseOver={(e) => { e.currentTarget.style.filter = "grayscale(0%)" }}
-                onMouseLeave={(e) => { e.currentTarget.style.filter = "grayscale(40%)" }}
+                height={40}
+                width={120}
+                className="h-10 sm:h-12 md:h-16 w-auto object-contain hover:opacity-80 transition-all duration-300"
               />
             </motion.div>
-            <motion.div variants={itemVariants} whileHover={{ scale: 1.05 }} className="flex items-center justify-center">
+            <motion.div variants={itemVariants} whileHover={{ scale: 1.05 }} className="flex items-center justify-center p-4">
               <Image 
                 src={company7} 
                 alt="Company 7" 
-                className="h-10 md:h-32 lg:h-40 w-auto object-contain hover:opacity-80 transition-opacity"
-                onMouseOver={(e) => { e.currentTarget.style.filter = "grayscale(0%)" }}
-                onMouseLeave={(e) => { e.currentTarget.style.filter = "grayscale(40%)" }}
+                height={40}
+                width={120}
+                className="h-10 sm:h-12 md:h-16 w-auto object-contain hover:opacity-80 transition-all duration-300"
               />
             </motion.div>
-            <motion.div variants={itemVariants} whileHover={{ scale: 1.05 }} className="flex items-center justify-center">
+            <motion.div variants={itemVariants} whileHover={{ scale: 1.05 }} className="flex items-center justify-center p-4">
               <Image 
                 src={company5} 
                 alt="Company 5" 
-                className="h-10 md:h-32 lg:h-40 object-contain w-auto hover:opacity-80 transition-opacity"
-                onMouseOver={(e) => { e.currentTarget.style.filter = "grayscale(0%)" }}
-                onMouseLeave={(e) => { e.currentTarget.style.filter = "grayscale(40%)" }}
+                height={40}
+                width={120}
+                className="h-10 sm:h-12 md:h-16 w-auto object-contain hover:opacity-80 transition-all duration-300"
               />
             </motion.div>
           </div>
