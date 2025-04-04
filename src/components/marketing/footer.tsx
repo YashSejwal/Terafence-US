@@ -57,22 +57,22 @@ const Footer: React.FC = () => {
 
   const socialLinks = [
     {
-      icon: <Linkedin className="h-5 w-5" />,
+      icon: <Linkedin className="h-6 w-6" />,
       href: "https://linkedin.com",
       label: "LinkedIn",
     },
     {
-      icon: <Twitter className="h-5 w-5" />,
+      icon: <Twitter className="h-6 w-6" />,
       href: "https://twitter.com",
       label: "Twitter",
     },
     {
-      icon: <Facebook className="h-5 w-5" />,
+      icon: <Facebook className="h-6 w-6" />,
       href: "https://facebook.com",
       label: "Facebook",
     },
     {
-      icon: <Instagram className="h-5 w-5" />,
+      icon: <Instagram className="h-6 w-6" />,
       href: "https://instagram.com",
       label: "Instagram",
     },
@@ -84,8 +84,11 @@ const Footer: React.FC = () => {
         <div className="py-10 lg:py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
             <Container className="lg:col-span-4 flex flex-col">
-              <div className="flex items-center h-8 mb-4">
-                <Link href="/" className="flex items-center transform hover:scale-105 transition-transform">
+              <div className="flex items-center h-10 mb-4">
+                <Link
+                  href="/"
+                  className="flex items-center transform hover:scale-105 transition-transform"
+                >
                   <Image
                     src="/images/terafence.png"
                     alt="Terafence Logo"
@@ -97,7 +100,7 @@ const Footer: React.FC = () => {
                 </Link>
               </div>
 
-              <p className="text-slate-700 text-sm leading-relaxed">
+              <p className="text-slate-700 text-base leading-relaxed">
                 Terafence delivers cutting-edge cybersecurity solutions that
                 protect critical infrastructure and sensitive data across
                 industries. Our award-winning technology creates impenetrable
@@ -113,13 +116,13 @@ const Footer: React.FC = () => {
                           href={link.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-zinc-800 hover:bg-primary/90 p-2.5 rounded-full transition-all duration-300 hover:-translate-y-1 inline-block"
+                          className="bg-zinc-800 hover:bg-sky-950 p-3 rounded-full transition-all duration-300 hover:-translate-y-1 inline-block"
                         >
                           {link.icon}
                         </a>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>{link.label}</p>
+                        <p className="text-base">{link.label}</p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
@@ -128,47 +131,64 @@ const Footer: React.FC = () => {
             </Container>
 
             <Container delay={0.1} className="lg:col-span-2 space-y-4">
-              <h3 className="text-base font-semibold text-slate-900 tracking-wide">
-                <span className={`border-b-2 pb-1`} style={{ borderColor: darkBlue }}>Products</span>
+              <h3 className="text-lg font-semibold text-slate-900 tracking-wide">
+                <span
+                  className={`border-b-2 pb-1`}
+                  style={{ borderColor: darkBlue }}
+                >
+                  Products
+                </span>
               </h3>
-              <ul className="space-y-3 text-sm">
+              <ul className="space-y-3 text-base">
                 {[
                   {
                     name: "121",
                     href: "/devices",
-                    icon: <Shield className="h-4 w-4" style={{ color: darkBlue }} />,
+                    icon: (
+                      <Shield className="h-5 w-5" style={{ color: darkBlue }} />
+                    ),
                   },
                   {
                     name: "1-URP",
                     href: "/devices",
-                    icon: <Lock className="h-4 w-4" style={{ color: darkBlue }} />,
+                    icon: (
+                      <Lock className="h-5 w-5" style={{ color: darkBlue }} />
+                    ),
                   },
                   {
                     name: "BSG",
                     href: "/devices",
-                    icon: <Server className="h-4 w-4" style={{ color: darkBlue }} />,
+                    icon: (
+                      <Server className="h-5 w-5" style={{ color: darkBlue }} />
+                    ),
                   },
                   {
                     name: "MBSecure+",
                     href: "/devices",
-                    icon: <Database className="h-4 w-4" style={{ color: darkBlue }} />,
+                    icon: (
+                      <Database
+                        className="h-5 w-5"
+                        style={{ color: darkBlue }}
+                      />
+                    ),
                   },
                   {
                     name: "VSecure",
                     href: "/devices",
-                    icon: <Shield className="h-4 w-4" style={{ color: darkBlue }} />,
+                    icon: (
+                      <Shield className="h-5 w-5" style={{ color: darkBlue }} />
+                    ),
                   },
                 ].map((item, idx) => (
                   <li key={idx}>
-                    <Link 
-                      href={item.href} 
+                    <Link
+                      href={item.href}
                       className="group flex items-center transition-all duration-300"
                     >
                       <span className="mr-2 transition-transform">
                         {item.icon}
                       </span>
-                      <span className="text-slate-700 hover:text-slate-950 transition-all duration-300 hover:translate-x-1 inline-block"
-                      >
+                      <span className="text-slate-700 hover:text-slate-950 transition-all duration-300 hover:translate-x-1 inline-block">
                         {item.name}
                       </span>
                     </Link>
@@ -178,12 +198,15 @@ const Footer: React.FC = () => {
             </Container>
 
             <Container delay={0.2} className="lg:col-span-2 space-y-4">
-              <h3 className="text-base font-semibold text-slate-900 tracking-wide">
-                <span className={`border-b-2 pb-1`} style={{ borderColor: darkBlue }}>
+              <h3 className="text-lg font-semibold text-slate-900 tracking-wide">
+                <span
+                  className={`border-b-2 pb-1`}
+                  style={{ borderColor: darkBlue }}
+                >
                   Solutions
                 </span>
               </h3>
-              <ul className="space-y-3 text-sm">
+              <ul className="space-y-3 text-base">
                 {[
                   { name: "Secure IT", href: "/solutions" },
                   { name: "Secure OT", href: "/solutions" },
@@ -202,20 +225,24 @@ const Footer: React.FC = () => {
             </Container>
 
             <Container delay={0.3} className="lg:col-span-2 space-y-4">
-            <h3 className="text-base font-semibold text-slate-900 tracking-wide">
-            <span className={`border-b-2 pb-1`} style={{ borderColor: darkBlue }}>Company</span>
+              <h3 className="text-lg font-semibold text-slate-900 tracking-wide">
+                <span
+                  className={`border-b-2 pb-1`}
+                  style={{ borderColor: darkBlue }}
+                >
+                  Company
+                </span>
               </h3>
-              <ul className="space-y-3 text-sm">
+              <ul className="space-y-3 text-base">
                 {[
-                  { name: "Our Story", href: "/about" },
-                  { name: "Meet the Team", href: "/about/team" },
+                  { name: "About Us", href: "/about" },
                   { name: "Join Us", href: "/careers" },
                   { name: "Downloads", href: "/download" },
                   { name: "Support", href: "/support" },
                 ].map((item, idx) => (
                   <li key={idx}>
-                    <Link 
-                      href={item.href} 
+                    <Link
+                      href={item.href}
                       className="text-slate-700 hover:text-slate-950 transition-all duration-300 hover:translate-x-1 inline-block"
                     >
                       {item.name}
@@ -226,18 +253,23 @@ const Footer: React.FC = () => {
             </Container>
 
             <Container delay={0.4} className="lg:col-span-2 space-y-4">
-              <h3 className="text-base font-semibold text-slate-900 tracking-wide">
-                <span className={`border-b-2 pb-1`} style={{ borderColor: darkBlue }}>Contact</span>
+              <h3 className="text-lg font-semibold text-slate-900 tracking-wide">
+                <span
+                  className={`border-b-2 pb-1`}
+                  style={{ borderColor: darkBlue }}
+                >
+                  Contact
+                </span>
               </h3>
-              <ul className="space-y-4 text-sm">
+              <ul className="space-y-4 text-base">
                 <li className="flex items-start">
-                  <MapPin className="h-5 w-5 text-slate-500 mr-3 mt-0.5 flex-shrink-0" />
+                  <MapPin className="h-6 w-6 text-slate-500 mr-3 mt-0.5 flex-shrink-0" />
                   <span className="text-slate-700">
-                    12788 ROYAL OAKS LN FARMERS BRANCH, TX 75234
+                    12788 Royal Oaks Ln, Farmers Branch, TX 75234
                   </span>
                 </li>
                 <li className="flex items-center">
-                  <Mail className="h-5 w-5 text-slate-500 mr-3 flex-shrink-0" />
+                  <Mail className="h-6 w-6 text-slate-500 mr-3 flex-shrink-0" />
                   <a
                     href="mailto:info@terafence.us"
                     className="text-slate-700 hover:text-slate-900 transition-colors"
@@ -257,27 +289,26 @@ const Footer: React.FC = () => {
             delay={0.5}
             className="flex flex-col md:flex-row items-center justify-between gap-4"
           >
-            <p className="text-sm text-slate-900">
-              &copy; {currentYear} Terafence US. All rights
-              reserved.
+            <p className="text-base text-slate-900">
+              &copy; {currentYear} Terafence US. All rights reserved.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 md:gap-6 text-sm text-slate-900">
+            <div className="flex flex-wrap items-center gap-4 md:gap-6 text-base text-slate-900">
               <Link
-                href="/privacy-policy"
-                className="hover:text-sky-300 transition-colors"
+                href="/privacy"
+                className="hover:text-rose-600 transition-colors"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/terms"
-                className="hover:text-sky-300 transition-colors"
+                className="hover:text-rose-600 transition-colors"
               >
                 Terms of Use
               </Link>
               <Link
-                href="/cookies"
-                className="hover:text-sky-300 transition-colors"
+                href="/cookie"
+                className="hover:text-rose-600 transition-colors"
               >
                 Cookie Policy
               </Link>
