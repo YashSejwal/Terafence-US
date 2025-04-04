@@ -67,12 +67,12 @@ const Info: React.FC = () => {
       video: "/images/datadiode.mp4"
     },
     {
-      title: "Features Overview",
+      title: "Solutions across various industries",
       thumbnail: "/images/t2.png",
       video: "/images/features.mp4"
     },
     {
-      title: "Content Showcase",
+      title: "Airgap Technology",
       thumbnail: "/images/t3.png",
       video: "/images/content.mp4"
     }

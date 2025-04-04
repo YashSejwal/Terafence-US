@@ -253,7 +253,7 @@ const Footer: React.FC = () => {
             </Container>
 
             <Container delay={0.4} className="lg:col-span-2 space-y-4">
-              <h3 className="text-lg font-semibold text-slate-900 tracking-wide">
+              <h3 className="text-base font-semibold text-slate-900 tracking-wide">
                 <span
                   className={`border-b-2 pb-1`}
                   style={{ borderColor: darkBlue }}
@@ -263,9 +263,9 @@ const Footer: React.FC = () => {
               </h3>
               <ul className="space-y-4 text-base">
                 <li className="flex items-start">
-                  <MapPin className="h-6 w-6 text-slate-500 mr-3 mt-0.5 flex-shrink-0" />
+                  <MapPin className="h-6 w-6 text-slate-500 mr-2 mt-0.5 flex-shrink-0" />
                   <span className="text-slate-700">
-                    12788 Royal Oaks Ln, Farmers Branch, TX 75234
+                    12788, Royal Oaks Lane, Farmers Branch, TX 75234
                   </span>
                 </li>
                 <li className="flex items-center">
