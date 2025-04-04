@@ -1,7 +1,7 @@
 export const content = {
   hero: {
     headline: "Unbreakable FPGA-Based Data Diode Technology",
-    subheading: "Secure, Tamper-Proof, and 100% Unidirectional Data Flow.",
+    subheading: "Secure, Tamper-Proof, and 100% Unidirectional Flow.",
   },
 
   technology: {

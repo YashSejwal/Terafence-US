@@ -9,6 +9,7 @@ import { Card } from "@/components/ui/card"
 import { Shield, Zap, Database, Server, Cloud, Globe, Lock } from "lucide-react"
 import Navbar from "@/components/marketing/navbar";
 import Footer from "@/components/marketing/footer";
+import Wrapper from "@/components/global/wrapper";
 
 const useCases = [
   {
@@ -200,47 +201,49 @@ export default function UseCases() {
         />
 
         <div className="container mx-auto px-4 pt-32 pb-20 text-center relative">
-          <motion.div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-blue-500/10 blur-3xl -z-10"
-            animate={{
-              scale: [1, 1.3, 1],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "reverse",
-            }}
-          />
+          <Wrapper>
+            <motion.div
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-blue-500/10 blur-3xl -z-10"
+              animate={{
+                scale: [1, 1.3, 1],
+                opacity: [0.3, 0.5, 0.3],
+              }}
+              transition={{
+                duration: 8,
+                repeat: Number.POSITIVE_INFINITY,
+                repeatType: "reverse",
+              }}
+            />
 
-          <motion.h1
-            className="text-5xl md:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-600"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            Use Cases
-          </motion.h1>
+            <motion.h1
+              className="text-5xl md:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-600"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              Use Cases
+            </motion.h1>
 
-          <motion.p
-            className="mt-6 text-xl text-slate-600 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Industry-leading security solutions tailored to your specific needs and challenges
-          </motion.p>
+            <motion.p
+              className="mt-6 text-xl text-slate-600 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Industry-leading security solutions tailored to your specific needs and challenges
+            </motion.p>
 
-          <motion.div
-            className="w-32 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 mx-auto mt-8"
-            initial={{ width: 0 }}
-            animate={{ width: "8rem" }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          />
+            <motion.div
+              className="w-32 h-1 bg-gradient-to-r from-blue-400 to-indigo-500 mx-auto mt-8"
+              initial={{ width: 0 }}
+              animate={{ width: "8rem" }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            />
+          </Wrapper>
         </div>
 
         <div ref={tabsRef} className="sticky top-0 bg-white/90 backdrop-blur-xl z-40 border-b border-slate-200 shadow-lg">
-          <div className="container mx-auto">
+          <Wrapper>
             <div className="flex overflow-x-auto scrollbar-hide py-4 gap-2 justify-center">
               {useCases.map((useCase) => (
                 <motion.button
@@ -261,42 +264,44 @@ export default function UseCases() {
                 </motion.button>
               ))}
             </div>
-          </div>
+          </Wrapper>
         </div>
 
         <div className="container mx-auto px-4 py-24">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {heroCards.map((card, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                whileHover={{
-                  y: -8,
-                  transition: { duration: 0.2 },
-                }}
-                className="group"
-              >
-                <Card className="h-full p-8 bg-white backdrop-blur-md border border-slate-200 rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] hover:shadow-[0_25px_65px_-12px_rgba(59,130,246,0.25)] transition-all duration-500">
-                  <div className="flex flex-col items-center text-center">
-                    <motion.div
-                      className="p-5 rounded-2xl bg-gradient-to-br from-blue-100 to-indigo-100 text-blue-600 mb-6 group-hover:text-blue-700 transition-colors duration-300"
-                      whileHover={{
-                        rotate: [0, 5, -5, 0],
-                        scale: 1.1,
-                        transition: { duration: 0.5 },
-                      }}
-                    >
-                      {React.createElement(card.icon, { size: 32 })}
-                    </motion.div>
-                    <h3 className="text-2xl font-bold text-slate-800 mb-3">{card.title}</h3>
-                    <p className="text-slate-600 leading-relaxed">{card.description}</p>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+          <Wrapper>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {heroCards.map((card, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                  whileHover={{
+                    y: -8,
+                    transition: { duration: 0.2 },
+                  }}
+                  className="group"
+                >
+                  <Card className="h-full p-8 bg-white backdrop-blur-md border border-slate-200 rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] hover:shadow-[0_25px_65px_-12px_rgba(59,130,246,0.25)] transition-all duration-500">
+                    <div className="flex flex-col items-center text-center">
+                      <motion.div
+                        className="p-5 rounded-2xl bg-gradient-to-br from-blue-100 to-indigo-100 text-blue-600 mb-6 group-hover:text-blue-700 transition-colors duration-300"
+                        whileHover={{
+                          rotate: [0, 5, -5, 0],
+                          scale: 1.1,
+                          transition: { duration: 0.5 },
+                        }}
+                      >
+                        {React.createElement(card.icon, { size: 32 })}
+                      </motion.div>
+                      <h3 className="text-2xl font-bold text-slate-800 mb-3">{card.title}</h3>
+                      <p className="text-slate-600 leading-relaxed">{card.description}</p>
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </Wrapper>
         </div>
 
         <div className="py-12">
@@ -344,115 +349,117 @@ export default function UseCases() {
               )}
 
               <div className="container mx-auto px-4">
-                <motion.div
-                  initial={{ opacity: 0, y: 60 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  className={`flex flex-col ${
-                    index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                  } items-center gap-12 lg:gap-20`}
-                >
-                  <div className="w-full lg:w-1/2 space-y-8">
-                    <div>
-                      <motion.div
-                        initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
+                <Wrapper>
+                  <motion.div
+                    initial={{ opacity: 0, y: 60 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    className={`flex flex-col ${
+                      index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                    } items-center gap-12 lg:gap-20`}
+                  >
+                    <div className="w-full lg:w-1/2 space-y-8">
+                      <div>
+                        <motion.div
+                          initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.6, delay: 0.3 }}
+                          viewport={{ once: true }}
+                        >
+                          <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-3">{useCase.title}</h2>
+                          <p className="text-xl text-blue-500 font-medium">{useCase.subtitle}</p>
+                        </motion.div>
+                      </div>
+
+                      <motion.p
+                        className="text-slate-700 leading-relaxed text-lg"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
                         viewport={{ once: true }}
                       >
-                        <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-3">{useCase.title}</h2>
-                        <p className="text-xl text-blue-500 font-medium">{useCase.subtitle}</p>
+                        {useCase.description}
+                      </motion.p>
+
+                      <motion.ul
+                        className="space-y-4"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.5 }}
+                        viewport={{ once: true }}
+                      >
+                        {useCase.bulletPoints.map((point, i) => (
+                          <motion.li
+                            key={i}
+                            className="flex items-start"
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
+                            viewport={{ once: true }}
+                          >
+                            <div className="flex-shrink-0 bg-blue-100 rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1">
+                              <span className="text-blue-600 text-sm">✓</span>
+                            </div>
+                            <span className="text-slate-700">{point}</span>
+                          </motion.li>
+                        ))}
+                      </motion.ul>
+
+                      <motion.div
+                        className="flex flex-wrap gap-4 pt-6"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.7 }}
+                        viewport={{ once: true }}
+                      >
+                        <a href="mailto:info@terafence.in">
+                          <Button
+                            className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-6 rounded-xl text-base font-medium shadow-lg shadow-blue-900/20 hover:shadow-blue-700/30 transition-all duration-300"
+                            size="lg"
+                          >
+                            Talk To An Expert
+                          </Button>
+                        </a>
+                        <a href="mailto:info@terafence.in">
+                          <Button
+                            variant="outline"
+                            className="border-blue-500 text-blue-600 hover:bg-blue-100 px-8 py-6 rounded-xl text-base font-medium transition-all duration-300"
+                            size="lg"
+                          >
+                            Learn More
+                          </Button>
+                        </a>
                       </motion.div>
                     </div>
 
-                    <motion.p
-                      className="text-slate-700 leading-relaxed text-lg"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.6, delay: 0.4 }}
-                      viewport={{ once: true }}
-                    >
-                      {useCase.description}
-                    </motion.p>
-
-                    <motion.ul
-                      className="space-y-4"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.6, delay: 0.5 }}
-                      viewport={{ once: true }}
-                    >
-                      {useCase.bulletPoints.map((point, i) => (
-                        <motion.li
-                          key={i}
-                          className="flex items-start"
-                          initial={{ opacity: 0, x: -10 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
-                          viewport={{ once: true }}
-                        >
-                          <div className="flex-shrink-0 bg-blue-100 rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1">
-                            <span className="text-blue-600 text-sm">✓</span>
-                          </div>
-                          <span className="text-slate-700">{point}</span>
-                        </motion.li>
-                      ))}
-                    </motion.ul>
-
                     <motion.div
-                      className="flex flex-wrap gap-4 pt-6"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.7 }}
+                      className="w-full lg:w-1/2"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.8 }}
                       viewport={{ once: true }}
+                      whileHover={{ scale: 1.03, rotate: index % 2 === 0 ? 1 : -1 }}
                     >
-                      <a href="mailto:info@terafence.in">
-                        <Button
-                          className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-6 rounded-xl text-base font-medium shadow-lg shadow-blue-900/20 hover:shadow-blue-700/30 transition-all duration-300"
-                          size="lg"
-                        >
-                          Talk To An Expert
-                        </Button>
-                      </a>
-                      <a href="mailto:info@terafence.in">
-                        <Button
-                          variant="outline"
-                          className="border-blue-500 text-blue-600 hover:bg-blue-100 px-8 py-6 rounded-xl text-base font-medium transition-all duration-300"
-                          size="lg"
-                        >
-                          Learn More
-                        </Button>
-                      </a>
+                      <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200">
+                        <img
+                          src={useCase.imagePath}
+                          alt={useCase.title}
+                          className="w-full h-auto object-cover"
+                        />
+   
+
+                        <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-lg">
+                          {React.createElement(useCase.icon, { size: 24, className: "text-blue-600" })}
+                        </div>
+
+                        <div className="absolute bottom-4 left-4 rounded-lg px-4 py-2 bg-white/80 backdrop-blur-sm text-blue-600 text-sm font-medium">
+                          {useCase.shortTitle} Solution
+                        </div>
+                      </div>
                     </motion.div>
-                  </div>
-
-                  <motion.div
-                    className="w-full lg:w-1/2"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.03, rotate: index % 2 === 0 ? 1 : -1 }}
-                  >
-                    <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200">
-                      <img
-                        src={useCase.imagePath}
-                        alt={useCase.title}
-                        className="w-full h-auto object-cover"
-                      />
- 
-
-                      <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-lg">
-                        {React.createElement(useCase.icon, { size: 24, className: "text-blue-600" })}
-                      </div>
-
-                      <div className="absolute bottom-4 left-4 rounded-lg px-4 py-2 bg-white/80 backdrop-blur-sm text-blue-600 text-sm font-medium">
-                        {useCase.shortTitle} Solution
-                      </div>
-                    </div>
                   </motion.div>
-                </motion.div>
+                </Wrapper>
               </div>
             </motion.div>
           ))}
