@@ -63,7 +63,7 @@ const Hero = () => {
                             <span className="">
                                 security {" "}
                             </span>
-                            with iTF Protection
+                            with TFG Protection
                         </h1>
                     </Container>
                     <Container delay={0.2}>
