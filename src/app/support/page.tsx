@@ -131,8 +131,8 @@ export default function SupportPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-slate-800 mb-1">Phone Support</h3>
-                      <p className="text-slate-600">(800) 555-0123</p>
-                      <p className="text-sm text-slate-500 mt-1">Mon-Fri, 8am-6pm EST</p>
+                      <p className="text-slate-600">+1 (732) 501 5974</p>
+                      <p className="text-sm text-slate-500 mt-1">Mon-Fri, 9am-6pm </p>
                     </div>
                   </div>
                   

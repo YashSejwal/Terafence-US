@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
     <footer className="relative w-full bg-gradient-to-r from-sky-200 to-red-200 text-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-10 lg:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 lg:gap-6">
             <Container className="lg:col-span-4 flex flex-col">
               <div className="flex items-center h-10 mb-4">
                 <Link
@@ -252,7 +252,7 @@ const Footer: React.FC = () => {
               </ul>
             </Container>
 
-            <Container delay={0.4} className="lg:col-span-2 space-y-4">
+            <Container delay={0.4} className="lg:col-span-2 space-y-4 lg:max-w-xs">
               <h3 className="text-base font-semibold text-slate-900 tracking-wide">
                 <span
                   className={`border-b-2 pb-1`}
@@ -262,11 +262,13 @@ const Footer: React.FC = () => {
                 </span>
               </h3>
               <ul className="space-y-4 text-base">
-                <li className="flex items-start">
+              <li className="flex items-start">
                   <MapPin className="h-6 w-6 text-slate-500 mr-2 mt-0.5 flex-shrink-0" />
-                  <span className="text-slate-700">
-                    12788, Royal Oaks Lane, Farmers Branch, TX 75234
-                  </span>
+                  <address className="text-slate-700 not-italic">
+                    12788 Royal Oaks Ln,<br />
+                    Farmers Branch,<br />
+                    TX 75234
+                  </address>
                 </li>
                 <li className="flex items-center">
                   <Mail className="h-6 w-6 text-slate-500 mr-3 flex-shrink-0" />
