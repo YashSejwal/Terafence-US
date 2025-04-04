@@ -6,6 +6,7 @@ export type ResourceType =
   | "Datasheet"
   | "Security Advisory"
   | "Implementation Guide"
+  
 
 export type Product = "URP" | "121" | "BSG" | "MBSecure+" | "VSecure"
 

@@ -3,9 +3,9 @@ import type { Resource } from "../types"
 export const resources: Resource[] = [
   {
     id: "1",
-    title: "TFG-1URP Datasheet",
+    title: "TFG 1U-RP Datasheet",
     description:
-      "This datasheet provides a detailed overview of Terafence's TFG-1URP solution, highlighting its Air-Gap security, unidirectional data flow, and protocol support to safeguard critical infrastructure against cyber threats.",
+      "This datasheet provides a detailed overview of Terafence's TFG 1U-RP solution, highlighting its Air-Gap security, unidirectional data flow, and protocol support to safeguard critical infrastructure against cyber threats.",
     type: "Datasheet",
     product: "URP",
     downloadUrl: "/downloads/datasheet/1URP.pdf"
@@ -49,12 +49,66 @@ export const resources: Resource[] = [
   },
   {
     id: "6",
-    title: "TFG-1URP: Technical Specifications",
+    title: "TFG 1U-RP: Technical Specifications",
     description:
-      "Detailed technical specifications for TFG-1URP, including hardware requirements, performance metrics, and integration capabilities for real-time OT network monitoring.",
-    type: "Datasheet",
+      "Detailed technical specifications for TFG 1U-RP, including hardware requirements, performance metrics, and integration capabilities for real-time OT network monitoring.",
+    type: "Technical Brief",
     product: "URP",
-    downloadUrl: "#",
+    downloadUrl: "/downloads/techspecs/1urp.pdf",
+  },
+  {
+    id: "14",
+    title: "Oil & Gas Whitepaper",
+    description:
+      "A detailed resource kit for ensuring compliance with regulatory requirements for critical infrastructure protection across various industries using Terafence solutions.",
+    type: "Whitepaper",
+    product: "MBSecure+",
+    downloadUrl: "/downloads/whitepaper/oilgas.pdf",
+  },
+  {
+    id: "15",
+    title: "Smart City Whitepaper",
+    description:
+      "A detailed resource kit for ensuring compliance with regulatory requirements for critical infrastructure protection across various industries using Terafence solutions.",
+    type: "Whitepaper",
+    product: "VSecure",
+    downloadUrl: "/downloads/whitepaper/smartcity.pdf",
+  },
+  {
+    id: "16",
+    title: "CCTV Whitepaper",
+    description:
+      "A detailed resource kit for ensuring compliance with regulatory requirements for critical infrastructure protection across various industries using Terafence solutions.",
+    type: "Whitepaper",
+    product: "VSecure",
+    downloadUrl: "/downloads/whitepaper/cctv.pdf",
+  },
+  {
+    id: "17",
+    title: "TFG-121: Technical Specifications",
+    description:
+      "Detailed technical specifications for TFG-121, including hardware requirements, performance metrics, and integration capabilities for real-time OT network monitoring.",
+    type: "Technical Brief",
+    product: "121",
+    downloadUrl: "/downloads/techspecs/121.pdf",
+  },
+  {
+    id: "18",
+    title: "TFG-BSG: Technical Specifications",
+    description:
+      "Detailed technical specifications for TFG-BSG, including hardware requirements, performance metrics, and integration capabilities for real-time OT network monitoring.",
+    type: "Technical Brief",
+    product: "BSG",
+    downloadUrl: "/downloads/techspecs/bsg.pdf",
+  },
+  {
+    id: "19",
+    title: "TFG-MBSecure+: Technical Specifications",
+    description:
+      "Detailed technical specifications for TFG-MBSecure+, including hardware requirements, performance metrics, and integration capabilities for real-time OT network monitoring.",
+    type: "Technical Brief",
+    product: "MBSecure+",
+    downloadUrl: "/downloads/techspecs/mbsecure.pdf",
   },
   {
     id: "7",
@@ -118,23 +172,5 @@ export const resources: Resource[] = [
     type: "Solution Guide",
     product: "BSG",
     downloadUrl: "#",
-  },
-  {
-    id: "14",
-    title: "Oil & Gas Whitepaper",
-    description:
-      "A detailed resource kit for ensuring compliance with regulatory requirements for critical infrastructure protection across various industries using Terafence solutions.",
-    type: "Whitepaper",
-    product: "MBSecure+",
-    downloadUrl: "/downloads/whitepaper/oilgas.pdf",
-  },
-  {
-    id: "15",
-    title: "Smart City Whitepaper",
-    description:
-      "A detailed resource kit for ensuring compliance with regulatory requirements for critical infrastructure protection across various industries using Terafence solutions.",
-    type: "Whitepaper",
-    product: "VSecure",
-    downloadUrl: "/downloads/whitepaper/smartcity.pdf",
   },
 ]
