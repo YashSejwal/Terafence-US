@@ -97,7 +97,7 @@ export const devices: Record<string, Device> = {
 
  "1U-RP": {
     name: "TFG 1U-RP",
-    tagline: "Unified Remote Protection for IoT and IIoT",
+    tagline: "Engineered to safeguard IoT and IIoT devices",
     uspBadge: "Total Galvanic Network Separation",
     keyFeatures: [
       "Total galvanic network separation",

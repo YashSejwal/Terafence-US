@@ -142,28 +142,28 @@ const Footer: React.FC = () => {
               <ul className="space-y-3 text-base">
                 {[
                   {
-                    name: "121",
+                    name: "TFG 121",
                     href: "/devices",
                     icon: (
                       <Shield className="h-5 w-5" style={{ color: darkBlue }} />
                     ),
                   },
                   {
-                    name: "1-URP",
+                    name: "TFG 1U-RP",
                     href: "/devices",
                     icon: (
                       <Lock className="h-5 w-5" style={{ color: darkBlue }} />
                     ),
                   },
                   {
-                    name: "BSG",
+                    name: "TFG BSG",
                     href: "/devices",
                     icon: (
                       <Server className="h-5 w-5" style={{ color: darkBlue }} />
                     ),
                   },
                   {
-                    name: "MBSecure+",
+                    name: "TFG MBSecure+",
                     href: "/devices",
                     icon: (
                       <Database
@@ -173,7 +173,7 @@ const Footer: React.FC = () => {
                     ),
                   },
                   {
-                    name: "VSecure",
+                    name: "TFG VSecure",
                     href: "/devices",
                     icon: (
                       <Shield className="h-5 w-5" style={{ color: darkBlue }} />
@@ -208,9 +208,9 @@ const Footer: React.FC = () => {
               </h3>
               <ul className="space-y-3 text-base">
                 {[
-                  { name: "Secure IT", href: "/solutions" },
-                  { name: "Secure OT", href: "/solutions" },
-                  { name: "Secure CAM", href: "/solutions" },
+                  { name: "Securing IT", href: "/solutions" },
+                  { name: "Securing OT", href: "/solutions" },
+                  { name: "Securing CAM", href: "/solutions" },
                 ].map((item, idx) => (
                   <li key={idx}>
                     <Link
@@ -236,7 +236,6 @@ const Footer: React.FC = () => {
               <ul className="space-y-3 text-base">
                 {[
                   { name: "About Us", href: "/about" },
-                  { name: "Join Us", href: "/careers" },
                   { name: "Downloads", href: "/download" },
                   { name: "Support", href: "/support" },
                 ].map((item, idx) => (

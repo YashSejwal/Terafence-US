@@ -23,9 +23,9 @@ type TabContent = {
 
 const tabContents: Record<string, TabContent> = {
   "secure-it": {
-    title: "Secure IT",
+    title: "Securing the IT",
     subtitle: "Enterprise-grade IT Security",
-    description: "Terafence's Secure IT solutions provide robust protection for your information technology infrastructure with our proprietary hardware-based network isolation technology. Our products create a secure, unidirectional gateway that physically prevents unauthorized access while allowing safe data flow.",
+    description: "Terafence's solution for IT provide robust protection for your information technology infrastructure with our proprietary hardware-based network isolation technology. Our products create a secure, unidirectional gateway that physically prevents unauthorized access while allowing safe data flow.",
     image: "/images/secure-it.svg",
     icon: <ShieldCheck className="w-6 h-6" />,
     features: [
@@ -36,14 +36,14 @@ const tabContents: Record<string, TabContent> = {
       "Seamless integration with existing IT infrastructure"
     ],
     cta: {
-      text: "Discover Secure IT",
+      text: "Discover the world of IT security",
       link: "/solutions/secure-it"
     }
   },
   "secure-ot": {
-    title: "Secure OT",
+    title: "Securing the OT",
     subtitle: "Operational Technology Protection",
-    description: "Terafence's Secure OT solutions safeguard critical operational technology environments such as industrial control systems, SCADA networks, and IoT deployments. Our hardware-enforced security creates an air-gap equivalent that allows data visibility without exposure to cyber threats.",
+    description: "Terafence's solution for OT safeguard critical operational technology environments such as industrial control systems, SCADA networks, and IoT deployments. Our hardware-enforced security creates an air-gap equivalent that allows data visibility without exposure to cyber threats.",
     image: "/images/secure-ot.svg",
     icon: <Cog className="w-6 h-6" />,
     features: [
@@ -54,14 +54,14 @@ const tabContents: Record<string, TabContent> = {
       "Legacy system compatibility"
     ],
     cta: {
-      text: "Explore Secure OT",
+      text: "Explore the OT Security",
       link: "/solutions/secure-ot"
     }
   },
   "secure-cam": {
-    title: "Secure CAM",
+    title: "Securing the CCTV",
     subtitle: "Control Access & Monitoring",
-    description: "Terafence's Secure CAM provides comprehensive control access and monitoring solutions for high-security environments. Our technology enables secure monitoring of video feeds, access control systems, and other critical security infrastructure while eliminating cyber attack vectors.",
+    description: "Terafence's solution for CCTV infrastructure provides comprehensive control access and monitoring solutions for high-security environments. Our technology enables secure monitoring of video feeds, access control systems, and other critical security infrastructure while eliminating attack vectors.",
     image: "/images/secure-cam.svg",
     icon: <LockKeyhole className="w-6 h-6" />,
     features: [
@@ -72,7 +72,7 @@ const tabContents: Record<string, TabContent> = {
       "Tamper-proof logging and auditing"
     ],
     cta: {
-      text: "Learn About Secure CAM",
+      text: "Learn about securing CCTV",
       link: "/solutions/secure-cam"
     }
   },
