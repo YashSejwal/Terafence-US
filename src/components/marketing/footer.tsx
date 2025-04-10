@@ -54,22 +54,22 @@ const Footer: React.FC = () => {
 
   const socialLinks = [
     {
-      icon: <Linkedin className="h-7 w-7" />,
+      icon: <Linkedin className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7" />,
       href: "https://linkedin.com",
       label: "LinkedIn",
     },
     {
-      icon: <Twitter className="h-7 w-7" />,
+      icon: <Twitter className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7" />,
       href: "https://twitter.com",
       label: "Twitter",
     },
     {
-      icon: <Facebook className="h-7 w-7" />,
+      icon: <Facebook className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7" />,
       href: "https://facebook.com",
       label: "Facebook",
     },
     {
-      icon: <Instagram className="h-7 w-7" />,
+      icon: <Instagram className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7" />,
       href: "https://instagram.com",
       label: "Instagram",
     },
@@ -77,11 +77,12 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="relative w-full bg-gradient-to-r from-sky-200 to-red-200 text-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="py-10 lg:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-full xl:max-w-7xl">
+        <div className="py-6 sm:py-8 md:py-10 lg:py-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 lg:gap-6">
+            {/* Company Info */}
             <Container className="md:col-span-6 lg:col-span-6 flex flex-col">
-              <div className="flex items-center h-10 mb-4">
+              <div className="flex items-center h-8 sm:h-10 mb-3 sm:mb-4">
                 <Link
                   href="/"
                   className="flex items-center transform hover:scale-105 transition-transform"
@@ -90,21 +91,21 @@ const Footer: React.FC = () => {
                     src="/images/terafence.png"
                     alt="Terafence Logo"
                     width={210}
-                    height={60}
+                    height={75}
                     priority
-                    className="drop-shadow-md"
+                    className="drop-shadow-md w-auto h-auto sm:w-[210px]"
                   />
                 </Link>
               </div>
 
-              <p className="text-slate-700 text-lg leading-relaxed">
+              <p className="text-slate-700 text-base sm:text-lg leading-relaxed">
                 Terafence delivers cutting-edge cybersecurity solutions that
                 protect critical infrastructure and sensitive data across
                 industries. Our award-winning technology creates impenetrable
                 barriers against digital threats.
               </p>
 
-              <div className="flex items-center space-x-4 mt-4">
+              <div className="flex flex-wrap items-center space-x-2 sm:space-x-3 md:space-x-4 mt-4">
                 {socialLinks.map((link, index) => (
                   <TooltipProvider key={index}>
                     <Tooltip>
@@ -113,13 +114,15 @@ const Footer: React.FC = () => {
                           href={link.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-zinc-800 hover:bg-sky-950 p-3 rounded-full transition-all duration-300 hover:-translate-y-1 inline-block"
+                          className="bg-zinc-800 hover:bg-sky-950 p-2 sm:p-2.5 md:p-3 rounded-full transition-all duration-300 hover:-translate-y-1 inline-block"
                         >
                           {link.icon}
                         </a>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p className="text-lg">{link.label}</p>
+                        <p className="text-sm sm:text-base md:text-lg">
+                          {link.label}
+                        </p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
@@ -127,38 +130,40 @@ const Footer: React.FC = () => {
               </div>
             </Container>
 
-            <Container delay={0.1} className="md:col-span-6 lg:col-span-6 space-y-4">
-              <h3 className="text-xl font-semibold text-slate-900 tracking-wide">
+            {/* Contact Info */}
+            <Container
+              delay={0.1}
+              className="md:col-span-6 lg:col-span-6 space-y-3 sm:space-y-4"
+            >
+              <h3 className="text-lg sm:text-xl font-semibold text-slate-900 tracking-wide">
                 <span
-                  className={`border-b-2 pb-1`}
+                  className="border-b-2 pb-1"
                   style={{ borderColor: darkBlue }}
                 >
                   Contact
                 </span>
               </h3>
-              <ul className="space-y-4 text-lg">
+              <ul className="space-y-3 sm:space-y-4 text-base sm:text-lg">
                 <li className="flex items-start">
-                  <MapPin className="h-7 w-7 text-[#343591] mr-3 mt-0.5 flex-shrink-0" />
-                  <address className="text-slate-700 not-italic">
-                    12788 Royal Oaks Ln,<br />
-                    Farmers Branch,<br />
-                    TX 75234
+                  <MapPin className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-[#343591] mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
+                  <address className="text-slate-700 not-italic text-sm sm:text-base md:text-lg">
+                    12788 Royal Oaks Lane, Farmers Branch, Texas 75234
                   </address>
                 </li>
                 <li className="flex items-center">
-                  <Mail className="h-7 w-7 text-[#343591] mr-3 flex-shrink-0" />
+                  <Mail className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-[#343591] mr-2 sm:mr-3 flex-shrink-0" />
                   <a
                     href="mailto:info@terafence.us"
-                    className="text-slate-700 hover:text-slate-900 transition-colors"
+                    className="text-slate-700 hover:text-slate-900 transition-colors text-sm sm:text-base md:text-lg"
                   >
                     info@terafence.us
                   </a>
                 </li>
                 <li className="flex items-center">
-                  <Phone className="h-7 w-7 text-[#343591] mr-3 flex-shrink-0" />
+                  <Phone className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-[#343591] mr-2 sm:mr-3 flex-shrink-0" />
                   <a
                     href="tel:+17325015974"
-                    className="text-slate-700 hover:text-slate-900 transition-colors"
+                    className="text-slate-700 hover:text-slate-900 transition-colors text-sm sm:text-base md:text-lg"
                   >
                     +1 (732) 501-5974
                   </a>
@@ -168,18 +173,18 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <Separator className="bg-slate-300" />
+        <Separator className="bg-slate-400" />
 
-        <div className="py-8">
+        <div className="py-4 sm:py-6 md:py-8">
           <Container
             delay={0.5}
-            className="flex flex-col md:flex-row items-center justify-between gap-4"
+            className="flex flex-col sm:flex-row items-center justify-between gap-4"
           >
-            <p className="text-lg text-slate-900">
-              &copy; {currentYear} Terafence US. All rights reserved.
+            <p className="text-sm sm:text-base md:text-lg text-slate-900 text-center sm:text-left">
+              &copy; {currentYear} Terafence USA Inc. All rights reserved.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 md:gap-6 text-lg text-slate-900">
+            <div className="flex flex-wrap justify-center sm:justify-end items-center gap-3 sm:gap-4 md:gap-6 text-sm sm:text-base md:text-lg text-slate-900">
               <Link
                 href="/privacy"
                 className="hover:text-rose-600 transition-colors"
@@ -209,7 +214,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-rose-500 via-rose/50 to-rose-700" />
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-rose-500 via-rose-500/50 to-rose-700" />
     </footer>
   );
 };

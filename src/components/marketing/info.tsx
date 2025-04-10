@@ -533,7 +533,7 @@ const Info: React.FC = () => {
         </h1>
         
         <p className="text-center text-black max-w-3xl mx-auto mb-16 text-xl">
-          Explore our innovative solutions through interactive demonstrations and detailed walkthroughs
+          Explore our innovative solutions through interactive demonstrations.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">

@@ -338,7 +338,7 @@ const Navbar = () => {
 
   return (
     <header
-      className={`sticky top-0 w-full h-16 bg-background/80 backdrop-blur-sm z-50 transition-all ${
+      className={`sticky top-0 w-full h-20 bg-background/80 backdrop-blur-sm z-50 transition-all ${
         scrolled ? "shadow-md" : ""
       }`}
     >
@@ -349,8 +349,8 @@ const Navbar = () => {
               <Image
                 src="/images/terafence.png"
                 alt="Terafence Logo"
-                width={180}
-                height={75}
+                width={210}
+                height={80}
                 priority
                 className="h-auto"
               />
