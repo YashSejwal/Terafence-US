@@ -68,17 +68,17 @@ const NAV_LINKS: NavLink[] = [
     href: "/solutions",
     subMenu: [
       {
-        name: "Secure IT",
+        name: "Securing IT",
         href: "/solutions",
         description: "Information technology security solutions",
       },
       {
-        name: "Secure OT",
+        name: "Securing OT",
         href: "/solutions",
         description: "Operational technology security solutions",
       },
       {
-        name: "Secure CAM",
+        name: "Securing CAM",
         href: "/solutions",
         description: "Control access and monitoring solutions",
       },
@@ -95,7 +95,7 @@ const NAV_LINKS: NavLink[] = [
       },
       {
         name: "Energy Management",
-        href: "/usecases",
+        href: "/energy-management",
         description: "Security solutions for power infrastructure",
       },
       {

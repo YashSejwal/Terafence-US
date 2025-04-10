@@ -370,7 +370,7 @@ export default function CookiePolicyPage() {
           <div className="text-center p-6 border-t border-slate-200">
             <div className="flex items-center justify-center mb-3">
               <Clock size={18} className="text-slate-400 mr-2" />
-              <h3 className="text-lg font-medium text-slate-700">Policy Version History</h3>
+              <h3 className="text-lg font-medium text-slate-700">Policy Version History | v1.0.0</h3>
             </div>
             <p className="text-sm text-slate-500">
               This Cookie Policy was last updated on {lastUpdated}. Previous versions of our Cookie Policy can be obtained by contacting us.

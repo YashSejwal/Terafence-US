@@ -104,7 +104,7 @@ const Footer: React.FC = () => {
                 Terafence delivers cutting-edge cybersecurity solutions that
                 protect critical infrastructure and sensitive data across
                 industries. Our award-winning technology creates impenetrable
-                barriers against modern digital threats.
+                barriers against digital threats.
               </p>
 
               <div className="flex items-center space-x-4 mt-4">

@@ -339,7 +339,7 @@ export default function TermsOfUsePage() {
               <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
                 <h4 className="font-semibold text-slate-800 mb-2">Cookie Policy</h4>
                 <p className="text-slate-600 mb-4">Learn more about how we use cookies and tracking technologies.</p>
-                <a href="/cookie-policy" className="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+                <a href="/cookie" className="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
                   View Cookie Policy
                   <ChevronRight size={16} className="ml-1" />
                 </a>
@@ -369,7 +369,7 @@ export default function TermsOfUsePage() {
           <div className="text-center p-6 border-t border-slate-200">
             <div className="flex items-center justify-center mb-3">
               <Clock size={18} className="text-slate-400 mr-2" />
-              <h3 className="text-lg font-medium text-slate-700">Document Version History</h3>
+              <h3 className="text-lg font-medium text-slate-700">Document Version History | v1.0.0</h3>
             </div>
             <p className="text-sm text-slate-500">
               These Terms of Use were last updated on {lastUpdated}. Previous versions can be obtained by contacting us.

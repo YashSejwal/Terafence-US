@@ -555,7 +555,7 @@ export default function ContactForm() {
                     <span className="bg-blue-100 p-1 rounded-full text-blue-600 mr-2 mt-0.5 flex-shrink-0">
                       <AlertCircle className="h-3 w-3" />
                     </span>
-                    Terafence US needs the contact information
+                    Terafence USA Inc. needs the contact information
                     you provide to send you updates about our products and
                     services. You may unsubscribe at any time from these
                     communications.
