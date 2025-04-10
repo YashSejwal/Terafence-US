@@ -21,7 +21,7 @@ type NavLink = {
 
 const NAV_LINKS: NavLink[] = [
   {
-    name: "About",
+    name: "About Us",
     href: "/about",
   },
   {
@@ -141,7 +141,7 @@ const MenuDropdown = ({ link }: { link: NavLink }) => {
   
   if (!link.subMenu) {
     return (
-      <Link href={link.href} className="py-2 text-sm font-medium transition-colors hover:text-primary">
+      <Link href={link.href} className="py-2 text-base font-medium transition-colors hover:text-primary">
         {link.name}
       </Link>
     );
@@ -154,7 +154,7 @@ const MenuDropdown = ({ link }: { link: NavLink }) => {
       onMouseLeave={() => setIsOpen(false)}
     >
       <button
-        className="flex items-center gap-1 py-2 text-sm font-medium transition-colors hover:text-primary"
+        className="flex items-center gap-1 py-2 text-base font-medium transition-colors hover:text-primary"
         onClick={() => setIsOpen(!isOpen)}
       >
         {link.name}
@@ -349,8 +349,8 @@ const Navbar = () => {
               <Image
                 src="/images/terafence.png"
                 alt="Terafence Logo"
-                width={150}
-                height={55}
+                width={180}
+                height={75}
                 priority
                 className="h-auto"
               />
@@ -361,9 +361,9 @@ const Navbar = () => {
               <MenuDropdown key={index} link={link} />
             ))}
           </div>
-          <div className="flex items-center gap-4">
-            <Link href="#" className="hidden lg:block">
-              <Button variant="blue" className="px-6">
+          <div className="flex items-center  gap-4">
+            <Link href="/contact/contact" className="hidden lg:block">
+              <Button variant="blue" className="px-6 text-base">
                 Get Started
               </Button>
             </Link>
