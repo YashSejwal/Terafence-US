@@ -92,7 +92,7 @@ const Footer: React.FC = () => {
                     src="/images/terafence.png"
                     alt="Terafence Logo"
                     width={210}
-                    height={75}
+                    height={80}
                     priority
                     className="drop-shadow-md w-auto h-auto sm:w-[210px]"
                   />
