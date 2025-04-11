@@ -19,6 +19,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Separator } from "@/components/ui/separator";
+import Wrapper from "@/components/global/wrapper";
 
 interface ContainerProps {
   children: React.ReactNode;
@@ -77,7 +78,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="relative w-full bg-gradient-to-r from-sky-200 to-red-200 text-slate-100">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-full xl:max-w-7xl">
+      <Wrapper>
         {/* Main content - balanced padding */}
         <div className="py-5 sm:py-6 md:py-8 lg:py-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-6 lg:gap-8">
@@ -211,7 +212,7 @@ const Footer: React.FC = () => {
             </div>
           </Container>
         </div>
-      </div>
+      </Wrapper>
 
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-rose-500 via-rose-500/50 to-rose-700" />
     </footer>
