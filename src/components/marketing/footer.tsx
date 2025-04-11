@@ -54,22 +54,22 @@ const Footer: React.FC = () => {
 
   const socialLinks = [
     {
-      icon: <Linkedin className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7" />,
+      icon: <Linkedin className="h-5 w-5 sm:h-6 sm:w-6 md:h-6 md:w-6" />,
       href: "https://linkedin.com",
       label: "LinkedIn",
     },
     {
-      icon: <Twitter className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7" />,
+      icon: <Twitter className="h-5 w-5 sm:h-6 sm:w-6 md:h-6 md:w-6" />,
       href: "https://twitter.com",
       label: "Twitter",
     },
     {
-      icon: <Facebook className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7" />,
+      icon: <Facebook className="h-5 w-5 sm:h-6 sm:w-6 md:h-6 md:w-6" />,
       href: "https://facebook.com",
       label: "Facebook",
     },
     {
-      icon: <Instagram className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7" />,
+      icon: <Instagram className="h-5 w-5 sm:h-6 sm:w-6 md:h-6 md:w-6" />,
       href: "https://instagram.com",
       label: "Instagram",
     },
@@ -78,11 +78,11 @@ const Footer: React.FC = () => {
   return (
     <footer className="relative w-full bg-gradient-to-r from-sky-200 to-red-200 text-slate-100">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-full xl:max-w-7xl">
-        <div className="py-6 sm:py-8 md:py-10 lg:py-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 lg:gap-6">
-            {/* Company Info */}
+        {/* Main content - balanced padding */}
+        <div className="py-5 sm:py-6 md:py-8 lg:py-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-6 lg:gap-8">
             <Container className="md:col-span-6 lg:col-span-6 flex flex-col">
-              <div className="flex items-center h-8 sm:h-10 mb-3 sm:mb-4">
+              <div className="flex items-center h-8 sm:h-10 mb-3">
                 <Link
                   href="/"
                   className="flex items-center transform hover:scale-105 transition-transform"
@@ -105,7 +105,7 @@ const Footer: React.FC = () => {
                 barriers against digital threats.
               </p>
 
-              <div className="flex flex-wrap items-center space-x-2 sm:space-x-3 md:space-x-4 mt-4">
+              <div className="flex flex-wrap items-center space-x-2 sm:space-x-3 mt-4">
                 {socialLinks.map((link, index) => (
                   <TooltipProvider key={index}>
                     <Tooltip>
@@ -114,15 +114,13 @@ const Footer: React.FC = () => {
                           href={link.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-zinc-800 hover:bg-sky-950 p-2 sm:p-2.5 md:p-3 rounded-full transition-all duration-300 hover:-translate-y-1 inline-block"
+                          className="bg-zinc-800 hover:bg-sky-950 p-2 sm:p-2.5 rounded-full transition-all duration-300 hover:-translate-y-1 inline-block"
                         >
                           {link.icon}
                         </a>
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p className="text-sm sm:text-base md:text-lg">
-                          {link.label}
-                        </p>
+                        <p className="text-sm sm:text-base">{link.label}</p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
@@ -143,15 +141,15 @@ const Footer: React.FC = () => {
                   Contact
                 </span>
               </h3>
-              <ul className="space-y-3 sm:space-y-4 text-base sm:text-lg">
+              <ul className="space-y-3 text-base sm:text-lg">
                 <li className="flex items-start">
-                  <MapPin className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-[#343591] mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
+                  <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-[#343591] mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
                   <address className="text-slate-700 not-italic text-sm sm:text-base md:text-lg">
                     12788 Royal Oaks Lane, Farmers Branch, Texas 75234
                   </address>
                 </li>
                 <li className="flex items-center">
-                  <Mail className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-[#343591] mr-2 sm:mr-3 flex-shrink-0" />
+                  <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-[#343591] mr-2 sm:mr-3 flex-shrink-0" />
                   <a
                     href="mailto:info@terafence.us"
                     className="text-slate-700 hover:text-slate-900 transition-colors text-sm sm:text-base md:text-lg"
@@ -160,7 +158,7 @@ const Footer: React.FC = () => {
                   </a>
                 </li>
                 <li className="flex items-center">
-                  <Phone className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-[#343591] mr-2 sm:mr-3 flex-shrink-0" />
+                  <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-[#343591] mr-2 sm:mr-3 flex-shrink-0" />
                   <a
                     href="tel:+17325015974"
                     className="text-slate-700 hover:text-slate-900 transition-colors text-sm sm:text-base md:text-lg"
@@ -175,16 +173,17 @@ const Footer: React.FC = () => {
 
         <Separator className="bg-slate-400" />
 
-        <div className="py-4 sm:py-6 md:py-8">
+        {/* Copyright section - balanced padding */}
+        <div className="py-4 sm:py-5">
           <Container
             delay={0.5}
             className="flex flex-col sm:flex-row items-center justify-between gap-4"
           >
-            <p className="text-sm sm:text-base md:text-lg text-slate-900 text-center sm:text-left">
+            <p className="text-sm sm:text-base text-slate-900 text-center sm:text-left">
               &copy; {currentYear} Terafence USA Inc. All rights reserved.
             </p>
 
-            <div className="flex flex-wrap justify-center sm:justify-end items-center gap-3 sm:gap-4 md:gap-6 text-sm sm:text-base md:text-lg text-slate-900">
+            <div className="flex flex-wrap justify-center sm:justify-end items-center gap-3 sm:gap-4 text-sm sm:text-base text-slate-900">
               <Link
                 href="/privacy"
                 className="hover:text-rose-600 transition-colors"
