@@ -84,7 +84,10 @@ const Hero = () => {
                 href="mailto:info@terafence.us"
                 className="flex items-center gap-2 group"
               >
-                <Button size="lg" className="text-sm sm:text-base md:text-lg px-4 sm:px-5 py-2 sm:py-2.5 h-auto bg-[#343591] hover:bg-[#343591]/90 text-white border-none">
+                <Button
+                  size="lg"
+                  className="text-sm sm:text-base md:text-lg px-4 sm:px-5 py-2 sm:py-2.5 h-auto bg-[#343591] hover:bg-[#343591]/90 text-white border-none"
+                >
                   Secure Your Network
                   <ShieldCheckIcon className="size-3 sm:size-4 ml-1 group-hover:scale-110 transition-all duration-300" />
                 </Button>
@@ -93,15 +96,13 @@ const Hero = () => {
           </Container>
 
           {/* Dashboard image */}
-          <Container delay={0.3} className="relative w-full z-0">
+          <Container delay={0.4} className="relative w-full z-0">
             <div className="relative rounded-lg sm:rounded-xl lg:rounded-[32px] border border-border p-1 sm:p-1.5 md:p-2 backdrop-blur-lg mt-4 sm:mt-5 md:mt-6 max-w-[95%] sm:max-w-[90%] md:max-w-5xl lg:max-w-6xl mx-auto">
-              {/* Feature badge */}
-              <div className="absolute top-3 sm:top-5 md:top-8 left-3 sm:left-6 md:left-10 bg-black/80 backdrop-blur-sm px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-md sm:rounded-lg border border-border opacity-90 sm:opacity-100 scale-75 sm:scale-90 md:scale-100 origin-top-left">
-                <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2">
-                  <ShieldCheckIcon className="text-green-500 size-3 sm:size-4 md:size-5" />
-                  <span className="text-white text-xs sm:text-sm md:text-base font-medium">100%</span>
-                  <span className="text-xs sm:text-sm text-white/80 hidden xs:inline">
-                    Unidirectional Protection
+              <div className="absolute top-6 left-[90px] sm:left-[110px] md:left-[70px] z-20">
+                <div className="flex items-center px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-sm border border-gray-700">
+                  <ShieldCheckIcon className="text-green-500 size-3 sm:size-4 md:size-5 mr-2" />
+                  <span className="text-white text-xs sm:text-sm md:text-base font-medium whitespace-nowrap">
+                    100% Unidirectional Data Flow
                   </span>
                 </div>
               </div>

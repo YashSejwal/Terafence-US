@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
-import Wrapper from "../global/wrapper";
 import { Button } from "../ui/button";
 
 type SubLink = {
@@ -129,7 +128,6 @@ const NAV_LINKS: NavLink[] = [
     name: "Downloads",
     href: "/download",
   },
-  
   {
     name: "Contact",
     href: "/contact/contact",
@@ -141,7 +139,7 @@ const MenuDropdown = ({ link }: { link: NavLink }) => {
   
   if (!link.subMenu) {
     return (
-      <Link href={link.href} className="py-2 text-base font-medium transition-colors hover:text-primary">
+      <Link href={link.href} className="py-2 text-sm md:text-xl lg:text-lg font-medium transition-colors hover:text-primary">
         {link.name}
       </Link>
     );
@@ -154,7 +152,7 @@ const MenuDropdown = ({ link }: { link: NavLink }) => {
       onMouseLeave={() => setIsOpen(false)}
     >
       <button
-        className="flex items-center gap-1 py-2 text-base font-medium transition-colors hover:text-primary"
+        className="flex items-center gap-1 py-2 text-sm md:text-xl lg:text-lg font-medium transition-colors hover:text-primary"
         onClick={() => setIsOpen(!isOpen)}
       >
         {link.name}
@@ -174,18 +172,18 @@ const MenuDropdown = ({ link }: { link: NavLink }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
               transition={{ duration: 0.2 }}
-              className="absolute left-0 z-10 mt-2 w-56 rounded-md bg-white p-2 shadow-lg ring-1 ring-black ring-opacity-5"
+              className="absolute left-0 z-10 mt-2 w-64 rounded-md bg-white p-2 shadow-lg ring-1 ring-black ring-opacity-5"
             >
               <div className="py-1">
                 {link.subMenu.map((subLink, idx) => (
                   <Link
                     key={idx}
                     href={subLink.href}
-                    className="block px-4 py-2 text-sm hover:bg-gray-100 rounded-md"
+                    className="block px-4 py-2 text-base hover:bg-gray-100 rounded-md"
                   >
                     <div className="font-medium">{subLink.name}</div>
                     {subLink.description && (
-                      <p className="mt-1 text-xs text-gray-500">
+                      <p className="mt-1 text-sm text-gray-500">
                         {subLink.description}
                       </p>
                     )}
@@ -232,7 +230,7 @@ const MobileMenu = () => {
   }, [isOpen]);
 
   return (
-    <div className="sticky top-0 z-50 w-full border-b bg-background lg:hidden">
+    <div className="flex items-center lg:hidden">
       <button
         id="mobile-menu-button"
         className="flex h-10 w-10 items-center justify-center rounded-md border border-gray-200"
@@ -249,8 +247,8 @@ const MobileMenu = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed left-0 right-0 top-16 z-50 overflow-y-auto bg-white pb-6 shadow-lg"
-            style={{ maxHeight: "calc(100vh - 4rem)" }}
+            className="fixed left-0 right-0 top-20 z-50 overflow-y-auto bg-white pb-6 shadow-lg"
+            style={{ maxHeight: "calc(100vh - 5rem)" }}
           >
             <div className="space-y-1 p-4">
               {NAV_LINKS.map((link, index) => (
@@ -258,7 +256,7 @@ const MobileMenu = () => {
                   {link.subMenu ? (
                     <div>
                       <button
-                        className="flex w-full items-center justify-between py-2 text-sm font-medium"
+                        className="flex w-full items-center justify-between py-2 text-base font-medium"
                         onClick={() =>
                           setOpenSubmenu(
                             openSubmenu === link.name ? null : link.name
@@ -298,7 +296,7 @@ const MobileMenu = () => {
                   ) : (
                     <Link
                       href={link.href}
-                      className="block py-2 text-sm font-medium hover:text-primary"
+                      className="block py-2 text-base font-medium hover:text-primary"
                       onClick={() => setIsOpen(false)}
                     >
                       {link.name}
@@ -309,7 +307,7 @@ const MobileMenu = () => {
               <div className="mt-6 pt-2">
                 <Button
                   variant="blue"
-                  className="w-full"
+                  className="w-full text-base py-3"
                   onClick={() =>
                     (window.location.href = "mailto:info@terafence.us")
                   } 
@@ -338,39 +336,51 @@ const Navbar = () => {
 
   return (
     <header
-      className={`sticky top-0 w-full h-20 bg-background/80 backdrop-blur-sm z-50 transition-all ${
+      className={`sticky top-0 w-full h-16 sm:h-18 md:h-20 bg-background/80 backdrop-blur-sm z-50 transition-all ${
         scrolled ? "shadow-md" : ""
       }`}
     >
-      <Wrapper className="h-full">
+      <div className="container mx-auto px-2 sm:px-4 h-full">
         <div className="flex items-center justify-between h-full">
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <Image
-                src="/images/terafence.png"
-                alt="Terafence Logo"
-                width={210}
-                height={80}
-                priority
-                className="h-auto"
-              />
+           {/* Logo Section - Increased size */}
+           <div className="flex-shrink-0 h-full flex items-center">
+            <Link href="/" className="flex items-center h-full">
+              <div className="h-10 sm:h-12 md:h-14 flex items-center justify-center">
+                <Image
+                  src="/images/terafence.png"
+                  alt="Terafence Logo"
+                  width={300}
+                  height={55}
+                  priority
+                  className="w-auto h-full object-contain"
+                  style={{ maxWidth: "300px" }}
+                />
+              </div>
             </Link>
           </div>
-          <div className="hidden lg:flex items-center gap-6">
+          
+          {/* Navigation Links - Adjusted spacing for better responsiveness */}
+          <div className="hidden lg:flex items-center justify-center space-x-1 xl:space-x-3 2xl:space-x-5 flex-grow mx-2 xl:mx-4">
             {NAV_LINKS.map((link, index) => (
               <MenuDropdown key={index} link={link} />
             ))}
           </div>
-          <div className="flex items-center  gap-4">
+          
+          {/* Right Side - CTA Button & Mobile Menu */}
+          <div className="flex items-center justify-end space-x-2 flex-shrink-0">
             <Link href="/contact/contact" className="hidden lg:block">
-              <Button variant="blue" className="px-6 text-base">
+              <Button 
+                variant="blue" 
+                className="px-3 md:px-4 lg:px-5 py-1.5 md:py-2 text-sm md:text-base font-medium whitespace-nowrap"
+                style={{ backgroundColor: "#4285F4" }}
+              >
                 Get Started
               </Button>
             </Link>
             <MobileMenu />
           </div>
         </div>
-      </Wrapper>
+      </div>
     </header>
   );
 };

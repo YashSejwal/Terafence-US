@@ -10,13 +10,13 @@ import NewsPreview from "@/components/marketing/newspreview";
 
 const HomePage = () => {
     return (
-        <Wrapper className="py-20 relative">
+        <Wrapper className="py-10 relative">
             <Hero />
-            <Info />
             <Features />
             <NewsPreview />
             <Analysis />
             <Integration />
+            <Info />
             <Security />
             <CTA />
         </Wrapper>

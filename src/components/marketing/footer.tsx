@@ -19,7 +19,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Separator } from "@/components/ui/separator";
-import Wrapper from "@/components/global/wrapper";
 
 interface ContainerProps {
   children: React.ReactNode;
@@ -78,28 +77,32 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="relative w-full bg-gradient-to-r from-sky-200 to-red-200 text-slate-100">
-      <Wrapper>
+      <div className="container mx-auto px-2 sm:px-4">
         {/* Main content - balanced padding */}
         <div className="py-5 sm:py-6 md:py-8 lg:py-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-6 lg:gap-8">
-            <Container className="md:col-span-6 lg:col-span-6 flex flex-col">
-              <div className="flex items-center h-8 sm:h-10 mb-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 xl:gap-24">
+            {/* Terafence Logo Column - Left aligned */}
+            <Container className="flex flex-col">
+              <div className="flex items-center mb-3">
                 <Link
                   href="/"
                   className="flex items-center transform hover:scale-105 transition-transform"
                 >
-                  <Image
-                    src="/images/terafence.png"
-                    alt="Terafence Logo"
-                    width={210}
-                    height={80}
-                    priority
-                    className="drop-shadow-md w-auto h-auto sm:w-[210px]"
-                  />
+                  <div className="h-10 sm:h-12 md:h-14 flex items-center justify-center">
+                    <Image
+                      src="/images/terafence.png"
+                      alt="Terafence Logo"
+                      width={300}
+                      height={55}
+                      priority
+                      className="w-auto h-full object-contain"
+                      style={{ maxWidth: "300px" }}
+                    />
+                  </div>
                 </Link>
               </div>
 
-              <p className="text-slate-700 text-base sm:text-lg leading-relaxed">
+              <p className="text-slate-700 text-sm sm:text-base lg:text-lg leading-relaxed max-w-prose">
                 Terafence delivers cutting-edge cybersecurity solutions that
                 protect critical infrastructure and sensitive data across
                 industries. Our award-winning technology creates impenetrable
@@ -129,12 +132,12 @@ const Footer: React.FC = () => {
               </div>
             </Container>
 
-            {/* Contact Info */}
+            {/* Contact Info - Right aligned */}
             <Container
               delay={0.1}
-              className="md:col-span-6 lg:col-span-6 space-y-3 sm:space-y-4"
+              className="space-y-3 sm:space-y-4 md:text-right"
             >
-              <h3 className="text-lg sm:text-xl font-semibold text-slate-900 tracking-wide">
+              <h3 className="text-lg sm:text-xl font-semibold text-slate-900 tracking-wide md:justify-end md:flex">
                 <span
                   className="border-b-2 pb-1"
                   style={{ borderColor: darkBlue }}
@@ -143,26 +146,26 @@ const Footer: React.FC = () => {
                 </span>
               </h3>
               <ul className="space-y-3 text-base sm:text-lg">
-                <li className="flex items-start">
-                  <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-[#343591] mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
-                  <address className="text-slate-700 not-italic text-sm sm:text-base md:text-lg">
+                <li className="flex items-start md:justify-end">
+                  <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-[#343591] mr-2 sm:mr-3 mt-0.5 flex-shrink-0 md:order-2 md:ml-2 md:mr-0" />
+                  <address className="text-slate-700 not-italic text-sm sm:text-base md:text-lg md:order-1">
                     12788 Royal Oaks Lane, Farmers Branch, Texas 75234
                   </address>
                 </li>
-                <li className="flex items-center">
-                  <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-[#343591] mr-2 sm:mr-3 flex-shrink-0" />
+                <li className="flex items-center md:justify-end">
+                  <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-[#343591] mr-2 sm:mr-3 flex-shrink-0 md:order-2 md:ml-2 md:mr-0" />
                   <a
                     href="mailto:info@terafence.us"
-                    className="text-slate-700 hover:text-slate-900 transition-colors text-sm sm:text-base md:text-lg"
+                    className="text-slate-700 hover:text-slate-900 transition-colors text-sm sm:text-base md:text-lg md:order-1"
                   >
                     info@terafence.us
                   </a>
                 </li>
-                <li className="flex items-center">
-                  <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-[#343591] mr-2 sm:mr-3 flex-shrink-0" />
+                <li className="flex items-center md:justify-end">
+                  <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-[#343591] mr-2 sm:mr-3 flex-shrink-0 md:order-2 md:ml-2 md:mr-0" />
                   <a
                     href="tel:+17325015974"
-                    className="text-slate-700 hover:text-slate-900 transition-colors text-sm sm:text-base md:text-lg"
+                    className="text-slate-700 hover:text-slate-900 transition-colors text-sm sm:text-base md:text-lg md:order-1"
                   >
                     +1 (732) 501-5974
                   </a>
@@ -212,7 +215,7 @@ const Footer: React.FC = () => {
             </div>
           </Container>
         </div>
-      </Wrapper>
+      </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-rose-500 via-rose-500/50 to-rose-700" />
     </footer>

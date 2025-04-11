@@ -526,17 +526,17 @@ const Info: React.FC = () => {
   ];
 
   return (
-    <section className="w-full py-16">
+    <section className="w-full py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl md:text-4xl lg:text-7xl font-bold text-center !leading-tight max-w-4xl mx-auto mb-4 text-[#343591]">
-          Our Video Showcase
+          Our Videos
         </h1>
         
         <p className="text-center text-black max-w-3xl mx-auto mb-16 text-xl">
           Explore our innovative solutions through interactive demonstrations.
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 xl:gap-20">
           {videos.map((item, index) => (
             <VideoCard
               key={index}
