@@ -80,9 +80,8 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-2 sm:px-4">
         {/* Main content - balanced padding */}
         <div className="py-5 sm:py-6 md:py-8 lg:py-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 xl:gap-24">
-            {/* Terafence Logo Column - Left aligned */}
-            <Container className="flex flex-col">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+            <Container className="md:col-span-6 flex flex-col">
               <div className="flex items-center mb-3">
                 <Link
                   href="/"
@@ -132,12 +131,11 @@ const Footer: React.FC = () => {
               </div>
             </Container>
 
-            {/* Contact Info - Right aligned */}
             <Container
-              delay={0.1}
-              className="space-y-3 sm:space-y-4 md:text-right"
+              delay={0.3}
+              className="md:col-span-6 space-y-3 sm:space-y-4 md:flex md:flex-col md:items-center"
             >
-              <h3 className="text-lg sm:text-xl font-semibold text-slate-900 tracking-wide md:justify-end md:flex">
+              <h3 className="text-lg sm:text-xl font-semibold text-slate-900 tracking-wide">
                 <span
                   className="border-b-2 pb-1"
                   style={{ borderColor: darkBlue }}
@@ -145,27 +143,27 @@ const Footer: React.FC = () => {
                   Contact
                 </span>
               </h3>
-              <ul className="space-y-3 text-base sm:text-lg">
-                <li className="flex items-start md:justify-end">
-                  <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-[#343591] mr-2 sm:mr-3 mt-0.5 flex-shrink-0 md:order-2 md:ml-2 md:mr-0" />
-                  <address className="text-slate-700 not-italic text-sm sm:text-base md:text-lg md:order-1">
+              <ul className="space-y-3 text-base sm:text-lg w-full md:max-w-md md:ml-auto">
+                <li className="flex items-start">
+                  <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-[#343591] mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
+                  <address className="text-slate-700 not-italic text-sm sm:text-base md:text-lg">
                     12788 Royal Oaks Lane, Farmers Branch, Texas 75234
                   </address>
                 </li>
-                <li className="flex items-center md:justify-end">
-                  <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-[#343591] mr-2 sm:mr-3 flex-shrink-0 md:order-2 md:ml-2 md:mr-0" />
+                <li className="flex items-center">
+                  <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-[#343591] mr-2 sm:mr-3 flex-shrink-0" />
                   <a
                     href="mailto:info@terafence.us"
-                    className="text-slate-700 hover:text-slate-900 transition-colors text-sm sm:text-base md:text-lg md:order-1"
+                    className="text-slate-700 hover:text-slate-900 transition-colors text-sm sm:text-base md:text-lg"
                   >
                     info@terafence.us
                   </a>
                 </li>
-                <li className="flex items-center md:justify-end">
-                  <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-[#343591] mr-2 sm:mr-3 flex-shrink-0 md:order-2 md:ml-2 md:mr-0" />
+                <li className="flex items-center">
+                  <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-[#343591] mr-2 sm:mr-3 flex-shrink-0" />
                   <a
                     href="tel:+17325015974"
-                    className="text-slate-700 hover:text-slate-900 transition-colors text-sm sm:text-base md:text-lg md:order-1"
+                    className="text-slate-700 hover:text-slate-900 transition-colors text-sm sm:text-base md:text-lg"
                   >
                     +1 (732) 501-5974
                   </a>
