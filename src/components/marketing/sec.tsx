@@ -28,7 +28,7 @@ const SecurityCertifications = () => {
       description: "Electromagnetic Interference (EMI) and Electromagnetic Compatibility (EMC) certification ensures our hardware systems operate securely without external interference. This internationally recognized standard is critical for preventing side-channel attacks and maintaining data integrity.",
       verificationLink: "https://emi-emc-standards.org",
       features: ["Data Diode Signal Integrity Protection", "Electromagnetic Shielding for Unidirectional Data Transfer", "Hardware-Based Isolation for Enhanced Security"],
-      year: "2022",
+      // year: "2022",
     },
     {
       id: 2,
@@ -37,7 +37,7 @@ const SecurityCertifications = () => {
       description: "7 Layers is a veteran-owned and operated business specializing in penetration testing, adversary emulation, and security awareness. Their comprehensive evaluation confirms our commitment to protecting your data.",
       verificationLink: "https://verify.7layers.security",
       features: ["Data Diode Penetration Testing", "Air-Gapped Architecture Assessment", "Compliance with One-Way Data Flow Standards"],
-      year: "2022",
+      // year: "2022",
     },
     {
       id: 3,
@@ -46,7 +46,7 @@ const SecurityCertifications = () => {
       description: "Horizon Security has validated our security infrastructure through rigorous testing protocols. Their certification demonstrates our dedication to maintaining a secure environment.",
       verificationLink: "https://horizon-security.com/verify",
       features: ["Data Diode-Based Infrastructure Hardening", "Threat Intelligence for Unidirectional Networks", "Critical System Isolation and Monitoring"],
-      year: "2022",
+      // year: "2022",
     },
     {
       id: 4,
@@ -55,7 +55,7 @@ const SecurityCertifications = () => {
       description: "Security Service Edge (SSE) certification ensures our platform meets stringent security standards, providing robust protection for your data and applications.",
       verificationLink: "https://sse-certification.org",
       features: ["Cloud Integration with Data Diode Technology", "Zero Trust Architecture for Isolated Networks", "Enhanced Data Protection with Hardware Enforced Security"],
-      year: "2022",
+      // year: "2022",
     },
     
   ];
@@ -151,9 +151,9 @@ const SecurityCertifications = () => {
                         className="max-h-full max-w-full object-contain relative z-10 drop-shadow-xl transition-transform duration-700 hover:scale-105"
                       />
                       
-                      <Badge variant="outline" className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm border-primary/20 text-primary">
+                      {/* <Badge variant="outline" className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm border-primary/20 text-primary">
                         {certifications[currentIndex].year}
-                      </Badge>
+                      </Badge> */}
                     </div>
                   </motion.div>
                 </AnimatePresence>

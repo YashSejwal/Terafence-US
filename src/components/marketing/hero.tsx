@@ -81,7 +81,7 @@ const Hero = () => {
           <Container delay={0.25} className="z-20">
             <div className="flex items-center justify-center mt-2 sm:mt-3 md:mt-4 gap-x-4">
               <Link
-                href="mailto:info@terafence.us"
+                href="/contact/contact"
                 className="flex items-center gap-2 group"
               >
                 <Button

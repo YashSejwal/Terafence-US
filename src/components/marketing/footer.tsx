@@ -50,7 +50,7 @@ const Container = ({ children, delay = 0, className = "" }: ContainerProps) => {
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-  const darkBlue = "#0A2463"; // Dark blue color for icons and underlines
+  const darkBlue = "#0A2463";
 
   const socialLinks = [
     {
@@ -117,7 +117,7 @@ const Footer: React.FC = () => {
                           href={link.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-zinc-800 hover:bg-sky-950 p-2 sm:p-2.5 rounded-full transition-all duration-300 hover:-translate-y-1 inline-block"
+                          className="bg-[#343591] hover:bg-sky-950 p-2 sm:p-2.5 rounded-full transition-all duration-300 hover:-translate-y-1 inline-block"
                         >
                           {link.icon}
                         </a>
@@ -140,14 +140,14 @@ const Footer: React.FC = () => {
                   className="border-b-2 pb-1"
                   style={{ borderColor: darkBlue }}
                 >
-                  Contact
+                  USA Office
                 </span>
               </h3>
               <ul className="space-y-3 text-base sm:text-lg w-full md:max-w-md md:ml-auto">
                 <li className="flex items-start">
                   <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-[#343591] mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
                   <address className="text-slate-700 not-italic text-sm sm:text-base md:text-lg">
-                    12788 Royal Oaks Lane, Farmers Branch, Texas 75234
+                    12788, Royal Oaks Lane, Farmers Branch, TX 75234
                   </address>
                 </li>
                 <li className="flex items-center">
@@ -181,11 +181,11 @@ const Footer: React.FC = () => {
             delay={0.5}
             className="flex flex-col sm:flex-row items-center justify-between gap-4"
           >
-            <p className="text-sm sm:text-base text-slate-900 text-center sm:text-left">
+            <p className="text-xs sm:text-xs text-slate-900 text-center sm:text-left">
               &copy; {currentYear} Terafence USA Inc. All rights reserved.
             </p>
 
-            <div className="flex flex-wrap justify-center sm:justify-end items-center gap-3 sm:gap-4 text-sm sm:text-base text-slate-900">
+            <div className="flex flex-wrap justify-center sm:justify-end items-center gap-3 sm:gap-4 text-xs sm:text-xs text-slate-900">
               <Link
                 href="/privacy"
                 className="hover:text-rose-600 transition-colors"
@@ -203,12 +203,6 @@ const Footer: React.FC = () => {
                 className="hover:text-rose-600 transition-colors"
               >
                 Cookie Policy
-              </Link>
-              <Link
-                href="/support"
-                className="hover:text-rose-600 transition-colors"
-              >
-                Support
               </Link>
             </div>
           </Container>

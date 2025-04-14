@@ -305,15 +305,14 @@ const MobileMenu = () => {
                 </div>
               ))}
               <div className="mt-6 pt-2">
+                <Link href="/support">
                 <Button
                   variant="blue"
                   className="w-full text-base py-3"
-                  onClick={() =>
-                    (window.location.href = "mailto:info@terafence.us")
-                  } 
                 >
-                  Get Started
+                  Get Support
                 </Button>
+                </Link>
               </div>
             </div>
           </motion.div>
@@ -368,13 +367,13 @@ const Navbar = () => {
           
           {/* Right Side - CTA Button & Mobile Menu */}
           <div className="flex items-center justify-end space-x-2 flex-shrink-0">
-            <Link href="/contact/contact" className="hidden lg:block">
+            <Link href="/support" className="hidden lg:block">
               <Button 
                 variant="blue" 
                 className="px-3 md:px-4 lg:px-5 py-1.5 md:py-2 text-sm md:text-base font-medium whitespace-nowrap"
-                style={{ backgroundColor: "#4285F4" }}
+                style={{ backgroundColor: "#343591" }}
               >
-                Get Started
+                Get Support
               </Button>
             </Link>
             <MobileMenu />
