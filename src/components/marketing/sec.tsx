@@ -23,15 +23,6 @@ const SecurityCertifications = () => {
   const certifications: Certification[] = [
     {
       id: 1,
-      image: "/images/tassel.png",
-      title: "TASSEL",
-      description: "The Trusted Application Security and Systems Evaluation Laboratory (TASSEL) is a globally recognized authority that conducts rigorous assessments of application security. Their certification validates our system's resilience against sophisticated cyber threats.",
-      verificationLink: "https://tassel-cert.org/verify",
-      features: ["Advanced Data Diode Implementation", "Secure One-Way Data Flow Architecture", "Real-Time Threat Isolation"],
-      year: "2022",
-    },
-    {
-      id: 2,
       image: "/images/emi-emc.png",
       title: "EMI / EMC",
       description: "Electromagnetic Interference (EMI) and Electromagnetic Compatibility (EMC) certification ensures our hardware systems operate securely without external interference. This internationally recognized standard is critical for preventing side-channel attacks and maintaining data integrity.",
@@ -40,7 +31,7 @@ const SecurityCertifications = () => {
       year: "2022",
     },
     {
-      id: 4,
+      id: 2,
       image: "/images/layers.png",
       title: "7 Layers",
       description: "7 Layers is a veteran-owned and operated business specializing in penetration testing, adversary emulation, and security awareness. Their comprehensive evaluation confirms our commitment to protecting your data.",
@@ -49,7 +40,7 @@ const SecurityCertifications = () => {
       year: "2022",
     },
     {
-      id: 5,
+      id: 3,
       image: "/images/horizon.png",
       title: "Horizon Security",
       description: "Horizon Security has validated our security infrastructure through rigorous testing protocols. Their certification demonstrates our dedication to maintaining a secure environment.",
@@ -58,7 +49,7 @@ const SecurityCertifications = () => {
       year: "2022",
     },
     {
-      id: 3,
+      id: 4,
       image: "/images/sse.png",
       title: "SSE",
       description: "Security Service Edge (SSE) certification ensures our platform meets stringent security standards, providing robust protection for your data and applications.",
