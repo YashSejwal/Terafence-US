@@ -99,7 +99,7 @@ export default function MapAddress() {
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
                 <a
-                  href="https://www.google.com/maps/place/Terafence+Private+Limited/@28.4082002,77.0703458,21z/data=!4m6!3m5!1s0x390d23d44fbfa2cf:0x7ca41bccd7a459b7!8m2!3d28.4082002!4d77.0703458!16s%2Fg%2F11v0b_jl0g?entry=ttu"
+                  href="https://maps.app.goo.gl/nzGhHFTKYkZdKxJb9"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2"

@@ -413,7 +413,7 @@ export default function UseCases() {
                         transition={{ duration: 0.6, delay: 0.7 }}
                         viewport={{ once: true }}
                       >
-                        <a href="mailto:info@terafence.in">
+                        <a href="mailto:info@terafence.us">
                           <Button
                             className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-6 rounded-xl text-base font-medium shadow-lg shadow-blue-900/20 hover:shadow-blue-700/30 transition-all duration-300"
                             size="lg"
@@ -421,7 +421,7 @@ export default function UseCases() {
                             Talk To An Expert
                           </Button>
                         </a>
-                        <a href="mailto:info@terafence.in">
+                        <a href="mailto:info@terafence.us">
                           <Button
                             variant="outline"
                             className="border-blue-500 text-blue-600 hover:bg-blue-100 px-8 py-6 rounded-xl text-base font-medium transition-all duration-300"
