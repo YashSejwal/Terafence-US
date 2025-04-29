@@ -47,25 +47,25 @@ export default function Hero() {
         }}
       ></motion.div>
 
-      <div className="max-w-4xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10">
         <motion.h1
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight"
         >
-          How can we help you?
+          How can we assist you?
         </motion.h1>
         <motion.p
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-blue-100 text-lg md:text-xl max-w-3xl mx-auto font-light"
+          className="text-blue-100 text-xl md:text-2xl max-w-6xl mx-auto font-light"
         >
-          Our team is always ready to assist. To best serve you, please
-          provide as much information as possible. Upon inquiry, your
-          request will be directed to the appropriate market specialist for
-          a quick response.
+          Our team is here to help. To ensure a prompt and accurate response,
+          please provide as much detail as possible when submitting your
+          request. We’ll route your inquiry to the right expert and get back to
+          you
         </motion.p>
       </div>
     </motion.section>

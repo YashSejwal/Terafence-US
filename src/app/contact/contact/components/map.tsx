@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Building, MapPin, Mail, Clock, ExternalLink } from "lucide-react";
+import { Building, MapPin, Mail, Phone, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function MapAddress() {
@@ -85,11 +85,11 @@ export default function MapAddress() {
 
               <div className="flex items-center gap-4">
                 <div className="bg-blue-100 p-2 rounded-full text-blue-600">
-                  <Clock className="h-5 w-5" />
+                  <Phone className="h-5 w-5" />
                 </div>
                 <p>
-                  <span className="font-medium">Timings: </span>
-                  09 AM to 06 PM (Monday to Friday)
+                  <span className="font-medium">Phone number: </span>
+                  +1 (732) 501-5974
                 </p>
               </div>
 
