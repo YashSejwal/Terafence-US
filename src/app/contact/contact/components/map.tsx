@@ -88,7 +88,7 @@ export default function MapAddress() {
                   <Phone className="h-5 w-5" />
                 </div>
                 <p>
-                  <span className="font-medium">Phone number: </span>
+                  <span className="font-medium">Phone : </span>
                   +1 (732) 501-5974
                 </p>
               </div>

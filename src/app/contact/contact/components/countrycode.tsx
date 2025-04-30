@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Check, ChevronDown, ChevronUp, Search } from "lucide-react";
+import { Check, ChevronDown, Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 // Define country data interface
 interface CountryData {
@@ -240,6 +241,25 @@ const countries: CountryData[] = [
   { code: "ZW", name: "Zimbabwe", dialCode: "+263" }
 ];
 
+// Flag component using Next.js Image for better optimization
+const CountryFlag = ({ countryCode }: { countryCode: string }) => {
+  // Use SVG flags from flagcdn for high resolution
+  const flagUrl = `https://flagcdn.com/${countryCode.toLowerCase()}.svg`;
+  
+  return (
+    <div className="w-8 h-6 mr-3 overflow-hidden flex-shrink-0 rounded-sm border border-gray-100 shadow-sm">
+      <Image 
+        src={flagUrl} 
+        alt={`Flag of ${countryCode}`} 
+        width={32}
+        height={24}
+        className="w-full h-full object-cover"
+        priority
+      />
+    </div>
+  );
+};
+
 interface CountryCodeProps {
   value?: string;
   onChange: (value: string) => void;
@@ -253,9 +273,8 @@ const CountryCode: React.FC<CountryCodeProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCountry, setSelectedCountry] = useState<CountryData>(
-    countries.find((country) => country.dialCode === value) || countries[0]
-  );
+  const [hasSelection, setHasSelection] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState<CountryData | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
@@ -264,6 +283,7 @@ const CountryCode: React.FC<CountryCodeProps> = ({
     const country = countries.find((c) => c.dialCode === value);
     if (country) {
       setSelectedCountry(country);
+      setHasSelection(true);
     }
   }, [value]);
 
@@ -300,6 +320,7 @@ const CountryCode: React.FC<CountryCodeProps> = ({
 
   const handleCountrySelect = (country: CountryData) => {
     setSelectedCountry(country);
+    setHasSelection(true);
     onChange(country.dialCode);
     setIsOpen(false);
   };
@@ -311,6 +332,37 @@ const CountryCode: React.FC<CountryCodeProps> = ({
       setIsOpen(false);
     }
   };
+
+  // Function to find exact country by dialCode (handling the +1 case properly)
+  const findExactCountry = (dialCode: string, code?: string): CountryData | null => {
+    // If we have a specific country code, use that first
+    if (code) {
+      const exactMatch = countries.find(c => c.code === code && c.dialCode === dialCode);
+      if (exactMatch) return exactMatch;
+    }
+    
+    // For dial code +1 (US and Canada), we should handle specially
+    if (dialCode === "+1") {
+      // If code is provided and matches Canada, return Canada
+      if (code === "CA") {
+        return countries.find(c => c.code === "CA") || null;
+      }
+      // Otherwise default to US
+      return countries.find(c => c.code === "US") || null;
+    }
+    
+    // For all other dial codes, just find the first match
+    return countries.find(c => c.dialCode === dialCode) || null;
+  };
+
+  // Initialize with proper country
+  useEffect(() => {
+    const country = findExactCountry(value);
+    if (country) {
+      setSelectedCountry(country);
+      setHasSelection(true);
+    }
+  }, [value]);
 
   const filteredCountries = countries.filter((country) => {
     const query = searchQuery.toLowerCase();
@@ -328,24 +380,31 @@ const CountryCode: React.FC<CountryCodeProps> = ({
       aria-label="Country code selector"
     >
       <div
-        className="h-11 px-3 py-2 flex items-center justify-between border border-gray-300 rounded-lg shadow-sm bg-white cursor-pointer hover:border-gray-400 focus:border-blue-400 focus:ring-blue-200 focus:outline-none focus:ring-2"
+        className="h-11 px-3 py-2 flex items-center justify-between border border-gray-300 rounded-lg shadow-sm bg-gray-50 cursor-pointer hover:border-gray-400 focus:border-blue-400 focus:ring-blue-200 focus:outline-none focus:ring-2"
         onClick={toggleDropdown}
         onKeyDown={handleKeyDown}
         tabIndex={0}
         role="button"
         aria-haspopup="listbox"
         aria-expanded={isOpen}
+        style={{
+          backgroundColor: hasSelection ? "white" : "",
+        }}
       >
-        <div className="flex items-center w-full">
-          <span className="font-medium text-sm mr-2">{selectedCountry.code}</span>
-          <span className="text-sm font-medium mr-2">{selectedCountry.dialCode}</span>
-          <span className="text-gray-600 text-sm truncate">
-            {selectedCountry.name}
-          </span>
-        </div>
-        <div className="text-gray-400">
-          {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-        </div>
+        {hasSelection && selectedCountry ? (
+          <div className="flex items-center w-full">
+            <CountryFlag countryCode={selectedCountry.code} />
+            <span className="text-gray-600 text-sm truncate flex-1 mr-2">
+              {selectedCountry.name}
+            </span>
+            <span className="text-sm font-medium whitespace-nowrap">{selectedCountry.dialCode}</span>
+          </div>
+        ) : (
+          <div className="flex items-center justify-between w-full">
+            <span className="text-gray-500 text-sm flex-1">Select country</span>
+            <ChevronDown size={16} className="text-gray-400 ml-2" />
+          </div>
+        )}
       </div>
 
       <AnimatePresence>
@@ -380,21 +439,23 @@ const CountryCode: React.FC<CountryCodeProps> = ({
                   <div
                     key={country.code}
                     className={`flex items-center px-3 py-2 hover:bg-blue-50 cursor-pointer ${
-                      selectedCountry.code === country.code
+                      selectedCountry?.code === country.code
                         ? "bg-blue-50"
                         : ""
                     }`}
                     onClick={() => handleCountrySelect(country)}
                     tabIndex={0}
                     role="option"
-                    aria-selected={selectedCountry.code === country.code}
+                    aria-selected={selectedCountry?.code === country.code}
                   >
-                    <div className="w-8 font-medium text-sm">{country.code}</div>
-                    <div className="w-14 text-sm font-medium">{country.dialCode}</div>
-                    <div className="flex-1 text-sm text-gray-600">
+                    <CountryFlag countryCode={country.code} />
+                    <span className="flex-1 text-sm text-gray-600">
                       {country.name}
-                    </div>
-                    {selectedCountry.code === country.code && (
+                    </span>
+                    <span className="text-sm font-medium whitespace-nowrap">
+                      {country.dialCode}
+                    </span>
+                    {selectedCountry?.code === country.code && (
                       <Check size={16} className="ml-2 text-blue-600" />
                     )}
                   </div>

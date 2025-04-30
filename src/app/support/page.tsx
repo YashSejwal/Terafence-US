@@ -24,7 +24,7 @@ export default function SupportPage() {
     name: "",
     email: "",
     company: "",
-    supportType: "technical",
+    supportType: "",
     message: ""
   });
   
@@ -51,7 +51,7 @@ export default function SupportPage() {
         name: "",
         email: "",
         company: "",
-        supportType: "technical",
+        supportType: "",
         message: ""
       });
     }, 5000);
@@ -79,7 +79,7 @@ export default function SupportPage() {
       
       {/* Quick Contact Cards */}
       <div className="container mx-auto px-4 py-8">
-        <div className="grid md:grid-cols-3 gap-6 -mt-12 relative z-20 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 -mt-12 relative z-20 max-w-5xl mx-auto">
           <div className="bg-white rounded-xl shadow-lg p-6 transition-all hover:shadow-xl border border-slate-100">
             <div className="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center mb-4">
               <Headphones size={24} className="text-blue-600" />
@@ -117,9 +117,9 @@ export default function SupportPage() {
       
       {/* Main Support Content */}
       <div className="container mx-auto px-4 py-12 max-w-6xl">
-        <div className="grid lg:grid-cols-5 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           {/* Contact Info Sidebar */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 order-2 lg:order-1">
             <div className="sticky top-8 space-y-8">
               <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-100">
                 <h2 className="text-xl font-bold text-slate-800 mb-5">Contact Details</h2>
@@ -212,7 +212,7 @@ export default function SupportPage() {
           </div>
           
           {/* Contact Form */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 order-1 lg:order-2">
             <div className="bg-white rounded-xl shadow-sm p-8 border border-slate-100">
               <h2 className="text-2xl font-bold text-slate-800 mb-1">Get Support</h2>
               <p className="text-slate-600 mb-6">Fill out the form below and we&lsquo;ll get back to you shortly</p>
@@ -229,7 +229,8 @@ export default function SupportPage() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
+                  {/* Row 1: Full Name and Company Name */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-1">
                         Full Name <span className="text-red-500">*</span>
@@ -246,8 +247,26 @@ export default function SupportPage() {
                       />
                     </div>
                     <div>
+                      <label htmlFor="company" className="block text-sm font-medium text-slate-700 mb-1">
+                        Company Name
+                      </label>
+                      <input
+                        type="text"
+                        id="company"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                        placeholder="Your organization"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Row 2: Company Email and Support Category */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
                       <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1">
-                        Email Address <span className="text-red-500">*</span>
+                        Company Email <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="email"
@@ -260,40 +279,31 @@ export default function SupportPage() {
                         placeholder="you@example.com"
                       />
                     </div>
-                  </div>
-                  
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="company" className="block text-sm font-medium text-slate-700 mb-1">
-                        Company
-                      </label>
-                      <input
-                        type="text"
-                        id="company"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                        placeholder="Your organization"
-                      />
-                    </div>
                     <div>
                       <label htmlFor="supportType" className="block text-sm font-medium text-slate-700 mb-1">
                         Support Category <span className="text-red-500">*</span>
                       </label>
-                      <select
-                        id="supportType"
-                        name="supportType"
-                        required
-                        value={formData.supportType}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none bg-white"
-                      >
-                        <option value="technical">Technical Support</option>
-                        <option value="sales">Sales Inquiry</option>
-                        <option value="product">Product Information</option>
-                        <option value="general">General Inquiry</option>
-                      </select>
+                      <div className="relative">
+                        <select
+                          id="supportType"
+                          name="supportType"
+                          required
+                          value={formData.supportType}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none bg-white text-slate-400"
+                        >
+                          <option value="" className="text-slate-200">Select category</option>
+                          <option value="technical">Technical Support</option>
+                          <option value="sales">Sales Inquiry</option>
+                          <option value="product">Product Information</option>
+                          <option value="general">General Inquiry</option>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+                          <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   

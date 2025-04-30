@@ -17,7 +17,6 @@ export default function Hero() {
       transition={{ duration: 0.8 }}
       className="w-full bg-gradient-to-br from-blue-800 via-blue-700 to-blue-600 py-24 px-4 text-center relative overflow-hidden"
     >
-      <div className="absolute inset-0 bg-[url('/images/grid-pattern.svg')] opacity-10"></div>
       <motion.div
         className="absolute -bottom-16 -left-16 w-64 h-64 bg-blue-500 rounded-full opacity-20"
         animate={{
