@@ -45,7 +45,6 @@ export default function SolutionsPage() {
 function SolutionsHero() {
   return (
     <section className="w-full bg-gradient-to-br from-blue-700 via-indigo-700 to-violet-800 py-16 md:py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/images/grid-pattern.svg')] opacity-10"></div>
       <div className="absolute right-0 top-0 h-64 w-64 bg-yellow-400 rounded-full blur-3xl opacity-20"></div>
       <div className="absolute left-0 bottom-0 h-64 w-64 bg-blue-400 rounded-full blur-3xl opacity-20"></div>
 
@@ -62,7 +61,7 @@ function SolutionsHero() {
               Unidirectional Security Gateway
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-tight tracking-tight">
-              Protecting the US&apos;s <br className="hidden sm:block" />
+              Protecting the <br className="hidden sm:block" />
               <span className="text-yellow-300">Critical Infrastructure</span>
             </h1>
             <p className="text-base md:text-lg text-blue-100 max-w-lg">
@@ -120,7 +119,6 @@ function SolutionsHero() {
 function CybersecurityPhilosophy() {
   return (
     <section className="w-full py-16 md:py-24 bg-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/images/dot-pattern.svg')] opacity-5"></div>
       <Wrapper>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -312,7 +310,6 @@ function SolutionsGrid() {
 
   return (
     <section className="w-full py-16 md:py-24 bg-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/images/circuit-pattern.svg')] opacity-5"></div>
       <Wrapper>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -393,7 +390,6 @@ function TerafencePlatform() {
 
   return (
     <section className="w-full py-16 md:py-24 bg-gradient-to-br from-blue-700 via-indigo-700 to-violet-800 text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/images/wave-pattern.svg')] opacity-10"></div>
       <div className="absolute top-0 right-0 w-64 h-64 bg-blue-400 rounded-full blur-3xl opacity-20"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-violet-400 rounded-full blur-3xl opacity-20"></div>
 
