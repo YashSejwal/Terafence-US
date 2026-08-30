@@ -75,7 +75,6 @@ export default function ProductPage() {
     "1-URP": "/downloads/datasheet/URP.pdf",
     BSG: "/downloads/datasheet/BSG.pdf",
     VSecure: "/downloads/datasheet/VSecure.pdf",
-    "MBSecure+": "/downloads/datasheet/MBSecure+.pdf",
   };
 
   // Transition variants for animations

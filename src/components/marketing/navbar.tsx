@@ -10,6 +10,7 @@ type SubLink = {
   name: string;
   href: string;
   description?: string;
+  children?: SubLink[];
 };
 
 type NavLink = {
@@ -28,6 +29,64 @@ const NAV_LINKS: NavLink[] = [
     href: "/technology",
   },
   {
+    name: "Services",
+    href: "/services",
+    subMenu: [
+      {
+        name: "Advisory & Consulting",
+        href: "/services/advisory",
+        description: "Strategy, migration, transformation & cost optimization",
+        children: [
+          {
+            name: "Data Migration",
+            href: "/services/advisory#data-migration",
+            description: "Seamless, secure data migration across platforms",
+          },
+          {
+            name: "Workplace Experience Consulting",
+            href: "/services/advisory#workplace-experience",
+            description: "Transform digital workplace & employee experience",
+          },
+          {
+            name: "Technology Transformation",
+            href: "/services/advisory#tech-transformation",
+            description: "End-to-end digital transformation strategy",
+          },
+          {
+            name: "Cost Optimization",
+            href: "/services/advisory#cost-optimization",
+            description: "FinOps and IT spend rationalization",
+          },
+        ],
+      },
+      {
+        name: "Cloud Services",
+        href: "/services/cloud",
+        description: "Multi-cloud migration, management & optimization",
+      },
+      {
+        name: "Workplace Services",
+        href: "/services/workplace",
+        description: "Digital workplace, UEM & collaboration solutions",
+      },
+      {
+        name: "Network Services",
+        href: "/services/network",
+        description: "Campus, SD-WAN, DC networking & tactical networks",
+      },
+      {
+        name: "Cybersecurity",
+        href: "/services/cybersecurity",
+        description: "SOC, data diodes, OT security & threat intelligence",
+      },
+      {
+        name: "Service Integration",
+        href: "/services/integration",
+        description: "SIAM, process integration & vendor management",
+      },
+    ],
+  },
+  {
     name: "Features",
     href: "/features",
   },
@@ -36,27 +95,22 @@ const NAV_LINKS: NavLink[] = [
     href: "/products",
     subMenu: [
       {
-        name: "TFG 121",
+        name: "TFG-121",
         href: "/devices",
         description: "File Transfer for Critical Networks",
       },
       {
-        name: "TFG URP",
+        name: "TFG-1URP",
         href: "/devices",
         description: "Galvanic Network Separation",
       },
       {
-        name: "TFG BSG",
+        name: "TFG121-BSG",
         href: "/devices",
         description: "Bi-Directional Secure Gateway",
       },
       {
-        name: "TFG MBSecure+",
-        href: "/devices",
-        description: "Air-Gap Security for SCADA",
-      },
-      {
-        name: "TFG VSecure",
+        name: "TFG-VSecure",
         href: "/devices",
         description: "Air-Gap Protection",
       },

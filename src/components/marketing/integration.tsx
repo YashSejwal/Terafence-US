@@ -117,29 +117,6 @@ const DEVICES: Device[] = [
       },
     ],
   },
-  {
-    image: "/images/devices/mbsecure/image-1.png",
-    name: "MBSecure+",
-    description: "Next-gen security platform for evolving threats",
-    color: "#4CC9F0",
-    features: [
-      {
-        name: "Endpoint Protection",
-        description: "Comprehensive device security",
-        icon: 0,
-      },
-      {
-        name: "Intrusion Prevention",
-        description: "Proactive threat blocking",
-        icon: 1,
-      },
-      {
-        name: "Data Protection",
-        description: "End-to-end data protection",
-        icon: 2,
-      },
-    ],
-  },
 ];
 
 const Integration = () => {

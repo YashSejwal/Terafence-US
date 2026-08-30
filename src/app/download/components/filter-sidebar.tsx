@@ -31,7 +31,7 @@ export default function FilterSidebar({
     "Implementation Guide",
   ]
 
-  const products: Product[] = ["URP", "BSG", "121", "MBSecure+", "VSecure"]
+  const products: Product[] = ["URP", "BSG", "121", "VSecure"]
 
   const hasActiveFilters = selectedTypes.length > 0 || selectedProducts.length > 0
 

@@ -3,3 +3,8 @@ node_modules/
 .env.local
 .vercel
 .vscode
+
+# Local backup artifacts
+*_backup.pdf
+*-old.png
+deploy.sh

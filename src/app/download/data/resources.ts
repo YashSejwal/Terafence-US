@@ -12,15 +12,6 @@ export const resources: Resource[] = [
 }
 ,
   {
-    id: "2",
-    title: "TFG-MBSecure+ Datasheet",
-    description:
-      "This datasheet provides a detailed overview of Terafence's TFG-MBSecure+ solution, highlighting its Air-Gap security, unidirectional data flow, and protocol support to safeguard critical infrastructure against cyber threats.",
-    type: "Datasheet",
-    product: "MBSecure+",
-    downloadUrl: "/downloads/datasheet/MBSecure+.pdf",
-  },
-  {
     id: "3",
     title: "TFG-121 Datasheet",
     description:
@@ -55,15 +46,6 @@ export const resources: Resource[] = [
     type: "Technical Brief",
     product: "URP",
     downloadUrl: "/downloads/techspecs/1urp.pdf",
-  },
-  {
-    id: "14",
-    title: "Oil & Gas Whitepaper",
-    description:
-      "A detailed resource kit for ensuring compliance with regulatory requirements for critical infrastructure protection across various industries using Terafence solutions.",
-    type: "Whitepaper",
-    product: "MBSecure+",
-    downloadUrl: "/downloads/whitepaper/oilgas.pdf",
   },
   {
     id: "15",
@@ -102,15 +84,6 @@ export const resources: Resource[] = [
     downloadUrl: "/downloads/techspecs/bsg.pdf",
   },
   {
-    id: "19",
-    title: "TFG-MBSecure+: Technical Specifications",
-    description:
-      "Detailed technical specifications for TFG-MBSecure+, including hardware requirements, performance metrics, and integration capabilities for real-time OT network monitoring.",
-    type: "Technical Brief",
-    product: "MBSecure+",
-    downloadUrl: "/downloads/techspecs/mbsecure.pdf",
-  },
-  {
     id: "7",
     title: "Critical Vulnerability in Legacy SCADA Protocols",
     description:
@@ -144,15 +117,6 @@ export const resources: Resource[] = [
       "A comprehensive guide for integrating Terafence security solutions with cloud platforms to ensure consistent security across hybrid OT/IT environments.",
     type: "Implementation Guide",
     product: "121",
-    downloadUrl: "#",
-  },
-  {
-    id: "11",
-    title: "Threat Intelligence Integration with Terafence",
-    description:
-      "Learn how to enhance your security posture by integrating threat intelligence feeds with Terafence for proactive threat detection and response in industrial environments.",
-    type: "Technical Brief",
-    product: "MBSecure+",
     downloadUrl: "#",
   },
   {
