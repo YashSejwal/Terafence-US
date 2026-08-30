@@ -49,9 +49,9 @@ export default function ServiceContact({ data }: { data: ServicePageData }) {
               className="px-8 py-6 border-gray-600 text-gray-300 font-semibold rounded-xl hover:bg-gray-800 transition-all duration-300 text-base bg-transparent"
               asChild
             >
-              <a href="mailto:info@terafence.in">
+              <a href="mailto:info@terafence.us">
                 <Mail className="w-5 h-5 mr-2" />
-                info@terafence.in
+                info@terafence.us
               </a>
             </Button>
           </div>

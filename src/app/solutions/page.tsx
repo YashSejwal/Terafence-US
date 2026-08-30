@@ -209,14 +209,14 @@ export default function Solutions() {
                         
                         <div className="flex flex-col sm:flex-row gap-4">
                           <Link
-                            href={`mailto:info@terafence.in`}
+                            href={`mailto:info@terafence.us`}
                             className="flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg hover:shadow-xl"
                           >
                             {tabContents[tabKey].cta.text}
                             <ArrowRight className="ml-2 w-5 h-5" />
                           </Link>
                           <Link
-                            href={`mailto:info@terafence.in`}
+                            href={`mailto:info@terafence.us`}
                             className="flex items-center justify-center px-8 py-4 border-2 border-blue-600 text-blue-700 font-medium rounded-xl hover:bg-blue-50 transition-colors"
                           >
                             Contact Sales
@@ -263,7 +263,7 @@ export default function Solutions() {
             Talk to our security experts today to discover how Terafence&apos;s hardware-enforced security solutions can protect your organization.
           </p>
           <Link
-            href={`mailto:info@terafence.in`}
+            href={`mailto:info@terafence.us`}
             className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-sky-600 to-sky-700 text-white font-medium rounded-xl hover:from-sky-700 hover:to-sky-800 transition-all shadow-lg hover:shadow-xl"
           >
             Schedule a Consultation

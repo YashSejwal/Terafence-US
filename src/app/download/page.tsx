@@ -145,7 +145,7 @@ export default function DownloadPage() {
                   Browse Resources
                 </button>
                 <a
-                  href="mailto:info@terafence.in"
+                  href="mailto:info@terafence.us"
                   className="px-6 py-3 md:px-8 md:py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg font-medium hover:bg-white/15 transition-all duration-300 hover:-translate-y-1 inline-block text-center"
                 >
                   Request Demo
