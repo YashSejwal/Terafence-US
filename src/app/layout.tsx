@@ -1,4 +1,4 @@
-import "@/styleS/globals.css";
+import "@/styles/globals.css";
 import { cn } from "@/lib";
 import { generateMetadata } from "@/utils";
 import { base, heading } from "@/constants";
