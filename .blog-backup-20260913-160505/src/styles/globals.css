@@ -152,24 +152,8 @@ img {
   color: rgb(23, 23, 23);
 }
 
-/* knowledge-vault-styles */
-/* ==================================================================
-   Knowledge Vault — design tokens and print rules.
-   The installer appends this to src/styles/globals.css.
-   ================================================================== */
 
-:root {
-  /* Taken from the Terafence print collateral so the site and the
-     datasheets share one identity. */
-  --v-ink: #0f1435;
-  --v-blue: #293a92;
-  --v-peri: #8fa2ff;
-  --v-alert: #f21a32;
-  --v-mist: #eef0f9;
-  --v-line: #d6dbec;
-  --v-slate: #4a5378;
-}
-
+/* knowledge-vault-styles --------------------------------------- */
 html {
   scroll-padding-top: 6rem;
 }
@@ -189,145 +173,37 @@ html {
   text-wrap: pretty;
 }
 
-.article-body h2,
-.article-body h3 {
+.article-body h2 {
   text-wrap: balance;
 }
 
-/* ==================================================================
-   Print / save-as-PDF
-   This is the fallback download for every article without its own PDF,
-   so it is styled as a document rather than a screenshot of a website.
-   ================================================================== */
 @media print {
-  @page {
-    size: A4;
-    margin: 18mm 16mm 20mm;
-  }
-
-  html,
-  body {
-    background: #fff !important;
-    font-size: 10.5pt;
-    line-height: 1.5;
-  }
-
-  /* Site chrome and reading aids have no meaning on paper. */
   nav,
   footer,
-  aside,
   [role="progressbar"],
-  [aria-label="Table of contents"],
-  [aria-label="More articles"],
   .print-hide {
     display: none !important;
   }
 
-  /* The dark header would drink a cartridge. Invert it. */
-  header {
-    background: #fff !important;
-    color: var(--v-ink) !important;
-    padding: 0 !important;
-    border-bottom: 1.5pt solid var(--v-ink);
-    margin-bottom: 10mm;
-  }
-
-  header * {
-    color: var(--v-ink) !important;
-  }
-
-  header h1 {
-    font-size: 22pt !important;
-    line-height: 1.15 !important;
-  }
-
-  header p {
-    font-size: 11pt !important;
-  }
-
-  /* Download panel, share buttons and the related grid are interactive. */
-  header a[download],
-  header button,
-  header a[href*="linkedin"],
-  header a[href^="mailto"],
-  section a[href="/contact"] {
-    display: none !important;
-  }
-
   .article-body {
-    max-width: none !important;
-  }
-
-  .article-body h2 {
-    font-size: 13pt !important;
-    margin-top: 8mm !important;
-    break-after: avoid;
-  }
-
-  .article-body h3 {
-    font-size: 11.5pt !important;
-    break-after: avoid;
-  }
-
-  .article-body p,
-  .article-body li {
-    orphans: 3;
-    widows: 3;
+    font-size: 11pt;
+    line-height: 1.5;
   }
 
   .article-body section,
-  .article-body figure,
-  .article-body table,
-  .article-body blockquote {
+  .article-body figure {
     break-inside: avoid;
   }
 
-  .article-body figure img {
-    max-height: 85mm;
-    object-fit: contain !important;
+  .article-body a::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #555;
   }
 
-  /* Accordions must be open on paper. */
   details,
   details > div {
     display: block !important;
   }
-
-  details summary span:last-child {
-    display: none !important;
-  }
-
-  /* Spell out link targets, since a reader cannot click paper. */
-  .article-body a[href^="http"]::after {
-    content: " (" attr(href) ")";
-    font-size: 8.5pt;
-    color: #555;
-    word-break: break-all;
-  }
-
-  /* Provenance on every printed copy. */
-  .article-body::after {
-    content: "Terafence · terafence.us · This document was generated from the web article; the online version is authoritative.";
-    display: block;
-    margin-top: 12mm;
-    padding-top: 4mm;
-    border-top: 0.5pt solid var(--v-line);
-    font-size: 8.5pt;
-    color: #666;
-  }
 }
-
-/* The opening paragraph of the first section carries the piece. */
-.lead-section > p:first-child {
-  font-size: 1.2rem;
-  line-height: 1.7;
-  color: var(--v-ink);
-}
-
-@media print {
-  .lead-section > p:first-child {
-    font-size: 11.5pt;
-  }
-}
-
-/* end knowledge-vault-styles */
+/* end knowledge-vault-styles ----------------------------------- */

@@ -24,6 +24,10 @@ const NAV_LINKS: NavLink[] = [
     name: "About Us",
     href: "/about",
   },
+    {
+    name: "Blogs",
+    href: "/blog",
+  },
   {
     name: "Technology",
     href: "/technology",
