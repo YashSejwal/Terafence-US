@@ -2,9 +2,9 @@
 
 import Navbar from "@/components/marketing/navbar";
 import Footer from "@/components/marketing/footer";
-import Hero from "./components/hero";
-import ContactForm from "./components/contactform";
-import MapAddress from "./components/map";
+import Hero from "@/app/contact/components/hero";
+import ContactForm from "@/app/contact/components/contactform";
+import MapAddress from "@/app/contact/components/map";
 
 export default function ContactPage() {
   return (
