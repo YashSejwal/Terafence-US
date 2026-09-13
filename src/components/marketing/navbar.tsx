@@ -188,7 +188,7 @@ const NAV_LINKS: NavLink[] = [
   },
   {
     name: "Contact",
-    href: "/contact/contact",
+    href: "/contact",
   },
 ];
 
