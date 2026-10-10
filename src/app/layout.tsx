@@ -1,4 +1,3 @@
-import SentryChat from "@/components/sentry/sentry-chat";
 import "@/styles/globals.css";
 import { cn } from "@/lib";
 import { generateMetadata } from "@/utils";
@@ -27,7 +26,6 @@ export default function RootLayout({
         <Toaster richColors theme="dark" position="top-right" />
         {children}
       </body>
-      <SentryChat />
       <Analytics />
       <SpeedInsights />
     </html>
