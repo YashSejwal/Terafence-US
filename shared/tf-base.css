@@ -1,0 +1,312 @@
+/* =====================================================================
+   Terafence US - shared styles (navigation, footer, tokens, buttons)
+   Used by option-a.html and option-b.html.
+   EDIT HERE: brand colours, fonts and spacing for the whole site.
+   Only the logo colours are used: indigo #293A92, red #F21A32,
+   black, grey #636772, plus darker/lighter shades of the same hues.
+   ===================================================================== */
+:root {
+  /* Brand (from the Terafence USA logo) */
+  --tf-indigo: #293A92;
+  --tf-red: #F21A32;
+  --tf-grey: #636772;
+  --tf-black: #000000;
+
+  /* Shades derived from the brand indigo */
+  --tf-ink: #04061A;        /* deepest background */
+  --tf-navy: #080D2E;       /* main dark background */
+  --tf-navy-2: #0E1645;     /* raised dark surface */
+  --tf-indigo-hi: #4A5CC4;  /* indigo, lifted for use on dark */
+  --tf-indigo-glow: #7C8BE6;/* glow lines on dark */
+  --tf-mist: #EEF1F9;       /* light technical sections */
+  --tf-mist-2: #DDE2F2;
+  --tf-white: #FFFFFF;
+
+  /* Text */
+  --tf-text-dark-bg: #E8EBF7;
+  --tf-muted-dark-bg: #9CA3C4;
+  --tf-text-light-bg: #0A0F2C;
+  --tf-muted-light-bg: #4D5270;
+
+  /* Lines */
+  --tf-line-dark: rgba(124, 139, 230, 0.18);
+  --tf-line-light: rgba(41, 58, 146, 0.14);
+
+  /* Type */
+  --tf-font-head: "Montserrat", system-ui, sans-serif;
+  --tf-font-body: "Inter", system-ui, sans-serif;
+
+  /* Layout */
+  --tf-max: 1280px;
+  --tf-gutter: clamp(16px, 4vw, 48px);
+  --tf-radius: 4px;
+  --tf-header-h: 76px;
+  --tf-util-h: 34px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--tf-font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--tf-text-dark-bg);
+  background: var(--tf-navy);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3, h4 { font-family: var(--tf-font-head); margin: 0; line-height: 1.12; letter-spacing: -0.01em; }
+p { margin: 0; }
+.tf-wrap { max-width: var(--tf-max); margin: 0 auto; padding: 0 var(--tf-gutter); }
+.tf-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+:focus-visible { outline: 2px solid var(--tf-indigo-glow); outline-offset: 3px; }
+
+/* ---------- Eyebrow / labels ---------- */
+.tf-eyebrow {
+  font-family: var(--tf-font-head);
+  font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--tf-indigo-glow);
+  display: inline-flex; align-items: center; gap: 10px;
+}
+
+/* ---------- Buttons ---------- */
+.tf-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--tf-font-head); font-weight: 600; font-size: 15px;
+  padding: 14px 24px; border-radius: var(--tf-radius);
+  text-decoration: none; cursor: pointer; border: 1px solid transparent;
+  transition: background .2s, color .2s, border-color .2s, transform .2s;
+  white-space: nowrap;
+}
+.tf-btn svg { width: 16px; height: 16px; transition: transform .2s; }
+.tf-btn:hover svg { transform: translateX(3px); }
+/* BUTTON RULE (all pages):
+   - Solid buttons (red "primary", blue "indigo") turn WHITE with blue text and a blue edge on hover.
+   - Outline buttons fill SOLID on hover: on light backgrounds they fill blue with white text ("ghost-dark");
+     on dark backgrounds they fill white with blue text ("ghost").
+   Do not add page-level hover styles for these buttons; change them here so every page stays the same. */
+.tf-btn--primary { background: var(--tf-red); border-color: var(--tf-red); color: #fff; }
+.tf-btn--primary:hover { background: #fff; border-color: var(--tf-indigo); color: var(--tf-indigo); }
+.tf-btn--indigo { background: var(--tf-indigo); border-color: var(--tf-indigo); color: #fff; }
+.tf-btn--indigo:hover { background: #fff; border-color: var(--tf-indigo); color: var(--tf-indigo); }
+.tf-btn--ghost { border-color: rgba(232,235,247,.35); color: var(--tf-text-dark-bg); }
+.tf-btn--ghost:hover { background: #fff; border-color: #fff; color: var(--tf-indigo); }
+.tf-btn--ghost-dark { border-color: rgba(41,58,146,.35); color: var(--tf-indigo); }
+.tf-btn--ghost-dark:hover { background: var(--tf-indigo); border-color: var(--tf-indigo); color: #fff; }
+.tf-link {
+  font-family: var(--tf-font-head); font-weight: 600; font-size: 14px;
+  color: var(--tf-indigo-glow); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+}
+.tf-link svg { width: 14px; height: 14px; transition: transform .2s; }
+.tf-link:hover svg { transform: translateX(3px); }
+
+/* =====================================================================
+   HEADER + BASF-STYLE BLACK MEGA LAYER
+   ===================================================================== */
+.tf-header { position: fixed; inset: 0 0 auto 0; z-index: 100; }
+.tf-util {
+  height: var(--tf-util-h);
+  background: var(--tf-black);
+  font-size: 12.5px; color: #B9BED6;
+  transition: margin-top .3s ease;
+}
+.tf-util .tf-wrap { display: flex; align-items: center; justify-content: flex-end; height: 100%; gap: 24px; }
+.tf-util a { text-decoration: none; color: inherit; }
+.tf-util a:hover { color: #fff; }
+.tf-util__tag { margin-right: auto; font-family: var(--tf-font-head); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; font-size: 11px; color: #8890B5; }
+.tf-util__tag b { color: var(--tf-red); font-weight: 700; }
+
+.tf-bar {
+  height: var(--tf-header-h);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background .3s ease, border-color .3s ease;
+}
+/* No backdrop-filter on the bar: it would stop the drop-down layer from blurring the page behind it. */
+/* At the top of the page the bar sits over the hero photo: a soft dark veil keeps every item readable. */
+.tf-header:not(.is-solid):not(.is-open) .tf-bar { background: linear-gradient(180deg, rgba(4,6,26,.82) 0%, rgba(4,6,26,.55) 100%); }
+.tf-header:not(.is-solid) .tf-nav__trigger { text-shadow: 0 1px 8px rgba(4,6,26,.8); }
+.tf-header .tf-btn--ghost { background: rgba(4,6,26,.45); border-color: rgba(232,235,247,.5); }
+.tf-header .tf-btn--ghost:hover { background: #fff; border-color: #fff; color: var(--tf-indigo); }
+.tf-header.is-solid .tf-bar { background: rgba(4, 6, 26, 0.94); border-bottom-color: var(--tf-line-dark); }
+.tf-header.is-open .tf-bar { background: rgba(0, 0, 0, 0.78); border-bottom-color: rgba(255,255,255,.08); }
+.tf-header.is-scrolled .tf-util { margin-top: calc(var(--tf-util-h) * -1); }
+.tf-bar .tf-wrap { display: flex; align-items: center; height: 100%; gap: 28px; }
+.tf-logo { display: flex; align-items: center; flex: 0 0 auto; }
+.tf-logo img { height: 42px; width: auto; }
+.tf-nav { display: flex; align-items: stretch; height: 100%; margin-left: 12px; }
+.tf-nav__item { position: static; display: flex; }
+.tf-nav__trigger {
+  font-family: var(--tf-font-head); font-weight: 600; font-size: 15px;
+  color: var(--tf-text-dark-bg); background: none; border: 0; cursor: pointer;
+  padding: 0 18px; display: flex; align-items: center; gap: 6px; position: relative;
+}
+.tf-nav__trigger svg { width: 10px; height: 10px; opacity: .6; transition: transform .25s; }
+.tf-nav__trigger::after {
+  content: ""; position: absolute; left: 18px; right: 18px; bottom: 0; height: 2px;
+  background: var(--tf-red); transform: scaleX(0); transform-origin: left; transition: transform .25s ease;
+}
+.tf-nav__item.is-active .tf-nav__trigger::after,
+.tf-nav__trigger:hover::after { transform: scaleX(1); }
+.tf-nav__item.is-active .tf-nav__trigger svg { transform: rotate(180deg); }
+.tf-bar__actions { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+.tf-bar__actions .tf-btn { padding: 11px 18px; font-size: 14px; }
+.tf-burger { display: none; background: none; border: 0; color: #fff; cursor: pointer; padding: 8px; }
+.tf-burger svg { width: 26px; height: 26px; }
+
+/* The black layer (BASF pattern).
+   One shared transparent layer (.tf-megabg) glides open and resizes smoothly between menus;
+   each menu's links (.tf-mega) cross-fade on top of it.
+   EDIT HERE: --tf-mega-bg sets how see-through the layer is (last number: 0 = clear, 1 = solid). */
+:root { --tf-mega-bg: rgba(0, 0, 0, 0.5); --tf-ease: cubic-bezier(.22, 1, .36, 1); }
+.tf-megabg {
+  position: absolute; left: 0; right: 0; top: 100%; height: 0; overflow: hidden;
+  background: var(--tf-mega-bg);
+  -webkit-backdrop-filter: blur(14px) saturate(1.1);
+  backdrop-filter: blur(14px) saturate(1.1);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  opacity: 0; pointer-events: none;
+  transition: height .55s var(--tf-ease), opacity .35s ease;
+}
+.tf-header.is-open .tf-megabg { opacity: 1; }
+.tf-header.is-over-light { --tf-mega-bg: rgba(0, 0, 0, 0.8); }
+.tf-mega {
+  position: absolute; left: 0; right: 0; top: 100%; z-index: 1;
+  opacity: 0; visibility: hidden; transform: translateY(-10px); pointer-events: none;
+  transition: opacity .28s ease, transform .5s var(--tf-ease), visibility 0s linear .28s;
+}
+.tf-nav__item.is-active .tf-mega {
+  opacity: 1; visibility: visible; transform: none; pointer-events: auto;
+  transition: opacity .4s ease .08s, transform .55s var(--tf-ease) .08s, visibility 0s;
+}
+/* links settle in one after another */
+.tf-mega__intro, .tf-mega__col, .tf-mega__feature { opacity: 0; transform: translateY(8px); transition: opacity .35s ease, transform .5s var(--tf-ease); }
+.tf-nav__item.is-active .tf-mega__intro,
+.tf-nav__item.is-active .tf-mega__col,
+.tf-nav__item.is-active .tf-mega__feature { opacity: 1; transform: none; }
+.tf-nav__item.is-active .tf-mega__intro { transition-delay: .10s; }
+.tf-nav__item.is-active .tf-mega__col:nth-child(1) { transition-delay: .14s; }
+.tf-nav__item.is-active .tf-mega__col:nth-child(2) { transition-delay: .18s; }
+.tf-nav__item.is-active .tf-mega__col:nth-child(3) { transition-delay: .22s; }
+.tf-nav__item.is-active .tf-mega__feature { transition-delay: .26s; }
+.tf-mega__intro p, .tf-mega__col a span { text-shadow: 0 1px 2px rgba(0,0,0,.5); }
+.tf-mega__col a strong, .tf-mega__intro h3 { text-shadow: 0 1px 3px rgba(0,0,0,.45); }
+@media (prefers-reduced-motion: reduce) { .tf-megabg, .tf-mega, .tf-mega__intro, .tf-mega__col, .tf-mega__feature { transition: none !important; } }
+.tf-mega__inner { display: grid; grid-template-columns: 300px 1fr; gap: 56px; padding: 44px var(--tf-gutter) 52px; max-width: var(--tf-max); margin: 0 auto; }
+.tf-mega__intro h3 { font-size: 26px; color: #fff; margin-bottom: 12px; }
+.tf-mega__intro p { color: #CDD1E8; font-size: 14.5px; margin-bottom: 22px; }
+.tf-mega__cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 32px; }
+.tf-mega__col h4 {
+  font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #A3AAD4;
+  padding-bottom: 12px; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.tf-mega__col a {
+  display: block; text-decoration: none; padding: 9px 0; color: #E6E8F4;
+  border-bottom: 1px solid transparent;
+}
+.tf-mega__col a strong { display: block; font-family: var(--tf-font-head); font-weight: 600; font-size: 15px; }
+.tf-mega__col a span { display: block; font-size: 13px; color: #B9BEDA; margin-top: 2px; }
+.tf-mega__col a:hover strong { color: #fff; }
+.tf-mega__col a:hover strong::after { content: " \2192"; color: var(--tf-red); }
+/* feature strip (e.g. Pilot): one slim row across the full width under the columns */
+.tf-mega__feature {
+  grid-column: 1 / -1; display: flex; align-items: center; gap: 18px 24px; flex-wrap: wrap;
+  padding: 14px 20px; border-radius: 10px; border: 1px solid rgba(124,139,230,.25);
+  background: linear-gradient(90deg, rgba(41,58,146,.4), rgba(41,58,146,.08));
+}
+.tf-mega__feature small { flex: 0 0 auto; padding: 4px 10px; border-radius: 20px; background: rgba(242,26,50,.14); font-family: var(--tf-font-head); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #FF6B7D; font-weight: 700; }
+.tf-mega__feature p { flex: 1 1 320px; color: #D7DAEC; font-size: 14px; margin: 0; }
+.tf-mega__feature .tf-link { flex: 0 0 auto; white-space: nowrap; }
+@media (max-width: 1320px) {
+  .tf-mega__inner { grid-template-columns: 240px 1fr; gap: 36px; }
+  .tf-mega__cols { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 24px; }
+}
+
+.tf-scrim {
+  position: fixed; inset: 0; background: rgba(2,3,12,.08); z-index: 90;
+  opacity: 0; pointer-events: none; transition: opacity .4s ease;
+}
+.tf-scrim.is-on { opacity: 1; pointer-events: auto; }
+
+/* Mobile menu */
+.tf-mobile {
+  position: fixed; inset: 0; z-index: 120; background: var(--tf-black);
+  transform: translateX(100%); transition: transform .35s ease; overflow-y: auto;
+  padding: 18px var(--tf-gutter) 40px;
+}
+.tf-mobile.is-open { transform: none; }
+.tf-mobile__top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.tf-mobile__top img { height: 30px; }
+.tf-mobile__close { background: none; border: 0; color: #fff; cursor: pointer; padding: 8px; }
+.tf-mobile details { border-bottom: 1px solid rgba(255,255,255,.12); }
+.tf-mobile summary {
+  list-style: none; cursor: pointer; padding: 18px 0; font-family: var(--tf-font-head); font-weight: 600; font-size: 19px; color: #fff;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.tf-mobile summary::-webkit-details-marker { display: none; }
+.tf-mobile summary::after { content: "+"; color: var(--tf-red); font-size: 24px; font-weight: 400; }
+.tf-mobile details[open] summary::after { content: "\2013"; }
+.tf-mobile__group { padding: 0 0 16px; }
+.tf-mobile__group h4 { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #6E76A0; margin: 10px 0 4px; }
+.tf-mobile__group a { display: block; padding: 8px 0; color: #D9DCEE; text-decoration: none; font-size: 15.5px; }
+.tf-mobile__cta { display: grid; gap: 12px; margin-top: 28px; }
+.tf-mobile__cta .tf-btn { justify-content: center; }
+.tf-mobile__util { margin-top: 24px; display: flex; gap: 20px; font-size: 14px; color: #9CA3C4; }
+.tf-mobile__util a { color: inherit; text-decoration: none; }
+
+@media (max-width: 1080px) {
+  .tf-nav, .tf-bar__actions .tf-btn--ghost { display: none; }
+  .tf-burger { display: block; }
+  .tf-bar__actions { gap: 4px; }
+}
+@media (max-width: 560px) {
+  .tf-util__tag { display: none; }
+  .tf-util .tf-wrap { justify-content: center; gap: 18px; }
+  .tf-bar__actions .tf-btn--primary { display: none; }
+  .tf-logo img { height: 34px; }
+}
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+.tf-footer { background: var(--tf-ink); color: #A6ACC9; border-top: 1px solid var(--tf-line-dark); padding: 72px 0 28px; font-size: 14px; }
+.tf-footer__grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 40px; }
+.tf-footer__brand img { height: 34px; margin-bottom: 18px; }
+.tf-footer__brand p { max-width: 300px; margin-bottom: 16px; }
+.tf-footer__slogan { font-family: var(--tf-font-head); font-weight: 700; color: #fff; font-size: 15px; letter-spacing: .02em; }
+.tf-footer__slogan b { color: var(--tf-red); }
+.tf-footer h4 { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #fff; margin-bottom: 16px; }
+.tf-footer ul { list-style: none; padding: 0; margin: 0; }
+.tf-footer li { margin-bottom: 10px; }
+.tf-footer a { text-decoration: none; color: #A6ACC9; }
+.tf-footer a:hover { color: #fff; }
+.tf-footer__base { margin-top: 56px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.08); display: flex; flex-wrap: wrap; gap: 18px; justify-content: space-between; font-size: 13px; color: #6E76A0; }
+.tf-footer__base nav { display: flex; gap: 20px; flex-wrap: wrap; }
+@media (max-width: 900px) { .tf-footer__grid { grid-template-columns: 1fr 1fr; } .tf-footer__brand { grid-column: 1 / -1; } }
+
+/* Placeholder-link notice */
+.tf-toast {
+  position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 20px); z-index: 200;
+  background: #fff; color: var(--tf-text-light-bg); padding: 12px 18px; border-radius: var(--tf-radius);
+  font-size: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.35); opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s;
+  border-left: 3px solid var(--tf-red); max-width: calc(100vw - 32px);
+}
+.tf-toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+
+/* Reveal on scroll */
+.tf-reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+.tf-reveal.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .tf-reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* ADD-IN FAMILY COLOURS (all pages). --fam = on dark backgrounds, --fam-ink = text/icons on light,
+   --fam-soft = light tint, --fam-dim = tint on dark. Taken from Terafence's platform mock. */
+[data-fam="terasecure"]      { --fam: #3E8EDE; --fam-ink: #1F6FC2; --fam-soft: #E8F1FB; --fam-dim: rgba(62,142,222,.2); }
+[data-fam="teraobserve"]     { --fam: #16A99B; --fam-ink: #0E8478; --fam-soft: #E3F5F3; --fam-dim: rgba(22,169,155,.2); }
+[data-fam="teracommunicate"] { --fam: #E08A3C; --fam-ink: #B5641C; --fam-soft: #FBEFE4; --fam-dim: rgba(224,138,60,.2); }
+[data-fam="teraquantum"]     { --fam: #D6537F; --fam-ink: #B83A64; --fam-soft: #FAE8EE; --fam-dim: rgba(214,83,127,.2); }

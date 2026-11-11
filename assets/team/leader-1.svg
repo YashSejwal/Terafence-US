@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 460" role="img" aria-label="Illustrated placeholder portrait"><defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DDE3F6"/><stop offset="1" stop-color="#B9C4EA"/></linearGradient>
+<linearGradient id="sh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(0,0,0,0)"/><stop offset="1" stop-color="rgba(10,15,44,.18)"/></linearGradient>
+</defs>
+<rect width="400" height="460" fill="url(#bg)"/>
+<circle cx="200" cy="170" r="150" fill="#fff" opacity=".28"/>
+<path d="M40 460 C40 360 110 318 200 318 C290 318 360 360 360 460 Z" fill="#1F2A5C"/>
+<path d="M40 460 C40 360 110 318 200 318 C290 318 360 360 360 460 Z" fill="url(#sh)"/>
+<path d="M150 322 L200 392 L250 322 L232 316 L200 340 L168 316 Z" fill="#F4F6FB"/>
+<rect x="178" y="290" width="44" height="40" rx="12" fill="#A06B47"/><path d="M200 346 L190 366 L196 420 L200 428 L204 420 L210 366 Z" fill="#293A92"/><path d="M191 346 L209 346 L204 356 L196 356 Z" fill="#293A92"/><path d="M150 322 L190 392 L172 460 L120 460 Z" fill="rgba(0,0,0,.14)"/><path d="M250 322 L210 392 L228 460 L280 460 Z" fill="rgba(0,0,0,.14)"/>
+<ellipse cx="200" cy="186" rx="64" ry="78" fill="#B9825B"/>
+<ellipse cx="138" cy="192" rx="9" ry="16" fill="#A06B47"/><ellipse cx="262" cy="192" rx="9" ry="16" fill="#A06B47"/>
+<path d="M168 178 Q178 172 188 178" stroke="#2A1A12" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+<path d="M212 178 Q222 172 232 178" stroke="#2A1A12" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+<ellipse cx="178" cy="190" rx="4.6" ry="5.4" fill="#1F130D"/><ellipse cx="222" cy="190" rx="4.6" ry="5.4" fill="#1F130D"/>
+<path d="M200 192 Q196 212 202 216" stroke="#A06B47" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M180 232 Q200 246 220 232" stroke="#7A3B2E" stroke-width="3.6" fill="none" stroke-linecap="round"/><path d="M136 176 C130 120 168 100 202 102 C238 100 270 122 264 176 C256 150 240 138 200 138 C162 138 144 150 136 176 Z" fill="#1B1512"/></svg>

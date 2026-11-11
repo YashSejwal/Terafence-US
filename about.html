@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Terafence USA | FPGA Data Diodes and Unidirectional Gateways</title>
+<meta name="description" content="Terafence designs FPGA-based data diodes and one-way gateways. Founded in 2015, engineered in Israel, built in Taiwan and in service on six continents. Terafence USA Inc. is based in Texas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/tf-base.css">
+<link rel="stylesheet" href="shared/tf-form.css">
+<style>
+/* =====================================================================
+   ABOUT US. Dark carries the statements (hero, principles, leadership);
+   light carries the reading (who we are, where we work, closing call).
+   ===================================================================== */
+/* every in-page jump on this page is animated by hand (see smoothScrollTo below)
+   with its own slow-in, slow-out ease, so the browser's native smooth scroll is
+   turned off here: the two fighting over the same scroll position is what made
+   the old jump look like a stall followed by a sudden snap. */
+html { scroll-behavior: auto; }
+section { position: relative; }
+.a-section { padding: clamp(76px, 8.5vw, 124px) 0; }
+.a-light { background: var(--tf-white); color: var(--tf-text-light-bg); }
+.a-mist { background: var(--tf-mist); color: var(--tf-text-light-bg); }
+.a-light .tf-eyebrow, .a-mist .tf-eyebrow { color: var(--tf-indigo); }
+.a-light .tf-link, .a-mist .tf-link { color: var(--tf-indigo); }
+.a-h2 { font-size: clamp(27px, 3vw, 42px); font-weight: 700; line-height: 1.12; letter-spacing: -0.02em; margin: 16px 0 0; }
+.a-light .a-h2, .a-mist .a-h2 { color: var(--tf-text-light-bg); }
+.a-dark .a-h2 { color: #fff; }
+.a-h2 em { font-style: normal; color: var(--tf-indigo); }
+.a-dark .a-h2 em { color: var(--tf-indigo-glow); }
+
+/* ---------- HERO ---------- */
+.a-hero { background: var(--tf-ink); overflow: hidden; min-height: min(86svh, 780px); display: flex; align-items: center; }
+/* the plant sits on the right and fades into the dark left; everything on it moves very slowly */
+.a-hero__photo { position: absolute; top: 0; right: 0; bottom: 0; width: 56%; overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 34%); mask-image: linear-gradient(90deg, transparent 0%, #000 34%); }
+.a-hero__plant { position: absolute; inset: 0; background: url("assets/about-plant.jpg") 62% 50% / cover no-repeat; transform-origin: 70% 60%; animation: aPlant 36s ease-in-out infinite alternate; will-change: transform; }
+@keyframes aPlant { from { transform: scale(1) translate3d(0, 0, 0); } to { transform: scale(1.08) translate3d(-1.6%, -1%, 0); } }
+.a-hero__lamps { position: absolute; inset: 0; transform-origin: 70% 60%; animation: aPlant 36s ease-in-out infinite alternate; }
+.a-hero__lamps i { position: absolute; width: 11px; height: 11px; margin: -5px 0 0 -5px; border-radius: 50%; opacity: 0;
+  background: radial-gradient(circle, rgba(255,214,140,.95) 0%, rgba(255,190,100,.45) 38%, rgba(255,190,100,0) 70%);
+  animation: aGlint var(--t) ease-in-out var(--d) infinite; }
+@keyframes aGlint { 0%, 100% { opacity: 0; transform: scale(.7); } 50% { opacity: .95; transform: scale(1.5); } }
+.a-hero__haze { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen;
+  background: radial-gradient(60% 40% at 30% 85%, rgba(74,92,196,.28), rgba(74,92,196,0) 70%); animation: aHaze 14s ease-in-out infinite alternate; }
+@keyframes aHaze { from { opacity: .35; transform: translateX(-4%); } to { opacity: .9; transform: translateX(4%); } }
+/* The hero's masked, scaling photo and 34 glinting lamps are costly to keep compositing.
+   Paused the instant you navigate away (see smoothScrollTo in the script below) rather than
+   waiting for it to scroll off screen, since a short jump like "Who we are" spends most of
+   its short animation with the hero still partly in view. */
+.a-hero.is-paused .a-hero__plant, .a-hero.is-paused .a-hero__lamps,
+.a-hero.is-paused .a-hero__lamps i, .a-hero.is-paused .a-hero__haze { animation-play-state: paused; }
+.a-hero::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(90deg, rgba(4,6,26,.9) 0%, rgba(4,6,26,.55) 38%, rgba(4,6,26,0) 62%), linear-gradient(0deg, rgba(4,6,26,.85) 0%, rgba(4,6,26,0) 26%); }
+.a-hero__inner { position: relative; z-index: 2; width: 100%; padding-top: calc(var(--tf-header-h) + var(--tf-util-h) + 36px); padding-bottom: 150px; }
+.a-hero__copy { max-width: 640px; }
+.a-hero h1 { font-size: clamp(34px, 4.3vw, 60px); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; color: #fff; margin: 20px 0 22px; }
+.a-hero h1 em { font-style: normal; color: var(--tf-indigo-glow); }
+.a-hero__lead { font-size: clamp(16px, 1.45vw, 19px); line-height: 1.65; color: #BFC5E2; max-width: 600px; }
+.a-hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.a-hero__strip { position: absolute; z-index: 2; left: 0; right: 0; bottom: 34px; }
+.a-hero__strip .tf-wrap { display: flex; flex-wrap: wrap; gap: 10px 0; }
+.a-hero__strip span { font-size: 13.5px; color: #C9CDE6; padding: 14px 26px 0; border-top: 1px solid rgba(124,139,230,.3); }
+.a-hero__strip span:first-child { padding-left: 0; }
+.a-hero__strip span + span { border-left: 1px solid rgba(124,139,230,.35); }
+
+/* ---------- ANCHOR BAR ---------- */
+.a-anchor { position: sticky; top: var(--tf-header-h); z-index: 60; background: #fff; border-bottom: 1px solid var(--tf-line-light); }
+.a-anchor .tf-wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 56px; }
+.a-anchor nav { display: flex; gap: clamp(18px, 3vw, 40px); overflow-x: auto; scrollbar-width: none; }
+.a-anchor nav::-webkit-scrollbar { display: none; }
+.a-anchor nav a { position: relative; white-space: nowrap; text-decoration: none; padding: 19px 0; font-family: var(--tf-font-head); font-size: 13.5px; font-weight: 500; color: var(--tf-muted-light-bg); transition: color .3s; }
+.a-anchor nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--tf-indigo); transform: scaleX(0); transform-origin: left; transition: transform .45s var(--tf-ease); }
+.a-anchor nav a:hover { color: var(--tf-text-light-bg); }
+.a-anchor nav a.is-on { color: var(--tf-red); }
+.a-anchor nav a.is-on::after { transform: scaleX(1); }
+.a-anchor .tf-btn { padding: 9px 16px; font-size: 13.5px; white-space: nowrap; }
+section[id] { scroll-margin-top: 150px; }
+
+/* ---------- WHO WE ARE: a short story read by scrolling ----------
+   The chapter in the middle of the screen lights up, the rail fills to it,
+   and the panel on the left shows that chapter's figure. */
+.a-story { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(40px, 6vw, 104px); align-items: start; }
+.a-story__aside { position: sticky; top: 150px; }
+/* during a click-triggered glide the panel rides with the page instead of pinning
+   (see smoothScrollTo); otherwise it freezes and releases in the slow last stretch */
+.a-story__aside.is-riding { position: relative; top: 0; }
+/* set for one frame when a glide starts, so unplayed entrance effects finish instantly
+   instead of sliding content into place while the page is still moving */
+.a-instant .tf-reveal, .a-instant .a-fig, .a-instant .a-figs::before,
+.a-instant .a-route::after, .a-instant .a-idea::after, .a-instant .a-flag { transition: none !important; }
+.a-dial { position: relative; overflow: hidden; margin-top: clamp(28px, 3vw, 40px); padding: 24px 28px 22px; border-radius: 10px; color: #fff;
+  background: radial-gradient(125% 130% at 0% 0%, #26358C 0%, #121B57 52%, var(--tf-ink) 100%); box-shadow: 0 28px 56px rgba(10,15,44,.2); }
+.a-dial::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: linear-gradient(rgba(124,139,230,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(124,139,230,.08) 1px, transparent 1px); background-size: 34px 34px; }
+.a-dial::after { content: ""; position: absolute; right: -80px; top: -80px; width: 240px; height: 240px; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, rgba(124,139,230,.35), rgba(124,139,230,0) 70%); transition: transform 1.2s var(--tf-ease); transform: translate(var(--gx, 0), var(--gy, 0)); }
+.a-dial > * { position: relative; z-index: 1; }
+.a-dial__top { display: flex; justify-content: space-between; gap: 16px; font-family: var(--tf-font-head); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--tf-indigo-glow); }
+.a-dial__top b { color: #fff; font-weight: 700; }
+.a-dial__top [data-dial-k] { transition: opacity .3s; }
+.a-dial__figs { position: relative; height: clamp(134px, 11.4vw, 156px); margin-top: 18px; }
+.a-dial__item { position: absolute; inset: 0; opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .8s var(--tf-ease); pointer-events: none; }
+.a-dial__item.is-on { opacity: 1; transform: none; }
+.a-dial__item strong { display: block; font-family: var(--tf-font-head); font-size: clamp(58px, 6.2vw, 92px); font-weight: 300; line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums lining-nums; }
+.a-dial__item span { display: block; margin-top: 16px; max-width: 34ch; font-size: 15px; line-height: 1.6; color: #C3C9E6; }
+.a-dial__bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 14px; }
+.a-dial__bar button { position: relative; height: 18px; padding: 0; border: 0; background: none; cursor: pointer; }
+.a-dial__bar button::after { content: ""; position: absolute; left: 0; right: 0; top: 8px; height: 2px; border-radius: 2px; background: rgba(255,255,255,.18); transition: background .4s; }
+.a-dial__bar button.is-done::after { background: rgba(124,139,230,.6); }
+.a-dial__bar button.is-on::after { background: #fff; }
+.a-dial__bar button:hover::after { background: rgba(255,255,255,.55); }
+
+.a-story__list { position: relative; list-style: none; margin: 0; padding: 0 0 0 40px; }
+.a-story__list::before, .a-story__list::after { content: ""; position: absolute; left: 6px; top: 8px; width: 2px; border-radius: 2px; }
+.a-story__list::before { bottom: 8px; background: var(--tf-line-light); }
+.a-story__list::after { height: var(--p, 0px); background: linear-gradient(180deg, rgba(41,58,146,.35), var(--tf-indigo)); transition: height .8s var(--tf-ease); }
+.a-ch { position: relative; display: grid; grid-template-columns: 48px 1fr; gap: 6px; padding: clamp(26px, 3vw, 40px) 0; border-bottom: 1px solid var(--tf-line-light);
+  opacity: .5; transition: opacity .55s ease; outline: none; }
+.a-ch:first-child { padding-top: 0; }
+.a-ch:last-child { border-bottom: 0; padding-bottom: 0; }
+.a-ch::before { content: ""; position: absolute; left: -40px; top: calc(clamp(26px, 3vw, 40px) + 3px); width: 14px; height: 14px; border-radius: 50%; box-sizing: border-box;
+  background: #fff; border: 2px solid var(--tf-mist-2); transition: border-color .4s, background .4s, box-shadow .5s; }
+.a-ch:first-child::before { top: 3px; }
+.a-ch.is-on { opacity: 1; }
+.a-ch.is-on::before { border-color: var(--tf-indigo); background: var(--tf-indigo); box-shadow: 0 0 0 6px rgba(41,58,146,.12); }
+.a-ch:focus-visible .a-ch__body h3 { text-decoration: underline; text-decoration-color: var(--tf-indigo); text-underline-offset: 6px; }
+.a-ch__n { font-family: var(--tf-font-head); font-size: 13px; font-weight: 600; letter-spacing: .1em; color: var(--tf-indigo); padding-top: 2px; }
+.a-ch__body small { display: block; font-family: var(--tf-font-head); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--tf-muted-light-bg); }
+.a-ch__body h3 { margin: 10px 0 12px; font-size: clamp(21px, 2.1vw, 28px); font-weight: 700; line-height: 1.22; letter-spacing: -0.015em; color: var(--tf-text-light-bg); }
+.a-ch__body p { max-width: 56ch; font-size: 16.5px; line-height: 1.75; color: var(--tf-muted-light-bg); }
+.a-ch__links { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 22px; }
+.a-figs { position: relative; display: grid; grid-template-columns: repeat(6, 1fr); margin-top: clamp(52px, 6vw, 84px); padding: 30px 0 4px; }
+.a-figs::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: var(--tf-line-light); transform: scaleX(0); transform-origin: left; transition: transform 1.2s var(--tf-ease); }
+.a-figs.is-in::before { transform: scaleX(1); }
+.a-fig { position: relative; padding: 0 24px; opacity: 0; transform: translateY(10px); transition: opacity .8s ease, transform .9s var(--tf-ease); }
+.a-fig:first-child { padding-left: 0; }
+.a-fig + .a-fig::before { content: ""; position: absolute; left: 0; top: 6px; height: 44px; width: 1px; background: var(--tf-line-light); }
+.a-figs.is-in .a-fig { opacity: 1; transform: none; }
+.a-figs.is-in .a-fig:nth-child(2) { transition-delay: .08s; } .a-figs.is-in .a-fig:nth-child(3) { transition-delay: .16s; }
+.a-figs.is-in .a-fig:nth-child(4) { transition-delay: .24s; } .a-figs.is-in .a-fig:nth-child(5) { transition-delay: .32s; }
+.a-figs.is-in .a-fig:nth-child(6) { transition-delay: .40s; }
+.a-fig strong { display: block; font-family: var(--tf-font-head); font-size: clamp(30px, 2.9vw, 42px); font-weight: 300; color: var(--tf-indigo); line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums lining-nums; }
+.a-fig span { display: block; margin-top: 12px; font-size: 12.5px; color: var(--tf-muted-light-bg); line-height: 1.5; max-width: 170px; }
+.a-fig--zero strong { color: var(--tf-red); }
+
+/* ---------- HOW WE THINK (dark) ---------- */
+.a-think { background: linear-gradient(180deg, var(--tf-navy), var(--tf-ink)); overflow: hidden; }
+.a-think::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: linear-gradient(rgba(124,139,230,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(124,139,230,.045) 1px, transparent 1px); background-size: 54px 54px; }
+.a-think::after { content: ""; position: absolute; left: 50%; top: -20%; width: 120%; height: 70%; transform: translateX(-50%); pointer-events: none;
+  background: radial-gradient(ellipse 45% 50% at 50% 50%, rgba(41,58,146,.5), rgba(41,58,146,0) 70%); }
+.a-think .tf-wrap { position: relative; z-index: 1; }
+.a-think__head { max-width: 760px; margin-bottom: clamp(46px, 5.4vw, 78px); }
+.a-think__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(26px, 3.4vw, 56px); }
+.a-idea { position: relative; padding-top: 30px; }
+.a-idea::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: var(--tf-line-dark); }
+.a-idea::after { content: ""; position: absolute; left: 0; top: 0; height: 1px; width: 100%; background: var(--tf-indigo-glow); transform: scaleX(0); transform-origin: left; transition: transform 1.3s var(--tf-ease); }
+.a-idea.is-in::after { transform: scaleX(.34); }
+.a-idea:hover::after { transform: scaleX(1); transition-duration: .8s; }
+.a-idea__n { font-family: var(--tf-font-head); font-size: clamp(40px, 4.4vw, 64px); font-weight: 200; line-height: 1; letter-spacing: -0.03em; color: rgba(124,139,230,.5); }
+.a-idea h3 { font-size: clamp(20px, 2vw, 26px); font-weight: 700; line-height: 1.22; letter-spacing: -0.015em; color: #fff; margin: 20px 0 14px; }
+.a-idea p { font-size: 15.5px; line-height: 1.75; color: var(--tf-muted-dark-bg); }
+.a-think__foot { margin-top: clamp(40px, 4.6vw, 64px); }
+
+/* ---------- WHERE WE WORK ---------- */
+.a-where__head { max-width: 800px; margin-bottom: clamp(46px, 5vw, 70px); }
+.a-where__head p { margin-top: 18px; font-size: 16.5px; line-height: 1.75; color: var(--tf-muted-light-bg); max-width: 640px; }
+.a-route { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(18px, 2.4vw, 40px); }
+.a-route::before { content: ""; position: absolute; left: 7px; right: 0; top: 7px; height: 1px; background: var(--tf-line-light); }
+.a-route::after { content: ""; position: absolute; left: 7px; top: 7px; height: 1px; width: calc(100% - 7px);
+  background: linear-gradient(90deg, var(--tf-indigo), rgba(41,58,146,.15)); transform: scaleX(0); transform-origin: left; transition: transform 1.6s var(--tf-ease); }
+.a-route.is-in::after { transform: scaleX(1); }
+.a-stop { position: relative; padding-top: 38px; }
+.a-flag { position: absolute; left: -7px; top: -36px; width: 28px; height: 19px; border-radius: 3px; overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(41,58,146,.14), 0 3px 8px rgba(10,15,44,.12); opacity: .82; filter: saturate(.75);
+  transform: translateY(4px); transition: opacity .45s ease, filter .45s ease, transform .5s var(--tf-ease); }
+.a-flag svg { display: block; width: 100%; height: 100%; }
+.a-route.is-in .a-flag { transform: none; }
+.a-stop:hover .a-flag { opacity: 1; filter: none; transform: translateY(-2px); }
+.a-route { margin-top: 44px; }
+
+.a-stop::before { content: ""; position: absolute; left: 0; top: 0; width: 15px; height: 15px; border-radius: 50%; background: #fff; border: 2px solid var(--tf-indigo); }
+.a-stop--us::before { background: var(--tf-red); border-color: var(--tf-red); box-shadow: 0 0 0 6px rgba(242,26,50,.14); }
+.a-stop small { font-family: var(--tf-font-head); font-size: 10.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--tf-indigo); }
+.a-stop--us small { color: var(--tf-red); }
+.a-stop h3 { font-size: clamp(18px, 1.8vw, 23px); font-weight: 700; letter-spacing: -0.01em; color: var(--tf-text-light-bg); margin: 10px 0 10px; }
+.a-stop p { font-size: 14.5px; line-height: 1.7; color: var(--tf-muted-light-bg); max-width: 30ch; }
+
+.a-office { position: relative; overflow: hidden; display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(26px, 4vw, 64px); align-items: center;
+  margin-top: clamp(52px, 6vw, 84px); padding: clamp(28px, 3.6vw, 52px); border-radius: 8px;
+  background: radial-gradient(125% 130% at 10% 0%, #1B2769 0%, #0E1645 50%, var(--tf-ink) 100%); box-shadow: 0 26px 54px rgba(10,15,44,.22); }
+.a-office::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: linear-gradient(rgba(124,139,230,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(124,139,230,.06) 1px, transparent 1px); background-size: 36px 36px; }
+.a-office > * { position: relative; }
+.a-office small { font-family: var(--tf-font-head); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--tf-indigo-glow); }
+.a-office h3 { font-size: clamp(22px, 2.3vw, 30px); font-weight: 700; letter-spacing: -0.015em; color: #fff; margin: 12px 0 14px; }
+.a-office address { font-style: normal; font-size: 15.5px; line-height: 1.75; color: #BFC5E2; }
+.a-office address a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.3); }
+.a-office address a:hover { border-color: #fff; }
+.a-office__cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-start; }
+.a-office__note { grid-column: 1 / -1; margin-top: -6px; font-size: 12.5px; color: #8F97BE; }
+
+/* ---------- LEADERSHIP (light) ---------- */
+.a-lead__head { margin-bottom: clamp(28px, 3vw, 40px); }
+.a-team { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px, 1.8vw, 26px); }
+.a-person { position: relative; display: flex; flex-direction: column; text-align: left; padding: 0; color: inherit; font: inherit; cursor: pointer;
+  background: #fff; border: 1px solid var(--tf-line-light); border-radius: 8px; overflow: hidden;
+  transition: border-color .4s, transform .55s var(--tf-ease), box-shadow .55s var(--tf-ease); }
+.a-person:hover { border-color: rgba(41,58,146,.28); transform: translateY(-5px); box-shadow: 0 22px 44px rgba(41,58,146,.14); }
+.a-person__ph { position: relative; isolation: isolate; aspect-ratio: 4 / 3.15; overflow: hidden; display: grid; place-items: center;
+  background: radial-gradient(120% 100% at 50% 0%, #E6EAF8 0%, #CBD3EE 100%); }
+.a-person__ph::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(41,58,146,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(41,58,146,.07) 1px, transparent 1px); background-size: 28px 28px; }
+.a-person__ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 14%; transition: filter .7s ease, transform 1.1s var(--tf-ease); }
+.a-person__ph.has-img img { filter: grayscale(1) contrast(1.1) brightness(.9); }
+.a-person__ph.has-img::after { content: ""; position: absolute; inset: 0; background: var(--tf-indigo); mix-blend-mode: color; transition: opacity .7s ease; }
+.a-person:hover .a-person__ph img { transform: scale(1.04); }
+.a-person:hover .a-person__ph.has-img img { filter: none; }
+.a-person:hover .a-person__ph.has-img::after { opacity: 0; }
+.a-person__mono { position: relative; font-family: var(--tf-font-head); font-size: clamp(44px, 5vw, 68px); font-weight: 200; letter-spacing: -0.02em; color: rgba(41,58,146,.55); }
+.a-person__sil { position: relative; width: 46%; color: rgba(41,58,146,.28); }
+.a-person__body { display: flex; flex-direction: column; flex: 1; padding: 16px 18px 14px; }
+.a-person h3 { font-size: clamp(17px, 1.6vw, 20px); font-weight: 700; letter-spacing: -0.01em; color: var(--tf-text-light-bg); }
+.a-person__title { margin-top: 7px; font-size: 13.5px; line-height: 1.5; color: var(--tf-muted-light-bg); }
+.a-person__sum { margin-top: 10px; font-size: 13.5px; line-height: 1.55; color: var(--tf-text-light-bg); opacity: .78; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.a-person__foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 34px; margin-top: auto; padding-top: 12px; box-sizing: content-box; }
+.a-person__read { display: inline-flex; align-items: center; gap: 8px; padding: 0; border: 0; background: none; cursor: pointer; font-family: var(--tf-font-head); font-size: 13px; font-weight: 600; color: var(--tf-indigo); transition: color .3s; }
+.a-person__read:focus-visible { outline: 2px solid var(--tf-indigo); outline-offset: 4px; border-radius: 3px; }
+.a-person__read svg { width: 14px; height: 14px; transition: transform .4s var(--tf-ease); }
+.a-person:hover .a-person__read svg { transform: translateX(4px); }
+.a-in { flex: 0 0 34px; width: 34px; height: 34px; border-radius: 50%; background: #0A66C2; color: #fff; display: grid; place-items: center; text-decoration: none;
+  transition: background .3s, transform .4s var(--tf-ease), box-shadow .4s; }
+.a-in svg { width: 16px; height: 16px; }
+a.a-in:hover { background: #004182; transform: translateY(-2px); box-shadow: 0 8px 18px rgba(10,102,194,.35); }
+.a-lead__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; margin-top: 22px; padding: 16px 16px 16px 26px;
+  border-radius: 8px; background: var(--tf-mist); border: 1px solid var(--tf-line-light); }
+.a-lead__foot p { font-family: var(--tf-font-head); font-size: 15px; font-weight: 500; color: var(--tf-text-light-bg); }
+.a-lead__foot .tf-btn { padding: 11px 20px; font-size: 14px; }
+.a-btn-in { display: inline-flex; align-items: center; gap: 10px; }
+.a-btn-in svg { width: 16px; height: 16px; color: #0A66C2; }
+
+/* bio drawer */
+.a-drawer { position: fixed; inset: 0; z-index: 250; visibility: hidden; transition: visibility 0s linear .7s; }
+.a-drawer.is-open { visibility: visible; transition: visibility 0s; }
+.a-drawer__scrim { position: absolute; inset: 0; background: rgba(4,6,26,.6); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); opacity: 0; transition: opacity .6s ease; }
+.a-drawer.is-open .a-drawer__scrim { opacity: 1; }
+.a-drawer__panel { position: absolute; top: 0; right: 0; bottom: 0; width: min(560px, 100%); overflow-y: auto; display: flex; flex-direction: column;
+  background: linear-gradient(180deg, #101847, #070B2B); border-left: 1px solid var(--tf-line-dark); box-shadow: -30px 0 70px rgba(0,0,0,.45);
+  transform: translateX(100%); transition: transform .8s var(--tf-ease); }
+.a-drawer.is-open .a-drawer__panel { transform: none; }
+.a-drawer__top { display: flex; align-items: center; justify-content: space-between; padding: 22px clamp(22px, 3vw, 40px); border-bottom: 1px solid var(--tf-line-dark); }
+.a-drawer__count { font-family: var(--tf-font-head); font-size: 12px; font-weight: 600; letter-spacing: .16em; color: var(--tf-indigo-glow); }
+.a-drawer__nav { display: flex; gap: 8px; }
+.a-drawer__nav button { width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(232,235,247,.28); background: none; color: #fff; cursor: pointer; display: grid; place-items: center; transition: background .3s, border-color .3s; }
+.a-drawer__nav button:hover { background: rgba(255,255,255,.1); border-color: #fff; }
+.a-drawer__nav svg { width: 14px; height: 14px; }
+.a-drawer__body { padding: clamp(26px, 3.4vw, 46px) clamp(22px, 3vw, 40px) 40px; }
+.a-drawer__body > * { opacity: 0; transform: translateY(14px); }
+.a-drawer.is-open .a-drawer__body > * { opacity: 1; transform: none; transition: opacity .7s ease, transform .9s var(--tf-ease); }
+.a-drawer.is-open .a-drawer__body > :nth-child(1) { transition-delay: .25s; } .a-drawer.is-open .a-drawer__body > :nth-child(2) { transition-delay: .32s; }
+.a-drawer.is-open .a-drawer__body > :nth-child(3) { transition-delay: .39s; } .a-drawer.is-open .a-drawer__body > :nth-child(4) { transition-delay: .46s; }
+.a-drawer.is-swap .a-drawer__body > * { opacity: 0; transform: translateY(8px); transition: opacity .2s ease, transform .2s ease; transition-delay: 0s; }
+.a-drawer__ph { width: 112px; height: 112px; border-radius: 50%; overflow: hidden; display: grid; place-items: center; position: relative;
+  background: radial-gradient(120% 100% at 50% 0%, #26358C, #121B57 70%); border: 1px solid var(--tf-line-dark); }
+.a-drawer__ph img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
+.a-drawer__ph .a-person__mono { font-size: 38px; } .a-drawer__ph .a-person__sil { width: 52%; }
+.a-drawer h3 { font-size: clamp(24px, 2.6vw, 32px); font-weight: 700; letter-spacing: -0.02em; color: #fff; margin: 22px 0 6px; }
+.a-drawer__role { font-size: 15px; color: var(--tf-indigo-glow); }
+.a-drawer__bio { margin-top: 26px; padding-top: 26px; border-top: 1px solid var(--tf-line-dark); }
+.a-drawer__bio p { font-size: 15.5px; line-height: 1.8; color: #C3C9E6; margin-bottom: 16px; }
+.a-drawer__actions { margin-top: 10px; }
+.a-drawer__id { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; }
+.a-drawer__id h3 { margin-top: 22px; }
+.a-drawer__id .a-in { margin-bottom: 4px; }
+.a-drawer__next { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; margin-top: 34px; padding: 18px 0 0; border: 0; border-top: 1px solid var(--tf-line-dark); background: none; cursor: pointer; text-align: left; color: #fff; font: inherit;
+  font-family: var(--tf-font-head); font-size: 17px; font-weight: 600; }
+.a-drawer__next small { display: block; margin-bottom: 4px; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--tf-indigo-glow); }
+.a-drawer__next svg { width: 18px; height: 18px; transition: transform .4s var(--tf-ease); }
+.a-drawer__next:hover svg { transform: translateX(5px); }
+
+/* ---------- CLOSING CALL ---------- */
+.a-cta { position: relative; overflow: hidden; border-radius: 10px; padding: clamp(36px, 5vw, 76px);
+  background: radial-gradient(125% 140% at 0% 0%, #26358C 0%, #121B57 46%, var(--tf-ink) 100%); box-shadow: 0 30px 64px rgba(10,15,44,.26);
+  display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(26px, 4vw, 64px); align-items: center; }
+.a-cta::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: linear-gradient(rgba(124,139,230,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(124,139,230,.07) 1px, transparent 1px); background-size: 40px 40px; }
+.a-cta > * { position: relative; }
+.a-cta h2 { font-size: clamp(26px, 3vw, 40px); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: #fff; }
+.a-cta p { margin-top: 16px; font-size: 16.5px; line-height: 1.7; color: #BFC5E2; max-width: 520px; }
+.a-cta__btns { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.a-cta__btns .tf-btn { min-width: 250px; justify-content: space-between; }
+.a-cta__mail { margin-top: 6px; font-size: 14px; color: #8F97BE; }
+.a-cta__mail a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.3); }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1080px) {
+  .a-team { grid-template-columns: repeat(2, 1fr); }
+  .a-figs { grid-template-columns: repeat(3, 1fr); row-gap: 34px; }
+  .a-fig:nth-child(4) { padding-left: 0; } .a-fig:nth-child(4)::before { display: none; }
+  .a-route { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
+  .a-route::before, .a-route::after { display: none; }
+  .a-stop { padding-top: 0; padding-left: 32px; }
+  .a-stop::before { top: 3px; }
+  .a-flag { left: auto; right: 0; top: 0; }
+  .a-route { margin-top: 0; }
+}
+@media (max-width: 860px) {
+  .a-story, .a-office, .a-cta { grid-template-columns: 1fr; }
+  .a-story__aside { position: static; }
+  .a-dial { display: none; }
+  .a-ch { opacity: 1; grid-template-columns: 1fr; gap: 6px; }
+  .a-story__list { padding-left: 30px; }
+  .a-ch::before { left: -30px; }
+  .a-ch:not(:first-child)::before { top: calc(clamp(26px, 3vw, 40px) + 1px); }
+  .a-think__grid { grid-template-columns: 1fr; gap: 42px; }
+  .a-hero__strip .tf-wrap { flex-direction: column; gap: 0; }
+  .a-hero__strip span, .a-hero__strip span:first-child { padding: 8px 0; font-size: 12.5px; border-left: 0 !important; border-top: 1px solid rgba(124,139,230,.25); }
+  .a-hero__inner { padding-bottom: 250px; }
+  .a-hero__photo { width: 100%; opacity: .5; -webkit-mask-image: none; mask-image: none; }
+  .a-hero::before { background: linear-gradient(180deg, rgba(4,6,26,.8), rgba(4,6,26,.55)); }
+  .a-anchor .tf-btn { display: none; }
+  .a-cta__btns .tf-btn { min-width: 0; width: 100%; }
+}
+@media (max-width: 600px) {
+  .a-team { grid-template-columns: 1fr; }
+  .a-person { flex-direction: row; }
+  .a-person__ph { flex: 0 0 38%; aspect-ratio: auto; }
+  .a-figs { grid-template-columns: repeat(2, 1fr); }
+  .a-fig:nth-child(3) { padding-left: 0; } .a-fig:nth-child(3)::before { display: none; }
+  .a-fig:nth-child(4) { padding-left: 24px; } .a-fig:nth-child(4)::before { display: block; }
+  .a-route { grid-template-columns: 1fr; }
+  .a-lead__foot { flex-direction: column; align-items: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .a-fig, .a-figs::before, .a-route::after, .a-idea::after { opacity: 1; transform: none; transition: none; }
+  .a-hero__plant, .a-hero__lamps, .a-hero__haze { animation: none; }
+  .a-ch, .a-dial__item, .a-story__list::after { transition: none; } .a-hero__lamps i { animation: none; opacity: .7; }
+  .a-drawer__panel, .a-drawer__scrim, .a-drawer__body > * { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="tf-header" data-tf-header></header>
+
+<main>
+
+<!-- =========================================================
+     HERO. The animated boundary is the same one used on the home page.
+     ========================================================= -->
+<section class="a-hero" id="top">
+  <div class="a-hero__photo" role="img" aria-label="An industrial plant at blue hour, its lights coming on">
+    <div class="a-hero__plant"></div>
+    <div class="a-hero__lamps" aria-hidden="true"><i style="left:54.75%;top:37.7%;--d:0.0s;--t:2.6s"></i><i style="left:32.07%;top:57.25%;--d:0.8s;--t:3.3s"></i><i style="left:92.9%;top:52.21%;--d:1.7s;--t:4.0s"></i><i style="left:1.49%;top:58.26%;--d:2.5s;--t:4.7s"></i><i style="left:46.28%;top:46.28%;--d:3.3s;--t:5.4s"></i><i style="left:41.92%;top:39.22%;--d:4.1s;--t:2.6s"></i><i style="left:50.4%;top:47.92%;--d:5.0s;--t:3.3s"></i><i style="left:83.96%;top:72.89%;--d:0.8s;--t:4.0s"></i><i style="left:31.5%;top:65.57%;--d:1.6s;--t:4.7s"></i><i style="left:53.04%;top:60.53%;--d:2.5s;--t:5.4s"></i><i style="left:71.48%;top:38.34%;--d:3.3s;--t:2.6s"></i><i style="left:76.63%;top:61.66%;--d:4.1s;--t:3.3s"></i><i style="left:43.53%;top:24.21%;--d:5.0s;--t:4.0s"></i><i style="left:55.56%;top:32.16%;--d:0.8s;--t:4.7s"></i><i style="left:21.08%;top:53.59%;--d:1.6s;--t:5.4s"></i><i style="left:16.15%;top:55.99%;--d:2.4s;--t:2.6s"></i><i style="left:41.92%;top:32.16%;--d:3.3s;--t:3.3s"></i><i style="left:68.84%;top:10.21%;--d:4.1s;--t:4.0s"></i><i style="left:30.93%;top:51.95%;--d:4.9s;--t:4.7s"></i><i style="left:66.21%;top:53.59%;--d:0.8s;--t:5.4s"></i><i style="left:5.27%;top:49.43%;--d:1.6s;--t:2.6s"></i><i style="left:84.99%;top:51.45%;--d:2.4s;--t:3.3s"></i><i style="left:98.17%;top:69.36%;--d:3.3s;--t:4.0s"></i><i style="left:96.79%;top:51.7%;--d:4.1s;--t:4.7s"></i><i style="left:72.85%;top:52.71%;--d:4.9s;--t:5.4s"></i><i style="left:40.66%;top:22.95%;--d:0.8s;--t:2.6s"></i><i style="left:49.83%;top:60.03%;--d:1.6s;--t:3.3s"></i><i style="left:8.82%;top:49.56%;--d:2.4s;--t:4.0s"></i><i style="left:56.36%;top:60.53%;--d:3.2s;--t:4.7s"></i><i style="left:66.32%;top:60.78%;--d:4.1s;--t:5.4s"></i><i style="left:43.76%;top:56.62%;--d:4.9s;--t:2.6s"></i><i style="left:27.03%;top:69.1%;--d:0.7s;--t:3.3s"></i><i style="left:16.04%;top:61.03%;--d:1.6s;--t:4.0s"></i><i style="left:85.45%;top:64.19%;--d:2.4s;--t:4.7s"></i></div>
+    <div class="a-hero__haze" aria-hidden="true"></div>
+  </div>
+  <div class="tf-wrap a-hero__inner">
+    <div class="a-hero__copy">
+      <span class="tf-eyebrow">About Terafence USA</span>
+      <h1>The team behind the<br>one-way gateway</h1>
+      <p class="a-hero__lead">Terafence designs FPGA-based data diodes and one-way gateways. They let operational data leave a protected network while the way back stays closed, enforced in hardware rather than by a rule.</p>
+      <div class="a-hero__cta">
+        <a class="tf-btn tf-btn--primary" href="/contact?topic=contact" data-arrow>Talk to our team</a>
+        <a class="tf-btn tf-btn--ghost" href="#leadership">Meet the leadership</a>
+      </div>
+    </div>
+  </div>
+  <div class="a-hero__strip"><div class="tf-wrap">
+    <span>Founded 2015</span><span>FPGA engineering in Israel</span><span>Manufacturing in Taiwan</span><span>Terafence USA Inc., Texas</span>
+  </div></div>
+</section>
+
+<!-- Anchor bar: sticks under the header and follows the section being read -->
+<div class="a-anchor" data-anchor>
+  <div class="tf-wrap">
+    <nav aria-label="On this page">
+      <a href="#who">Who we are</a>
+      <a href="#think">How we think</a>
+      <a href="#where">Where we work</a>
+      <a href="#leadership">Leadership</a>
+    </nav>
+    <a class="tf-btn tf-btn--ghost-dark" href="/contact?topic=quote">Request a quote</a>
+  </div>
+</div>
+
+<!-- =========================================================
+     WHO WE ARE (light). Company overview, then the numbers from the home page.
+     ========================================================= -->
+<section class="a-section a-light" id="who">
+  <div class="tf-wrap">
+    <div class="a-story" data-story>
+      <div class="a-story__aside tf-reveal">
+        <span class="tf-eyebrow">Who we are</span>
+        <h2 class="a-h2">One idea, <em>built into the hardware</em></h2>
+        <div class="a-dial" aria-hidden="true">
+          <div class="a-dial__top"><span><b data-dial-n>01</b> / 04</span><span data-dial-k>What we build</span></div>
+          <div class="a-dial__figs">
+          <div class="a-dial__item is-on" data-k="0"><strong >1-way</strong><span>The reverse path is absent from the circuit, not denied by a rule.</span></div>
+          <div class="a-dial__item" data-k="1"><strong >2015</strong><span>Founded in Israel. First FPGA data diode to market in 2017.</span></div>
+          <div class="a-dial__item" data-k="2"><strong data-count="2500" data-suffix="+">2,500+</strong><span>OEM machines with Terafence inside.</span></div>
+          <div class="a-dial__item" data-k="3"><strong >USA</strong><span>Terafence USA Inc., Farmers Branch, Texas.</span></div>
+          </div>
+          <div class="a-dial__bar"><button type="button" class="is-on" data-go="0" aria-label="Go to what we build"></button><button type="button" class="" data-go="1" aria-label="Go to where it began"></button><button type="button" class="" data-go="2" aria-label="Go to where it runs"></button><button type="button" class="" data-go="3" aria-label="Go to why we are here"></button></div>
+        </div>
+      </div>
+      <ol class="a-story__list">
+      <li class="a-ch is-on" data-ch="0" tabindex="0">
+        <span class="a-ch__n">01</span>
+        <div class="a-ch__body">
+          <small>What we build</small>
+          <h3>Hardware that lets data leave and nothing return</h3>
+          <p>Terafence builds FPGA-based data diodes and unidirectional gateways. They keep essential operations connected to the data they produce, with network isolation enforced in hardware across OT, ICS, IoT and IT systems.</p>
+        </div>
+      </li>
+      <li class="a-ch" data-ch="1" tabindex="0">
+        <span class="a-ch__n">02</span>
+        <div class="a-ch__body">
+          <small>Where it began</small>
+          <h3>Engineered in Israel since 2015</h3>
+          <p>Terafence was founded in 2015 in Israel, where its engineers design the FPGA logic. Its first FPGA data diode reached the market in 2017, and the hardware is manufactured to industrial grade in Taiwan.</p>
+        </div>
+      </li>
+      <li class="a-ch" data-ch="2" tabindex="0">
+        <span class="a-ch__n">03</span>
+        <div class="a-ch__body">
+          <small>Where it runs</small>
+          <h3>On six continents, and inside other products</h3>
+          <p>Terafence gateways protect operations on six continents. More than 2,500 OEM machines carry Terafence hardware, reporting to their makers without opening a path into the customer's plant.</p>
+        </div>
+      </li>
+      <li class="a-ch" data-ch="3" tabindex="0">
+        <span class="a-ch__n">04</span>
+        <div class="a-ch__body">
+          <small>Why we are here</small>
+          <h3>Terafence USA, based in Texas</h3>
+          <p>Terafence USA Inc. brings that engineering to American operators, integrators and equipment makers from its office in Farmers Branch, Texas.</p>
+          <div class="a-ch__links"><a class="tf-link" href="/technology">Explore the technology <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a><a class="tf-link" href="/products">See the product range <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a></div>
+        </div>
+      </li>
+      </ol>
+    </div>
+
+    <div class="a-figs tf-reveal" data-figs>
+      <div class="a-fig"><strong>2015</strong><span>Founded</span></div>
+      <div class="a-fig"><strong>2017</strong><span>First FPGA data diode to market</span></div>
+      <div class="a-fig"><strong data-count="6">6</strong><span>Continents in service</span></div>
+      <div class="a-fig"><strong data-count="2500" data-suffix="+">2,500+</strong><span>OEM machines with Terafence inside</span></div>
+      <div class="a-fig"><strong data-count="20" data-suffix="+">20+</strong><span>Years MTBF, no moving parts</span></div>
+      <div class="a-fig a-fig--zero"><strong>Zero</strong><span>Vulnerabilities in multi-agency penetration tests</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     HOW WE THINK (dark). Three statements, not paragraphs.
+     ========================================================= -->
+<section class="a-section a-dark a-think" id="think">
+  <div class="tf-wrap">
+    <div class="a-think__head tf-reveal">
+      <span class="tf-eyebrow">How we think</span>
+      <h2 class="a-h2">Three ideas behind <em>every Terafence product</em></h2>
+    </div>
+    <div class="a-think__grid">
+      <article class="a-idea tf-reveal">
+        <span class="a-idea__n">01</span>
+        <h3>Every route out is a candidate route in</h3>
+        <p>A connection built to send data out can be used to send something in. Terafence removes that possibility instead of policing it.</p>
+      </article>
+      <article class="a-idea tf-reveal">
+        <span class="a-idea__n">02</span>
+        <h3>Enforce it in silicon, below the network stack</h3>
+        <p>Firewalls decide what to let in. Terafence removes the inbound path in hardware, at Layers 1 and 2. The enforcing core has no operating system, no MAC address and no IP address.</p>
+      </article>
+      <article class="a-idea tf-reveal">
+        <span class="a-idea__n">03</span>
+        <h3>Lose a reading. Never lose control</h3>
+        <p>With no reverse circuit to open, the worst outcome is a missed reading, not a compromised process.</p>
+      </article>
+    </div>
+    <div class="a-think__foot tf-reveal">
+      <a class="tf-link" href="/#how-it-works">See how a one-way boundary works <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     WHERE WE WORK (light). Four places, then the US office.
+     ========================================================= -->
+<section class="a-section a-mist" id="where">
+  <div class="tf-wrap">
+    <div class="a-where__head tf-reveal">
+      <span class="tf-eyebrow">Where we work</span>
+      <h2 class="a-h2">Engineered in Israel. Built in Taiwan. <em>Supported worldwide</em></h2>
+      <p>Each region does the job it is best placed to do, and the Americas team is growing.</p>
+    </div>
+    <div class="a-route tf-reveal">
+      <div class="a-stop"><span class="a-flag" title="Israel"><svg viewBox="0 0 30 20" role="img" aria-label="Flag of Israel"><clipPath id="fcisrael"><rect width="30" height="20" rx="2.5"/></clipPath><g clip-path="url(#fcisrael)"><rect width="30" height="20" fill="#fff"/><rect y="2.2" width="30" height="3" fill="#0038B8"/><rect y="14.8" width="30" height="3" fill="#0038B8"/><g fill="none" stroke="#0038B8" stroke-width=".9"><polygon points="15,6.4 18.1,11.8 11.9,11.8"/><polygon points="15,13.6 11.9,8.2 18.1,8.2"/></g></g></svg></span><small>Founded 2015</small><h3>Israel</h3><p>R&amp;D, FPGA logic and engineering.</p></div>
+      <div class="a-stop"><span class="a-flag" title="Taiwan"><svg viewBox="0 0 30 20" role="img" aria-label="Flag of Taiwan"><clipPath id="fctaiwan"><rect width="30" height="20" rx="2.5"/></clipPath><g clip-path="url(#fctaiwan)"><rect width="30" height="20" fill="#FE0000"/><rect width="15" height="10" fill="#000095"/><polygon points="7.50,1.40 8.07,2.87 9.30,1.88 9.06,3.44 10.62,3.20 9.63,4.43 11.10,5.00 9.63,5.57 10.62,6.80 9.06,6.56 9.30,8.12 8.07,7.13 7.50,8.60 6.93,7.13 5.70,8.12 5.94,6.56 4.38,6.80 5.37,5.57 3.90,5.00 5.37,4.43 4.38,3.20 5.94,3.44 5.70,1.88 6.93,2.87" fill="#fff"/><circle cx="7.5" cy="5" r="2" fill="#000095"/><circle cx="7.5" cy="5" r="1.6" fill="#fff"/></g></svg></span><small>Manufacturing</small><h3>Taiwan</h3><p>Hardware manufacturing at industrial grade.</p></div>
+      <div class="a-stop"><span class="a-flag a-flag--globe" title="Europe and Asia"><svg viewBox="0 0 30 20" role="img" aria-label="Europe and Asia"><rect width="30" height="20" rx="2.5" fill="#293A92"/><g fill="none" stroke="#fff" stroke-width="1" opacity=".95"><circle cx="15" cy="10" r="6.4"/><ellipse cx="15" cy="10" rx="2.8" ry="6.4"/><path d="M8.6 10h12.8M9.6 6.6h10.8M9.6 13.4h10.8"/></g></svg></span><small>Sales and support</small><h3>Europe and Asia</h3><p>Sales, engineering and support close to the customer.</p></div>
+      <div class="a-stop a-stop--us"><span class="a-flag" title="the United States"><svg viewBox="0 0 30 20" role="img" aria-label="Flag of the United States"><clipPath id="fcstates"><rect width="30" height="20" rx="2.5"/></clipPath><g clip-path="url(#fcstates)"><rect y="0.000" width="30" height="1.538" fill="#B22234"/><rect y="1.538" width="30" height="1.538" fill="#fff"/><rect y="3.077" width="30" height="1.538" fill="#B22234"/><rect y="4.615" width="30" height="1.538" fill="#fff"/><rect y="6.154" width="30" height="1.538" fill="#B22234"/><rect y="7.692" width="30" height="1.538" fill="#fff"/><rect y="9.231" width="30" height="1.538" fill="#B22234"/><rect y="10.769" width="30" height="1.538" fill="#fff"/><rect y="12.308" width="30" height="1.538" fill="#B22234"/><rect y="13.846" width="30" height="1.538" fill="#fff"/><rect y="15.385" width="30" height="1.538" fill="#B22234"/><rect y="16.923" width="30" height="1.538" fill="#fff"/><rect y="18.462" width="30" height="1.538" fill="#B22234"/><rect width="12" height="10.769" fill="#3C3B6E"/><circle cx="1.20" cy="1.10" r=".38" fill="#fff"/><circle cx="3.20" cy="1.10" r=".38" fill="#fff"/><circle cx="5.20" cy="1.10" r=".38" fill="#fff"/><circle cx="7.20" cy="1.10" r=".38" fill="#fff"/><circle cx="9.20" cy="1.10" r=".38" fill="#fff"/><circle cx="11.20" cy="1.10" r=".38" fill="#fff"/><circle cx="2.15" cy="2.40" r=".38" fill="#fff"/><circle cx="4.15" cy="2.40" r=".38" fill="#fff"/><circle cx="6.15" cy="2.40" r=".38" fill="#fff"/><circle cx="8.15" cy="2.40" r=".38" fill="#fff"/><circle cx="10.15" cy="2.40" r=".38" fill="#fff"/><circle cx="1.20" cy="3.70" r=".38" fill="#fff"/><circle cx="3.20" cy="3.70" r=".38" fill="#fff"/><circle cx="5.20" cy="3.70" r=".38" fill="#fff"/><circle cx="7.20" cy="3.70" r=".38" fill="#fff"/><circle cx="9.20" cy="3.70" r=".38" fill="#fff"/><circle cx="11.20" cy="3.70" r=".38" fill="#fff"/><circle cx="2.15" cy="5.00" r=".38" fill="#fff"/><circle cx="4.15" cy="5.00" r=".38" fill="#fff"/><circle cx="6.15" cy="5.00" r=".38" fill="#fff"/><circle cx="8.15" cy="5.00" r=".38" fill="#fff"/><circle cx="10.15" cy="5.00" r=".38" fill="#fff"/><circle cx="1.20" cy="6.30" r=".38" fill="#fff"/><circle cx="3.20" cy="6.30" r=".38" fill="#fff"/><circle cx="5.20" cy="6.30" r=".38" fill="#fff"/><circle cx="7.20" cy="6.30" r=".38" fill="#fff"/><circle cx="9.20" cy="6.30" r=".38" fill="#fff"/><circle cx="11.20" cy="6.30" r=".38" fill="#fff"/><circle cx="2.15" cy="7.60" r=".38" fill="#fff"/><circle cx="4.15" cy="7.60" r=".38" fill="#fff"/><circle cx="6.15" cy="7.60" r=".38" fill="#fff"/><circle cx="8.15" cy="7.60" r=".38" fill="#fff"/><circle cx="10.15" cy="7.60" r=".38" fill="#fff"/><circle cx="1.20" cy="8.90" r=".38" fill="#fff"/><circle cx="3.20" cy="8.90" r=".38" fill="#fff"/><circle cx="5.20" cy="8.90" r=".38" fill="#fff"/><circle cx="7.20" cy="8.90" r=".38" fill="#fff"/><circle cx="9.20" cy="8.90" r=".38" fill="#fff"/><circle cx="11.20" cy="8.90" r=".38" fill="#fff"/><circle cx="2.15" cy="10.20" r=".38" fill="#fff"/><circle cx="4.15" cy="10.20" r=".38" fill="#fff"/><circle cx="6.15" cy="10.20" r=".38" fill="#fff"/><circle cx="8.15" cy="10.20" r=".38" fill="#fff"/><circle cx="10.15" cy="10.20" r=".38" fill="#fff"/></g></svg></span><small>Terafence USA Inc.</small><h3>The Americas</h3><p>An expanding sales, engineering and support presence.</p></div>
+    </div>
+
+    <div class="a-office tf-reveal">
+      <div>
+        <small>US office</small>
+        <h3>Terafence USA Inc.</h3>
+        <address>
+          12788 Royal Oaks Lane<br>Farmers Branch, TX 75234<br>
+          <a href="mailto:info@terafence.us">info@terafence.us</a>
+        </address>
+      </div>
+      <div class="a-office__cta">
+        <a class="tf-btn tf-btn--primary" href="/contact?topic=contact" data-arrow>Contact the US team</a>
+        <a class="tf-btn tf-btn--ghost" href="/contact?topic=quote">Request a quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     LEADERSHIP (dark). Edit the four people in TF.TEAM at the bottom of this file.
+     ========================================================= -->
+<section class="a-section a-light a-lead" id="leadership" style="padding-bottom:clamp(44px,5vw,64px)">
+  <div class="tf-wrap">
+    <div class="a-lead__head tf-reveal">
+      <span class="tf-eyebrow">Leadership</span>
+      <h2 class="a-h2">Meet the people <em>leading Terafence USA</em></h2>
+    </div>
+    <div class="a-team" data-team></div>
+    <div class="a-lead__foot tf-reveal">
+      <p>Want to speak to one of them about your network?</p>
+      <a class="tf-btn tf-btn--primary" href="/contact?topic=contact">Discuss your deployment</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     CLOSING CALL (light section holding a dark panel)
+     ========================================================= -->
+<section class="a-section a-mist" id="contact" style="padding-top:clamp(44px,5vw,64px);padding-bottom:clamp(56px,6vw,88px)">
+  <div class="tf-wrap">
+    <div class="a-cta tf-reveal">
+      <div>
+        <h2>Tell us where your boundary sits</h2>
+        <p>Say what has to cross it. We will help you choose the right device and plan a pilot.</p>
+      </div>
+      <div class="a-cta__btns">
+        <a class="tf-btn tf-btn--primary" href="/contact?topic=pilot" data-arrow>Plan a pilot</a>
+        <a class="tf-btn tf-btn--ghost" href="/contact?topic=contact">Discuss your deployment</a>
+        <span class="a-cta__mail">Or write to <a href="mailto:info@terafence.us">info@terafence.us</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Bio drawer: filled from TF.TEAM -->
+<div class="a-drawer" data-drawer role="dialog" aria-modal="true" aria-labelledby="a-dr-name" aria-hidden="true">
+  <div class="a-drawer__scrim" data-dr-close></div>
+  <aside class="a-drawer__panel">
+    <div class="a-drawer__top">
+      <span class="a-drawer__count" data-dr-count></span>
+      <div class="a-drawer__nav">
+        <button type="button" aria-label="Previous person" data-dr-prev><svg viewBox="0 0 16 16" fill="none"><path d="M14 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button type="button" aria-label="Next person" data-dr-next><svg viewBox="0 0 16 16" fill="none"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button type="button" aria-label="Close" data-dr-close><svg viewBox="0 0 14 14" fill="none"><path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.8"/></svg></button>
+      </div>
+    </div>
+    <div class="a-drawer__body" data-dr-body></div>
+  </aside>
+</div>
+
+<footer class="tf-footer" data-tf-footer></footer>
+
+<script src="shared/tf-site.js"></script>
+<script src="shared/tf-form.js"></script>
+<script>
+/* =====================================================================
+   EDIT HERE: the leadership team. One block per person, in the order shown.
+     name      full name
+     title     job title
+     linkedin  full profile address, for example https://www.linkedin.com/in/...  (leave "" to hide the button)
+     photo     path to a portrait, for example assets/team/firstname-lastname.jpg  (leave "" for initials)
+     bio       paragraphs of about 200 words in total
+   summary   two-line description shown on the card (about 60 characters)
+   sample    true while the biography is dummy text; the drawer then shows a "Sample text" tag. Delete it with the real bio.
+   While a name still reads "to be supplied" the page shows a neutral placeholder.
+   ===================================================================== */
+TF.TEAM = [
+  { name: "Arvind Deshpande", title: "Managing Director, Terafence USA", linkedin: "", photo: "assets/team/leader-1.jpg", sample: true, summary: "Leads sales, engineering support and customer programmes.",
+    bio: ["Leads Terafence USA and sets the direction for sales, engineering support and customer programmes. A veteran of industrial technology and network security, they spend much of their time on site with customers."] },
+  { name: "Meera Iyer", title: "Chief Technology Officer", linkedin: "", photo: "assets/team/leader-2.jpg", sample: true, summary: "Heads engineering and technical support, from design to pilots.",
+    bio: ["Runs engineering and technical support, from architecture reviews to pilots and acceptance testing. With a background in embedded hardware and control systems, they turn hard technical ideas into tools operations teams can use."] },
+  { name: "Suresh Nambiar", title: "Vice President, Sales and Partnerships", linkedin: "", photo: "assets/team/leader-3.jpg", sample: true, summary: "Builds partnerships with utilities, makers and integrators.",
+    bio: ["Builds partnerships with utilities, manufacturers and integrators across North America. After many years selling security products into regulated industries, they start by listening to the boundary a customer needs to protect."] },
+  { name: "Sanjay Kulkarni", title: "Head of Operations and Customer Success", linkedin: "", photo: "assets/team/leader-4.jpg", sample: true, summary: "Runs operations and delivery, from shipping to support.",
+    bio: ["Runs operations, delivery and customer success, so every unit ships configured, arrives on time and stays supported. Previously led supply chain and service teams for industrial equipment makers."] }
+];
+
+/* On this page the logo returns to the home page. */
+TF.LOGO_HREF = "index.html";
+
+/* ---------------- behaviour: nothing below needs editing ---------------- */
+(function () {
+  const ARROW = '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const IN = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.94 8.5H3.56V20h3.38V8.5zM5.25 3a1.97 1.97 0 100 3.94A1.97 1.97 0 005.25 3zM20.44 13.4c0-3.1-1.65-4.5-3.85-4.5-1.77 0-2.57.98-3.01 1.67V8.5h-3.38c.04.95 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.69.13-.93.28-.69.9-1.4 1.95-1.4 1.38 0 1.93 1.05 1.93 2.6V20h3.38v-6.6z"/></svg>';
+  const SIL = '<svg class="a-person__sil" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><circle cx="32" cy="22" r="11"/><path d="M8 58c0-13 10.7-21 24-21s24 8 24 21z"/></svg>';
+  const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+  const safeUrl = u => /^https:\/\//i.test(u) ? u : "";
+  const isPlaceholder = p => !p.photo && /to be supplied/i.test(p.name);
+  const initials = p => p.name.split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join("").toUpperCase();
+
+  /* ---- buttery smooth scroll for every in-page jump (nav, "Meet the leadership", dial bar) ----
+     A hand-rolled ease replaces the browser's native smooth scroll, which is quick and linear-ish.
+     This one glides in slowly, holds speed, then settles instead of stopping abruptly. */
+  const reduceMotion = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // a sine ease: still eases in and out smoothly, but starts moving almost at once rather
+  // than holding near-motionless for the first ~150ms the way a cubic ease-in does, which
+  // was reading as the page "sticking" for a beat before every jump
+  const easeGlide = k => -(Math.cos(Math.PI * k) - 1) / 2;
+  const hero = document.querySelector(".a-hero");
+  let jumping = false; // true only while a click-triggered glide is in flight
+  function syncHeroPause() {
+    if (!hero) return;
+    const r = hero.getBoundingClientRect();
+    hero.classList.toggle("is-paused", !(r.bottom > 0 && r.top < innerHeight * 0.4));
+  }
+  const aside = document.querySelector(".a-story__aside");
+  let glideId = 0;
+  // Entrance effects that have not played yet would slide content into place while the page
+  // is still gliding. Finish them all instantly, with transitions off for that one frame.
+  function settleReveals() {
+    // only what is off screen right now; snapping something already in view would itself jump
+    const off = el => { const b = el.getBoundingClientRect(); return b.bottom < -80 || b.top > innerHeight + 80; };
+    const pending = [...document.querySelectorAll(".tf-reveal:not(.is-in), .a-figs:not(.is-in), .a-route:not(.is-in), .a-idea:not(.is-in)")].filter(off);
+    if (!pending.length) return;
+    document.documentElement.classList.add("a-instant");
+    pending.forEach(el => el.classList.add("is-in"));
+    void document.body.offsetHeight;
+    requestAnimationFrame(() => document.documentElement.classList.remove("a-instant"));
+  }
+  function smoothScrollTo(target, opt) {
+    if (!target) return;
+    const id = ++glideId; // a newer click takes over; an older glide stops on its next frame
+    // scrolling away from the hero: pause its background animation immediately, rather than
+    // waiting for it to leave the viewport, so a short jump isn't spent compositing it
+    if (hero && target !== hero) hero.classList.add("is-paused");
+    jumping = true;
+    settleReveals();
+    // The "Who we are" panel normally pins while its chapters scroll. "Who we are" and
+    // "How we think" both land right where it starts or stops pinning, i.e. in the slow last
+    // stretch of the glide, so a large block froze and then moved: the visible jerk. While
+    // gliding it rides with the page instead. Only when it is not pinned right now, so the
+    // switch itself never moves it.
+    const center = opt && opt.center;
+    const pinned = aside && getComputedStyle(aside).position === "sticky" && Math.abs(aside.getBoundingClientRect().top - 150) < 2;
+    // If it is pinned right now (reading inside "Who we are"), it starts from its pinned spot and
+    // eases back into the flow over the glide. Jumps between chapters (dial bar) keep it pinned.
+    let rideFrom = 0;
+    if (aside && !(pinned && center)) {
+      const b0 = aside.getBoundingClientRect();
+      aside.classList.add("is-riding");
+      // off screen at the start: move straight to its normal spot, unseen, and ride from there.
+      // On screen: start exactly where it is and ease back into the flow during the glide.
+      if (b0.bottom > 0 && b0.top < innerHeight) {
+        rideFrom = b0.top - aside.getBoundingClientRect().top;
+        aside.style.top = rideFrom + "px";
+      }
+    }
+    const r = target.getBoundingClientRect();
+    const startY = scrollY, endY = center
+      ? r.top + scrollY - (innerHeight - r.height) / 2
+      : r.top + scrollY - 150;
+    const dist = endY - startY;
+    const land = () => { jumping = false; if (aside) { aside.classList.remove("is-riding"); aside.style.top = ""; } syncHeroPause(); };
+    if (reduceMotion() || Math.abs(dist) < 2) { scrollTo({ top: endY, behavior: "auto" }); land(); return; }
+    // a short hop (e.g. "Who we are", just below the hero) gets more frames than its distance
+    // alone would give it, so a dropped frame is a smaller fraction of a very short clip
+    const dur = Math.min(1500, Math.max(900, Math.abs(dist) * 0.6)), t0 = performance.now();
+    (function step(now) {
+      if (id !== glideId) return;
+      const k = Math.min(1, (now - t0) / dur), e = easeGlide(k);
+      if (rideFrom) aside.style.top = (rideFrom * (1 - e)) + "px";
+      scrollTo({ top: startY + dist * e, behavior: "auto" });
+      if (k < 1) requestAnimationFrame(step);
+      // the glide has settled: only now does the hero's animation state catch up with where
+      // we actually landed. Resuming it mid-glide (an upward jump can bring the hero back into
+      // view before the glide ends) was the "stops for a millisecond" hitch near the finish.
+      else land();
+    })(t0);
+  }
+  document.addEventListener("click", e => {
+    const a = e.target.closest('a[href^="#"]'); if (!a) return;
+    const id = a.getAttribute("href"); if (id.length < 2) return;
+    const target = document.querySelector(id); if (!target) return;
+    e.preventDefault();
+    smoothScrollTo(target);
+    history.pushState(null, "", id);
+  });
+  // on any ordinary (non-animated) scroll, keep the hero paused once it is mostly out of view,
+  // and let it run again if the visitor scrolls back up to it. Ignored while a glide triggered
+  // above is still running, so it can't resume the animation partway through a jump.
+  if (hero && "IntersectionObserver" in window) {
+    new IntersectionObserver(es => { if (!jumping) hero.classList.toggle("is-paused", !es[0].isIntersecting); },
+      { threshold: 0, rootMargin: "0px 0px -60% 0px" }).observe(hero);
+  }
+
+  function portrait(p) {
+    if (p.photo) return `<img src="${esc(p.photo)}" alt="${esc(p.name)}" loading="lazy">`;
+    return isPlaceholder(p) ? SIL : `<span class="a-person__mono">${esc(initials(p))}</span>`;
+  }
+  function inButton(p) {
+    const u = safeUrl(p.linkedin || "");
+    if (u) return `<a class="a-in" href="${esc(u)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(p.name)} on LinkedIn" data-stop>${IN}</a>`;
+    return (p.sample || /to be supplied/i.test(p.name)) ? `<span class="a-in" title="LinkedIn profile to be supplied" aria-hidden="true">${IN}</span>` : "";
+  }
+
+  /* ---- team cards ---- */
+  const grid = document.querySelector("[data-team]");
+  grid.innerHTML = TF.TEAM.map((p, i) => `
+    <div class="a-person tf-reveal" data-i="${i}">
+      <div class="a-person__ph">${portrait(p)}</div>
+      <div class="a-person__body">
+        <h3>${esc(p.name)}</h3>
+        <p class="a-person__title">${esc(p.title)}</p>${p.summary ? `<p class="a-person__sum">${esc(p.summary)}</p>` : ""}
+        <div class="a-person__foot"><button type="button" class="a-person__read" aria-label="Read the biography of ${esc(p.name)}">Read bio ${ARROW}</button>${inButton(p)}</div>
+      </div>
+    </div>`).join("");
+
+  /* ---- drawer ---- */
+  const dr = document.querySelector("[data-drawer]"), body = dr.querySelector("[data-dr-body]"), count = dr.querySelector("[data-dr-count]");
+  let cur = 0, lastFocus = null;
+  function fill(i) {
+    cur = (i + TF.TEAM.length) % TF.TEAM.length;
+    const p = TF.TEAM[cur], u = safeUrl(p.linkedin || "");
+    count.textContent = String(cur + 1).padStart(2, "0") + " / " + String(TF.TEAM.length).padStart(2, "0");
+    body.innerHTML = `
+      <div class="a-drawer__ph">${portrait(p)}</div>
+      <div class="a-drawer__id"><div><h3 id="a-dr-name">${esc(p.name)}</h3><p class="a-drawer__role">${esc(p.title)}</p></div>${u ? `<a class="a-in" href="${esc(u)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(p.name)} on LinkedIn">${IN}</a>` : `<span class="a-in" title="LinkedIn profile to be supplied" aria-hidden="true">${IN}</span>`}</div>
+      <div class="a-drawer__bio">${p.bio.map(t => `<p>${esc(t)}</p>`).join("")}</div>
+      <div class="a-drawer__actions">${u ? `<a class="tf-btn tf-btn--primary a-btn-in" style="background:#0A66C2" href="${esc(u)}" target="_blank" rel="noopener noreferrer">${IN.replace("<svg", '<svg style="width:16px;height:16px;color:#fff"')} View LinkedIn profile</a>` : ""}</div>
+      <button type="button" class="a-drawer__next" data-dr-next2><span><small>Next</small>${esc(TF.TEAM[(cur + 1) % TF.TEAM.length].name)}</span>${ARROW}</button>`;
+  }
+  function openDr(i) {
+    lastFocus = document.activeElement; fill(i);
+    dr.setAttribute("aria-hidden", "false"); void dr.offsetWidth;
+    requestAnimationFrame(() => requestAnimationFrame(() => dr.classList.add("is-open")));
+    document.body.classList.add("tf-noscroll");
+    setTimeout(() => dr.querySelector("[data-dr-next]").focus({ preventScroll: true }), 650);
+  }
+  function closeDr() {
+    dr.classList.remove("is-open"); dr.setAttribute("aria-hidden", "true"); document.body.classList.remove("tf-noscroll");
+    if (lastFocus) lastFocus.focus({ preventScroll: true });
+  }
+  function step(d) {
+    dr.classList.add("is-swap");
+    setTimeout(() => { fill(cur + d); dr.classList.remove("is-swap"); }, 210);
+  }
+  grid.addEventListener("click", e => { if (e.target.closest("[data-stop]")) return; const c = e.target.closest(".a-person"); if (c) openDr(+c.dataset.i); });
+  dr.querySelectorAll("[data-dr-close]").forEach(b => b.addEventListener("click", closeDr));
+  body.addEventListener("click", e => { if (e.target.closest("[data-dr-next2]")) step(1); });
+  dr.querySelector("[data-dr-prev]").addEventListener("click", () => step(-1));
+  dr.querySelector("[data-dr-next]").addEventListener("click", () => step(1));
+  document.addEventListener("keydown", e => {
+    if (!dr.classList.contains("is-open")) return;
+    if (e.key === "Escape") closeDr();
+    if (e.key === "ArrowRight") step(1);
+    if (e.key === "ArrowLeft") step(-1);
+  });
+
+
+  /* ---- Who we are: the chapter being read drives the rail and the panel ---- */
+  const story = document.querySelector("[data-story]");
+  if (story) {
+    const chs = [...story.querySelectorAll(".a-ch")], list = story.querySelector(".a-story__list");
+    const items = [...story.querySelectorAll(".a-dial__item")], bars = [...story.querySelectorAll("[data-go]")];
+    const numEl = story.querySelector("[data-dial-n]"), kEl = story.querySelector("[data-dial-k]"), dial = story.querySelector(".a-dial");
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let active = -1;
+    function countUp(el) {
+      if (still || !el.dataset.count) return;
+      const to = +el.dataset.count, suf = el.dataset.suffix || "", t0 = performance.now();
+      (function tick(now) { const k = Math.min(1, (now - t0) / 1100); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))).toLocaleString("en-US") + suf; if (k < 1) requestAnimationFrame(tick); })(t0);
+    }
+    function setActive(i) {
+      if (i === active) return; active = i;
+      chs.forEach((c, n) => c.classList.toggle("is-on", n === i));
+      items.forEach((c, n) => c.classList.toggle("is-on", n === i));
+      bars.forEach((b, n) => { b.classList.toggle("is-on", n === i); b.classList.toggle("is-done", n < i); });
+      numEl.textContent = String(i + 1).padStart(2, "0");
+      kEl.textContent = chs[i].querySelector("small").textContent;
+      const dot = chs[i].offsetTop + (i === 0 ? 10 : parseFloat(getComputedStyle(chs[i]).paddingTop) + 10);
+      list.style.setProperty("--p", dot + "px");
+      dial.style.setProperty("--gx", (i % 2 ? -60 : 0) + "px"); dial.style.setProperty("--gy", (i * 22) + "px");
+      countUp(items[i].querySelector("strong"));
+    }
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) setActive(chs.indexOf(en.target)); }), { rootMargin: "-42% 0px -48% 0px" });
+      chs.forEach(c => io.observe(c));
+    }
+    chs.forEach((c, n) => { c.addEventListener("mouseenter", () => setActive(n)); c.addEventListener("focus", () => setActive(n)); });
+    bars.forEach((b, n) => b.addEventListener("click", () => smoothScrollTo(chs[n], { center: true })));
+    addEventListener("resize", () => { const i = active; active = -1; setActive(Math.max(0, i)); });
+    setActive(0);
+  }
+
+  /* ---- anchor bar follows the section being read ---- */
+  const links = [...document.querySelectorAll("[data-anchor] nav a")];
+  const secs = links.map(a => document.querySelector(a.getAttribute("href")));
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(es => es.forEach(en => {
+      if (!en.isIntersecting) return;
+      const i = secs.indexOf(en.target); links.forEach((a, n) => a.classList.toggle("is-on", n === i));
+    }), { rootMargin: "-40% 0px -55% 0px" });
+    secs.forEach(s => s && io.observe(s));
+  }
+
+  /* ---- numbers count up once ---- */
+  document.querySelectorAll("[data-figs]").forEach(root => {
+    const items = root.querySelectorAll("[data-count]");
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+    items.forEach(el => { el.textContent = "0" + (el.dataset.suffix || ""); });
+    const io = new IntersectionObserver(es => {
+      if (!es[0].isIntersecting) return; io.disconnect();
+      items.forEach(el => {
+        const to = +el.dataset.count, suf = el.dataset.suffix || "", t0 = performance.now(), dur = 1600;
+        (function tick(now) {
+          const k = Math.min(1, (now - t0) / dur), v = Math.round(to * (1 - Math.pow(1 - k, 3)));
+          el.textContent = v.toLocaleString("en-US") + suf; if (k < 1) requestAnimationFrame(tick);
+        })(t0);
+      });
+    }, { threshold: .4 });
+    io.observe(root);
+  });
+
+  /* ---- reveal for the elements this page adds after load, and the line-draw sections ---- */
+  const drawIO = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add("is-in"); drawIO.unobserve(en.target); } }), { threshold: .25 }) : null;
+  document.querySelectorAll(".a-idea, .a-route, .a-figs").forEach(el => drawIO ? drawIO.observe(el) : el.classList.add("is-in"));
+
+})();
+</script>
+</body>
+</html>

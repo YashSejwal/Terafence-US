@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build Your Solution | Terafence USA</title>
+<meta name="description" content="Choose a Terafence gateway, add TeraSecure, TeraObserve, TeraCommunicate or TeraQuantum solutions, and request a quote for your configuration.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/tf-base.css">
+<link rel="stylesheet" href="shared/tf-form.css">
+<style>
+/* =====================================================================
+   BUILD YOUR SOLUTION. One page, two ways in:
+   - from a selected product: #model=tfg-1urp (gateway pre-selected, page opens at step 2)
+   - straight to add-ins: no model, the buyer starts at step 1
+   #addon=terasecure opens that family's solutions.
+   ===================================================================== */
+.cf-hero { position: relative; overflow: hidden; color: #fff; background-color: var(--tf-navy);
+  background-image: linear-gradient(rgba(124,139,230,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(124,139,230,.045) 1px, transparent 1px),
+    radial-gradient(ellipse 60% 90% at 30% 0%, rgba(41,58,146,.7), rgba(41,58,146,0) 72%);
+  background-size: 54px 54px, 54px 54px, 100% 100%; }
+.cf-hero__in { padding-top: calc(var(--tf-header-h) + var(--tf-util-h) + 36px); padding-bottom: clamp(40px, 4.6vw, 60px); }
+.cf-crumb { display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px; color: #8F97BE; margin-bottom: 20px; }
+.cf-crumb a { color: #BFC5E2; text-decoration: none; }
+.cf-crumb a:hover { color: #fff; }
+.cf-hero h1 { margin-top: 12px; font-size: clamp(32px, 4vw, 52px); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; }
+.cf-hero p { margin-top: 14px; max-width: 620px; font-size: clamp(15.5px, 1.3vw, 17.5px); line-height: 1.7; color: #C3C9E6; }
+
+.cf-main { padding: clamp(40px, 4.6vw, 64px) 0 clamp(48px, 5vw, 72px); background: #fff; }
+.cf-step { margin: 0; padding: 0; border: 0; min-width: 0; scroll-margin-top: calc(var(--tf-header-h) + 24px); }
+.cf-step + .cf-step { margin-top: clamp(40px, 4.6vw, 60px); padding-top: clamp(40px, 4.6vw, 60px); border-top: 1px solid var(--tf-line-light); }
+.cf-step__head { float: left; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; width: 100%; padding: 0; margin-bottom: 22px; }
+.cf-gws, .cf-fams { clear: both; }
+.cf-step__title { display: flex; align-items: flex-start; gap: 14px; }
+.cf-step__num { flex: 0 0 auto; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--tf-indigo); color: #fff;
+  font-family: var(--tf-font-head); font-size: 15px; font-weight: 700; }
+.cf-step__title h2 { font-family: var(--tf-font-head); font-size: clamp(21px, 2vw, 27px); font-weight: 700; letter-spacing: -0.015em; color: var(--tf-text-light-bg); line-height: 1.3; }
+.cf-step__title p { margin-top: 2px; font-size: 15px; color: var(--tf-muted-light-bg); }
+.cf-step__title p.is-alert { color: var(--tf-red); font-weight: 600; }
+.cf-step__head .tf-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--tf-indigo); text-decoration: none; }
+.cf-step__head .tf-link svg { width: 15px; height: 15px; }
+
+/* step 1: gateways in one row */
+.cf-gws { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.cf-gw { position: relative; display: flex; flex-direction: column; overflow: hidden; border-radius: 14px; background: #fff; border: 1.5px solid var(--tf-line-light); cursor: pointer; transition: border-color .25s, box-shadow .25s; }
+.cf-gw input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+.cf-gw:hover { border-color: rgba(41,58,146,.4); }
+.cf-gw:has(input:checked) { border-color: var(--tf-indigo); box-shadow: 0 0 0 3px rgba(41,58,146,.12); }
+.cf-gw:has(input:focus-visible) { outline: 2px solid var(--tf-indigo-glow); outline-offset: 3px; }
+.cf-gw__tick { position: absolute; top: 12px; right: 12px; z-index: 1; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%;
+  border: 1.5px solid rgba(41,58,146,.3); background: #fff; color: transparent; transition: background .25s, border-color .25s, color .25s; }
+.cf-gw__tick svg { width: 14px; height: 14px; }
+.cf-gw input:checked ~ .cf-gw__tick { background: var(--tf-indigo); border-color: var(--tf-indigo); color: #fff; }
+.cf-gw__img { display: flex; align-items: center; justify-content: center; height: 132px; padding: 16px 20px; background: radial-gradient(80% 90% at 50% 60%, #fff 0%, #E6EAF8 100%); }
+.cf-gw__img img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 12px 14px rgba(20,30,80,.22)); }
+.cf-gw--tall .cf-gw__img img { max-height: 104px; }
+.cf-gw__body { display: flex; flex-direction: column; align-items: flex-start; padding: 16px 18px 18px; }
+.cf-gw__body b { font-family: var(--tf-font-head); font-size: 20px; font-weight: 700; color: var(--tf-text-light-bg); }
+.cf-gw__body small { margin-top: 4px; font-size: 13.5px; color: var(--tf-muted-light-bg); }
+.cf-gw__body i { margin-top: 12px; font-style: normal; padding: 4px 10px; border-radius: 30px; background: var(--tf-mist); font-family: var(--tf-font-head); font-size: 12px; font-weight: 600; color: var(--tf-text-light-bg); }
+
+/* step 2: families as rows, solutions underneath */
+.cf-fams { display: grid; gap: 12px; }
+.cf-fam { border-radius: 14px; background: #fff; border: 1.5px solid var(--tf-line-light); transition: border-color .25s, background .25s; }
+.cf-fam.is-on { border-color: rgba(41,58,146,.45); background: var(--tf-mist); }
+.cf-fam__row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center; gap: 18px; padding: 16px 22px; }
+.cf-fam__chk, .cf-mod__chk { width: 20px; height: 20px; margin: 0; accent-color: var(--tf-indigo); cursor: pointer; }
+.cf-fam__main { display: flex; align-items: center; gap: 18px; min-width: 0; cursor: pointer; }
+.cf-fam__tile { flex: 0 0 auto; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 13px; background: var(--tf-mist); }
+.cf-fam.is-on .cf-fam__tile { background: #fff; }
+.cf-fam__ic { width: 26px; height: 26px; fill: none; stroke: var(--tf-indigo); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.cf-fam__txt { display: flex; flex-direction: column; min-width: 0; }
+.cf-fam__txt b { font-family: var(--tf-font-head); font-size: clamp(18px, 1.6vw, 21px); font-weight: 700; letter-spacing: -0.01em; color: var(--tf-text-light-bg); }
+.cf-fam__txt span { margin-top: 2px; font-size: 15px; color: var(--tf-muted-light-bg); }
+.cf-fam__count { padding: 4px 12px; border-radius: 30px; background: var(--tf-mist); font-family: var(--tf-font-head); font-size: 12px; font-weight: 600; color: var(--tf-indigo); white-space: nowrap; }
+.cf-fam.is-on .cf-fam__count { background: #fff; }
+.cf-fam__more { display: inline-flex; align-items: center; gap: 6px; padding: 8px 2px; border: 0; background: none; cursor: pointer; font-family: var(--tf-font-head); font-size: 14px; font-weight: 600; color: var(--tf-indigo); white-space: nowrap; }
+.cf-chev { width: 16px; height: 16px; transition: transform .7s cubic-bezier(.16, 1, .3, 1); }
+.cf-fam { transition: border-color .5s, background .5s; }
+.cf-fam__more[aria-expanded="true"] .cf-chev { transform: rotate(180deg); }
+.cf-fam__panel { padding: 0 22px 20px 60px; }
+.cf-fam__about { float: right; margin-left: 16px; font-family: var(--tf-font-head); font-size: 13.5px; font-weight: 600; color: var(--tf-indigo); text-decoration: none; }
+.cf-fam__intro { padding-top: 16px; border-top: 1px solid var(--tf-line-light); font-size: 14.5px; line-height: 1.6; color: var(--tf-muted-light-bg); }
+.cf-mods { list-style: none; margin: 14px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.cf-mod { display: flex; align-items: flex-start; gap: 12px; height: 100%; padding: 14px 16px; border-radius: 10px; background: #fff; border: 1px solid var(--tf-line-light); cursor: pointer; transition: border-color .25s; }
+.cf-mod:hover { border-color: rgba(41,58,146,.35); }
+.cf-mod:has(input:checked) { border-color: var(--tf-indigo); }
+.cf-mod__chk { flex: 0 0 auto; width: 18px; height: 18px; margin-top: 2px; }
+.cf-mod b { display: block; font-family: var(--tf-font-head); font-size: 15px; font-weight: 700; color: var(--tf-text-light-bg); }
+.cf-mod span span { display: block; margin-top: 3px; font-size: 13.5px; line-height: 1.5; color: var(--tf-muted-light-bg); }
+
+/* family colours */
+.cf-fam[data-fam] .cf-fam__tile { background: var(--tf-mist); }
+.cf-fam[data-fam] .cf-fam__ic { stroke: var(--fam-ink); }
+.cf-fam[data-fam] .cf-fam__count { background: var(--tf-mist); color: var(--fam-ink); }
+.cf-fam[data-fam] .cf-fam__chk { accent-color: var(--fam-ink); }
+/* same concept as the add-ins page: white rows, family-coloured top edge, dark navy solution boxes */
+.cf-fam[data-fam] { border-top: 3px solid var(--fam-ink); }
+.cf-fam[data-fam].is-on { border-color: color-mix(in srgb, var(--fam-ink) 45%, var(--tf-line-light)); border-top-color: var(--fam-ink); background: #fff; }
+.cf-fam[data-fam] .cf-fam__txt b::after { content: ""; display: inline-block; width: 7px; height: 7px; margin-left: 10px; border-radius: 50%; background: var(--fam-ink); vertical-align: middle; transform: translateY(-2px); }
+.cf-fam[data-fam] .cf-mod { border-color: transparent; background-color: var(--tf-navy);
+  background-image: linear-gradient(rgba(124,139,230,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(124,139,230,.045) 1px, transparent 1px),
+    radial-gradient(ellipse 90% 90% at 20% 0%, rgba(41,58,146,.75), rgba(41,58,146,0) 75%);
+  background-size: 28px 28px, 28px 28px, 100% 100%; transition: border-color .25s, box-shadow .25s; }
+.cf-fam[data-fam] .cf-mod b { color: #fff; }
+.cf-fam[data-fam] .cf-mod span span { color: #C3C9E6; }
+.cf-fam[data-fam] .cf-mod:hover { border-color: rgba(124,139,230,.5); }
+.cf-fam[data-fam] .cf-mod:has(input:checked) { border-color: var(--fam); box-shadow: 0 0 0 1px var(--fam); }
+.cf-fam[data-fam] .cf-mod__chk { accent-color: var(--fam); }
+.cf-node[data-fam] { background: var(--tf-mist); box-shadow: inset 3px 0 0 var(--fam-ink); }
+.cf-node[data-fam] b i { color: var(--fam-ink); }
+
+/* your solution bar (stays in view while the buyer works down the page) */
+.cf-bar { position: sticky; bottom: 16px; z-index: 50; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 20px; margin-top: clamp(32px, 4vw, 48px);
+  padding: 18px 22px; border-radius: 14px; background: #fff; border: 1px solid var(--tf-line-light); box-shadow: 0 14px 40px rgba(20,30,80,.12); }
+.cf-bar__ic { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 12px; background: var(--tf-mist); }
+.cf-bar__ic svg { width: 24px; height: 24px; fill: none; stroke: var(--tf-indigo); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.cf-bar h2 { font-family: var(--tf-font-head); font-size: 18px; font-weight: 700; color: var(--tf-text-light-bg); }
+.cf-bar { align-items: start; }
+.cf-bar__top { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.cf-bar__meta { font-size: 13px; color: var(--tf-muted-light-bg); }
+.cf-tree { display: flex; align-items: flex-start; gap: 8px; margin-top: 10px; }
+.cf-tree > .cf-node { flex: 0 0 auto; align-self: stretch; }
+.cf-tree__ads { display: flex; flex-wrap: wrap; gap: 8px; min-width: 0; }
+.cf-plus { margin-top: 12px; }
+.cf-node { display: flex; flex-direction: column; justify-content: center; min-width: 0; max-width: 260px; padding: 8px 12px; border-radius: 10px; background: var(--tf-mist); }
+.cf-node small { font-family: var(--tf-font-head); font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--tf-indigo); }
+.cf-node b { display: flex; align-items: center; gap: 8px; font-family: var(--tf-font-head); font-size: 14px; font-weight: 700; color: var(--tf-text-light-bg); }
+.cf-node b i { font-style: normal; padding: 1px 7px; border-radius: 20px; background: #fff; font-size: 11px; font-weight: 600; color: var(--tf-indigo); }
+.cf-node__sols { margin-top: 2px; font-size: 12.5px; line-height: 1.45; color: var(--tf-muted-light-bg); }
+.cf-node--gw { background: var(--tf-indigo); }
+.cf-node--gw small { color: rgba(255,255,255,.7); }
+.cf-node--gw b { color: #fff; font-size: 15px; }
+.cf-node--empty { background: #fff; border: 1.5px dashed rgba(41,58,146,.3); }
+.cf-node--empty b { font-weight: 600; color: var(--tf-muted-light-bg); }
+.cf-plus { align-self: center; padding: 0 2px; font-family: var(--tf-font-head); font-size: 18px; font-weight: 600; color: var(--tf-indigo); }
+.cf-bar__hint { margin-top: 2px; font-size: 13px; color: var(--tf-muted-light-bg); }
+.cf-bar__hint.is-alert { color: var(--tf-red); font-weight: 600; }
+.cf-bar__act { display: flex; align-items: center; gap: 16px; }
+.cf-bar__clear { padding: 0; border: 0; background: none; cursor: pointer; font-family: var(--tf-font-head); font-size: 13.5px; font-weight: 600; color: var(--tf-muted-light-bg); white-space: nowrap; }
+.cf-bar__clear:hover { color: var(--tf-indigo); }
+
+@media (max-width: 1080px) {
+  .cf-gws { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cf-mods { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .cf-fam__row { grid-template-columns: auto minmax(0, 1fr); row-gap: 10px; padding: 16px; }
+  .cf-fam__count { grid-column: 2; justify-self: start; }
+  .cf-fam__more { grid-column: 2; justify-self: start; padding: 0; }
+  .cf-fam__main { gap: 14px; }
+  .cf-fam__tile { width: 44px; height: 44px; }
+  .cf-fam__panel { padding: 0 16px 16px; }
+  .cf-mods { grid-template-columns: 1fr; }
+  .cf-bar { grid-template-columns: minmax(0, 1fr); gap: 12px; bottom: 10px; padding: 14px 16px; }
+  .cf-bar__ic { display: none; }
+  .cf-node__sols { display: none; }
+  .cf-node { padding: 6px 10px; }
+  .cf-bar__act { justify-content: space-between; }
+  .cf-bar__act .tf-btn { flex: 1; justify-content: center; }
+}
+@media (max-width: 520px) { .cf-gws { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="tf-header" data-tf-header></header>
+
+<main>
+<section class="cf-hero" id="top">
+  <div class="tf-wrap cf-hero__in">
+    <nav class="cf-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="/products">Products</a><span aria-hidden="true">/</span><span>Build your solution</span></nav>
+    <span class="tf-eyebrow">Build your solution</span>
+    <h1>Build your solution</h1>
+    <p>Select a gateway and add what you need. Request a quote when you&rsquo;re ready.</p>
+  </div>
+</section>
+
+<section class="cf-main">
+  <div class="tf-wrap">
+    <fieldset class="cf-step" id="step-gateway">
+      <legend class="cf-step__head">
+        <span class="cf-step__title"><span class="cf-step__num">1</span><span><h2>Choose your gateway</h2><p data-gw-hint>Pick one to start your configuration.</p></span></span>
+        <a class="tf-link" href="/products/compare">Compare products <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      </legend>
+      <div class="cf-gws">
+        <label class="cf-gw cf-gw--tall">
+          <input type="radio" name="gateway" value="tfg-121" data-name="TFG-121">
+          <span class="cf-gw__tick" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.4l2.9 2.9 6-6.4"/></svg></span>
+          <span class="cf-gw__img"><img src="assets/tfg-121.png" alt="" loading="lazy"></span>
+          <span class="cf-gw__body"><b>TFG-121</b><small>Unidirectional &middot; DIN rail / desktop</small><i>Up to 1 Gbps</i></span>
+        </label>
+        <label class="cf-gw">
+          <input type="radio" name="gateway" value="tfg-1urp" data-name="TFG-1URP">
+          <span class="cf-gw__tick" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.4l2.9 2.9 6-6.4"/></svg></span>
+          <span class="cf-gw__img"><img src="assets/tfg-1urp-rear.png" alt="" loading="lazy"></span>
+          <span class="cf-gw__body"><b>TFG-1URP</b><small>Unidirectional &middot; 19-inch rack</small><i>Up to 1 Gbps</i></span>
+        </label>
+        <label class="cf-gw">
+          <input type="radio" name="gateway" value="tfg121-bf" data-name="TFG121-BF">
+          <span class="cf-gw__tick" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.4l2.9 2.9 6-6.4"/></svg></span>
+          <span class="cf-gw__img"><img src="assets/tfg121-bf.png" alt="" loading="lazy"></span>
+          <span class="cf-gw__body"><b>TFG121-BF</b><small>Unidirectional &middot; large files</small><i>250GB files tested</i></span>
+        </label>
+        <label class="cf-gw">
+          <input type="radio" name="gateway" value="tfg121-bsg" data-name="TFG121-BSG">
+          <span class="cf-gw__tick" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.4l2.9 2.9 6-6.4"/></svg></span>
+          <span class="cf-gw__img"><img src="assets/tfg121-bsg.png" alt="" loading="lazy"></span>
+          <span class="cf-gw__body"><b>TFG121-BSG</b><small>Bidirectional security gateway</small><i>Two-way, pre-defined</i></span>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class="cf-step" id="step-addons">
+      <legend class="cf-step__head">
+        <span class="cf-step__title"><span class="cf-step__num">2</span><span><h2>Add what you need</h2><p>Optional. Choose a whole family, or only the solutions you need.</p></span></span>
+      </legend>
+      <div class="cf-fams">
+        <div class="cf-fam" id="fam-terasecure" data-fam="terasecure" data-name="TeraSecure" data-total="6">
+          <div class="cf-fam__row">
+            <input type="checkbox" class="cf-fam__chk" id="chk-terasecure" aria-describedby="line-terasecure">
+            <label class="cf-fam__main" for="chk-terasecure">
+              <span class="cf-fam__tile"><svg class="cf-fam__ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5l10 4v7.5c0 6.3-4.3 11.4-10 13-5.7-1.6-10-6.7-10-13V7.5z"/><path d="M11.5 16l3.2 3.2 6-6.4"/></svg></span>
+              <span class="cf-fam__txt"><b>TeraSecure</b><span id="line-terasecure">Strengthen your cyber defense</span></span>
+            </label>
+            <span class="cf-fam__count" data-count>6 solutions</span>
+            <button type="button" class="cf-fam__more" aria-expanded="false" aria-controls="panel-terasecure">View details <svg class="cf-chev" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+          <div class="cf-fam__panel" id="panel-terasecure" hidden>
+            <p class="cf-fam__intro"><a class="cf-fam__about" href="/add-ins#terasecure">About this family &rarr;</a>Detect, investigate and stop threats across endpoints, devices, files and your external attack surface.</p>
+            <ul class="cf-mods">
+              <li><label class="cf-mod"><input type="checkbox" class="cf-mod__chk" data-fam="terasecure" value="TeraShield"><span><b>TeraShield</b><span>Unified EDR, SIEM, SOAR, UEBA, UEM, DLP and threat intelligence.</span></span></label></li>
+              <li><label class="cf-mod"><input type="checkbox" class="cf-mod__chk" data-fam="terasecure" value="TeraRadar"><span><b>TeraRadar</b><span>External attack-surface, vendor risk and dark-web monitoring.</span></span></label></li>
+              <li><label class="cf-mod"><input type="checkbox" class="cf-mod__chk" data-fam="terasecure" value="TeraMind"><span><b>TeraMind</b><span>Agentic AI investigations, correlation and assisted response.</span></span></label></li>
+              <li><label class="cf-mod"><input type="checkbox" class="cf-mod__chk" data-fam="terasecure" value="TeraGuard"><span><b>TeraGuard</b><span>Cross-platform device management and policy enforcement.</span></span></label></li>
+              <li><label class="cf-mod"><input type="checkbox" class="cf-mod__chk" data-fam="terasecure" value="TeraFilt"><span><b>TeraFilt</b><span>Content disarm and reconstruction for safer files.</span></span></label></li>
+              <li><label class="cf-mod"><input type="checkbox" class="cf-mod__chk" data-fam="terasecure" value="TeraScan"><span><b>TeraScan</b><span>Malware and virus detection, blocking and removal.</span></span></label></li>
+            </ul>
+          </div>
+        </div>
+        <div class="cf-fam" id="fam-teraobserve" data-fam="teraobserve" data-name="TeraObserve" data-total="3">
+          <div class="cf-fam__row">
+            <input type="checkbox" class="cf-fam__chk" id="chk-teraobserve" aria-describedby="line-teraobserve">
+            <label class="cf-fam__main" for="chk-teraobserve">
+              <span class="cf-fam__tile"><svg class="cf-fam__ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M2.5 16S7.5 7.5 16 7.5 29.5 16 29.5 16 24.5 24.5 16 24.5 2.5 16 2.5 16z"/><circle cx="16" cy="16" r="4.5"/></svg></span>
+              <span class="cf-fam__txt"><b>TeraObserve</b><span id="line-teraobserve">Gain intelligence and visibility</span></span>
+            </label>
+            <span class="cf-fam__count" data-count>3 solutions</span>
+            <button type="button" class="cf-fam__more" aria-expanded="false" aria-controls="panel-teraobserve">View details <svg class="cf-chev" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+          <div class="cf-fam__panel" id="panel-teraobserve" hidden>
+            <p class="cf-fam__intro"><a class="cf-fam__about" href="/add-ins#teraobserve">About this family &rarr;</a>See what people would miss across media, physical sites and network operations.</p>
+            <ul class="cf-mods">
+              <li><label class="cf-mod"><input type="checkbox" class="cf-mod__chk" data-fam="teraobserve" value="TeraLens"><span><b>TeraLens</b><span>Detection of manipulated image, audio and video content.</span></span></label></li>
+              <li><label class="cf-mod"><input type="checkbox" class="cf-mod__chk" data-fam="teraobserve" value="TeraVision"><span><b>TeraVision</b><span>AI-powered surveillance and physical intrusion detection.</span></span></label></li>
+              <li><label class="cf-mod"><input type="checkbox" class="cf-mod__chk" data-fam="teraobserve" value="TeraFlow"><span><b>TeraFlow</b><span>Network management and operational visibility.</span></span></label></li>
+            </ul>
+          </div>
+        </div>
+        <div class="cf-fam" id="fam-teracommunicate" data-fam="teracommunicate" data-name="TeraCommunicate" data-total="2">
+          <div class="cf-fam__row">
+            <input type="checkbox" class="cf-fam__chk" id="chk-teracommunicate" aria-describedby="line-teracommunicate">
+            <label class="cf-fam__main" for="chk-teracommunicate">
+              <span class="cf-fam__tile"><svg class="cf-fam__ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 6.5h15a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8l-5 4v-4H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z"/><path d="M24 11.5h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-1.5v3.5l-4.5-3.5H17a2 2 0 0 1-2-2"/></svg></span>
+              <span class="cf-fam__txt"><b>TeraCommunicate</b><span id="line-teracommunicate">Enable secure collaboration</span></span>
+            </label>
+            <span class="cf-fam__count" data-count>2 solutions</span>
+            <button type="button" class="cf-fam__more" aria-expanded="false" aria-controls="panel-teracommunicate">View details <svg class="cf-chev" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+          <div class="cf-fam__panel" id="panel-teracommunicate" hidden>
+            <p class="cf-fam__intro"><a class="cf-fam__about" href="/add-ins#teracommunicate">About this family &rarr;</a>Protected messaging, calling and unified communications for sensitive operations.</p>
+            <ul class="cf-mods">
+              <li><label class="cf-mod"><input type="checkbox" class="cf-mod__chk" data-fam="teracommunicate" value="TeraTalk"><span><b>TeraTalk</b><span>Protected enterprise messaging and voice calling.</span></span></label></li>
+              <li><label class="cf-mod"><input type="checkbox" class="cf-mod__chk" data-fam="teracommunicate" value="TeraLink"><span><b>TeraLink</b><span>Secure unified communications.</span></span></label></li>
+            </ul>
+          </div>
+        </div>
+        <div class="cf-fam" id="fam-teraquantum" data-fam="teraquantum" data-name="TeraQuantum" data-total="1">
+          <div class="cf-fam__row">
+            <input type="checkbox" class="cf-fam__chk" id="chk-teraquantum" aria-describedby="line-teraquantum">
+            <label class="cf-fam__main" for="chk-teraquantum">
+              <span class="cf-fam__tile"><svg class="cf-fam__ic" viewBox="0 0 32 32" aria-hidden="true"><rect x="6.5" y="14" width="19" height="14" rx="2.5"/><path d="M10.5 14v-3.5a5.5 5.5 0 0 1 11 0V14"/><path d="M16 19.5v3"/></svg></span>
+              <span class="cf-fam__txt"><b>TeraQuantum</b><span id="line-teraquantum">State-of-the-art future-ready encryption</span></span>
+            </label>
+            <span class="cf-fam__count" data-count>1 solution</span>
+            <button type="button" class="cf-fam__more" aria-expanded="false" aria-controls="panel-teraquantum">View details <svg class="cf-chev" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+          <div class="cf-fam__panel" id="panel-teraquantum" hidden>
+            <p class="cf-fam__intro"><a class="cf-fam__about" href="/add-ins#teraquantum">About this family &rarr;</a>Encryption built to stay secure when quantum computers can break today&rsquo;s algorithms.</p>
+            <ul class="cf-mods">
+              <li><label class="cf-mod"><input type="checkbox" class="cf-mod__chk" data-fam="teraquantum" value="TeraQuantum"><span><b>TeraQuantum</b><span>Quantum-safe encryptors, secure access nodes and IP phones.</span></span></label></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="cf-bar" aria-labelledby="cf-bar-title">
+      <span class="cf-bar__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12.5l9 5 9-5"/><path d="M3 16.5l9 5 9-5"/></svg></span>
+      <div>
+        <div class="cf-bar__top"><h2 id="cf-bar-title">Your solution</h2><span class="cf-bar__meta" data-bar-meta></span></div>
+        <div class="cf-tree" data-bar-tree aria-live="polite"></div>
+        <p class="cf-bar__hint" data-bar-hint></p>
+      </div>
+      <div class="cf-bar__act">
+        <button type="button" class="cf-bar__clear" data-clear>Start again</button>
+        <button type="button" class="tf-btn tf-btn--primary" data-quote>Request a quote <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="tf-footer" data-tf-footer></footer>
+
+<script src="shared/tf-site.js"></script>
+<script src="shared/tf-form.js"></script>
+<script>
+TF.LOGO_HREF = "index.html";
+(function () {
+  const $ = s => document.querySelector(s);
+  const gwInputs = [...document.querySelectorAll('input[name="gateway"]')];
+  const fams = [...document.querySelectorAll(".cf-fam")];
+  let alerted = false;
+
+  function famState(f) {
+    const mods = [...f.querySelectorAll(".cf-mod__chk")], on = mods.filter(m => m.checked);
+    return { slug: f.dataset.fam, name: f.dataset.name, total: mods.length, on: on.map(m => m.value) };
+  }
+  function addonsText(withTags) {
+    return fams.map(famState).filter(s => s.on.length).map(s => {
+      if (s.total === 1 || s.on.length === s.total) return s.name + (s.total > 1 ? (withTags ? " (all " + s.total + ")" : " (all)") : "");
+      return s.name + ": " + s.on.join(", ");
+    });
+  }
+  function render() {
+    const g = gwInputs.find(i => i.checked), gw = g ? g.dataset.name : null;
+    fams.forEach(f => {
+      const s = famState(f), chk = f.querySelector(".cf-fam__chk");
+      chk.checked = s.on.length === s.total; chk.indeterminate = s.on.length > 0 && s.on.length < s.total;
+      f.classList.toggle("is-on", s.on.length > 0);
+      f.querySelector("[data-count]").textContent = s.on.length && s.total > 1 ? s.on.length + " of " + s.total + " selected" : s.total + (s.total === 1 ? " solution" : " solutions");
+    });
+    const sel = fams.map(f => Object.assign(famState(f), {}) ).filter(x => x.on.length);
+    const nSol = sel.reduce((n, x) => n + x.on.length, 0);
+    $("[data-bar-meta]").textContent = (gw ? "1 gateway" : "No gateway") + " · " + sel.length + (sel.length === 1 ? " add-in" : " add-ins") + (nSol ? " · " + nSol + (nSol === 1 ? " solution" : " solutions") : "");
+    const esc = t => t.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+    let tree = gw ? `<div class="cf-node cf-node--gw"><small>Gateway</small><b>${esc(gw)}</b></div>`
+                  : `<div class="cf-node cf-node--empty"><small>Gateway</small><b>Choose a gateway</b></div>`;
+    tree += '<span class="cf-plus" aria-hidden="true">+</span>';
+    tree += '<div class="cf-tree__ads">' + (sel.length ? sel.map(x => {
+      const all = x.on.length === x.total;
+      const badge = x.total > 1 ? `<i>${all ? "All " + x.total : x.on.length + " of " + x.total}</i>` : "";
+      const sols = x.total > 1 ? `<span class="cf-node__sols">${all ? "All solutions" : esc(x.on.join(", "))}</span>` : "";
+      return `<div class="cf-node" data-fam="${x.slug}"><b>${esc(x.name)}${badge}</b>${sols}</div>`;
+    }).join("") : `<div class="cf-node cf-node--empty"><small>Add-ins</small><b>None yet (optional)</b></div>`) + '</div>';
+    $("[data-bar-tree]").innerHTML = tree;
+    const hint = $("[data-bar-hint]");
+    hint.textContent = gw ? "" : (alerted ? "Choose a gateway first." : "Choose a gateway to request a quote.");
+    hint.classList.toggle("is-alert", !gw && alerted);
+    const gh = $("[data-gw-hint]");
+    gh.textContent = !gw && alerted ? "Choose a gateway first." : "Pick one to start your configuration.";
+    gh.classList.toggle("is-alert", !gw && alerted);
+  }
+  /* open / close with the same soft easing as the enquiry form */
+  const EASE = "cubic-bezier(.16, 1, .3, 1)", reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function setOpen(f, open, instant) {
+    const btn = f.querySelector(".cf-fam__more"), panel = f.querySelector(".cf-fam__panel");
+    if ((btn.getAttribute("aria-expanded") === "true") === open && !panel.hidden === open) return;
+    btn.setAttribute("aria-expanded", open);
+    if (panel._anim) panel._anim.cancel();
+    if (instant || reduce) { panel.hidden = !open; panel.style.height = ""; return; }
+    const kids = [...panel.children].flatMap(c => c.classList.contains("cf-mods") ? [...c.children] : [c]);
+    if (open) {
+      panel.hidden = false;
+      const h = panel.offsetHeight, pb = getComputedStyle(panel).paddingBottom;
+      panel.style.overflow = "hidden";
+      panel._anim = panel.animate([{ height: "0px", paddingBottom: "0px", opacity: 0 }, { height: h + "px", paddingBottom: pb, opacity: 1 }], { duration: 900, easing: "cubic-bezier(.45, 0, .2, 1)" });
+      kids.forEach((k, i) => k.animate([{ opacity: 0, transform: "translateY(10px)" }, { opacity: 1, transform: "none" }],
+        { duration: 700, delay: 120 + i * 45, easing: EASE, fill: "backwards" }));
+      panel._anim.onfinish = () => { panel.style.overflow = ""; panel._anim = null; };
+    } else {
+      const h = panel.offsetHeight, pb = getComputedStyle(panel).paddingBottom;
+      panel.style.overflow = "hidden";
+      panel._anim = panel.animate([{ height: h + "px", paddingBottom: pb, opacity: 1 }, { height: "0px", paddingBottom: "0px", opacity: 0 }],
+        { duration: 600, easing: "cubic-bezier(.65, 0, .35, 1)" });
+      panel._anim.onfinish = () => { panel.hidden = true; panel.style.overflow = ""; panel._anim = null; };
+    }
+  }
+
+  gwInputs.forEach(i => i.addEventListener("change", () => { alerted = false; render(); }));
+  fams.forEach(f => {
+    const chk = f.querySelector(".cf-fam__chk");
+    chk.addEventListener("change", () => {
+      f.querySelectorAll(".cf-mod__chk").forEach(m => m.checked = chk.checked);
+      if (chk.checked) setOpen(f, true);
+      render();
+    });
+    f.querySelectorAll(".cf-mod__chk").forEach(m => m.addEventListener("change", render));
+    f.querySelector(".cf-fam__more").addEventListener("click", e => setOpen(f, e.currentTarget.getAttribute("aria-expanded") !== "true"));
+  });
+  $("[data-clear]").addEventListener("click", () => {
+    gwInputs.forEach(i => i.checked = false);
+    document.querySelectorAll(".cf-mod__chk").forEach(m => m.checked = false);
+    alerted = false; render();
+  });
+  $("[data-quote]").addEventListener("click", () => {
+    const g = gwInputs.find(i => i.checked);
+    if (!g) {
+      alerted = true; render();
+      $("#step-gateway").scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(() => gwInputs[0].focus({ preventScroll: true }), 500);
+      return;
+    }
+    TF.openForm("quote", [g.dataset.name].concat(addonsText(false)).join(" + "));
+  });
+
+  // arriving: #model=tfg-1urp (from a selected product) and/or #addon=terasecure
+  const h = new URLSearchParams(location.hash.slice(1));
+  const m = gwInputs.find(i => i.value === h.get("model"));
+  if (m) m.checked = true;
+  const af = fams.find(f => f.dataset.fam === h.get("addon"));
+  if (af) {
+    setOpen(af, true, true);
+    if (h.get("add") === "1") af.querySelectorAll(".cf-mod__chk").forEach(c => c.checked = true);
+  }
+  render();
+  if (m || af) addEventListener("load", () => requestAnimationFrame(() => {
+    (af || $("#step-addons")).scrollIntoView({ behavior: "instant", block: af ? "center" : "start" });
+  }));
+})();
+</script>
+</body>
+</html>
