@@ -13,7 +13,7 @@ TF.FORM_TOPICS = {
   datasheet:  { kicker: "Datasheet",    title: "Request the datasheet",  text: "We will send the latest datasheet to your inbox.", button: "Send datasheet" },
   contact:    { kicker: "Contact",      title: "Talk to Terafence",      text: "Tell us where your boundary sits and what has to cross it. We will help you choose the right device.", button: "Send" }
 };
-TF.FORM_MODELS = { "tfg-121": "TFG-121", "tfg-1urp": "TFG-1URP", "tfg121-bf": "TFG121-BF", "tfg121-bsg": "TFG121-BSG", "tfg-vsecure": "TFG-VSecure" };
+TF.FORM_MODELS = { "tfg-121": "TFG-121", "tfg-1urp": "TFG-1URP", "tfg121-bf": "TFG121-BF", "tfg121-bsg": "TFG121-BSG" };
 
 /* Where submissions go. null = demo mode (shows the thank-you message, sends nothing).
    Set to a form endpoint URL (e.g. Formspree, HubSpot, or Terafence's own) to send for real. */

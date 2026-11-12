@@ -4,11 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#04061A">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
-<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-<title>About Terafence USA | FPGA Data Diodes and Unidirectional Gateways</title>
-<meta name="description" content="Terafence designs FPGA-based data diodes and one-way gateways. Founded in 2015, engineered in Israel, built in Taiwan and in service on six continents. Terafence USA Inc. is based in Texas.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+<title>About Terafence USA | The Team Behind the One-Way Gateway</title>
+<meta name="description" content="Terafence USA brings FPGA data diodes, engineered in Israel and built in Taiwan, to US critical infrastructure. Meet the leadership team.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -30,7 +31,7 @@ section { position: relative; }
 .a-mist { background: var(--tf-mist); color: var(--tf-text-light-bg); }
 .a-light .tf-eyebrow, .a-mist .tf-eyebrow { color: var(--tf-indigo); }
 .a-light .tf-link, .a-mist .tf-link { color: var(--tf-indigo); }
-.a-h2 { font-size: clamp(27px, 3vw, 42px); font-weight: 700; line-height: 1.12; letter-spacing: -0.02em; margin: 16px 0 0; }
+.a-h2 { font-size: clamp(25px, 2.6vw, 36px); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; margin: 16px 0 0; }
 .a-light .a-h2, .a-mist .a-h2 { color: var(--tf-text-light-bg); }
 .a-dark .a-h2 { color: #fff; }
 .a-h2 em { font-style: normal; color: var(--tf-indigo); }
@@ -61,7 +62,7 @@ section { position: relative; }
   background: linear-gradient(90deg, rgba(4,6,26,.9) 0%, rgba(4,6,26,.55) 38%, rgba(4,6,26,0) 62%), linear-gradient(0deg, rgba(4,6,26,.85) 0%, rgba(4,6,26,0) 26%); }
 .a-hero__inner { position: relative; z-index: 2; width: 100%; padding-top: calc(var(--tf-header-h) + var(--tf-util-h) + 36px); padding-bottom: 150px; }
 .a-hero__copy { max-width: 640px; }
-.a-hero h1 { font-size: clamp(34px, 4.3vw, 60px); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; color: #fff; margin: 20px 0 22px; }
+.a-hero h1 { font-size: clamp(32px, 3.4vw, 48px); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; color: #fff; margin: 20px 0 22px; }
 .a-hero h1 em { font-style: normal; color: var(--tf-indigo-glow); }
 .a-hero__lead { font-size: clamp(16px, 1.45vw, 19px); line-height: 1.65; color: #BFC5E2; max-width: 600px; }
 .a-hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
@@ -286,18 +287,6 @@ a.a-in:hover { background: #004182; transform: translateY(-2px); box-shadow: 0 8
 .a-drawer__next:hover svg { transform: translateX(5px); }
 
 /* ---------- CLOSING CALL ---------- */
-.a-cta { position: relative; overflow: hidden; border-radius: 10px; padding: clamp(36px, 5vw, 76px);
-  background: radial-gradient(125% 140% at 0% 0%, #26358C 0%, #121B57 46%, var(--tf-ink) 100%); box-shadow: 0 30px 64px rgba(10,15,44,.26);
-  display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(26px, 4vw, 64px); align-items: center; }
-.a-cta::before { content: ""; position: absolute; inset: 0; pointer-events: none;
-  background-image: linear-gradient(rgba(124,139,230,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(124,139,230,.07) 1px, transparent 1px); background-size: 40px 40px; }
-.a-cta > * { position: relative; }
-.a-cta h2 { font-size: clamp(26px, 3vw, 40px); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: #fff; }
-.a-cta p { margin-top: 16px; font-size: 16.5px; line-height: 1.7; color: #BFC5E2; max-width: 520px; }
-.a-cta__btns { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
-.a-cta__btns .tf-btn { min-width: 250px; justify-content: space-between; }
-.a-cta__mail { margin-top: 6px; font-size: 14px; color: #8F97BE; }
-.a-cta__mail a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.3); }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 1080px) {
@@ -312,7 +301,7 @@ a.a-in:hover { background: #004182; transform: translateY(-2px); box-shadow: 0 8
   .a-route { margin-top: 0; }
 }
 @media (max-width: 860px) {
-  .a-story, .a-office, .a-cta { grid-template-columns: 1fr; }
+  .a-story, .a-office { grid-template-columns: 1fr; }
   .a-story__aside { position: static; }
   .a-dial { display: none; }
   .a-ch { opacity: 1; grid-template-columns: 1fr; gap: 6px; }
@@ -326,7 +315,6 @@ a.a-in:hover { background: #004182; transform: translateY(-2px); box-shadow: 0 8
   .a-hero__photo { width: 100%; opacity: .5; -webkit-mask-image: none; mask-image: none; }
   .a-hero::before { background: linear-gradient(180deg, rgba(4,6,26,.8), rgba(4,6,26,.55)); }
   .a-anchor .tf-btn { display: none; }
-  .a-cta__btns .tf-btn { min-width: 0; width: 100%; }
 }
 @media (max-width: 600px) {
   .a-team { grid-template-columns: 1fr; }
@@ -547,15 +535,15 @@ a.a-in:hover { background: #004182; transform: translateY(-2px); box-shadow: 0 8
      ========================================================= -->
 <section class="a-section a-mist" id="contact" style="padding-top:clamp(44px,5vw,64px);padding-bottom:clamp(56px,6vw,88px)">
   <div class="tf-wrap">
-    <div class="a-cta tf-reveal">
+    <div class="tf-cta tf-reveal">
       <div>
         <h2>Tell us where your boundary sits</h2>
         <p>Say what has to cross it. We will help you choose the right device and plan a pilot.</p>
       </div>
-      <div class="a-cta__btns">
+      <div class="tf-cta__btns">
         <a class="tf-btn tf-btn--primary" href="/contact?topic=pilot" data-arrow>Plan a pilot</a>
         <a class="tf-btn tf-btn--ghost" href="/contact?topic=contact">Discuss your deployment</a>
-        <span class="a-cta__mail">Or write to <a href="mailto:info@terafence.us">info@terafence.us</a></span>
+        <span class="tf-cta__mail">Or write to <a href="mailto:info@terafence.us">info@terafence.us</a></span>
       </div>
     </div>
   </div>

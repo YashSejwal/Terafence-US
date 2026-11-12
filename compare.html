@@ -4,11 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#04061A">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
-<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-<title>Compare Gateways | Terafence USA</title>
-<meta name="description" content="Compare the Terafence TFG-121, TFG-1URP, TFG121-BF and TFG121-BSG side by side, attribute by attribute, and filter by data flow, installation, file size, industry and site conditions.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+<title>Compare Data Diodes: Find the Right Gateway | Terafence USA</title>
+<meta name="description" content="Compare four Terafence data diodes on data flow, installation, file size, CCTV streams and certification. Filter by your site to find your best match.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -26,7 +27,7 @@
 .cx-hero__in { padding-top: calc(var(--tf-header-h) + var(--tf-util-h) + 36px); padding-bottom: clamp(96px, 9vw, 128px); }
 .cx-crumb { display: flex; gap: 8px; font-size: 13px; color: #8F97BE; margin-bottom: 20px; }
 .cx-crumb a { color: #BFC5E2; text-decoration: none; }
-.cx-hero h1 { margin-top: 12px; font-size: clamp(32px, 3.8vw, 50px); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; }
+.cx-hero h1 { margin-top: 12px; font-size: clamp(32px, 3.4vw, 48px); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; }
 .cx-hero h1 em { font-style: normal; color: var(--tf-indigo-glow); }
 .cx-hero p { margin-top: 14px; max-width: 620px; font-size: clamp(15.5px, 1.3vw, 17px); line-height: 1.7; color: #C3C9E6; }
 .cx-main { background: #fff; padding-bottom: clamp(56px, 6vw, 88px); }
@@ -156,14 +157,6 @@
 .cx-cell.is-out, .cx-prod.is-out .cx-prod__img, .cx-prod.is-out .cx-prod__name, .cx-prod.is-out .cx-prod__label { opacity: .4; }
 
 /* closing */
-.cx-close { display: flex; align-items: center; justify-content: space-between; gap: 20px 28px; flex-wrap: wrap; margin-top: clamp(40px, 4.6vw, 60px);
-  padding: clamp(24px, 3vw, 34px) clamp(22px, 3vw, 36px); border-radius: 18px; color: #fff; background-color: var(--tf-navy);
-  background-image: linear-gradient(rgba(124,139,230,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(124,139,230,.045) 1px, transparent 1px),
-    radial-gradient(ellipse 70% 120% at 15% 0%, rgba(41,58,146,.7), rgba(41,58,146,0) 72%);
-  background-size: 40px 40px, 40px 40px, 100% 100%; }
-.cx-close h2 { font-size: clamp(22px, 2.4vw, 30px); font-weight: 700; letter-spacing: -0.02em; }
-.cx-close p { margin-top: 6px; font-size: 15.5px; color: #C3C9E6; }
-.cx-close__btns { display: flex; gap: 10px; flex-wrap: wrap; }
 
 @media (max-width: 1339px) {
   .cx-q { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 16px 0 18px; }
@@ -279,7 +272,7 @@
         <p data-result aria-live="polite"></p>
         <div class="cx-result__cta" data-result-cta hidden>
           <a class="tf-btn tf-btn--primary" data-r-view href="#">View product <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
-          <a class="tf-btn tf-btn--ghost-dark" data-r-cfg href="/products/build-your-solution">Configure with add-ins</a>
+          <a class="tf-btn tf-btn--ghost-dark" data-r-cfg href="/products/build-your-solution">Configure</a>
         </div>
         <div class="cx-result__cta" data-result-eng hidden>
           <a class="tf-btn tf-btn--primary" href="/contact?topic=contact">Talk to our Specialist <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
@@ -407,15 +400,15 @@
       </section>
     </div>
 
-    <div class="cx-close">
+    <div class="tf-cta cx-close" style="margin-top:clamp(40px,4.6vw,60px)">
       <div>
         <h2>Not sure which one fits?</h2>
         <p>Tell us how your data must move and where the gateway will sit. We will recommend a model.</p>
       </div>
-      <div class="cx-close__btns">
+      <div class="tf-cta__btns">
         <a class="tf-btn tf-btn--primary" href="/contact?topic=contact">Talk to our Specialist <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
-        <a class="tf-btn tf-btn--ghost" href="/products/build-your-solution">Build your solution</a>
         <a class="tf-btn tf-btn--ghost" href="/contact?topic=quote">Request a quote</a>
+        <a class="tf-cta__link" href="/products/build-your-solution">Build your solution &rarr;</a>
       </div>
     </div>
 

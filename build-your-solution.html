@@ -4,11 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#04061A">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
-<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-<title>Build Your Solution | Terafence USA</title>
-<meta name="description" content="Choose a Terafence gateway, add TeraSecure, TeraObserve, TeraCommunicate or TeraQuantum solutions, and request a quote for your configuration.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+<title>Build Your Data Diode Solution | Terafence USA</title>
+<meta name="description" content="Build your data diode solution: pick a Terafence gateway, add TeraSecure, TeraObserve, TeraCommunicate or TeraQuantum, then request a quote.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,7 +19,7 @@
 /* =====================================================================
    BUILD YOUR SOLUTION. One page, two ways in:
    - from a selected product: #model=tfg-1urp (gateway pre-selected, page opens at step 2)
-   - straight to add-ins: no model, the buyer starts at step 1
+   - straight to the platform families: no model, the buyer starts at step 1
    #addon=terasecure opens that family's solutions.
    ===================================================================== */
 .cf-hero { position: relative; overflow: hidden; color: #fff; background-color: var(--tf-navy);
@@ -29,7 +30,7 @@
 .cf-crumb { display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px; color: #8F97BE; margin-bottom: 20px; }
 .cf-crumb a { color: #BFC5E2; text-decoration: none; }
 .cf-crumb a:hover { color: #fff; }
-.cf-hero h1 { margin-top: 12px; font-size: clamp(32px, 4vw, 52px); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; }
+.cf-hero h1 { margin-top: 12px; font-size: clamp(32px, 3.4vw, 48px); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; }
 .cf-hero p { margin-top: 14px; max-width: 620px; font-size: clamp(15.5px, 1.3vw, 17.5px); line-height: 1.7; color: #C3C9E6; }
 
 .cf-main { padding: clamp(40px, 4.6vw, 64px) 0 clamp(48px, 5vw, 72px); background: #fff; }
@@ -100,7 +101,7 @@
 .cf-fam[data-fam] .cf-fam__ic { stroke: var(--fam-ink); }
 .cf-fam[data-fam] .cf-fam__count { background: var(--tf-mist); color: var(--fam-ink); }
 .cf-fam[data-fam] .cf-fam__chk { accent-color: var(--fam-ink); }
-/* same concept as the add-ins page: white rows, family-coloured top edge, dark navy solution boxes */
+/* same concept as the platform page: white rows, family-coloured top edge, dark navy solution boxes */
 .cf-fam[data-fam] { border-top: 3px solid var(--fam-ink); }
 .cf-fam[data-fam].is-on { border-color: color-mix(in srgb, var(--fam-ink) 45%, var(--tf-line-light)); border-top-color: var(--fam-ink); background: #fff; }
 .cf-fam[data-fam] .cf-fam__txt b::after { content: ""; display: inline-block; width: 7px; height: 7px; margin-left: 10px; border-radius: 50%; background: var(--fam-ink); vertical-align: middle; transform: translateY(-2px); }
@@ -234,7 +235,7 @@
             <button type="button" class="cf-fam__more" aria-expanded="false" aria-controls="panel-terasecure">View details <svg class="cf-chev" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           </div>
           <div class="cf-fam__panel" id="panel-terasecure" hidden>
-            <p class="cf-fam__intro"><a class="cf-fam__about" href="/add-ins#terasecure">About this family &rarr;</a>Detect, investigate and stop threats across endpoints, devices, files and your external attack surface.</p>
+            <p class="cf-fam__intro"><a class="cf-fam__about" href="/platform#terasecure">About this family &rarr;</a>Detect, investigate and stop threats across endpoints, devices, files and your external attack surface.</p>
             <ul class="cf-mods">
               <li><label class="cf-mod"><input type="checkbox" class="cf-mod__chk" data-fam="terasecure" value="TeraShield"><span><b>TeraShield</b><span>Unified EDR, SIEM, SOAR, UEBA, UEM, DLP and threat intelligence.</span></span></label></li>
               <li><label class="cf-mod"><input type="checkbox" class="cf-mod__chk" data-fam="terasecure" value="TeraRadar"><span><b>TeraRadar</b><span>External attack-surface, vendor risk and dark-web monitoring.</span></span></label></li>
@@ -256,7 +257,7 @@
             <button type="button" class="cf-fam__more" aria-expanded="false" aria-controls="panel-teraobserve">View details <svg class="cf-chev" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           </div>
           <div class="cf-fam__panel" id="panel-teraobserve" hidden>
-            <p class="cf-fam__intro"><a class="cf-fam__about" href="/add-ins#teraobserve">About this family &rarr;</a>See what people would miss across media, physical sites and network operations.</p>
+            <p class="cf-fam__intro"><a class="cf-fam__about" href="/platform#teraobserve">About this family &rarr;</a>See what people would miss across media, physical sites and network operations.</p>
             <ul class="cf-mods">
               <li><label class="cf-mod"><input type="checkbox" class="cf-mod__chk" data-fam="teraobserve" value="TeraLens"><span><b>TeraLens</b><span>Detection of manipulated image, audio and video content.</span></span></label></li>
               <li><label class="cf-mod"><input type="checkbox" class="cf-mod__chk" data-fam="teraobserve" value="TeraVision"><span><b>TeraVision</b><span>AI-powered surveillance and physical intrusion detection.</span></span></label></li>
@@ -275,7 +276,7 @@
             <button type="button" class="cf-fam__more" aria-expanded="false" aria-controls="panel-teracommunicate">View details <svg class="cf-chev" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           </div>
           <div class="cf-fam__panel" id="panel-teracommunicate" hidden>
-            <p class="cf-fam__intro"><a class="cf-fam__about" href="/add-ins#teracommunicate">About this family &rarr;</a>Protected messaging, calling and unified communications for sensitive operations.</p>
+            <p class="cf-fam__intro"><a class="cf-fam__about" href="/platform#teracommunicate">About this family &rarr;</a>Protected messaging, calling and unified communications for sensitive operations.</p>
             <ul class="cf-mods">
               <li><label class="cf-mod"><input type="checkbox" class="cf-mod__chk" data-fam="teracommunicate" value="TeraTalk"><span><b>TeraTalk</b><span>Protected enterprise messaging and voice calling.</span></span></label></li>
               <li><label class="cf-mod"><input type="checkbox" class="cf-mod__chk" data-fam="teracommunicate" value="TeraLink"><span><b>TeraLink</b><span>Secure unified communications.</span></span></label></li>
@@ -293,7 +294,7 @@
             <button type="button" class="cf-fam__more" aria-expanded="false" aria-controls="panel-teraquantum">View details <svg class="cf-chev" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           </div>
           <div class="cf-fam__panel" id="panel-teraquantum" hidden>
-            <p class="cf-fam__intro"><a class="cf-fam__about" href="/add-ins#teraquantum">About this family &rarr;</a>Encryption built to stay secure when quantum computers can break today&rsquo;s algorithms.</p>
+            <p class="cf-fam__intro"><a class="cf-fam__about" href="/platform#teraquantum">About this family &rarr;</a>Encryption built to stay secure when quantum computers can break today&rsquo;s algorithms.</p>
             <ul class="cf-mods">
               <li><label class="cf-mod"><input type="checkbox" class="cf-mod__chk" data-fam="teraquantum" value="TeraQuantum"><span><b>TeraQuantum</b><span>Quantum-safe encryptors, secure access nodes and IP phones.</span></span></label></li>
             </ul>
@@ -350,7 +351,7 @@ TF.LOGO_HREF = "index.html";
     });
     const sel = fams.map(f => Object.assign(famState(f), {}) ).filter(x => x.on.length);
     const nSol = sel.reduce((n, x) => n + x.on.length, 0);
-    $("[data-bar-meta]").textContent = (gw ? "1 gateway" : "No gateway") + " · " + sel.length + (sel.length === 1 ? " add-in" : " add-ins") + (nSol ? " · " + nSol + (nSol === 1 ? " solution" : " solutions") : "");
+    $("[data-bar-meta]").textContent = (gw ? "1 gateway" : "No gateway") + " · " + sel.length + (sel.length === 1 ? " family" : " families") + (nSol ? " · " + nSol + (nSol === 1 ? " solution" : " solutions") : "");
     const esc = t => t.replace(/&/g, "&amp;").replace(/</g, "&lt;");
     let tree = gw ? `<div class="cf-node cf-node--gw"><small>Gateway</small><b>${esc(gw)}</b></div>`
                   : `<div class="cf-node cf-node--empty"><small>Gateway</small><b>Choose a gateway</b></div>`;
@@ -360,7 +361,7 @@ TF.LOGO_HREF = "index.html";
       const badge = x.total > 1 ? `<i>${all ? "All " + x.total : x.on.length + " of " + x.total}</i>` : "";
       const sols = x.total > 1 ? `<span class="cf-node__sols">${all ? "All solutions" : esc(x.on.join(", "))}</span>` : "";
       return `<div class="cf-node" data-fam="${x.slug}"><b>${esc(x.name)}${badge}</b>${sols}</div>`;
-    }).join("") : `<div class="cf-node cf-node--empty"><small>Add-ins</small><b>None yet (optional)</b></div>`) + '</div>';
+    }).join("") : `<div class="cf-node cf-node--empty"><small>Platform</small><b>None yet (optional)</b></div>`) + '</div>';
     $("[data-bar-tree]").innerHTML = tree;
     const hint = $("[data-bar-hint]");
     hint.textContent = gw ? "" : (alerted ? "Choose a gateway first." : "Choose a gateway to request a quote.");

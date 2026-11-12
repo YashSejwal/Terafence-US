@@ -10,13 +10,12 @@ window.TF = window.TF || {};
 TF.NAV = [
   {
     label: "Products",
-    intro: { title: "Products", text: "Five FPGA-based gateways built on one principle: data leaves, nothing comes back. Sized for the cabinet, the rack or the product it goes inside.", link: { label: "All products", href: "/products" } },
+    intro: { title: "Products", text: "Four FPGA-based gateways built on one principle: data leaves, nothing comes back. Sized for the cabinet, the rack or the product it goes inside.", link: { label: "All products", href: "/products" } },
     cols: [
       { title: "One-way (unidirectional)", links: [
         { label: "TFG-121", sub: "DIN-rail, fan-less, -40 to +80 °C edge isolation", href: "/products/tfg-121" },
         { label: "TFG-1URP", sub: "1U rack: plant boundary and SOC ingestion", href: "/products/tfg-1urp" },
-        { label: "TFG121-BF", sub: "1/10 Gbps large-file transfer, beyond 200 GB", href: "/products/tfg121-bf" },
-        { label: "TFG-VSecure", sub: "CCTV gateway for RTSP / ONVIF video", href: "/products/tfg-vsecure" }
+        { label: "TFG121-BF", sub: "1/10 Gbps large-file transfer, beyond 200 GB", href: "/products/tfg121-bf" }
       ]},
       { title: "Controlled two-way", links: [
         { label: "TFG121-BSG", sub: "Dual-FPGA Layer-2 firewall where acknowledgement is a must", href: "/products/tfg121-bsg" }
@@ -24,13 +23,19 @@ TF.NAV = [
       { title: "Choose", links: [
         { label: "Build your solution", sub: "Choose a gateway, then add what you need", href: "/products/build-your-solution" },
         { label: "Compare models", sub: "Throughput, form factor and flow side by side", href: "/products/compare" }
-      ]},
-      { title: "Add-ins", links: [
-        { label: "All add-ins", sub: "How the four families extend the core", href: "/add-ins" },
-        { label: "TeraSecure", sub: "Cyber defense", href: "/add-ins#terasecure" },
-        { label: "TeraObserve", sub: "Intelligence & visibility", href: "/add-ins#teraobserve" },
-        { label: "TeraCommunicate", sub: "Secure collaboration", href: "/add-ins#teracommunicate" },
-        { label: "TeraQuantum", sub: "Future-ready encryption", href: "/add-ins#teraquantum" }
+      ]}
+    ]
+  },
+  {
+    label: "Platform",
+    intro: { title: "Platform", text: "Four families of software and hardware services that extend the Terafence core.", link: { label: "All platform", href: "/platform" } },
+    cols: [
+      { title: "Platform", links: [
+        { label: "All platform", sub: "How the four families extend the core", href: "/platform" },
+        { label: "TeraSecure", sub: "Cyber defense", href: "/platform#terasecure" },
+        { label: "TeraObserve", sub: "Intelligence & visibility", href: "/platform#teraobserve" },
+        { label: "TeraCommunicate", sub: "Secure collaboration", href: "/platform#teracommunicate" },
+        { label: "TeraQuantum", sub: "Future-ready encryption", href: "/platform#teraquantum" }
       ]}
     ]
   },
@@ -41,7 +46,8 @@ TF.NAV = [
       { title: "How it works", links: [
         { label: "The one-way principle", sub: "Why the return path is absent, not denied", href: "/technology#principle" },
         { label: "Why FPGA hardware", sub: "Immutable logic, deterministic throughput", href: "/technology#fpga" },
-        { label: "Where diodes sit in a network", sub: "Edge, cell boundary, plant boundary", href: "/technology#placement" }
+        { label: "Where diodes sit in a network", sub: "Zone boundary and asset boundary", href: "/technology#placement" },
+        { label: "Data diode vs firewall vs air gap", sub: "When to use which", href: "/technology#comparison" }
       ]},
       { title: "Integration", links: [
         { label: "Protocols and integration", sub: "Modbus, IEC-104, OPC UA, Syslog, SFTP, RTSP and more", href: "/technology/protocols-and-integration" },
@@ -60,13 +66,13 @@ TF.NAV = [
         { label: "Defense and Government", href: "/industries/defense-government" },
         { label: "Lifescience & Pharmaceuticals", href: "/industries/lifescience-pharma" },
         { label: "Industrial Manufacturing", href: "/industries/industrial-manufacturing" },
-        { label: "Transportation", href: "/industries/transportation" }
+        { label: "Transportation", href: "/case-studies/railway-ot-it" }
       ]},
       { title: "By use case", links: [
-        { label: "OT data to SIEM and monitoring", href: "/use-cases/ot-data-to-siem" },
-        { label: "Secure file transfer into isolated networks", href: "/use-cases/secure-file-transfer" },
-        { label: "OT data to the cloud", href: "/use-cases/ot-to-cloud" },
-        { label: "CCTV and video export", href: "/use-cases/cctv-video-protection" }
+        { label: "OT data to SIEM and monitoring", href: "/insights/ot-data-to-siem/" },
+        { label: "Secure file transfer into isolated networks", href: "/insights/secure-patch-software-distribution/" },
+        { label: "OT data to the cloud", href: "/insights/ot-data-to-cloud/" },
+        { label: "CCTV and video export", href: "/insights/reinforcing-cctv-security/" }
       ]},
       { title: "Services", links: [
         { label: "Associated services", sub: "Assess, integrate, validate and support", href: "/services" }
@@ -78,12 +84,15 @@ TF.NAV = [
     intro: { title: "Resources", text: "Datasheets, technical specifications, white papers, case studies and articles.", link: { label: "Resource library", href: "/resources" } },
     cols: [
       { title: "Library", links: [
-        { label: "Resource library", sub: "Filter by type and by model", href: "/resources" },
-        { label: "Case studies", sub: "Challenge, solution, result", href: "/resources/case-studies" }
-      ]},
-      { title: "Read", links: [
-        { label: "Insights", sub: "Articles on OT security and one-way transfer", href: "/blog" },
+        { label: "Case studies", sub: "Real deployments, problem to impact", href: "/resources/case-studies" },
+        { label: "Insights", sub: "Articles on OT security and one-way transfer", href: "/insights/" },
         { label: "Certifications and compliance", sub: "Designed to support", href: "/resources/certifications-compliance" }
+      ]},
+      { title: "Datasheets", links: [
+        { label: "TFG-121", sub: "Download Datasheet (PDF)", href: "/assets/downloads/Terafence_TFG_121_USA_Inc._Datasheet_Nov2026.pdf" },
+        { label: "TFG-1URP", sub: "Download Datasheet (PDF)", href: "/assets/downloads/Terafence_TFG_1URP_USA_Inc._Datasheet_Nov2026.pdf" },
+        { label: "TFG121-BF", sub: "Download Datasheet (PDF)", href: "/assets/downloads/Terafence_TFG121_BF_USA_Inc._Datasheet_Nov2026.pdf" },
+        { label: "TFG121-BSG", sub: "Download Datasheet (PDF)", href: "/assets/downloads/Terafence_TFG121_BSG_USA_Inc._Datasheet_Nov2026.pdf" }
       ]}
     ]
   },
@@ -119,9 +128,10 @@ TF.HERO_INTERVAL_MS = 6000;
 
 /* ---------- 3. Footer ---------- */
 TF.FOOTER = [
-  { title: "Products", links: [["TFG-121", "/products/tfg-121"], ["TFG-1URP", "/products/tfg-1urp"], ["TFG121-BF", "/products/tfg121-bf"], ["TFG121-BSG", "/products/tfg121-bsg"], ["TFG-VSecure", "/products/tfg-vsecure"], ["Compare models", "/products/compare"]] },
-  { title: "Solutions", links: [["Energy and Renewables", "/industries/energy-renewables"], ["Oil and Gas", "/industries/oil-gas"], ["Utilities – Water / Electric / Gas", "/industries/utilities"], ["Defense and Government", "/industries/defense-government"], ["OT data to SIEM", "/use-cases/ot-data-to-siem"], ["Associated services", "/services"]] },
-  { title: "Resources", links: [["Resource library", "/resources"], ["Insights", "/blog"], ["Case studies", "/resources/case-studies"], ["Certifications and compliance", "/resources/certifications-compliance"], ["Protocols and integration", "/technology/protocols-and-integration"]] },
+  { title: "Products", links: [["TFG-121", "/products/tfg-121"], ["TFG-1URP", "/products/tfg-1urp"], ["TFG121-BF", "/products/tfg121-bf"], ["TFG121-BSG", "/products/tfg121-bsg"], ["Compare models", "/products/compare"]] },
+  { title: "Platform", links: [["All platform", "/platform"], ["TeraSecure", "/platform#terasecure"], ["TeraObserve", "/platform#teraobserve"], ["TeraCommunicate", "/platform#teracommunicate"], ["TeraQuantum", "/platform#teraquantum"]] },
+  { title: "Solutions", links: [["Energy and Renewables", "/industries/energy-renewables"], ["Oil and Gas", "/industries/oil-gas"], ["Utilities – Water / Electric / Gas", "/industries/utilities"], ["Defense and Government", "/industries/defense-government"], ["OT data to SIEM", "/insights/ot-data-to-siem/"], ["Associated services", "/services"]] },
+  { title: "Resources", links: [["Resource library", "/resources"], ["Insights", "/insights/"], ["Case studies", "/resources/case-studies"], ["Certifications and compliance", "/resources/certifications-compliance"], ["Protocols and integration", "/technology/protocols-and-integration"]] },
   { title: "About us", links: [["About Terafence USA", "/about"], ["Leadership", "/about#leadership"], ["Partners", "/partners"], ["Contact", "/contact"], ["Support", "/support"]] }
 ];
 TF.LEGAL = [["Privacy policy", "/privacy"], ["Terms of use", "/terms"], ["Cookie policy", "/cookie"]];
@@ -137,12 +147,25 @@ TF.LOGO_HREF = "#top";
 /* Pages that exist as real files in this prototype. While PLACEHOLDER_LINKS is on,
    a link to the address on the left opens the file on the right. Add a line when
    a new page is built; remove all of this once the real site is live. */
-TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "index.html#products", "/products/tfg-1urp": "tfg-1urp.html", "/products/tfg-121": "tfg-121.html", "/products/build-your-solution": "build-your-solution.html", "/add-ins": "add-ins.html", "/products/tfg121-bf": "tfg121-bf.html", "/products/tfg121-bsg": "tfg121-bsg.html", "/products/compare": "compare.html" };
+/* Every address under /insights/ is a real generated page (insights/.../index.html),
+   so no line per article is needed. */
+TF.REAL_PREFIXES = ["/insights"];
+/* Pages inside sub-folders (e.g. insights/) set TF.ROOT = "../" or "../../" so the
+   logo and the links above still point at the right files. Top-level pages leave it empty. */
+TF.ROOT = TF.ROOT || "";
+TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "index.html#products", "/products/tfg-1urp": "tfg-1urp.html", "/products/tfg-121": "tfg-121.html", "/products/build-your-solution": "build-your-solution.html", "/platform": "platform.html", "/technology": "technology.html", "/industries/oil-gas": "industry-oil-gas.html", "/industries/energy-renewables": "industry-energy-renewables.html", "/industries/utilities": "industry-utilities.html", "/industries/lifescience-pharma": "industry-lifescience-pharma.html", "/industries/industrial-manufacturing": "industry-industrial-manufacturing.html", "/industries/defense-government": "industry-defense-government.html", "/solutions": "solutions.html", "/case-studies/railway-ot-it": "case-railway-ot-it.html", "/resources/case-studies": "case-studies.html", "/case-studies/power-plant-emissions": "case-power-plant-emissions.html", "/case-studies/water-syslog-soc": "case-water-syslog-soc.html", "/case-studies/defense-bms-segmentation": "case-defense-bms-segmentation.html", "/case-studies/engine-turbine-modbus": "case-engine-turbine-modbus.html", "/case-studies/managed-soc": "case-managed-soc.html", "/case-studies/pharma-machinery-oem": "case-pharma-machinery-oem.html", "/case-studies/water-smtp-telemetry": "case-water-smtp-telemetry.html", "/case-studies/defense-cctv-japan": "case-defense-cctv-japan.html", "/case-studies/petrochemical-gas-flare": "case-petrochemical-gas-flare.html", "/products/tfg121-bf": "tfg121-bf.html", "/products/tfg121-bsg": "tfg121-bsg.html", "/products/compare": "compare.html" };
 
 /* =====================================================================
    Below this line: behaviour. No content to edit.
    ===================================================================== */
 (function () {
+  // Phone and tablet layer: every page links shared/tf-mobile.css in its <head>. Pages made by a
+  // generator (insights/) can lose that line when they are rebuilt, so add it here if it is missing.
+  if (!document.querySelector('link[href$="tf-mobile.css"]') && document.currentScript) {
+    const l = document.createElement("link");
+    l.rel = "stylesheet"; l.href = document.currentScript.src.replace(/tf-site\.js(\?.*)?$/, "tf-mobile.css");
+    document.head.appendChild(l);
+  }
   const ARROW = '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg>';
   const CHEV = '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
   TF.ARROW = ARROW;
@@ -165,7 +188,7 @@ TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "index
     el.innerHTML = `
       <div class="tf-util"><div class="tf-wrap"><span class="tf-util__tag">Unbreachable <b>by</b> Design</span>${util}</div></div>
       <div class="tf-bar"><div class="tf-wrap">
-        <a class="tf-logo" href="${TF.LOGO_HREF || "#top"}" aria-label="Terafence USA home"><img src="${TF.LOGO_DARK_BG}" alt="Terafence - Reliable Transformations!" width="400" height="106" decoding="async"></a>
+        <a class="tf-logo" href="${TF.LOGO_HREF || "#top"}" aria-label="Terafence USA home"><img src="${TF.ROOT + TF.LOGO_DARK_BG}" alt="Terafence - Reliable Transformations!" width="400" height="106" decoding="async"></a>
         <nav class="tf-nav" aria-label="Main">${items}</nav>
         <div class="tf-bar__actions">
           <a class="tf-btn tf-btn--ghost" href="${TF.CTA.secondary.href}">${TF.CTA.secondary.label}</a>
@@ -176,7 +199,7 @@ TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "index
 
     const mob = document.createElement("div");
     mob.className = "tf-mobile"; mob.setAttribute("aria-label", "Menu");
-    mob.innerHTML = `<div class="tf-mobile__top"><img src="${TF.LOGO_DARK_BG}" alt="Terafence" width="400" height="106" decoding="async"><button class="tf-mobile__close" aria-label="Close menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
+    mob.innerHTML = `<div class="tf-mobile__top"><img src="${TF.ROOT + TF.LOGO_DARK_BG}" alt="Terafence" width="400" height="106" decoding="async"><button class="tf-mobile__close" aria-label="Close menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
       ${TF.NAV.map(m => `<details><summary>${m.label}</summary><div class="tf-mobile__group"><a href="${m.intro.link.href}"><strong>${m.intro.link.label}</strong></a>${m.cols.map(c => `<h4>${c.title}</h4>${c.links.map(l => `<a href="${l.href}">${l.label}</a>`).join("")}`).join("")}</div></details>`).join("")}
       <div class="tf-mobile__cta"><a class="tf-btn tf-btn--primary" href="${TF.CTA.primary.href}">${TF.CTA.primary.label}</a><a class="tf-btn tf-btn--ghost" href="${TF.CTA.secondary.href}">${TF.CTA.secondary.label}</a></div>
       <div class="tf-mobile__util">${util}</div>`;
@@ -253,18 +276,25 @@ TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "index
   function renderFooter(el) {
     const cols = TF.FOOTER.map(c => `<div><h4>${c.title}</h4><ul>${c.links.map(([l, h]) => `<li><a href="${h}">${l}</a></li>`).join("")}</ul></div>`).join("");
     el.innerHTML = `<div class="tf-wrap"><div class="tf-footer__grid">
-        <div class="tf-footer__brand"><img src="${TF.LOGO_DARK_BG}" alt="Terafence" width="400" height="106" loading="lazy" decoding="async"><p>FPGA-based data diodes and unidirectional gateways that let operational data out while keeping critical systems unreachable.</p>
+        <div class="tf-footer__brand"><img src="${TF.ROOT + TF.LOGO_DARK_BG}" alt="Terafence" width="400" height="106" loading="lazy" decoding="async"><p>FPGA-based data diodes and unidirectional gateways that let operational data out while keeping critical systems unreachable.</p>
           <p><a href="mailto:info@terafence.us">info@terafence.us</a></p><div class="tf-footer__slogan">Unbreachable <b>by</b> Design.</div></div>
         ${cols}</div>
         <div class="tf-footer__base"><span>&copy; ${new Date().getFullYear()} Terafence USA Inc. All rights reserved.</span><nav>${TF.LEGAL.map(([l, h]) => `<a href="${h}">${l}</a>`).join("")}</nav></div></div>`;
   }
 
   function placeholderLinks() {
+    // files (datasheet PDFs) open in a new tab, from any folder depth
+    document.querySelectorAll('a[href^="/assets/"]').forEach(a => {
+      a.setAttribute("href", TF.ROOT + a.getAttribute("href").slice(1)); a.target = "_blank"; a.rel = "noopener";
+    });
     if (!TF.PLACEHOLDER_LINKS) return;
     // links to pages that exist as files open the file, not a notice
     document.querySelectorAll('a[href^="/"]').forEach(a => {
       const h = a.getAttribute("href"), path = h.split(/[?#]/)[0], hash = h.includes("#") ? "#" + h.split("#")[1] : "";
-      if (TF.REAL_PAGES && TF.REAL_PAGES[path] && !h.includes("?")) a.setAttribute("href", TF.REAL_PAGES[path] + hash);
+      if (h.includes("?")) return;
+      if (TF.REAL_PAGES && TF.REAL_PAGES[path]) { a.setAttribute("href", TF.ROOT + TF.REAL_PAGES[path] + hash); return; }
+      if ((TF.REAL_PREFIXES || []).some(p => path === p || path.startsWith(p + "/")))
+        a.setAttribute("href", TF.ROOT + path.slice(1).replace(/\/?$/, "/") + "index.html" + hash);
     });
     const toast = document.createElement("div"); toast.className = "tf-toast"; document.body.appendChild(toast);
     let t;

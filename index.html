@@ -4,11 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#04061A">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
-<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-<title>Terafence USA | FPGA Data Diodes and Unidirectional Gateways</title>
-<meta name="description" content="Terafence FPGA-based data diodes let operational data out while keeping critical systems unreachable. Data Out. Nothing Back In.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+<title>Data Diodes and One-Way Gateways for OT | Terafence USA</title>
+<meta name="description" content="Hardware data diodes that let OT data out and keep critical systems unreachable. FPGA-enforced one-way gateways, now in the US. Plan a pilot.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -45,7 +46,7 @@ section { position: relative; }
 .b-hero__copy { max-width: 560px; }
 .b-hero__msg { transition: opacity .38s ease, transform .38s ease; }
 .b-hero__msg.is-out { opacity: 0; transform: translateY(10px); }
-.b-hero h1 { font-size: clamp(32px, 3.6vw, 50px); font-weight: 700; color: #fff; letter-spacing: -0.015em; margin: 18px 0 18px; line-height: 1.12; }
+.b-hero h1 { font-size: clamp(32px, 3.4vw, 48px); font-weight: 700; color: #fff; letter-spacing: -0.015em; margin: 18px 0 18px; line-height: 1.12; }
 .b-hero__text { font-size: 16.5px; color: #BFC5E2; max-width: 500px; min-height: 4.8em; }
 .b-hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
 .b-hero__dots { display: flex; gap: 8px; margin-top: 40px; }
@@ -185,7 +186,7 @@ section { position: relative; }
 
 /* asymmetric header: statement left, explanation right, hairline between */
 .b-hw__head { display: grid; grid-template-columns: 1.08fr 1fr; gap: clamp(26px, 4vw, 64px); align-items: end; margin-bottom: clamp(50px, 6vw, 88px); }
-.b-hw__head h2 { font-size: clamp(30px, 3.4vw, 46px); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: #fff; margin-top: 16px; }
+.b-hw__head h2 { font-size: clamp(25px, 2.6vw, 36px); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; color: #fff; margin-top: 16px; }
 .b-hw__sub { position: relative; padding-left: clamp(22px, 3vw, 40px); padding-bottom: 8px; font-size: 16px; line-height: 1.75; color: var(--tf-muted-dark-bg); }
 .b-hw__sub::before { content: ""; position: absolute; left: 0; top: 2px; bottom: 6px; width: 1px; background: var(--tf-line-dark); }
 
@@ -266,7 +267,7 @@ section { position: relative; }
 
 /* ---------- PRODUCTS: tabbed product explorer ---------- */
 .b-px__head { margin-bottom: 32px; }
-.b-px__tabs { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; border-bottom: 1px solid var(--tf-line-light); padding-bottom: 10px; }
+.b-px__tabs { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; border-bottom: 1px solid var(--tf-line-light); padding-bottom: 10px; }
 .b-px__tab { position: relative; z-index: 1; display: flex; align-items: center; gap: 12px; background: none; border: 0; border-radius: 8px; cursor: pointer; text-align: left; padding: 10px 12px; font-family: inherit; color: var(--tf-muted-light-bg); transition: background .3s, color .3s; }
 .b-px__tab:hover { background: rgba(41,58,146,.04); }
 .b-px__thumb { flex: 0 0 44px; height: 40px; display: flex; align-items: center; justify-content: center; }
@@ -320,7 +321,7 @@ a.b-px__obj { cursor: pointer; }
 .b-px__more a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .b-prodsec { padding-bottom: clamp(44px, 5vw, 64px); }
 .b-prodsec + .b-section { padding-top: clamp(56px, 6vw, 84px); }
-/* ---------- ADD-IN SOLUTIONS (scoped) ---------- */
+/* ---------- PLATFORM (scoped) ---------- */
 .b-addon { border: 1px solid color-mix(in srgb, var(--fam) 55%, transparent); box-shadow: inset 0 2px 0 var(--fam); }
 .b-addon .b-addon__tile { background: var(--fam-dim); }
 .b-addon .b-addon__ic { stroke: var(--fam); }
@@ -437,7 +438,7 @@ a.b-px__obj { cursor: pointer; }
    mechanism and the guarantee in one sentence. */
 .b-proof { background: linear-gradient(180deg, var(--tf-navy), var(--tf-ink)); }
 .b-proof__head { display: grid; grid-template-columns: 1.4fr auto; gap: clamp(24px, 4vw, 56px); align-items: start; margin-bottom: clamp(40px, 4.5vw, 62px); }
-.b-proof__head h2 { font-size: clamp(28px, 3.2vw, 44px); font-weight: 700; line-height: 1.12; letter-spacing: -0.02em; color: #fff; margin: 16px 0 16px; }
+.b-proof__head h2 { font-size: clamp(25px, 2.6vw, 36px); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; color: #fff; margin: 16px 0 16px; }
 .b-proof__head h2 em { font-style: normal; color: var(--tf-indigo-glow); }
 .b-proof__head p { font-size: 16px; color: var(--tf-muted-dark-bg); }
 .b-proof__head .tf-btn { margin-top: 18px; white-space: nowrap; }
@@ -490,7 +491,7 @@ a.b-px__obj { cursor: pointer; }
    Photos are tinted to brand indigo in CSS and return to full colour on hover,
    so a replacement needs no code change. */
 .b-sol__head { display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(26px, 4vw, 60px); align-items: end; margin-bottom: clamp(36px, 4vw, 54px); }
-.b-sol__head h2 { font-size: clamp(27px, 3vw, 42px); font-weight: 700; line-height: 1.12; letter-spacing: -0.02em; color: var(--tf-text-light-bg); margin-top: 16px; }
+.b-sol__head h2 { font-size: clamp(25px, 2.6vw, 36px); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; color: var(--tf-text-light-bg); margin-top: 16px; }
 .b-sol__head h2 em { font-style: normal; color: var(--tf-indigo); }
 .b-sol__aside { padding-bottom: 6px; }
 .b-sol__aside p { font-size: 15px; line-height: 1.65; color: var(--tf-muted-light-bg); margin-bottom: 18px; max-width: 320px; }
@@ -530,14 +531,21 @@ a.b-px__obj { cursor: pointer; }
 
 .b-sol__uses { margin-top: clamp(38px, 4vw, 56px); padding-top: clamp(26px, 3vw, 36px); border-top: 1px solid var(--tf-line-light); }
 .b-sol__uses > small { display: block; font-family: var(--tf-font-head); font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--tf-indigo); margin-bottom: 16px; }
-.b-sol__row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-.b-sol__use { display: flex; align-items: center; gap: 13px; text-decoration: none; padding: 15px 18px; border-radius: 6px;
-  background: var(--tf-mist); border: 1px solid transparent; transition: background .3s, border-color .3s, transform .4s var(--tf-ease); }
-.b-sol__use:hover { background: #fff; border-color: rgba(41,58,146,.24); transform: translateY(-2px); }
-.b-sol__use svg.ic { flex: 0 0 20px; width: 20px; height: 20px; color: var(--tf-indigo); }
-.b-sol__use b { flex: 1; font-family: var(--tf-font-head); font-size: 14px; font-weight: 500; color: var(--tf-text-light-bg); }
-.b-sol__use svg.ar { flex: 0 0 13px; width: 13px; height: 13px; color: var(--tf-indigo); opacity: .5; transition: opacity .3s, transform .35s var(--tf-ease); }
-.b-sol__use:hover svg.ar { opacity: 1; transform: translate(2px, -2px); }
+.b-sol__row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+/* use-case tiles: the same dark gradient as the platform solution boxes */
+.b-sol__use { position: relative; display: flex; align-items: center; gap: 14px; min-height: 76px; padding: 18px 20px; border-radius: 10px; text-decoration: none;
+  border: 1px solid rgba(124,139,230,.18); background-color: var(--tf-navy);
+  background-image: linear-gradient(rgba(124,139,230,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(124,139,230,.045) 1px, transparent 1px),
+    radial-gradient(ellipse 90% 90% at 20% 0%, rgba(41,58,146,.75), rgba(41,58,146,0) 75%);
+  background-size: 28px 28px, 28px 28px, 100% 100%;
+  transition: border-color .35s, box-shadow .45s var(--tf-ease), transform .45s var(--tf-ease); }
+.b-sol__use:hover { border-color: rgba(124,139,230,.5); transform: translateY(-3px); box-shadow: 0 16px 32px rgba(8,13,46,.28); }
+.b-sol__use:focus-visible { outline: 2px solid var(--tf-indigo-glow); outline-offset: 3px; }
+.b-sol__use svg.ic { flex: 0 0 38px; width: 38px; height: 38px; padding: 9px; border-radius: 50%; color: #fff; background: rgba(124,139,230,.18); transition: background .35s; }
+.b-sol__use:hover svg.ic { background: var(--tf-indigo-hi); }
+.b-sol__use b { flex: 1; font-family: var(--tf-font-head); font-size: 15px; font-weight: 600; line-height: 1.3; color: #fff; }
+.b-sol__use svg.ar { flex: 0 0 14px; width: 14px; height: 14px; color: var(--tf-indigo-glow); transition: color .3s, transform .35s var(--tf-ease); }
+.b-sol__use:hover svg.ar { color: #fff; transform: translate(2px, -2px); }
 @media (prefers-reduced-motion: reduce) { .b-sol__img img { transition: none; } }
 
 /* ---------- WHY FPGA HARDWARE ----------
@@ -545,7 +553,7 @@ a.b-px__obj { cursor: pointer; }
    The chip is drawn, not photographed, so it stays sharp at any size and
    follows the brand tokens. */
 .b-why__head { max-width: 860px; margin-bottom: clamp(38px, 4.5vw, 62px); }
-.b-why__head h2 { font-size: clamp(28px, 3.2vw, 44px); font-weight: 700; line-height: 1.12; letter-spacing: -0.02em; color: var(--tf-text-light-bg); margin: 16px 0 14px; }
+.b-why__head h2 { font-size: clamp(25px, 2.6vw, 36px); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; color: var(--tf-text-light-bg); margin: 16px 0 14px; }
 .b-why__head p { font-size: clamp(16px, 1.5vw, 19px); line-height: 1.6; color: var(--tf-muted-light-bg); }
 
 .b-why__split { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: clamp(32px, 5vw, 76px); align-items: start; }
@@ -618,8 +626,11 @@ a.b-px__obj { cursor: pointer; }
    taken from the live terafence.us Knowledge Vault: title, category, date and
    reading time. EDIT: update these when the articles change. */
 .b-ins__head { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; margin-bottom: clamp(32px, 3.6vw, 48px); }
-.b-ins__head h2 { font-size: clamp(27px, 3vw, 42px); font-weight: 700; line-height: 1.12; letter-spacing: -0.02em; color: var(--tf-text-light-bg); margin-top: 16px; }
+.b-ins__head h2 { font-size: clamp(25px, 2.6vw, 36px); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; color: var(--tf-text-light-bg); margin-top: 0; }
 .b-ins__grid { display: grid; grid-template-columns: 1.22fr 1fr; gap: clamp(18px, 2.2vw, 28px); align-items: stretch; }
+.b-ins__grid--one { grid-template-columns: minmax(0, 1fr); }
+.b-ins__grid--one .b-lead { max-width: 860px; }
+.b-ins__grid--two .b-ins__col { grid-template-rows: auto; align-content: start; }
 
 /* the lead: a dark panel inside a light section, the same surface as the gateway card */
 .b-lead { position: relative; overflow: hidden; display: flex; flex-direction: column; text-decoration: none;
@@ -639,6 +650,7 @@ a.b-px__obj { cursor: pointer; }
   font-family: var(--tf-font-head); font-size: clamp(16px, 1.65vw, 21px); font-weight: 600; line-height: 1.45;
   letter-spacing: -0.01em; color: var(--tf-indigo-glow); }
 .b-lead__pull b { color: #fff; font-weight: 700; }
+.b-lead__x { margin-top: 16px; max-width: 60ch; font-family: var(--tf-font-body); font-size: clamp(15.5px, 1.25vw, 17px); font-weight: 400; line-height: 1.65; color: #C3C9E6; }
 .b-lead__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: clamp(22px, 2.6vw, 32px); }
 .b-lead__tags span { padding: 7px 13px; border-radius: 30px; border: 1px solid var(--tf-line-dark);
   font-family: var(--tf-font-head); font-size: 11px; font-weight: 500; color: #AEB7E4; transition: border-color .4s, color .4s; }
@@ -676,7 +688,7 @@ a.b-px__obj { cursor: pointer; }
 .b-final { padding: 110px 0; background: var(--tf-indigo); position: relative; overflow: hidden; }
 .b-final::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px); background-size: 52px 52px; }
 .b-final__grid { position: relative; display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; }
-.b-final h2 { font-size: clamp(25px, 2.8vw, 38px); color: #fff; font-weight: 600; letter-spacing: -0.01em; }
+.b-final h2 { color: #fff; font-size: clamp(25px, 2.6vw, 36px); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
 .b-final p { color: #D7DCF6; font-size: 16px; margin-top: 18px; }
 .b-final__cta { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
 .b-final .tf-btn--ghost { border-color: rgba(255,255,255,.5); color: #fff; }
@@ -848,21 +860,6 @@ body { font-size: 15.5px; }
     <div class="b-figs tf-reveal" data-figs>
       <div class="b-fig"><strong>2015</strong><span class="b-fig__lbl">Founded</span></div><div class="b-fig"><strong>2017</strong><span class="b-fig__lbl">First FPGA data diode to market</span></div><div class="b-fig"><strong data-count="6">6</strong><span class="b-fig__lbl">Continents in service</span></div><div class="b-fig"><strong data-count="2500" data-suffix="+">2,500+</strong><span class="b-fig__lbl">OEM machines with Terafence inside</span></div><div class="b-fig"><strong data-count="20" data-suffix="+">20+</strong><span class="b-fig__lbl">Years MTBF, no moving parts</span></div><div class="b-fig b-fig--zero"><strong>Zero</strong><span class="b-fig__lbl">Vulnerabilities in multi-agency penetration tests</span></div>
     </div>
-    <!-- Logo ticker: add or remove logos here; the script duplicates the row for the seamless loop -->
-    <div class="b-trust tf-reveal">
-      <small>Deployed with and for</small>
-      <div class="b-ticker" data-ticker aria-label="Customers and partners">
-        <div class="b-ticker__track">
-          <div class="b-ticker__set">
-            <img src="assets/logos/siemens.svg" alt="Siemens" style="height:22px" width="1000" height="159" loading="lazy" decoding="async">
-            <img src="assets/logos/abb.svg" alt="ABB" style="height:28px" width="88" height="35" loading="lazy" decoding="async">
-            <img src="assets/logos/hitachi.svg" alt="Hitachi" style="height:22px" width="850" height="136" loading="lazy" decoding="async">
-            <span class="b-ticker__word" aria-label="IMA Group">IMA</span>
-            <span class="b-ticker__metro"><img src="assets/logos/delhi-metro.svg" alt="" style="height:34px" width="349" height="348" loading="lazy" decoding="async">New Delhi Metro</span>
-            <img src="assets/logos/accenture.svg" alt="Accenture" style="height:30px" width="163" height="43" loading="lazy" decoding="async">
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -887,12 +884,12 @@ body { font-size: 15.5px; }
     <div class="b-px__head tf-reveal">
       <div class="b-head" style="margin-bottom:0">
         <span class="tf-eyebrow">Products</span>
-        <h2>One technology. Five ways to deploy it.</h2>
+        <h2>One technology. Four ways to deploy it.</h2>
         <p>The choice depends on where the boundary sits and what has to cross it. Every model is a complete gateway with no extra servers to buy, secure or patch.</p>
       </div>
     </div>
     <div class="b-px tf-reveal" data-px>
-      <div class="b-px__tabs" role="tablist" aria-label="Terafence models"><button class="b-px__tab" role="tab" id="tab-tfg-121" aria-controls="panel-tfg-121" aria-selected="true" tabindex="0"><span class="b-px__thumb"><img src="assets/studio/thumbs/tfg-121.webp" alt="" width="58" height="88" loading="lazy" decoding="async"></span><span class="b-px__tt"><b>TFG-121</b><span>DIN-rail edge</span></span></button><button class="b-px__tab" role="tab" id="tab-tfg-1urp" aria-controls="panel-tfg-1urp" aria-selected="false" tabindex="-1"><span class="b-px__thumb"><img src="assets/studio/thumbs/tfg-1urp.webp" alt="" width="96" height="17" loading="lazy" decoding="async"></span><span class="b-px__tt"><b>TFG-1URP</b><span>Plant boundary</span></span></button><button class="b-px__tab" role="tab" id="tab-tfg121-bf" aria-controls="panel-tfg121-bf" aria-selected="false" tabindex="-1"><span class="b-px__thumb"><img src="assets/studio/thumbs/tfg121-bf.webp" alt="" width="96" height="26" loading="lazy" decoding="async"></span><span class="b-px__tt"><b>TFG121-BF</b><span>Large files</span></span></button><button class="b-px__tab" role="tab" id="tab-tfg121-bsg" aria-controls="panel-tfg121-bsg" aria-selected="false" tabindex="-1"><span class="b-px__thumb"><img src="assets/studio/thumbs/tfg121-bsg.webp" alt="" width="96" height="25" loading="lazy" decoding="async"></span><span class="b-px__tt"><b>TFG121-BSG</b><span>Controlled two-way</span></span></button><button class="b-px__tab" role="tab" id="tab-tfg-vsecure" aria-controls="panel-tfg-vsecure" aria-selected="false" tabindex="-1"><span class="b-px__thumb"><img src="assets/studio/thumbs/tfg-vsecure.webp" alt="" width="96" height="32" loading="lazy" decoding="async"></span><span class="b-px__tt"><b>TFG-VSecure</b><span>CCTV and video</span></span></button><span class="b-px__ink" aria-hidden="true"></span></div>
+      <div class="b-px__tabs" role="tablist" aria-label="Terafence models"><button class="b-px__tab" role="tab" id="tab-tfg-121" aria-controls="panel-tfg-121" aria-selected="true" tabindex="0"><span class="b-px__thumb"><img src="assets/studio/thumbs/tfg-121.webp" alt="" width="58" height="88" loading="lazy" decoding="async"></span><span class="b-px__tt"><b>TFG-121</b><span>DIN-rail edge</span></span></button><button class="b-px__tab" role="tab" id="tab-tfg-1urp" aria-controls="panel-tfg-1urp" aria-selected="false" tabindex="-1"><span class="b-px__thumb"><img src="assets/studio/thumbs/tfg-1urp.webp" alt="" width="96" height="17" loading="lazy" decoding="async"></span><span class="b-px__tt"><b>TFG-1URP</b><span>Plant boundary</span></span></button><button class="b-px__tab" role="tab" id="tab-tfg121-bf" aria-controls="panel-tfg121-bf" aria-selected="false" tabindex="-1"><span class="b-px__thumb"><img src="assets/studio/thumbs/tfg121-bf.webp" alt="" width="96" height="26" loading="lazy" decoding="async"></span><span class="b-px__tt"><b>TFG121-BF</b><span>Large files</span></span></button><button class="b-px__tab" role="tab" id="tab-tfg121-bsg" aria-controls="panel-tfg121-bsg" aria-selected="false" tabindex="-1"><span class="b-px__thumb"><img src="assets/studio/thumbs/tfg121-bsg.webp" alt="" width="96" height="25" loading="lazy" decoding="async"></span><span class="b-px__tt"><b>TFG121-BSG</b><span>Controlled two-way</span></span></button><span class="b-px__ink" aria-hidden="true"></span></div>
       <div class="b-px__stage">
       <div class="b-px__panel is-on" role="tabpanel" id="panel-tfg-121" aria-labelledby="tab-tfg-121">
         <div class="b-px__visual b-px__visual--tall">
@@ -907,7 +904,7 @@ body { font-size: 15.5px; }
           <dl class="b-px__specs"><div><dt>Throughput</dt><dd>Up to 1 Gbps</dd></div><div><dt>Form factor</dt><dd>DIN-rail, fan-less</dd></div><div><dt>Data flow</dt><dd>One-way, protocol-level</dd></div><div><dt>Environment</dt><dd>-40 to +80 °C</dd></div><div class="b-px__specs-full"><dt>Best for</dt><dd>Machine cells, wellsites, substations, outdoor cabinets</dd></div></dl>
           <div class="b-px__cta">
             <a class="tf-btn tf-btn--primary" href="/contact?topic=demo&amp;model=tfg-121">Request a demo <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
-            <a class="tf-btn b-btn-outline" href="https://www.terafence.us/downloads/datasheet/121.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M4.5 6.5L8 10l3.5-3.5M3 13h10" stroke="currentColor" stroke-width="1.6"/></svg> Datasheet (PDF)</a>
+            <a class="tf-btn b-btn-outline" href="assets/downloads/Terafence_TFG_121_USA_Inc._Datasheet_Nov2026.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M4.5 6.5L8 10l3.5-3.5M3 13h10" stroke="currentColor" stroke-width="1.6"/></svg> Download Datasheet</a>
           </div>
         </div>
       </div><div class="b-px__panel" role="tabpanel" id="panel-tfg-1urp" aria-labelledby="tab-tfg-1urp" hidden>
@@ -923,7 +920,7 @@ body { font-size: 15.5px; }
           <dl class="b-px__specs"><div><dt>Throughput</dt><dd>Up to 1 Gbps</dd></div><div><dt>Form factor</dt><dd>1U rack mount</dd></div><div><dt>Data flow</dt><dd>One-way, protocol-level</dd></div><div><dt>Environment</dt><dd>Controlled indoor</dd></div><div class="b-px__specs-full"><dt>Best for</dt><dd>Plant boundary, OT-IT convergence, SOC ingestion, data centres</dd></div></dl>
           <div class="b-px__cta">
             <a class="tf-btn tf-btn--primary" href="/contact?topic=demo&amp;model=tfg-1urp">Request a demo <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
-            <a class="tf-btn b-btn-outline" href="https://www.terafence.us/downloads/datasheet/1URP.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M4.5 6.5L8 10l3.5-3.5M3 13h10" stroke="currentColor" stroke-width="1.6"/></svg> Datasheet (PDF)</a>
+            <a class="tf-btn b-btn-outline" href="assets/downloads/Terafence_TFG_1URP_USA_Inc._Datasheet_Nov2026.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M4.5 6.5L8 10l3.5-3.5M3 13h10" stroke="currentColor" stroke-width="1.6"/></svg> Download Datasheet</a>
           </div>
         </div>
       </div><div class="b-px__panel" role="tabpanel" id="panel-tfg121-bf" aria-labelledby="tab-tfg121-bf" hidden>
@@ -939,7 +936,7 @@ body { font-size: 15.5px; }
           <dl class="b-px__specs"><div><dt>Throughput</dt><dd>Up to 1 or 10 Gbps</dd></div><div><dt>Form factor</dt><dd>1U rack mount</dd></div><div><dt>Data flow</dt><dd>One-way, protocol-level</dd></div><div><dt>Environment</dt><dd>Controlled indoor</dd></div><div class="b-px__specs-full"><dt>Best for</dt><dd>Large-file transfer, segregated domains, files beyond 200 GB</dd></div></dl>
           <div class="b-px__cta">
             <a class="tf-btn tf-btn--primary" href="/contact?topic=demo&amp;model=tfg121-bf">Request a demo <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
-            <a class="tf-btn b-btn-outline" href="/contact?topic=datasheet&amp;model=tfg121-bf"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M4.5 6.5L8 10l3.5-3.5M3 13h10" stroke="currentColor" stroke-width="1.6"/></svg> Datasheet on request</a>
+            <a class="tf-btn b-btn-outline" href="assets/downloads/Terafence_TFG121_BF_USA_Inc._Datasheet_Nov2026.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M4.5 6.5L8 10l3.5-3.5M3 13h10" stroke="currentColor" stroke-width="1.6"/></svg> Download Datasheet</a>
           </div>
         </div>
       </div><div class="b-px__panel" role="tabpanel" id="panel-tfg121-bsg" aria-labelledby="tab-tfg121-bsg" hidden>
@@ -955,23 +952,7 @@ body { font-size: 15.5px; }
           <dl class="b-px__specs"><div><dt>Throughput</dt><dd>Up to 1 or 10 Gbps</dd></div><div><dt>Form factor</dt><dd>1U rack, dual FPGA</dd></div><div><dt>Data flow</dt><dd>Controlled two-way, port-level</dd></div><div><dt>Environment</dt><dd>Controlled indoor</dd></div><div class="b-px__specs-full"><dt>Best for</dt><dd>Request-response transfers, file returns, confirmed delivery</dd></div></dl>
           <div class="b-px__cta">
             <a class="tf-btn tf-btn--primary" href="/contact?topic=demo&amp;model=tfg121-bsg">Request a demo <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
-            <a class="tf-btn b-btn-outline" href="https://www.terafence.us/downloads/datasheet/BSG.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M4.5 6.5L8 10l3.5-3.5M3 13h10" stroke="currentColor" stroke-width="1.6"/></svg> Datasheet (PDF)</a>
-          </div>
-        </div>
-      </div><div class="b-px__panel" role="tabpanel" id="panel-tfg-vsecure" aria-labelledby="tab-tfg-vsecure" hidden>
-        <div class="b-px__visual">
-          <a class="b-px__obj" href="/products/tfg-vsecure" aria-label="View TFG-VSecure"><img src="assets/studio/tfg-vsecure.webp" alt="TFG-VSecure CCTV gateway" width="1600" height="528" loading="lazy" decoding="async"></a>
-          
-        </div>
-        <div class="b-px__links"><a class="b-pl" href="/contact?topic=quote&amp;model=tfg-vsecure"><span class="b-pl__ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 5h13l5 5v17H7z"/><path d="M20 5v5h5M11 15h10M11 19h10M11 23h6"/></svg></span><span class="b-pl__txt"><b>Get a quote</b><span>Pricing for TFG-VSecure at your sites</span></span><svg class="b-pl__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a><a class="b-pl" href="/products/tfg-vsecure#specifications"><span class="b-pl__ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="7" width="22" height="18" rx="2"/><path d="M9 12h6M9 16h10M9 20h8M22 12v8"/></svg></span><span class="b-pl__txt"><b>Full specifications</b><span>Interfaces, protocols and ratings</span></span><svg class="b-pl__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a><a class="b-pl" href="/products/compare"><span class="b-pl__ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="8" width="10" height="16" rx="1.5"/><rect x="18" y="8" width="10" height="16" rx="1.5"/><path d="M14 13h4M14 19h4"/></svg></span><span class="b-pl__txt"><b>Compare models</b><span>All four gateways side by side</span></span><svg class="b-pl__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a></div>
-        <div class="b-px__info">
-          <span class="b-px__tag">CCTV gateway</span>
-          <h3><a class="b-px__name" href="/products/tfg-vsecure">TFG-VSecure <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a></h3>
-          <p>Isolates IP cameras and lifts video out of the protected segment, so a compromised camera cannot reach the network behind it.</p>
-          <dl class="b-px__specs"><div><dt>Throughput</dt><dd>Up to 1 Gbps</dd></div><div><dt>Form factor</dt><dd>1U rack or cabinet</dd></div><div><dt>Data flow</dt><dd>One-way, protocol-level</dd></div><div><dt>Video</dt><dd>RTSP / ONVIF</dd></div><div class="b-px__specs-full"><dt>Best for</dt><dd>IP cameras, RTSP / ONVIF streams, NVR / VMS isolation</dd></div></dl>
-          <div class="b-px__cta">
-            <a class="tf-btn tf-btn--primary" href="/contact?topic=demo&amp;model=tfg-vsecure">Request a demo <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
-            <a class="tf-btn b-btn-outline" href="/contact?topic=datasheet&amp;model=tfg-vsecure"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M4.5 6.5L8 10l3.5-3.5M3 13h10" stroke="currentColor" stroke-width="1.6"/></svg> Datasheet on request</a>
+            <a class="tf-btn b-btn-outline" href="assets/downloads/Terafence_TFG121_BSG_USA_Inc._Datasheet_Nov2026.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M4.5 6.5L8 10l3.5-3.5M3 13h10" stroke="currentColor" stroke-width="1.6"/></svg> Download Datasheet</a>
           </div>
         </div>
       </div>
@@ -981,7 +962,7 @@ body { font-size: 15.5px; }
 </section>
 
 <!-- =========================================================
-     ADD-IN SOLUTIONS (below the product section; stays the same whichever product tab is selected)
+     PLATFORM (below the product section; stays the same whichever product tab is selected)
      ========================================================= -->
 <section class="b-section b-light b-addons" id="add-ons">
   <div class="tf-wrap">
@@ -992,35 +973,35 @@ body { font-size: 15.5px; }
   </div>
   <div class="tf-wrap b-addons__grid">
     <div class="b-head b-addons__intro">
-      <span class="tf-eyebrow">Add-in solutions</span>
+      <span class="tf-eyebrow">Platform</span>
       <h2>Extend your defense&nbsp;-<br><em>Add depth to your protection</em></h2>
       <p>Extend your security ecosystem with purpose-built capabilities</p>
-      <a class="tf-btn tf-btn--indigo b-addons__cta" href="/add-ins" data-cfg>View all add-ins <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      <a class="tf-btn tf-btn--indigo b-addons__cta" href="/platform" data-cfg>View all <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
     </div>
     <div class="b-addons__cards">
       <div class="b-addon" data-fam="terasecure">
         <svg class="b-addon__wave" viewBox="0 0 300 130" preserveAspectRatio="none" aria-hidden="true"><path d="M30.0 131 C 130.0 128.0, 205.0 96.0, 302 34.0" opacity="0.18"/><path d="M37.0 131 C 133.0 126.8, 207.0 92.8, 302 38.6" opacity="0.24"/><path d="M44.0 131 C 136.0 125.6, 209.0 89.6, 302 43.2" opacity="0.30"/><path d="M51.0 131 C 139.0 124.4, 211.0 86.4, 302 47.8" opacity="0.36"/><path d="M58.0 131 C 142.0 123.2, 213.0 83.2, 302 52.4" opacity="0.42"/><path d="M65.0 131 C 145.0 122.0, 215.0 80.0, 302 57.0" opacity="0.47"/><path d="M72.0 131 C 148.0 120.8, 217.0 76.8, 302 61.6" opacity="0.53"/><path d="M79.0 131 C 151.0 119.6, 219.0 73.6, 302 66.2" opacity="0.59"/><path d="M86.0 131 C 154.0 118.4, 221.0 70.4, 302 70.8" opacity="0.65"/><path class="r" d="M93.0 131 C 157.0 117.2, 223.0 67.2, 302 75.4" opacity="0.65"/><path d="M100.0 131 C 160.0 116.0, 225.0 64.0, 302 80.0" opacity="0.59"/><path d="M107.0 131 C 163.0 114.8, 227.0 60.8, 302 84.6" opacity="0.53"/><path d="M114.0 131 C 166.0 113.6, 229.0 57.6, 302 89.2" opacity="0.47"/><path d="M121.0 131 C 169.0 112.4, 231.0 54.4, 302 93.8" opacity="0.42"/><path d="M128.0 131 C 172.0 111.2, 233.0 51.2, 302 98.4" opacity="0.36"/><path d="M135.0 131 C 175.0 110.0, 235.0 48.0, 302 103.0" opacity="0.30"/><path d="M142.0 131 C 178.0 108.8, 237.0 44.8, 302 107.6" opacity="0.24"/><path d="M149.0 131 C 181.0 107.6, 239.0 41.6, 302 112.2" opacity="0.18"/></svg>
         <span class="b-addon__tile"><svg class="b-addon__ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5l10 4v7.5c0 6.3-4.3 11.4-10 13-5.7-1.6-10-6.7-10-13V7.5z"/><path d="M11.5 16l3.2 3.2 6-6.4"/></svg></span>
         
-        <div class="b-addon__txt"><h3>TeraSecure</h3><p class="b-addon__label">Cyber defense</p><p class="b-addon__desc">Strengthen your cyber defense</p><a class="b-addon__more" href="/add-ins#terasecure" data-cfg="terasecure">More <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a></div>
+        <div class="b-addon__txt"><h3>TeraSecure</h3><p class="b-addon__label">Cyber defense</p><p class="b-addon__desc">Strengthen your cyber defense</p><a class="b-addon__more" href="/platform#terasecure" data-cfg="terasecure">More <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a></div>
       </div>
       <div class="b-addon" data-fam="teraobserve">
         <svg class="b-addon__wave" viewBox="0 0 300 130" preserveAspectRatio="none" aria-hidden="true"><path d="M30.0 131 C 130.0 128.0, 205.0 96.0, 302 34.0" opacity="0.18"/><path d="M37.0 131 C 133.0 126.8, 207.0 92.8, 302 38.6" opacity="0.24"/><path d="M44.0 131 C 136.0 125.6, 209.0 89.6, 302 43.2" opacity="0.30"/><path d="M51.0 131 C 139.0 124.4, 211.0 86.4, 302 47.8" opacity="0.36"/><path d="M58.0 131 C 142.0 123.2, 213.0 83.2, 302 52.4" opacity="0.42"/><path d="M65.0 131 C 145.0 122.0, 215.0 80.0, 302 57.0" opacity="0.47"/><path d="M72.0 131 C 148.0 120.8, 217.0 76.8, 302 61.6" opacity="0.53"/><path d="M79.0 131 C 151.0 119.6, 219.0 73.6, 302 66.2" opacity="0.59"/><path d="M86.0 131 C 154.0 118.4, 221.0 70.4, 302 70.8" opacity="0.65"/><path class="r" d="M93.0 131 C 157.0 117.2, 223.0 67.2, 302 75.4" opacity="0.65"/><path d="M100.0 131 C 160.0 116.0, 225.0 64.0, 302 80.0" opacity="0.59"/><path d="M107.0 131 C 163.0 114.8, 227.0 60.8, 302 84.6" opacity="0.53"/><path d="M114.0 131 C 166.0 113.6, 229.0 57.6, 302 89.2" opacity="0.47"/><path d="M121.0 131 C 169.0 112.4, 231.0 54.4, 302 93.8" opacity="0.42"/><path d="M128.0 131 C 172.0 111.2, 233.0 51.2, 302 98.4" opacity="0.36"/><path d="M135.0 131 C 175.0 110.0, 235.0 48.0, 302 103.0" opacity="0.30"/><path d="M142.0 131 C 178.0 108.8, 237.0 44.8, 302 107.6" opacity="0.24"/><path d="M149.0 131 C 181.0 107.6, 239.0 41.6, 302 112.2" opacity="0.18"/></svg>
         <span class="b-addon__tile"><svg class="b-addon__ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M2.5 16S7.5 7.5 16 7.5 29.5 16 29.5 16 24.5 24.5 16 24.5 2.5 16 2.5 16z"/><circle cx="16" cy="16" r="4.5"/></svg></span>
         
-        <div class="b-addon__txt"><h3>TeraObserve</h3><p class="b-addon__label">Intelligence &amp; visibility</p><p class="b-addon__desc">Gain intelligence and visibility</p><a class="b-addon__more" href="/add-ins#teraobserve" data-cfg="teraobserve">More <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a></div>
+        <div class="b-addon__txt"><h3>TeraObserve</h3><p class="b-addon__label">Intelligence &amp; visibility</p><p class="b-addon__desc">Gain intelligence and visibility</p><a class="b-addon__more" href="/platform#teraobserve" data-cfg="teraobserve">More <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a></div>
       </div>
       <div class="b-addon" data-fam="teracommunicate">
         <svg class="b-addon__wave" viewBox="0 0 300 130" preserveAspectRatio="none" aria-hidden="true"><path d="M30.0 131 C 130.0 128.0, 205.0 96.0, 302 34.0" opacity="0.18"/><path d="M37.0 131 C 133.0 126.8, 207.0 92.8, 302 38.6" opacity="0.24"/><path d="M44.0 131 C 136.0 125.6, 209.0 89.6, 302 43.2" opacity="0.30"/><path d="M51.0 131 C 139.0 124.4, 211.0 86.4, 302 47.8" opacity="0.36"/><path d="M58.0 131 C 142.0 123.2, 213.0 83.2, 302 52.4" opacity="0.42"/><path d="M65.0 131 C 145.0 122.0, 215.0 80.0, 302 57.0" opacity="0.47"/><path d="M72.0 131 C 148.0 120.8, 217.0 76.8, 302 61.6" opacity="0.53"/><path d="M79.0 131 C 151.0 119.6, 219.0 73.6, 302 66.2" opacity="0.59"/><path d="M86.0 131 C 154.0 118.4, 221.0 70.4, 302 70.8" opacity="0.65"/><path class="r" d="M93.0 131 C 157.0 117.2, 223.0 67.2, 302 75.4" opacity="0.65"/><path d="M100.0 131 C 160.0 116.0, 225.0 64.0, 302 80.0" opacity="0.59"/><path d="M107.0 131 C 163.0 114.8, 227.0 60.8, 302 84.6" opacity="0.53"/><path d="M114.0 131 C 166.0 113.6, 229.0 57.6, 302 89.2" opacity="0.47"/><path d="M121.0 131 C 169.0 112.4, 231.0 54.4, 302 93.8" opacity="0.42"/><path d="M128.0 131 C 172.0 111.2, 233.0 51.2, 302 98.4" opacity="0.36"/><path d="M135.0 131 C 175.0 110.0, 235.0 48.0, 302 103.0" opacity="0.30"/><path d="M142.0 131 C 178.0 108.8, 237.0 44.8, 302 107.6" opacity="0.24"/><path d="M149.0 131 C 181.0 107.6, 239.0 41.6, 302 112.2" opacity="0.18"/></svg>
         <span class="b-addon__tile"><svg class="b-addon__ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 6.5h15a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8l-5 4v-4H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z"/><path d="M24 11.5h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-1.5v3.5l-4.5-3.5H17a2 2 0 0 1-2-2"/></svg></span>
         
-        <div class="b-addon__txt"><h3>TeraCommunicate</h3><p class="b-addon__label">Secure collaboration</p><p class="b-addon__desc">Enable secure collaboration</p><a class="b-addon__more" href="/add-ins#teracommunicate" data-cfg="teracommunicate">More <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a></div>
+        <div class="b-addon__txt"><h3>TeraCommunicate</h3><p class="b-addon__label">Secure collaboration</p><p class="b-addon__desc">Enable secure collaboration</p><a class="b-addon__more" href="/platform#teracommunicate" data-cfg="teracommunicate">More <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a></div>
       </div>
       <div class="b-addon" data-fam="teraquantum">
         <svg class="b-addon__wave" viewBox="0 0 300 130" preserveAspectRatio="none" aria-hidden="true"><path d="M30.0 131 C 130.0 128.0, 205.0 96.0, 302 34.0" opacity="0.18"/><path d="M37.0 131 C 133.0 126.8, 207.0 92.8, 302 38.6" opacity="0.24"/><path d="M44.0 131 C 136.0 125.6, 209.0 89.6, 302 43.2" opacity="0.30"/><path d="M51.0 131 C 139.0 124.4, 211.0 86.4, 302 47.8" opacity="0.36"/><path d="M58.0 131 C 142.0 123.2, 213.0 83.2, 302 52.4" opacity="0.42"/><path d="M65.0 131 C 145.0 122.0, 215.0 80.0, 302 57.0" opacity="0.47"/><path d="M72.0 131 C 148.0 120.8, 217.0 76.8, 302 61.6" opacity="0.53"/><path d="M79.0 131 C 151.0 119.6, 219.0 73.6, 302 66.2" opacity="0.59"/><path d="M86.0 131 C 154.0 118.4, 221.0 70.4, 302 70.8" opacity="0.65"/><path class="r" d="M93.0 131 C 157.0 117.2, 223.0 67.2, 302 75.4" opacity="0.65"/><path d="M100.0 131 C 160.0 116.0, 225.0 64.0, 302 80.0" opacity="0.59"/><path d="M107.0 131 C 163.0 114.8, 227.0 60.8, 302 84.6" opacity="0.53"/><path d="M114.0 131 C 166.0 113.6, 229.0 57.6, 302 89.2" opacity="0.47"/><path d="M121.0 131 C 169.0 112.4, 231.0 54.4, 302 93.8" opacity="0.42"/><path d="M128.0 131 C 172.0 111.2, 233.0 51.2, 302 98.4" opacity="0.36"/><path d="M135.0 131 C 175.0 110.0, 235.0 48.0, 302 103.0" opacity="0.30"/><path d="M142.0 131 C 178.0 108.8, 237.0 44.8, 302 107.6" opacity="0.24"/><path d="M149.0 131 C 181.0 107.6, 239.0 41.6, 302 112.2" opacity="0.18"/></svg>
         <span class="b-addon__tile"><svg class="b-addon__ic" viewBox="0 0 32 32" aria-hidden="true"><rect x="6.5" y="14" width="19" height="14" rx="2.5"/><path d="M10.5 14v-3.5a5.5 5.5 0 0 1 11 0V14"/><path d="M16 19.5v3"/></svg></span>
         
-        <div class="b-addon__txt"><h3>TeraQuantum</h3><p class="b-addon__label">Future-ready encryption</p><p class="b-addon__desc">State-of-the-art future-ready encryption</p><a class="b-addon__more" href="/add-ins#teraquantum" data-cfg="teraquantum">More <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a></div>
+        <div class="b-addon__txt"><h3>TeraQuantum</h3><p class="b-addon__label">Future-ready encryption</p><p class="b-addon__desc">State-of-the-art future-ready encryption</p><a class="b-addon__more" href="/platform#teraquantum" data-cfg="teraquantum">More <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a></div>
       </div>
     </div>
   </div>
@@ -1035,7 +1016,7 @@ body { font-size: 15.5px; }
     <!-- ---------- the business need ---------- -->
     <div class="b-bn__h tf-reveal">
       <span class="tf-eyebrow">The business need</span>
-      <h2>Share the data.<br>Protect the systems behind it.</h2>
+      <h2>Share the data. <br>Protect the systems behind it.</h2>
       <p class="b-bn__lead">Analytics, security teams, equipment vendors and regulators need operational data. But remote access and data retrieval can expose the OT network to cyberattack.</p>
       <p class="b-bn__claim">A monitoring connection must not become an entry point.</p>
     </div>
@@ -1275,7 +1256,7 @@ body { font-size: 15.5px; }
         </div>
       </a>
 
-      <a class="b-sol__c tf-reveal" href="/industries/transportation">
+      <a class="b-sol__c tf-reveal" href="/case-studies/railway-ot-it">
         <div class="b-sol__img"><span class="b-sol__n">07</span><img src="assets/sectors/transport.webp" alt="Control cabinet wiring at a transport site" loading="lazy" width="535" height="334" decoding="async"></div>
         <div class="b-sol__body">
           <h3>Transportation</h3>
@@ -1288,22 +1269,22 @@ body { font-size: 15.5px; }
     <div class="b-sol__uses tf-reveal">
       <small>Or find your use case</small>
       <div class="b-sol__row">
-        <a class="b-sol__use" href="/use-cases/ot-data-to-siem">
+        <a class="b-sol__use" href="/insights/ot-data-to-siem/">
           <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V11M9.3 20V5M14.7 20v-7M20 20V8"/></svg>
           <b>OT data to SIEM</b>
           <svg class="ar" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a class="b-sol__use" href="/use-cases/secure-file-transfer">
+        <a class="b-sol__use" href="/insights/secure-patch-software-distribution/">
           <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a1.6 1.6 0 0 0-1.6 1.6v14.8A1.6 1.6 0 0 0 7 21h10a1.6 1.6 0 0 0 1.6-1.6V7.8z"/><path d="M14 3v4.8h4.8M9 13h6M9 16.5h4"/></svg>
           <b>Secure file transfer</b>
           <svg class="ar" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a class="b-sol__use" href="/use-cases/ot-to-cloud">
+        <a class="b-sol__use" href="/insights/ot-data-to-cloud/">
           <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 18H7a4.5 4.5 0 0 1-.9-8.9 6 6 0 0 1 11.5 1.7 3.6 3.6 0 0 1 .9 7.2z"/></svg>
           <b>OT data to the cloud</b>
           <svg class="ar" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a class="b-sol__use" href="/use-cases/cctv-video-protection">
+        <a class="b-sol__use" href="/insights/reinforcing-cctv-security/">
           <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5h12.5V16H3zM15.5 11.3L21 8.6v6.9l-5.5-2.7z"/><path d="M6 19.5h5"/></svg>
           <b>CCTV and video export</b>
           <svg class="ar" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1330,11 +1311,11 @@ body { font-size: 15.5px; }
       </a>
     </div>
     <div class="b-proof__grid">
-      <a class="b-case tf-reveal" href="/case-studies/siemens-emissions">
+      <a class="b-case tf-reveal" href="/case-studies/power-plant-emissions">
         <div class="b-case__txt">
           <small>Industrial Manufacturing &middot; Regulatory reporting</small>
-          <h3>Siemens power plant emissions</h3>
-          <p>Real-time emissions data flows from the Siemens CEMS to cloud monitoring, with no inbound path to the plant.</p>
+          <h3>Power plant emissions</h3>
+          <p>Real-time emissions data flows from the CEMS to cloud monitoring, with no inbound path to the plant.</p>
           <span class="b-case__go">Read case study <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
         <div class="b-case__viz" aria-hidden="true">
@@ -1345,11 +1326,11 @@ body { font-size: 15.5px; }
           <span class="n">Cloud monitoring</span>
         </div>
       </a>
-      <a class="b-case tf-reveal" href="/case-studies/ammonia-abb">
+      <a class="b-case tf-reveal" href="/resources/case-studies">
         <div class="b-case__txt">
           <small>Industrial Manufacturing &middot; Vendor warranty</small>
-          <h3>Ammonia plant and ABB</h3>
-          <p>Modbus data reaches ABB for warranty and predictive maintenance, without access back to the plant's PLCs.</p>
+          <h3>Ammonia plant and a global manufacturer</h3>
+          <p>Modbus data reaches a global manufacturing company for warranty and predictive maintenance, without access back to the plant's PLCs.</p>
           <span class="b-case__go">Read case study <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
         <div class="b-case__viz" aria-hidden="true">
@@ -1357,13 +1338,13 @@ body { font-size: 15.5px; }
           <span class="seg"><span class="ln"></span><span class="hd"></span></span>
           <span class="bar"></span>
           <span class="pair"><span class="seg"><span class="ln"></span><span class="hd"></span></span><span class="seg seg--no"><span class="x"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M2.6 2.6l6.8 6.8M9.4 2.6L2.6 9.4"/></svg></span><span class="ln"></span></span></span>
-          <span class="n">ABB centre</span>
+          <span class="n">Manufacturer centre</span>
         </div>
       </a>
-      <a class="b-case tf-reveal" href="/case-studies/ima-group">
+      <a class="b-case tf-reveal" href="/case-studies/pharma-machinery-oem">
         <div class="b-case__txt">
           <small>Lifescience &amp; Pharmaceuticals &middot; Pharma machinery</small>
-          <h3>IMA Group</h3>
+          <h3>Global pharma machinery manufacturer</h3>
           <p>Predictive maintenance across 2,500+ machines in customer plants, each reporting through an embedded one-way gateway.</p>
           <span class="b-case__go">Read case study <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
@@ -1375,11 +1356,11 @@ body { font-size: 15.5px; }
           <span class="n">Vendor</span>
         </div>
       </a>
-      <a class="b-case tf-reveal" href="/case-studies/new-delhi-metro">
+      <a class="b-case tf-reveal" href="/case-studies/railway-ot-it">
         <div class="b-case__txt">
           <small>Transportation &middot; Railway OT</small>
-          <h3>New Delhi Metro</h3>
-          <p>Nine railway OT systems feed one central server through separate one-way gateways. Delivered by Accenture India.</p>
+          <h3>Metro rail network</h3>
+          <p>Nine railway OT systems feed one central server through separate one-way gateways. Delivered by a global IT services company.</p>
           <span class="b-case__go">Read case study <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
         <div class="b-case__viz" aria-hidden="true">
@@ -1390,10 +1371,10 @@ body { font-size: 15.5px; }
           <span class="n">Central server</span>
         </div>
       </a>
-      <a class="b-case tf-reveal" href="/case-studies/hitachi-soc">
+      <a class="b-case tf-reveal" href="/case-studies/managed-soc">
         <div class="b-case__txt">
           <small>Managed security &middot; SOC</small>
-          <h3>Hitachi India SOC</h3>
+          <h3>Managed security provider SOC</h3>
           <p>Device status and system messages reach a cloud SOC. The monitored sites themselves stay isolated.</p>
           <span class="b-case__go">Read case study <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
@@ -1578,64 +1559,6 @@ body { font-size: 15.5px; }
 </section>
 
 <!-- =========================================================
-     INSIGHTS
-     Titles, categories, dates and reading times are taken from the live
-     terafence.us Knowledge Vault. Update them when the articles change.
-     ========================================================= -->
-<section class="b-section b-light" id="insights">
-  <div class="tf-wrap">
-
-    <div class="b-ins__head tf-reveal">
-      <div>
-        <span class="tf-eyebrow">Insights</span>
-        <h2>Practical guidance for OT security teams.</h2>
-      </div>
-      <a class="tf-link" href="https://www.terafence.us/blog">All insights
-        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-
-    <div class="b-ins__grid">
-
-      <a class="b-lead tf-reveal" href="https://www.terafence.us/blog/take-the-plcs-off-the-internet">
-        <span class="b-lead__cat">Critical infrastructure</span>
-        <h3>Take the PLCs off the internet. Then solve what put them there.</h3>
-        <p class="b-lead__pull"><b>Over 100 US water systems</b> were reached through internet-facing controllers in July 2026.</p>
-        <span class="b-lead__tags"><span>Water &amp; wastewater</span><span>Data diode</span><span>CISA</span></span>
-        <span class="b-lead__foot">
-          <span class="b-lead__meta">Sep 10, 2026 &middot; 5 min read</span>
-          <span class="b-lead__go">Read the article
-            <i><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
-          </span>
-        </span>
-      </a>
-
-      <div class="b-ins__col">
-        <a class="b-art tf-reveal" href="https://www.terafence.us/blog/securing-syslog-transfer-ot-it">
-          <small>OT security</small>
-          <h3>Securing syslog transfer from OT to IT</h3>
-          <p>Best practices for moving syslog data between operational technology and IT networks.</p>
-          <span class="b-art__foot">
-            <span class="b-art__meta">Jun 28, 2025 &middot; 3 min</span>
-            <span class="b-art__go">Read the article <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </span>
-        </a>
-        <a class="b-art tf-reveal" href="https://www.terafence.us/blog/cybersecurity-water-treatment-plants">
-          <small>Critical infrastructure</small>
-          <h3>Cybersecurity challenges in water treatment plants</h3>
-          <p>Where the exposure sits in treatment and distribution networks, and what closes it.</p>
-          <span class="b-art__foot">
-            <span class="b-art__meta">Jun 13, 2025 &middot; 8 min</span>
-            <span class="b-art__go">Read the article <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </span>
-        </a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- =========================================================
      FINAL CTA
      ========================================================= -->
 <section class="b-final">
@@ -1781,7 +1704,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 <script>
-/* Add-ins -> add-ins page: pass the product the visitor actually picked in the product section */
+/* Platform -> platform page: pass the product the visitor actually picked in the product section */
 (function () {
   const known = ["tfg-121", "tfg-1urp", "tfg121-bf", "tfg121-bsg"];
   let picked = null;

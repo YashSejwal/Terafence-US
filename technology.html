@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#04061A">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+<title>How Data Diodes Work: FPGA One-Way Security | Terafence USA</title>
+<meta name="description" content="What is a data diode? An FPGA design that lets data leave the protected side with no return path, and no IP, MAC or CPU to attack. Compare models.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/tf-base.css">
+<link rel="stylesheet" href="shared/tf-form.css">
+<style>
+/* =====================================================================
+   TECHNOLOGY. Content = the four Terafence "Content for Website" files
+   (P08a One-way principle, P09a Why FPGA, P09b Where diodes sit,
+   P09 Diode vs firewall vs air gap), word for word. Do not add claims.
+   Diagrams are redrawn in HTML from the files' images, same words.
+   ===================================================================== */
+.tc-dark { position: relative; overflow: hidden; color: #fff; background-color: var(--tf-navy);
+  background-image: linear-gradient(rgba(124,139,230,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(124,139,230,.045) 1px, transparent 1px),
+    radial-gradient(ellipse 60% 80% at 72% 40%, rgba(41,58,146,.6), rgba(41,58,146,0) 72%);
+  background-size: 54px 54px, 54px 54px, 100% 100%; }
+.tc-ic { display: block; width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+figure.fl-wrap--dark, figure.tc-dg__row, figure.tc-seg__dg { margin: 0; }
+.tc-sec { scroll-margin-top: calc(var(--tf-header-h) + 64px); }
+
+/* ---------- hero ---------- */
+.tc-hero__in { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(32px, 5vw, 72px); align-items: center;
+  padding-top: calc(var(--tf-header-h) + var(--tf-util-h) + 44px); padding-bottom: clamp(60px, 6.5vw, 96px); }
+.tc-crumb { display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px; color: #8F97BE; margin-bottom: 24px; }
+.tc-crumb a { color: #BFC5E2; text-decoration: none; }
+.tc-hero h1 { margin-top: 14px; font-size: clamp(32px, 3.4vw, 48px); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; }
+.tc-hero h1 em { font-style: normal; color: var(--tf-indigo-glow); }
+.tc-hero p { margin-top: 18px; max-width: 500px; font-size: clamp(15.5px, 1.3vw, 17.5px); line-height: 1.7; color: #C3C9E6; }
+.tc-hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.tc-hero__vis { position: relative; }
+.tc-hero__vis::before { content: ""; position: absolute; left: 50%; top: 20%; width: 80%; height: 60%; transform: translateX(-50%); border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(74,92,196,.4), rgba(74,92,196,0)); filter: blur(24px); pointer-events: none; }
+
+/* ---------- flow diagrams (redrawn from the files' images) ---------- */
+.fl { position: relative; display: flex; align-items: center; gap: 0; }
+.fl__n { flex: 1 1 0; min-width: 0; padding: 16px 12px; border-radius: 12px; text-align: center; border: 1px solid var(--tf-line-light); background: #fff; }
+.fl__n b { display: block; font-family: var(--tf-font-head); font-size: 15px; font-weight: 600; line-height: 1.25; color: var(--tf-text-light-bg); }
+.fl__n span { display: block; margin-top: 4px; font-size: 13px; line-height: 1.4; color: var(--tf-muted-light-bg); }
+.fl__n--in { border-color: rgba(41,58,146,.45); background: var(--tf-mist); }
+.fl__n--in b { color: var(--tf-indigo); }
+.fl__n--out { background: #F4F5F8; border-color: rgba(99,103,114,.3); }
+.fl__n--out b { color: #3A3E4A; }
+.fl__n--dio { flex: 0 0 auto; padding: 16px 18px; background: var(--tf-indigo); border-color: var(--tf-indigo); box-shadow: 0 10px 26px rgba(41,58,146,.28); }
+.fl__n--dio b, .fl__n--dio span { color: #fff; }
+.fl__n--dio span { color: #C9CFF2; }
+/* boxed diode with inner logic blocks */
+.fl__box { flex: 1.5 1 0; min-width: 0; padding: 16px 14px 14px; border-radius: 14px; border: 1.5px dashed rgba(41,58,146,.5); background: rgba(41,58,146,.06); text-align: center; }
+.fl__box > b { display: block; font-family: var(--tf-font-head); font-size: 15px; font-weight: 600; color: var(--tf-indigo); }
+.fl__box > span { display: block; margin-top: 10px; font-size: 13px; color: var(--tf-indigo); }
+.fl__inner { display: flex; align-items: center; margin-top: 12px; }
+.fl__inner > div:not(.fl__a) { flex: 1 1 0; padding: 12px 6px; border-radius: 9px; background: #fff; border: 1px solid var(--tf-line-light); font-family: var(--tf-font-head); font-size: 14px; font-weight: 600; color: var(--tf-text-light-bg); }
+.fl__a { position: relative; flex: 0 0 34px; height: 2px; background: #8D92A6; }
+.fl__a::after { content: ""; position: absolute; right: -1px; top: 50%; width: 8px; height: 8px; border-top: 2px solid #8D92A6; border-right: 2px solid #8D92A6; transform: translateY(-50%) rotate(45deg); }
+.fl__a--sm { flex-basis: 22px; }
+.fl__a--light { background: var(--tf-red); height: 0; border-top: 2px dashed var(--tf-red); }
+.fl__a--light::after { border-color: var(--tf-red); top: -1px; }
+.fl__a i { position: absolute; left: 0; top: 50%; width: 6px; height: 6px; margin-top: -3px; border-radius: 50%; background: var(--tf-red); box-shadow: 0 0 10px var(--tf-red); opacity: 0; animation: flDot 2.4s linear infinite; }
+@keyframes flDot { 0% { left: 0; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { left: calc(100% - 6px); opacity: 0; } }
+.fl__zones { display: flex; margin-top: 10px; font-size: 13px; color: var(--tf-muted-light-bg); }
+.fl__zones span { flex: 1; text-align: center; }
+.fl__cap { margin-top: 12px; text-align: center; font-size: 13.5px; color: var(--tf-muted-light-bg); }
+.fl__title { margin-bottom: 14px; font-family: var(--tf-font-head); font-size: 15px; font-weight: 600; color: var(--tf-text-light-bg); }
+/* return path, blocked */
+.fl-ret { position: relative; margin: 26px 8% 0; height: 2px; border-top: 2px dashed var(--tf-red); }
+.fl-ret::before { content: ""; position: absolute; left: -2px; top: -7px; width: 10px; height: 10px; border-left: 2px solid var(--tf-red); border-bottom: 2px solid var(--tf-red); transform: rotate(45deg); }
+.fl-ret b { position: absolute; left: 50%; top: -15px; width: 28px; height: 28px; margin-left: -14px; border-radius: 50%; background: var(--tf-red); box-shadow: 0 0 0 5px rgba(242,26,50,.18); }
+.fl-ret b::before, .fl-ret b::after { content: ""; position: absolute; left: 7px; top: 13px; width: 14px; height: 2px; background: #fff; transform: rotate(45deg); }
+.fl-ret b::after { transform: rotate(-45deg); }
+.fl-ret + .fl__cap, .fl-ret + .fl__zones { margin-top: 22px; }
+.tc-dg .fl-ret, .tc-seg__dg .fl-ret { margin: 24px 4% 0; }
+.tc-seg__dg .fl--micro + .fl-ret { max-width: 600px; margin-left: auto; margin-right: auto; }
+/* dark variant (hero) */
+.fl-wrap--dark .fl__n { background: rgba(14,22,69,.85); border-color: rgba(124,139,230,.35); }
+.fl-wrap--dark .fl__n b { color: #fff; }
+.fl-wrap--dark .fl__n span { color: #AEB5DA; }
+.fl-wrap--dark .fl__n--in { border-color: rgba(124,139,230,.7); box-shadow: inset 0 2px 0 var(--tf-indigo-glow); }
+.fl-wrap--dark .fl__box { border-color: rgba(124,139,230,.7); background: rgba(41,58,146,.35); box-shadow: 0 0 50px rgba(74,92,196,.35); animation: flGlow 5s ease-in-out infinite; }
+@keyframes flGlow { 50% { box-shadow: 0 0 70px rgba(124,139,230,.45); } }
+.fl-wrap--dark .fl__box > b, .fl-wrap--dark .fl__box > span { color: #C9CFF2; }
+.fl-wrap--dark .fl__box > b { color: #fff; }
+.fl-wrap--dark .fl__inner > div:not(.fl__a) { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.18); color: #fff; }
+.fl-wrap--dark .fl__a { background: rgba(174,181,218,.6); }
+.fl-wrap--dark .fl__a::after { border-color: rgba(174,181,218,.8); }
+.fl-wrap--dark .fl__cap { color: #C3C9E6; }
+.fl-wrap--dark .fl-ret b { box-shadow: 0 0 0 6px rgba(242,26,50,.2), 0 0 24px rgba(242,26,50,.5); }
+
+/* ---------- section bar (stays under the header) ---------- */
+.tc-bar { position: sticky; top: var(--tf-header-h); z-index: 60; background: #fff; border-bottom: 1px solid var(--tf-line-light); }
+.tc-bar .tf-wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+.tc-bar nav { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+.tc-bar nav::-webkit-scrollbar { display: none; }
+.tc-bar nav a { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 30px; white-space: nowrap; text-decoration: none;
+  font-family: var(--tf-font-head); font-size: 14px; font-weight: 600; color: var(--tf-muted-light-bg); transition: background .3s, color .3s; }
+.tc-bar nav a .tc-ic { width: 18px; height: 18px; }
+.tc-bar nav a:hover { color: var(--tf-indigo); }
+.tc-bar nav a.is-on { background: var(--tf-indigo); color: #fff; }
+.tc-bar .tf-btn { padding: 10px 18px; font-size: 13.5px; }
+
+/* ---------- shared section heads ---------- */
+.tc-head .tf-eyebrow { color: var(--tf-indigo); }
+.tc-head h2 { margin-top: 12px; font-size: clamp(25px, 2.6vw, 36px); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; color: var(--tf-text-light-bg); }
+.tc-dark .tc-head .tf-eyebrow { color: var(--tf-indigo-glow); }
+.tc-dark .tc-head h2 { color: #fff; }
+
+/* ---------- 1. one-way principle (white) ---------- */
+.tc-pr { padding: clamp(64px, 7vw, 104px) 0; background: #fff; color: var(--tf-text-light-bg); }
+.tc-pr__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); }
+.tc-pr__lead p { margin-top: 18px; font-size: 16.5px; line-height: 1.75; color: var(--tf-muted-light-bg); }
+.tc-pr__lead p:first-of-type { font-size: clamp(17px, 1.45vw, 19px); color: var(--tf-text-light-bg); }
+.tc-pr__cards { display: grid; gap: 16px; align-content: start; padding-top: 8px; }
+.tc-card { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 18px; padding: 26px; border-radius: 16px; background: var(--tf-mist); }
+.tc-card__tile { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 12px; background: #fff; color: var(--tf-indigo); }
+.tc-card p { font-size: 15.5px; line-height: 1.7; color: var(--tf-text-light-bg); }
+.tc-card--vs { background: #fff; border: 1px solid var(--tf-line-light); box-shadow: 0 14px 34px rgba(10,15,44,.06); }
+.tc-card--vs .tc-card__tile { background: var(--tf-red); color: #fff; }
+/* firewall vs diode mini picture */
+.tc-vs { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 4px; }
+.tc-vs > div { padding: 14px 16px; border-radius: 12px; background: var(--tf-mist); }
+.tc-vs small { display: block; font-family: var(--tf-font-head); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--tf-muted-light-bg); }
+.tc-vs svg { display: block; width: 100%; height: 34px; margin-top: 8px; }
+
+/* ---------- 2. FPGA (dark) ---------- */
+.tc-fp { padding: clamp(64px, 7vw, 104px) 0; }
+.tc-fp__top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(26px, 4vw, 64px); align-items: end; }
+.tc-fp__top p { padding-left: clamp(20px, 3vw, 36px); border-left: 1px solid rgba(124,139,230,.3); font-size: 16.5px; line-height: 1.75; color: var(--tf-muted-dark-bg); }
+.tc-fp__top p strong { display: block; margin-bottom: 6px; font-family: var(--tf-font-head); font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #fff; }
+.tc-h3 { margin-top: clamp(44px, 5vw, 64px); font-family: var(--tf-font-head); font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--tf-red); }
+.tc-pts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 18px; border-top: 1px solid rgba(124,139,230,.2); list-style: none; padding: 0; }
+.tc-pts li { padding: 28px clamp(16px, 2vw, 28px) 0 0; }
+.tc-pts li + li { padding-left: clamp(16px, 2vw, 28px); border-left: 1px solid rgba(124,139,230,.2); }
+.tc-pts .tc-tile { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 12px; background: rgba(124,139,230,.14); color: var(--tf-indigo-glow); }
+.tc-pts p { margin-top: 16px; font-size: 15.5px; line-height: 1.65; color: #DDE2F7; }
+.tc-dg { margin-top: clamp(44px, 5vw, 64px); border-radius: 20px; border: 1px solid rgba(124,139,230,.28);
+  background: linear-gradient(180deg, rgba(14,22,69,.72), rgba(8,13,46,.6)); box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 24px 60px rgba(4,6,26,.45); }
+.tc-dg__row { display: grid; grid-template-columns: minmax(0, 240px) minmax(0, 1fr); gap: clamp(20px, 3vw, 48px); align-items: center; padding: clamp(24px, 3vw, 36px) clamp(20px, 3vw, 40px); }
+.tc-dg__row + .tc-dg__row { border-top: 1px solid rgba(124,139,230,.18); }
+.tc-dg__k b { display: flex; align-items: center; gap: 10px; font-family: var(--tf-font-head); font-size: 18px; font-weight: 600; color: #fff; }
+.tc-dg__k b::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--tf-indigo-glow); box-shadow: 0 0 12px var(--tf-indigo-glow); }
+.tc-dg__k p { margin-top: 10px; font-size: 14.5px; line-height: 1.6; color: var(--tf-muted-dark-bg); }
+.tc-dg__row--muted .tc-dg__k b { color: #C3C9E6; }
+.tc-dg__row--muted .tc-dg__k b::before { background: #8D92A6; box-shadow: none; }
+.tc-dg .fl__n { flex: 1 1 0; padding: 14px 6px; }
+.tc-dg .fl__n b { font-size: 14px; font-weight: 600; }
+.tc-dg .fl__box { flex: 2.2 1 0; padding: 14px 12px 12px; border-style: solid; }
+.tc-dg .fl__a { flex-basis: 30px; }
+.tc-dg__row--muted .fl__box { border-style: dashed; border-color: rgba(174,181,218,.4); background: rgba(255,255,255,.03); box-shadow: none; animation: none; }
+.tc-dg__row--muted .fl__box > b { color: #C3C9E6; }
+.tc-dg__row--muted .fl__n { background: rgba(14,22,69,.5); }
+.tc-dg .fl__a--light { background: none; border-top-color: var(--tf-indigo-glow); }
+.tc-dg .fl__a--light::after { border-color: var(--tf-indigo-glow); }
+.tc-tag { margin-top: clamp(44px, 5vw, 64px); text-align: center; font-family: var(--tf-font-head); font-size: clamp(25px, 2.6vw, 36px); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
+.tc-tag b { font-weight: 600; }
+.tc-tag em { font-style: normal; color: var(--tf-indigo-glow); }
+
+/* ---------- 3. placement (mist) ---------- */
+.tc-pl { padding: clamp(64px, 7vw, 104px) 0; background: var(--tf-mist); color: var(--tf-text-light-bg); }
+.tc-pl__head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(26px, 4vw, 64px); align-items: end; }
+.tc-quote { position: relative; padding-left: clamp(20px, 3vw, 36px); border-left: 3px solid var(--tf-red); font-size: 19px; line-height: 1.6; color: var(--tf-text-light-bg); }
+.tc-seg { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px clamp(24px, 3.4vw, 56px); align-items: end; margin-top: 22px; padding: clamp(24px, 3vw, 36px);
+  border-radius: 18px; background: #fff; border: 1px solid var(--tf-line-light); }
+.tc-pl__head + .tc-seg { margin-top: clamp(40px, 4.5vw, 56px); }
+.tc-seg__k { display: inline-flex; align-items: center; gap: 8px; font-family: var(--tf-font-head); font-size: 11.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--tf-indigo); }
+.tc-seg__k::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--tf-red); }
+.tc-seg h3 { margin-top: 0; font-family: var(--tf-font-head); font-size: clamp(20px, 1.8vw, 22px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; }
+.tc-seg p { margin-top: 12px; font-size: 15.5px; line-height: 1.7; color: var(--tf-muted-light-bg); }
+.tc-ticks { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.tc-ticks li { position: relative; padding-left: 28px; font-size: 15px; line-height: 1.6; color: var(--tf-text-light-bg); }
+.tc-ticks li::before { content: ""; position: absolute; left: 0; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--tf-indigo); }
+.tc-ticks li::after { content: ""; position: absolute; left: 5px; top: 8px; width: 6px; height: 3.5px; border-left: 1.6px solid #fff; border-bottom: 1.6px solid #fff; transform: rotate(-45deg); }
+.tc-seg__dg { grid-column: 1 / -1; margin-top: 8px; padding: 26px clamp(18px, 2.4vw, 30px); border-radius: 14px; background: var(--tf-mist); }
+.tc-seg__dg .fl__n { background: #fff; }
+.tc-seg__dg .fl__n--in { background: #fff; }
+.tc-seg__dg .fl__n--dio { background: var(--tf-indigo); }
+.tc-seg__dg .fl__n b { font-size: 14px; }
+.tc-seg__dg .fl__n span { font-size: 13px; }
+.tc-seg__dg .fl--micro { max-width: 640px; margin: 0 auto; }
+.tc-pl__low { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 22px; margin-top: 22px; }
+.tc-tbl { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: 18px; overflow: hidden; background: #fff; border: 1px solid var(--tf-line-light); font-size: 15px; }
+.tc-tbl th, .tc-tbl td { padding: 16px 20px; text-align: left; vertical-align: top; line-height: 1.55; border-bottom: 1px solid var(--tf-line-light); }
+.tc-tbl tr:last-child th, .tc-tbl tr:last-child td { border-bottom: 0; }
+.tc-tbl thead th { font-family: var(--tf-font-head); font-size: 14px; font-weight: 600; color: #fff; background: var(--tf-indigo); border-bottom: 0; }
+.tc-tbl tbody th { width: 28%; font-family: var(--tf-font-head); font-size: 13px; font-weight: 700; color: var(--tf-text-light-bg); background: #FAFBFE; }
+.tc-tbl td { color: var(--tf-muted-light-bg); }
+.tc-tog { display: flex; flex-direction: column; justify-content: center; padding: clamp(24px, 3vw, 34px); border-radius: 18px; }
+.tc-tog .tc-seg__k { color: var(--tf-indigo-glow); }
+.tc-tog h3 { margin-top: 0; font-family: var(--tf-font-head); font-size: clamp(20px, 1.8vw, 22px); font-weight: 700; letter-spacing: -0.02em; }
+.tc-tog p { margin-top: 12px; font-size: 15.5px; line-height: 1.75; color: #C3C9E6; }
+.tc-tog__layers { display: flex; align-items: center; gap: 10px; margin-top: 22px; }
+.tc-tog__layers span { flex: 1; padding: 10px 8px; border-radius: 10px; text-align: center; font-family: var(--tf-font-head); font-size: 13px; font-weight: 600; border: 1px solid rgba(124,139,230,.45); background: rgba(41,58,146,.35); }
+.tc-tog__layers i { color: var(--tf-indigo-glow); font-style: normal; font-weight: 700; }
+
+/* ---------- 4. diode vs firewall vs air gap (white) ---------- */
+.tc-cmp { padding: clamp(64px, 7vw, 104px) 0; background: #fff; color: var(--tf-text-light-bg); }
+.tc-cmp__wrap { margin-top: clamp(36px, 4vw, 52px); }
+.tc-x { width: 100%; border-collapse: separate; border-spacing: 0; table-layout: fixed; font-size: 15px; }
+.tc-x th, .tc-x td { padding: 18px 22px; text-align: left; vertical-align: top; line-height: 1.6; border-bottom: 1px solid var(--tf-line-light); }
+.tc-x col.c-lab { width: 19%; }
+/* column heads: a small flow picture, then the name */
+.tc-x thead th { padding: 22px 22px 20px; vertical-align: bottom; border-bottom: 0; font-family: var(--tf-font-head); font-size: 18px; font-weight: 700; color: var(--tf-text-light-bg); }
+.tc-x thead th:not(:first-child) { border-bottom: 1px solid var(--tf-line-light); }
+.tc-x__viz { display: block; width: 100%; max-width: 220px; height: 64px; margin-bottom: 16px; }
+.tc-x thead th.is-dio { background: var(--tf-indigo); color: #fff; border: 2px solid var(--tf-indigo); border-bottom: 0; border-radius: 14px 14px 0 0; box-shadow: 0 -10px 28px rgba(41,58,146,.16); }
+/* featured column: one continuous card */
+.tc-x td.is-dio { background: var(--tf-mist); color: var(--tf-text-light-bg); border-left: 2px solid var(--tf-indigo); border-right: 2px solid var(--tf-indigo); }
+.tc-x tbody tr:last-child td.is-dio { border-bottom: 2px solid var(--tf-indigo); border-radius: 0 0 14px 14px; }
+.tc-x tbody th { font-family: var(--tf-font-head); font-size: 13px; font-weight: 700; color: var(--tf-text-light-bg); }
+.tc-x td { color: var(--tf-muted-light-bg); transition: background .25s; }
+.tc-x tbody tr:hover td:not(.is-dio) { background: #F7F8FB; }
+.tc-x tbody tr:last-child th, .tc-x tbody tr:last-child td:not(.is-dio) { border-bottom: 0; }
+.tc-x tr.tc-x__when th, .tc-x tr.tc-x__when td { padding-top: 22px; padding-bottom: 24px; }
+/* return path: red X = no return path (same mark as the diagrams) */
+.tc-x__v { display: flex; align-items: flex-start; gap: 10px; }
+.tc-no, .tc-yes { flex: 0 0 auto; position: relative; width: 22px; height: 22px; margin-top: 1px; border-radius: 50%; }
+.tc-no { background: var(--tf-red); box-shadow: 0 0 0 4px rgba(242,26,50,.12); }
+.tc-no::before, .tc-no::after { content: ""; position: absolute; left: 6px; top: 10px; width: 10px; height: 2px; background: #fff; transform: rotate(45deg); }
+.tc-no::after { transform: rotate(-45deg); }
+.tc-yes { background: #E6E8EF; }
+.tc-yes svg { position: absolute; inset: 4px; width: 14px; height: 14px; }
+/* remote attack risk: 3-step meter read from the words (Very low = 1, Moderate = 2) */
+.tc-meter { display: flex; gap: 4px; margin-bottom: 10px; }
+.tc-meter i { width: 26px; height: 6px; border-radius: 3px; background: #E3E6F0; }
+.tc-meter[data-level="1"] i:nth-child(-n+1) { background: var(--tf-indigo); }
+.tc-meter[data-level="2"] i:nth-child(-n+2) { background: var(--tf-red); }
+
+/* ---------- closing panel ---------- */
+
+/* ---------- responsive ---------- */
+@media (max-width: 1180px) {
+  .tc-pts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tc-pts li:nth-child(3) { padding-left: 0; border-left: 0; }
+  .tc-pts li:nth-child(n+3) { margin-top: 26px; border-top: 1px solid rgba(124,139,230,.2); }
+  .tc-dg__row { grid-template-columns: 1fr; gap: 18px; }
+}
+@media (max-width: 1080px) {
+  .tc-hero__in, .tc-pr__grid, .tc-fp__top, .tc-pl__head, .tc-seg, .tc-pl__low { grid-template-columns: 1fr; }
+  .tc-bar .tf-btn { display: none; }
+}
+@media (max-width: 760px) {
+  /* diagrams turn vertical */
+  .fl { flex-direction: column; align-items: stretch; }
+  .fl__n, .fl__box { flex: 0 0 auto; }
+  .fl__a { flex: 0 0 26px; width: 2px; height: 26px; align-self: center; }
+  .fl__a::after { right: auto; left: 50%; top: auto; bottom: -1px; transform: translateX(-50%) rotate(135deg); }
+  .fl__a--light { width: 0; height: 26px; border-top: 0; border-left: 2px dashed var(--tf-red); }
+  .fl__a--light::after { left: -1px; }
+  .fl__a i { animation-name: flDotV; left: 50% !important; margin: 0 0 0 -3px; top: 0; }
+  @keyframes flDotV { 0% { top: 0; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { top: calc(100% - 6px); opacity: 0; } }
+  .fl__zones { display: none; }
+  /* the small arrow inside a diode box stays horizontal */
+  .fl__inner .fl__a { flex: 0 0 22px; width: auto; height: 2px; align-self: center; }
+  .fl__inner .fl__a::after { left: auto; right: -1px; top: 50%; bottom: auto; transform: translateY(-50%) rotate(45deg); }
+  .fl__inner .fl__a--light { height: 0; border-left: 0; border-top: 2px dashed var(--tf-red); }
+  .fl__inner .fl__a--light::after { top: -1px; }
+  .fl__inner .fl__a i { display: none; }
+  .tc-x tbody th { width: auto; }
+  .fl-ret { margin: 26px 12% 0; }
+  .tc-x thead { display: none; }
+  .tc-x, .tc-x tbody, .tc-x tr, .tc-x th, .tc-x td { display: block; width: 100%; }
+  .tc-x tr { padding: 18px 0; border-bottom: 1px solid var(--tf-line-light); }
+  .tc-x tbody th { padding: 0 0 10px; border: 0; font-size: 14px; }
+  .tc-x td { padding: 12px 14px; border: 0; border-radius: 10px; }
+  .tc-x td + td { margin-top: 8px; }
+  .tc-x td::before { content: attr(data-label); display: block; margin-bottom: 4px; font-family: var(--tf-font-head); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--tf-text-light-bg); }
+  .tc-x td.is-dio::before { color: var(--tf-indigo); }
+  .tc-x td:not(.is-dio) { background: #F7F8FB; }
+  .tc-x tbody tr:last-child td.is-dio { border-radius: 10px; }
+  .tc-x td.is-dio { border: 0; }
+  .tc-x tbody tr:last-child td.is-dio { border: 0; }
+  .tc-x tbody tr:hover td:not(.is-dio) { background: #F7F8FB; }
+  .tc-vs { grid-template-columns: 1fr; }
+  .tc-card { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .tc-pts { grid-template-columns: 1fr; }
+  .tc-pts li + li { padding-left: 0; border-left: 0; margin-top: 26px; border-top: 1px solid rgba(124,139,230,.2); }
+  .tc-tbl { table-layout: fixed; font-size: 14px; }
+  .tc-tbl th, .tc-tbl td { padding: 12px 10px; overflow-wrap: anywhere; }
+  .tc-tbl thead th { font-size: 12.5px; }
+  .tc-tbl tbody th { width: 30%; font-size: 12px; }
+  .tc-bar nav a span { display: none; }
+  .tc-bar nav a { padding: 10px 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .fl__a i, .fl-wrap--dark .fl__box { animation: none !important; } .fl__a i { display: none; } }
+</style>
+<link rel="stylesheet" href="shared/tf-mobile.css">
+</head>
+<body class="pg-technology">
+
+<header class="tf-header" data-tf-header></header>
+
+<main>
+<!-- ======================= HERO (P09a opening lines + P08a diagram) ======================= -->
+<section class="tc-dark tc-hero" id="top">
+  <div class="tf-wrap tc-hero__in">
+    <div>
+      <nav class="tc-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Technology</span></nav>
+      <span class="tf-eyebrow">Technology</span>
+      <h1>One-way security, <em>built into hardware</em></h1>
+      <p>Terafence data diodes use a proprietary FPGA design to enforce one-way data flow in silicon, not in software.</p>
+      <div class="tc-hero__cta">
+        <a class="tf-btn tf-btn--primary" href="/contact?topic=contact">Discuss the technology <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
+        <a class="tf-btn tf-btn--ghost" href="/products/compare">Compare models</a>
+      </div>
+    </div>
+    <figure class="tc-hero__vis fl-wrap--dark" role="img" aria-label="Data flows from the OT / ICS network (PLCs, sensors) through the FPGA data diode (Tx logic to Rx logic, no IP, MAC or CPU) to the external network (monitoring, cloud). Return traffic is physically blocked.">
+      <div class="fl">
+        <div class="fl__n fl__n--in"><b>OT / ICS network</b><span>PLCs, sensors</span></div>
+        <div class="fl__a"><i></i></div>
+        <div class="fl__box">
+          <b>FPGA data diode</b>
+          <div class="fl__inner"><div>Tx logic</div><div class="fl__a fl__a--sm"><i style="animation-delay:.8s"></i></div><div>Rx logic</div></div>
+          <span>No IP, MAC or CPU</span>
+        </div>
+        <div class="fl__a"><i style="animation-delay:1.6s"></i></div>
+        <div class="fl__n fl__n--out"><b>External network</b><span>Monitoring, cloud</span></div>
+      </div>
+      <div class="fl-ret" aria-hidden="true"><b></b></div>
+      <p class="fl__cap">Return traffic physically blocked</p>
+    </figure>
+  </div>
+</section>
+
+<div class="tc-bar">
+  <div class="tf-wrap">
+    <nav aria-label="On this page">
+      <a href="#principle" data-jump="principle"><svg class="tc-ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 16h22M20 10l6 6-6 6"/></svg><span>One-way principle</span></a>
+      <a href="#fpga" data-jump="fpga"><svg class="tc-ic" viewBox="0 0 32 32" aria-hidden="true"><rect x="9" y="9" width="14" height="14" rx="2"/><path d="M13 4v5M19 4v5M13 23v5M19 23v5M4 13h5M4 19h5M23 13h5M23 19h5"/></svg><span>FPGA data diode</span></a>
+      <a href="#placement" data-jump="placement"><svg class="tc-ic" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="6" width="9" height="8" rx="1.5"/><rect x="20" y="6" width="9" height="8" rx="1.5"/><rect x="11.5" y="20" width="9" height="8" rx="1.5"/><path d="M12 10h8M16 14v6"/></svg><span>Where diodes sit</span></a>
+      <a href="#comparison" data-jump="comparison"><svg class="tc-ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 5v22M16 5v22M26 5v22M3 11h26M3 21h26"/></svg><span>Diode vs firewall vs air gap</span></a>
+    </nav>
+    <a class="tf-btn tf-btn--primary" href="/contact?topic=contact">Discuss the technology</a>
+  </div>
+</div>
+
+<!-- ======================= 1. ONE-WAY PRINCIPLE (P08a) ======================= -->
+<section class="tc-sec tc-pr" id="principle">
+  <div class="tf-wrap tc-pr__grid">
+    <div class="tc-head tc-pr__lead">
+      <span class="tf-eyebrow">The one-way principle</span>
+      <h2>Overview of the one-way principle</h2>
+      <p>Terafence’s data diode uses an FPGA-based design to enforce one-way data flow in hardware. Data can flow outward from the protected side, while incoming data is blocked entirely, which prevents tampering or hacking of connected devices such as OT assets, cameras, sensors and PLCs.</p>
+      <p>Flow direction is embedded in the FPGA, with no MAC, IP or CPU addresses, so data is relayed by physical electrical stimulation rather than by software-controlled networking. The protected side therefore has no addressable stack for an attacker to scan, exploit or reconfigure remotely.</p>
+    </div>
+    <div class="tc-pr__cards">
+      <div class="tc-card tc-card--vs">
+        <span class="tc-card__tile"><svg class="tc-ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 11h20M19 6l5 5-5 5"/><path d="M28 21H12" stroke-dasharray="3 3"/><path d="M8 18l6 6M14 18l-6 6"/></svg></span>
+        <p>This differs from a firewall, which filters traffic in both directions using software rules. A diode removes the return path altogether, so even a compromised external network has no channel back in.</p>
+        <div class="tc-vs" aria-hidden="true">
+          <div><small>Firewall</small>
+            <svg viewBox="0 0 200 34" fill="none"><path d="M6 10h188M186 4l8 6-8 6" stroke="#8D92A6" stroke-width="2"/><path d="M194 24H6M14 18l-8 6 8 6" stroke="#8D92A6" stroke-width="2"/><rect x="92" y="1" width="16" height="32" rx="3" fill="#fff" stroke="#636772" stroke-width="1.5"/></svg></div>
+          <div><small>Data diode</small>
+            <svg viewBox="0 0 200 34" fill="none"><path d="M6 10h188M186 4l8 6-8 6" stroke="#293A92" stroke-width="2"/><path d="M194 24H112" stroke="#F21A32" stroke-width="2" stroke-dasharray="5 4"/><rect x="92" y="1" width="16" height="32" rx="3" fill="#293A92"/><path d="M60 19l10 10M70 19L60 29" stroke="#F21A32" stroke-width="2.2"/></svg></div>
+        </div>
+      </div>
+      <div class="tc-card">
+        <span class="tc-card__tile"><svg class="tc-ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 24l6-7 5 4 6-9 7 6"/><path d="M4 28h24"/></svg></span>
+        <p>Typical uses are sending telemetry from OT/ICS networks to monitoring, analytics or cloud systems without exposing the machines that generate it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 2. FPGA DATA DIODE (P09a) ======================= -->
+<section class="tc-sec tc-dark tc-fp" id="fpga">
+  <div class="tf-wrap">
+    <div class="tc-fp__top">
+      <div class="tc-head">
+        <span class="tf-eyebrow">Why FPGA hardware</span>
+        <h2>FPGA data diode</h2>
+      </div>
+      <p><strong>Built for OT and IoT</strong> Compact units protect PLCs, sensors, cameras and machines, sending telemetry, logs and sensor data to monitoring, MES or cloud systems.</p>
+    </div>
+
+    <h3 class="tc-h3">How it works</h3>
+    <ul class="tc-pts">
+      <li><span class="tc-tile"><svg class="tc-ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 16h20M18 10l6 6-6 6"/><path d="M28 9v14"/></svg></span><p>Direction is fixed in the FPGA logic: data can leave the protected side, and no return path exists</p></li>
+      <li><span class="tc-tile"><svg class="tc-ic" viewBox="0 0 32 32" aria-hidden="true"><rect x="9" y="9" width="14" height="14" rx="2"/><path d="M13 4v5M19 4v5M13 23v5M19 23v5M4 13h5M4 19h5M23 13h5M23 19h5"/><path d="M5 27L27 5"/></svg></span><p>No MAC, IP or CPU addresses on the data path, so there is nothing to scan, exploit or reconfigure remotely</p></li>
+      <li><span class="tc-tile"><svg class="tc-ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 16h5l3-8 5 16 4-12 3 4h6"/></svg></span><p>Data moves as physical electrical signals, not routable network traffic</p></li>
+      <li><span class="tc-tile"><svg class="tc-ic" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="6" width="24" height="18" rx="2.5"/><path d="M4 11h24M11 28h10"/><path d="M6 26L26 4"/></svg></span><p>No operating system in the data path, so there is no OS to patch or compromise</p></li>
+    </ul>
+
+    <div class="tc-dg fl-wrap--dark">
+      <figure class="tc-dg__row" role="img" aria-label="FPGA data diode: source to fixed hardware logic (Tx logic to Rx logic) to destination. No IP, MAC or CPU on the data path.">
+        <div class="tc-dg__k"><b>FPGA data diode</b><p>No IP, MAC or CPU on the data path</p></div>
+        <div><div class="fl">
+          <div class="fl__n fl__n--out"><b>Source</b></div>
+          <div class="fl__a"><i></i></div>
+          <div class="fl__box"><b>Fixed hardware logic</b><div class="fl__inner"><div>Tx logic</div><div class="fl__a fl__a--sm"></div><div>Rx logic</div></div></div>
+          <div class="fl__a"><i style="animation-delay:1.2s"></i></div>
+          <div class="fl__n fl__n--out"><b>Destination</b></div>
+        </div><div class="fl-ret" aria-hidden="true"><b></b></div></div>
+      </figure>
+      <figure class="tc-dg__row tc-dg__row--muted" role="img" aria-label="Optical data diode: source to a light-based one-way link (transmitter to receiver) to destination. Light travels one way, with no transmitter on the receive side.">
+        <div class="tc-dg__k"><b>Optical data diode</b><p>Light travels one way, with no transmitter on the receive side</p></div>
+        <div><div class="fl">
+          <div class="fl__n fl__n--out"><b>Source</b></div>
+          <div class="fl__a"></div>
+          <div class="fl__box"><b>Light-based one-way link</b><div class="fl__inner"><div>Transmitter</div><div class="fl__a fl__a--sm fl__a--light"></div><div>Receiver</div></div></div>
+          <div class="fl__a"></div>
+          <div class="fl__n fl__n--out"><b>Destination</b></div>
+        </div><div class="fl-ret" aria-hidden="true"><b></b></div></div>
+      </figure>
+    </div>
+
+    <p class="tc-tag"><b>Terafence.</b> Data goes out. <em>Threats stay out.</em></p>
+  </div>
+</section>
+
+<!-- ======================= 3. WHERE DIODES SIT (P09b) ======================= -->
+<section class="tc-sec tc-pl" id="placement">
+  <div class="tf-wrap">
+    <div class="tc-pl__head">
+      <div class="tc-head">
+        <span class="tf-eyebrow">Where diodes sit in a network</span>
+        <h2>Where FPGA data diodes sit in the network</h2>
+      </div>
+      <p class="tc-quote">“One-way protection at every level: macro segmentation at the zone boundary, micro segmentation at the machine.”</p>
+    </div>
+
+    <article class="tc-seg">
+      <div>
+        <h3>Macro segmentation: the zone boundary</h3>
+        <p>The diode sits between large network zones, such as the OT/control network and IT or a DMZ. It enforces a one-way boundary between whole zones.</p>
+      </div>
+      <ul class="tc-ticks">
+          <li>Telemetry, logs and historian data flow out to IT and the cloud.</li>
+          <li>Nothing can travel back into the control network.</li>
+          <li>Typical for plants, utilities and critical infrastructure.</li>
+        </ul>
+      <figure class="tc-seg__dg" role="img" aria-label="Macro segmentation, zone boundary: field devices (sensors, PLCs) and the OT network (SCADA, HMI) form the protected zone; an FPGA diode passes data out to IT / DMZ (historian) and the cloud (analytics), the outside zone.">
+        <div class="fl">
+          <div class="fl__n fl__n--in"><b>Field devices</b><span>Sensors, PLCs</span></div>
+          <div class="fl__a fl__a--sm"></div>
+          <div class="fl__n fl__n--in"><b>OT network</b><span>SCADA, HMI</span></div>
+          <div class="fl__a fl__a--sm"><i></i></div>
+          <div class="fl__n fl__n--dio"><b>Diode</b><span>FPGA</span></div>
+          <div class="fl__a fl__a--sm"><i style="animation-delay:1.2s"></i></div>
+          <div class="fl__n fl__n--out"><b>IT / DMZ</b><span>Historian</span></div>
+          <div class="fl__a fl__a--sm"></div>
+          <div class="fl__n fl__n--out"><b>Cloud</b><span>Analytics</span></div>
+        </div>
+        <div class="fl-ret" aria-hidden="true"><b></b></div>
+        <div class="fl__zones"><span>Protected zone</span><span style="flex:.45"></span><span>Outside zone</span></div>
+      </figure>
+    </article>
+
+    <article class="tc-seg">
+      <div>
+        <h3>Micro segmentation: the asset boundary</h3>
+        <p>A compact diode sits in front of an individual PLC, camera, sensor or machine. Each asset or line becomes its own protected segment.</p>
+      </div>
+      <ul class="tc-ticks">
+          <li>Every device can send data out but can’t be reached from the network.</li>
+          <li>A compromise of one machine can’t spread to its neighbours.</li>
+          <li>This is where a small form factor matters most.</li>
+        </ul>
+      <figure class="tc-seg__dg" role="img" aria-label="Micro segmentation, asset boundary: a PLC or camera (single machine) sends data through an FPGA diode to the plant network (MES, monitoring). One diode per machine or line, no path back in.">
+        <div class="fl fl--micro">
+          <div class="fl__n fl__n--in"><b>PLC / camera</b><span>Single machine</span></div>
+          <div class="fl__a"><i></i></div>
+          <div class="fl__n fl__n--dio"><b>Diode</b><span>FPGA</span></div>
+          <div class="fl__a"><i style="animation-delay:1.2s"></i></div>
+          <div class="fl__n fl__n--out"><b>Plant network</b><span>MES, monitoring</span></div>
+        </div>
+        <div class="fl-ret" aria-hidden="true"><b></b></div>
+        <p class="fl__cap">One diode per machine or line, no path back in</p>
+      </figure>
+    </article>
+
+    <div class="tc-pl__low">
+      <table class="tc-tbl">
+        <thead><tr><th scope="col"><span class="sr-only">Attribute</span></th><th scope="col">Macro segmentation</th><th scope="col">Micro segmentation</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Placement</th><td>Between OT and IT/DMZ</td><td>At each machine, PLC or sensor</td></tr>
+          <tr><th scope="row">Protects</th><td>A whole zone</td><td>A single asset or line</td></tr>
+          <tr><th scope="row">Number of diodes</th><td>Few</td><td>Many</td></tr>
+          <tr><th scope="row">Needs</th><td>Higher throughput, rack or DIN-rail unit</td><td>Compact, low-cost unit</td></tr>
+        </tbody>
+      </table>
+      <div class="tc-dark tc-tog">
+        <h3>Used together</h3>
+        <p>The strongest design layers both. Macro segmentation keeps the plant network safe from IT, and micro segmentation limits the blast radius inside the plant. Firewalls usually still handle traffic inside each segment.</p>
+        <div class="tc-tog__layers" aria-hidden="true"><span>Macro segmentation</span><i>+</i><span>Micro segmentation</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 4. DIODE vs FIREWALL vs AIR GAP (P09) ======================= -->
+<section class="tc-sec tc-cmp" id="comparison">
+  <div class="tf-wrap">
+    <div class="tc-head">
+      <span class="tf-eyebrow">Comparison</span>
+      <h2>Data diode vs firewall vs air gap</h2>
+    </div>
+    <div class="tc-cmp__wrap">
+      <table class="tc-x">
+        <colgroup><col class="c-lab"><col><col><col></colgroup>
+        <thead>
+          <tr>
+            <th scope="col"><span class="sr-only">Attribute</span></th>
+            <th scope="col" class="is-dio"><svg class="tc-x__viz" viewBox="0 0 220 64" fill="none" aria-hidden="true"><rect x="2" y="6" width="46" height="28" rx="7" fill="rgba(255,255,255,.14)" stroke="#fff" stroke-opacity=".7"/><rect x="172" y="6" width="46" height="28" rx="7" fill="rgba(255,255,255,.14)" stroke="#fff" stroke-opacity=".7"/><path d="M54 20h108M156 14l7 6-7 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M166 52H58" stroke="#FF6B7D" stroke-width="2" stroke-dasharray="5 4"/><path d="M64 46l-7 6 7 6" stroke="#FF6B7D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="110" cy="52" r="10" fill="#F21A32"/><path d="M106 48l8 8M114 48l-8 8" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>Data diode</th>
+            <th scope="col"><svg class="tc-x__viz" viewBox="0 0 220 64" fill="none" aria-hidden="true"><rect x="2" y="6" width="46" height="28" rx="7" fill="#fff" stroke="#B8BCCB"/><rect x="172" y="6" width="46" height="28" rx="7" fill="#fff" stroke="#B8BCCB"/><path d="M54 14h108M156 9l7 5-7 5" stroke="#8D92A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M166 28H58M64 23l-7 5 7 5" stroke="#8D92A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="100" y="2" width="20" height="38" rx="3" fill="#fff" stroke="#636772" stroke-width="1.5"/><path d="M100 14h20M100 27h20M110 2v12M106 14v13M114 14v13M110 27v13" stroke="#636772" stroke-width="1.2"/></svg>Firewall</th>
+            <th scope="col"><svg class="tc-x__viz" viewBox="0 0 220 64" fill="none" aria-hidden="true"><rect x="2" y="6" width="46" height="28" rx="7" fill="#fff" stroke="#B8BCCB"/><rect x="172" y="6" width="46" height="28" rx="7" fill="#fff" stroke="#B8BCCB"/><path d="M96 4l-5 8 5 8-5 8 5 8M124 4l-5 8 5 8-5 8 5 8" stroke="#B8BCCB" stroke-width="1.6" stroke-linejoin="round"/></svg>Air gap</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">How it works</th><td class="is-dio" data-label="Data diode">Hardware (e.g. FPGA or optical) physically allows data in one direction only</td><td data-label="Firewall">Software or appliance inspects traffic in both directions against rules</td><td data-label="Air gap">No network connection at all between the systems</td></tr>
+          <tr><th scope="row">Return path</th><td class="is-dio" data-label="Data diode"><div class="tc-x__v"><i class="tc-no"></i><span>None, enforced by hardware</span></div></td><td data-label="Firewall"><div class="tc-x__v"><i class="tc-yes"><svg viewBox="0 0 14 14" fill="none"><path d="M2 4.5h9M9 2.5l2 2-2 2M12 9.5H3M5 7.5l-2 2 2 2" stroke="#636772" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>Yes, controlled by policy</span></div></td><td data-label="Air gap"><div class="tc-x__v"><i class="tc-no"></i><span>None</span></div></td></tr>
+          <tr><th scope="row">Remote attack risk</th><td class="is-dio" data-label="Data diode"><div class="tc-meter" data-level="1" aria-hidden="true"><i></i><i></i><i></i></div>Very low: no addressable return channel into the protected side</td><td data-label="Firewall"><div class="tc-meter" data-level="2" aria-hidden="true"><i></i><i></i><i></i></div>Moderate: depends on rules, patching and configuration; vulnerabilities and misconfigurations are common</td><td data-label="Air gap"><div class="tc-meter" data-level="1" aria-hidden="true"><i></i><i></i><i></i></div>Very low, but not zero (see below)</td></tr>
+          <tr><th scope="row">Data transfer</th><td class="is-dio" data-label="Data diode">Automated, one-way, continuous (e.g. telemetry, logs, historian data)</td><td data-label="Firewall">Automated, two-way</td><td data-label="Air gap">Manual (USB, removable media)</td></tr>
+          <tr><th scope="row">Operational cost</th><td class="is-dio" data-label="Data diode">Low once deployed, high MTBF</td><td data-label="Firewall">Ongoing rule management and updates, refresh every 3-5 years</td><td data-label="Air gap">High: manual, slow, error-prone</td></tr>
+          <tr><th scope="row">Main weakness</th><td class="is-dio" data-label="Data diode">Limited support two-way interaction; confidentiality or integrity of the source depends on the diode’s direction</td><td data-label="Firewall">Is software, so it can be bypassed or misconfigured</td><td data-label="Air gap">Removable media and insiders become the attack path (Stuxnet is the classic case)</td></tr>
+          <tr class="tc-x__when"><th scope="row">When to use which</th><td class="is-dio" data-label="Data diode">a protected network (OT, critical infrastructure, classified) needs to send data out continuously without any path back in. It automates what an air gap does manually.</td><td data-label="Firewall">two-way communication is needed and the risk is acceptable. It’s the baseline for most IT networks.</td><td data-label="Air gap">the highest isolation is needed and data movement is rare enough to handle manually.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<section class="tf-cta-wrap" style="background:#fff">
+  <div class="tf-wrap">
+    <div class="tf-cta">
+      <div>
+        <h2>Tell us where your boundary sits</h2>
+        <p>Say what has to cross it. We will help you choose the right device and plan a pilot.</p>
+      </div>
+      <div class="tf-cta__btns">
+        <a class="tf-btn tf-btn--primary" href="/contact?topic=contact">Discuss the technology <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
+        <a class="tf-btn tf-btn--ghost" href="/contact?topic=pilot">Plan a pilot</a>
+        <a class="tf-cta__link" href="/products/compare">Compare models &rarr;</a>
+        <a class="tf-cta__link" href="/#products">Explore products &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="tf-footer" data-tf-footer></footer>
+
+<script src="shared/tf-site.js"></script>
+<script src="shared/tf-form.js"></script>
+<script>
+TF.LOGO_HREF = "index.html";
+(function () {
+  const secs = [...document.querySelectorAll(".tc-sec")];
+  const links = [...document.querySelectorAll(".tc-bar nav a")];
+  let lock = false, lockT;
+  function mark(id) { links.forEach(l => l.classList.toggle("is-on", l.dataset.jump === id)); }
+  function go(id, smooth) {
+    const el = document.getElementById(id); if (!el || !el.classList.contains("tc-sec")) return;
+    lock = true; mark(id); clearTimeout(lockT);
+    el.scrollIntoView({ behavior: smooth ? "smooth" : "instant", block: "start" });
+    lockT = setTimeout(() => { lock = false; }, smooth ? 900 : 60);
+    history.replaceState(null, "", location.pathname + location.search + "#" + id);
+  }
+  document.addEventListener("click", e => {
+    const a = e.target.closest("[data-jump]"); if (!a) return;
+    e.preventDefault(); go(a.dataset.jump, !matchMedia("(prefers-reduced-motion: reduce)").matches);
+  });
+  addEventListener("hashchange", () => go(location.hash.slice(1), true));
+  if (location.hash) addEventListener("load", () => requestAnimationFrame(() => go(location.hash.slice(1), false)));
+  function onScroll() {
+    if (lock) return;
+    const line = document.querySelector(".tc-bar").getBoundingClientRect().bottom + 120;
+    let on = null;
+    secs.forEach(s => { if (s.getBoundingClientRect().top <= line) on = s.id; });
+    const last = secs[secs.length - 1]; if (last.getBoundingClientRect().bottom < line - 60) on = null;
+    mark(on);
+  }
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+})();
+</script>
+</body>
+</html>

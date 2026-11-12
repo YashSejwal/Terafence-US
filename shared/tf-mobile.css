@@ -6,13 +6,23 @@
    touched: every rule sits inside a max-width or (pointer: coarse) query.
 
    Page rules are scoped with the class on <body>:
-     pg-home (index.html)     pg-about      pg-addins
+     pg-home (index.html)     pg-about      pg-platform (platform.html)
      pg-build (build-your-solution.html)    pg-compare
      pg-product (tfg-121, tfg-1urp, tfg121-bf, tfg121-bsg)
+     pg-industry (industry-*.html)          pg-solutions   pg-technology
+     pg-cases (case-studies.html)           pg-case (case-*.html)
+     Insights pages (insights/) keep their generated ins-page classes.
 
    1. Whole site    header, type floor, tap targets, swipe rows, footer
-   2. Home          3. About        4. Add-ins
+   2. Home          3. About        4. Platform
    5. Build your solution           6. Compare       7. Product pages
+   8. Industry pages
+   The Solutions, Technology, case-study and Insights pages need nothing
+   beyond section 1: their own stylesheets already handle phones.
+
+   NEW PAGE? Link this file last in its <head> and give <body> a pg- class.
+   (shared/tf-site.js adds the link if a page is missing it, so pages that
+   a generator rebuilds still get it.)
 
    Breakpoints follow the rest of the site: 860px (tablets and below)
    and 600px (phones).
@@ -99,7 +109,7 @@
   .pg-home #products { padding: 60px 0 40px; }
   .pg-home #add-ons { padding: 24px 0 52px; }
   .pg-home #how-it-works { padding: 52px 0 60px; }
-  .pg-home #solutions, .pg-home #proof, .pg-home #why, .pg-home #pilot, .pg-home #insights { padding: 60px 0; }
+  .pg-home #solutions, .pg-home #proof, .pg-home #why, .pg-home #pilot { padding: 60px 0; }
   .pg-home .b-final { padding: 64px 0; }
   .pg-home .b-head { margin-bottom: 34px; }
 
@@ -110,9 +120,8 @@
   .pg-home .b-map__head, .pg-home .b-map__label b, .pg-home .b-px__specs dt,
   .pg-home .b-hw__cap span, .pg-home .b-hw__out b, .pg-home .b-hw__no b { font-size: 11.5px; }
   .pg-home .b-px__tag, .pg-home .b-need__n, .pg-home .b-sol__n, .pg-home .b-why__n,
-  .pg-home .b-hw__steps b, .pg-home .b-trust small, .pg-home .b-sol__uses > small,
-  .pg-home .b-std small, .pg-home .b-case small, .pg-home .b-art small,
-  .pg-home .b-lead__cat, .pg-home .b-lead__tags span, .pg-home .b-addon .b-addon__label { font-size: 12px; }
+  .pg-home .b-hw__steps b, .pg-home .b-sol__uses > small,
+  .pg-home .b-std small, .pg-home .b-case small, .pg-home .b-addon .b-addon__label { font-size: 12px; }
 
   /* add-in cards: icon beside the title, as a compact list */
   .pg-home .b-addon { display: grid; grid-template-columns: 46px minmax(0, 1fr); column-gap: 16px; align-items: start;
@@ -174,20 +183,20 @@
 
 
 /* =====================================================================
-   4. ADD-INS (add-ins.html)
+   4. PLATFORM (platform.html, formerly add-ins.html)
    ===================================================================== */
 @media (max-width: 700px) {
   /* the family bar shows icons only; keep the names for screen readers */
-  .pg-addins .ai-bar nav a span {
+  .pg-platform .ai-bar nav a span {
     display: inline; position: absolute; width: 1px; height: 1px; overflow: hidden;
     clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
   }
-  .pg-addins .ai-bar nav a { padding: 12px 15px; }
+  .pg-platform .ai-bar nav a { padding: 12px 15px; }
 }
 @media (max-width: 600px) {
-  .pg-addins .ai-bn__cmain small, .pg-addins .ai-bn__cmain em { font-size: 11.5px; }
-  .pg-addins .ai-bn__card small { font-size: 11px; }
-  .pg-addins .ai-fam__tag, .pg-addins .ai-fam__label { font-size: 12px; }
+  .pg-platform .ai-bn__cmain small, .pg-platform .ai-bn__cmain em { font-size: 11.5px; }
+  .pg-platform .ai-bn__card small { font-size: 11px; }
+  .pg-platform .ai-fam__tag, .pg-platform .ai-fam__label { font-size: 12px; }
 }
 
 
@@ -233,4 +242,17 @@
   .pg-product .p-flow small, .pg-product .p-hl__item small,
   .pg-product .p-feat-pr__body small, .pg-product .p-rc__body small { font-size: 12px; }
   .pg-product .p-ai__card small { font-size: 11.5px; }
+}
+
+
+/* =====================================================================
+   8. INDUSTRY PAGES (industry-*.html)
+   ===================================================================== */
+@media (max-width: 600px) {
+  /* "Conduits" list: the model tag sits under the title instead of beside it,
+     so a name like TFG-1URP is never split across two lines */
+  .pg-industry .sx-stop button { display: grid; grid-template-columns: 60px minmax(0, 1fr); column-gap: 16px; row-gap: 3px; align-items: center; }
+  .pg-industry .sx-stop__dot { grid-row: span 2; }
+  .pg-industry .sx-stop b { align-self: end; }
+  .pg-industry .sx-stop small { align-self: start; white-space: nowrap; font-size: 11.5px; }
 }

@@ -4,11 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#04061A">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
-<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-<title>TFG-1URP 1U Rack Unidirectional Security Gateway | Terafence USA</title>
-<meta name="description" content="TFG-1URP: a 19-inch rack unidirectional secure gateway and full protocol breaker with an FPGA data diode. Up to 1 Gbps, dual redundant hot-swappable AC power supplies, fanless, indoor use.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+<title>TFG-1URP 1U Rack-Mount Data Diode Gateway | Terafence USA</title>
+<meta name="description" content="TFG-1URP 1U rack data diode: an FPGA one-way gateway up to 1 Gbps with dual hot-swap AC power, for OT-to-IT export to SIEM and historians. Get a quote.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -25,7 +26,7 @@ section { position: relative; }
 .p-light { background: var(--tf-white); color: var(--tf-text-light-bg); }
 .p-mist { background: var(--tf-mist); color: var(--tf-text-light-bg); }
 .p-light .tf-eyebrow, .p-mist .tf-eyebrow { color: var(--tf-indigo); }
-.p-h2 { font-size: clamp(25px, 2.7vw, 36px); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: var(--tf-text-light-bg); margin: 14px 0 0; }
+.p-h2 { font-size: clamp(25px, 2.6vw, 36px); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; color: var(--tf-text-light-bg); margin: 14px 0 0; }
 .p-h2 em { font-style: normal; color: var(--tf-indigo); }
 
 /* ---------- HERO (dark) ---------- */
@@ -39,7 +40,7 @@ section { position: relative; }
 .p-crumb a { color: #BFC5E2; text-decoration: none; }
 .p-crumb a:hover { color: #fff; }
 .p-crumb span[aria-hidden] { opacity: .5; }
-.p-hero h1 { font-size: clamp(36px, 4.2vw, 60px); font-weight: 700; line-height: 1.04; letter-spacing: -0.03em; margin: 16px 0 18px; }
+.p-hero h1 { font-size: clamp(32px, 3.4vw, 48px); font-weight: 700; line-height: 1.04; letter-spacing: -0.03em; margin: 16px 0 18px; }
 .p-hero h1 em { font-style: normal; color: var(--tf-red); }
 .p-hero__lead { font-size: clamp(16px, 1.4vw, 18.5px); line-height: 1.65; color: #C3C9E6; max-width: 560px; }
 .p-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
@@ -423,19 +424,6 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
 @media (max-width: 520px) { .p-ai__grid { grid-template-columns: 1fr; } }
 
 /* ---------- CLOSING CALL ---------- */
-.p-cta-wrap { padding: 0 0 clamp(64px, 7vw, 104px); }
-.p-cta { position: relative; overflow: hidden; display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(24px, 4vw, 60px); align-items: center;
-  padding: clamp(34px, 4.6vw, 64px); border-radius: 10px; color: #fff;
-  background: radial-gradient(125% 140% at 0% 0%, #26358C 0%, #121B57 46%, var(--tf-ink) 100%); box-shadow: 0 30px 64px rgba(10,15,44,.24); }
-.p-cta::before { content: ""; position: absolute; inset: 0; pointer-events: none;
-  background-image: linear-gradient(rgba(124,139,230,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(124,139,230,.07) 1px, transparent 1px); background-size: 40px 40px; }
-.p-cta > * { position: relative; }
-.p-cta h2 { font-size: clamp(25px, 2.8vw, 38px); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
-.p-cta p { margin-top: 14px; font-size: 16.5px; line-height: 1.7; color: #BFC5E2; max-width: 520px; }
-.p-cta__btns { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
-.p-cta__btns .tf-btn { min-width: 240px; justify-content: space-between; }
-.p-cta__cmp { margin-top: 4px; font-family: var(--tf-font-head); font-size: 14px; font-weight: 600; color: #C3CBF2; text-decoration: none; border-bottom: 1px solid rgba(195,203,242,.35); padding-bottom: 2px; }
-.p-cta__cmp:hover { color: #fff; border-color: #fff; }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 1080px) {
@@ -448,12 +436,11 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
   .p-hl__item:nth-child(n+3) { border-top: 1px solid var(--tf-line-light); }
 }
 @media (max-width: 860px) {
-  .p-hero__in, .p-ov, .p-spec, .p-cta, .pf-stage, .p-rel { grid-template-columns: 1fr; }
+  .p-hero__in, .p-ov, .p-spec, .pf-stage, .p-rel { grid-template-columns: 1fr; }
   .pf-lead p { max-width: none; }
   .p-shot { order: -1; max-width: 560px; }
   .p-side { position: static; }
   .p-tabs .tf-btn { display: none; }
-  .p-cta__btns .tf-btn { min-width: 0; width: 100%; }
 }
 @media (max-width: 600px) {
   .p-protos, .p-hl, .pf-grid { grid-template-columns: 1fr; }
@@ -655,7 +642,7 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
           <a href="#spec-compliance">Compliance</a>
           <span class="ps-nav__more">
             <a class="tf-link" href="/products/compare">Compare models &rarr;</a>
-            <a class="tf-link" href="assets/downloads/Terafence_TFG_1URP_USA_Inc._Datasheet_v1.0.pdf" download>Download datasheet &darr;</a>
+            <a class="tf-link" href="assets/downloads/Terafence_TFG_1URP_USA_Inc._Datasheet_Nov2026.pdf" target="_blank" rel="noopener">Download Datasheet &rarr;</a>
           </span>
         </nav>
         <div class="ps-body">
@@ -790,15 +777,10 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
         <h2 class="p-h2">Documents for <em>the TFG-1URP</em></h2>
       </div>
       <div class="p-dl">
-        <a class="p-file" href="assets/downloads/Terafence_TFG_1URP_USA_Inc._Datasheet_v1.0.pdf" download>
+        <a class="p-file" href="assets/downloads/Terafence_TFG_1URP_USA_Inc._Datasheet_Nov2026.pdf" target="_blank" rel="noopener">
           <span class="p-file__ic">PDF</span>
-          <div><h3>TFG-1URP datasheet</h3><p>Version 1.0 &middot; 1 page &middot; 665 KB</p></div>
-          <span class="p-file__go"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M4.5 7L8 10.5 11.5 7M3 13h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Download</span>
-        </a>
-        <a class="p-file" href="/contact?topic=datasheet&amp;model=tfg-1urp">
-          <span class="p-file__ic">DOC</span>
-          <div><h3>Technical specification and installation guide</h3><p>Available on request</p></div>
-          <span class="p-file__go">Request <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></span>
+          <div><h3>TFG-1URP datasheet</h3><p>November 2026 &middot; 1 page &middot; 249 KB</p></div>
+          <span class="p-file__go"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M4.5 7L8 10.5 11.5 7M3 13h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Download Datasheet</span>
         </a>
       </div>
     </div>
@@ -886,22 +868,22 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
 </section>
 
 <!-- =========================================================
-     ADD-INS (links to the add-ins page)
+     PLATFORM (links to the platform page)
      ========================================================= -->
 <section class="p-mist p-ai">
   <div class="tf-wrap">
     <div class="pf-top" style="margin-bottom:0">
       <div>
-        <span class="tf-eyebrow">Add-ins</span>
+        <span class="tf-eyebrow">Platform</span>
         <h2 class="p-h2">Extend your defense&nbsp;- <em>Add depth to your protection</em></h2>
       </div>
-      <a class="tf-btn tf-btn--ghost-dark" href="/add-ins">All add-ins <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      <a class="tf-btn tf-btn--ghost-dark" href="/platform">View all <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
     </div>
     <div class="p-ai__grid">
-      <a class="p-ai__card" href="/add-ins#terasecure" data-fam="terasecure"><span class="p-ai__tile"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5l10 4v7.5c0 6.3-4.3 11.4-10 13-5.7-1.6-10-6.7-10-13V7.5z"/><path d="M11.5 16l3.2 3.2 6-6.4"/></svg></span><b>TeraSecure</b><small>Cyber defense</small><span>Explore <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
-      <a class="p-ai__card" href="/add-ins#teraobserve" data-fam="teraobserve"><span class="p-ai__tile"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2.5 16S7.5 7.5 16 7.5 29.5 16 29.5 16 24.5 24.5 16 24.5 2.5 16 2.5 16z"/><circle cx="16" cy="16" r="4.5"/></svg></span><b>TeraObserve</b><small>Intelligence &amp; visibility</small><span>Explore <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
-      <a class="p-ai__card" href="/add-ins#teracommunicate" data-fam="teracommunicate"><span class="p-ai__tile"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 6.5h15a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8l-5 4v-4H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z"/><path d="M24 11.5h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-1.5v3.5l-4.5-3.5H17a2 2 0 0 1-2-2"/></svg></span><b>TeraCommunicate</b><small>Secure collaboration</small><span>Explore <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
-      <a class="p-ai__card" href="/add-ins#teraquantum" data-fam="teraquantum"><span class="p-ai__tile"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="6.5" y="14" width="19" height="14" rx="2.5"/><path d="M10.5 14v-3.5a5.5 5.5 0 0 1 11 0V14"/><path d="M16 19.5v3"/></svg></span><b>TeraQuantum</b><small>Future-ready encryption</small><span>Explore <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
+      <a class="p-ai__card" href="/platform#terasecure" data-fam="terasecure"><span class="p-ai__tile"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5l10 4v7.5c0 6.3-4.3 11.4-10 13-5.7-1.6-10-6.7-10-13V7.5z"/><path d="M11.5 16l3.2 3.2 6-6.4"/></svg></span><b>TeraSecure</b><small>Cyber defense</small><span>Explore <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
+      <a class="p-ai__card" href="/platform#teraobserve" data-fam="teraobserve"><span class="p-ai__tile"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2.5 16S7.5 7.5 16 7.5 29.5 16 29.5 16 24.5 24.5 16 24.5 2.5 16 2.5 16z"/><circle cx="16" cy="16" r="4.5"/></svg></span><b>TeraObserve</b><small>Intelligence &amp; visibility</small><span>Explore <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
+      <a class="p-ai__card" href="/platform#teracommunicate" data-fam="teracommunicate"><span class="p-ai__tile"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 6.5h15a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8l-5 4v-4H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z"/><path d="M24 11.5h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-1.5v3.5l-4.5-3.5H17a2 2 0 0 1-2-2"/></svg></span><b>TeraCommunicate</b><small>Secure collaboration</small><span>Explore <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
+      <a class="p-ai__card" href="/platform#teraquantum" data-fam="teraquantum"><span class="p-ai__tile"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="6.5" y="14" width="19" height="14" rx="2.5"/><path d="M10.5 14v-3.5a5.5 5.5 0 0 1 11 0V14"/><path d="M16 19.5v3"/></svg></span><b>TeraQuantum</b><small>Future-ready encryption</small><span>Explore <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
     </div>
   </div>
 </section>
@@ -909,18 +891,18 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
 <!-- =========================================================
      CLOSING CALL (dark panel)
      ========================================================= -->
-<section class="p-mist p-cta-wrap">
+<section class="p-mist tf-cta-wrap">
   <div class="tf-wrap">
-    <div class="p-cta">
+    <div class="tf-cta">
       <div>
         <h2>Plan your TFG-1URP deployment</h2>
         <p>Tell us which networks you need to separate and what data has to cross. We will help you size the gateway and plan a pilot.</p>
       </div>
-      <div class="p-cta__btns">
+      <div class="tf-cta__btns">
         <a class="tf-btn tf-btn--primary" href="/contact?topic=quote&amp;model=tfg-1urp" data-arrow>Request a quote</a>
         <a class="tf-btn tf-btn--ghost" href="/contact?topic=pilot&amp;model=tfg-1urp">Plan a pilot</a>
-        <a class="p-cta__cmp" href="/products/compare">Compare models &rarr;</a>
-        <a class="p-cta__cmp" href="/products/build-your-solution#model=tfg-1urp">Configure with add-ins &rarr;</a>
+        <a class="tf-cta__link" href="/products/compare">Compare models &rarr;</a>
+        <a class="tf-cta__link" href="/products/build-your-solution#model=tfg-1urp">Configure &rarr;</a>
       </div>
     </div>
   </div>
