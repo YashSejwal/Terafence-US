@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#04061A">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
 <title>Terafence USA | FPGA Data Diodes and Unidirectional Gateways</title>
 <meta name="description" content="Terafence FPGA-based data diodes let operational data out while keeping critical systems unreachable. Data Out. Nothing Back In.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +38,7 @@ section { position: relative; }
 
 /* ---------- HERO: industrial imagery + live streams at the boundary ---------- */
 .b-hero { min-height: 100svh; display: flex; align-items: center; overflow: hidden; background: var(--tf-ink); }
-.b-hero__photo { position: absolute; top: 0; right: 0; bottom: 0; width: 47%; background: url("assets/hero-plant.jpg") left center / cover no-repeat; }
+.b-hero__photo { position: absolute; top: 0; right: 0; bottom: 0; width: 47%; background: url("assets/hero-plant.webp") left center / cover no-repeat; }
 .b-hero__photo::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(4,6,26,.55) 0%, rgba(4,6,26,0) 22%), linear-gradient(0deg, rgba(4,6,26,.85) 0%, rgba(4,6,26,0) 30%); }
 .b-hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
 .b-hero__inner { position: relative; z-index: 2; width: 100%; padding-top: calc(var(--tf-header-h) + var(--tf-util-h) + 20px); padding-bottom: 130px; }
@@ -788,8 +792,9 @@ body { font-size: 15.5px; }
   .b-std a { margin-left: 0; }
 }
 </style>
+<link rel="stylesheet" href="shared/tf-mobile.css">
 </head>
-<body>
+<body class="pg-home">
 
 <header class="tf-header" data-tf-header></header>
 
@@ -849,12 +854,12 @@ body { font-size: 15.5px; }
       <div class="b-ticker" data-ticker aria-label="Customers and partners">
         <div class="b-ticker__track">
           <div class="b-ticker__set">
-            <img src="assets/logos/siemens.svg" alt="Siemens" style="height:22px">
-            <img src="assets/logos/abb.svg" alt="ABB" style="height:28px">
-            <img src="assets/logos/hitachi.svg" alt="Hitachi" style="height:22px">
+            <img src="assets/logos/siemens.svg" alt="Siemens" style="height:22px" width="1000" height="159" loading="lazy" decoding="async">
+            <img src="assets/logos/abb.svg" alt="ABB" style="height:28px" width="88" height="35" loading="lazy" decoding="async">
+            <img src="assets/logos/hitachi.svg" alt="Hitachi" style="height:22px" width="850" height="136" loading="lazy" decoding="async">
             <span class="b-ticker__word" aria-label="IMA Group">IMA</span>
-            <span class="b-ticker__metro"><img src="assets/logos/delhi-metro.svg" alt="" style="height:34px">New Delhi Metro</span>
-            <img src="assets/logos/accenture.svg" alt="Accenture" style="height:30px">
+            <span class="b-ticker__metro"><img src="assets/logos/delhi-metro.svg" alt="" style="height:34px" width="349" height="348" loading="lazy" decoding="async">New Delhi Metro</span>
+            <img src="assets/logos/accenture.svg" alt="Accenture" style="height:30px" width="163" height="43" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
@@ -887,11 +892,11 @@ body { font-size: 15.5px; }
       </div>
     </div>
     <div class="b-px tf-reveal" data-px>
-      <div class="b-px__tabs" role="tablist" aria-label="Terafence models"><button class="b-px__tab" role="tab" id="tab-tfg-121" aria-controls="panel-tfg-121" aria-selected="true" tabindex="0"><span class="b-px__thumb"><img src="assets/studio/tfg-121.webp" alt=""></span><span class="b-px__tt"><b>TFG-121</b><span>DIN-rail edge</span></span></button><button class="b-px__tab" role="tab" id="tab-tfg-1urp" aria-controls="panel-tfg-1urp" aria-selected="false" tabindex="-1"><span class="b-px__thumb"><img src="assets/studio/tfg-1urp.webp" alt=""></span><span class="b-px__tt"><b>TFG-1URP</b><span>Plant boundary</span></span></button><button class="b-px__tab" role="tab" id="tab-tfg121-bf" aria-controls="panel-tfg121-bf" aria-selected="false" tabindex="-1"><span class="b-px__thumb"><img src="assets/studio/tfg121-bf.webp" alt=""></span><span class="b-px__tt"><b>TFG121-BF</b><span>Large files</span></span></button><button class="b-px__tab" role="tab" id="tab-tfg121-bsg" aria-controls="panel-tfg121-bsg" aria-selected="false" tabindex="-1"><span class="b-px__thumb"><img src="assets/studio/tfg121-bsg.webp" alt=""></span><span class="b-px__tt"><b>TFG121-BSG</b><span>Controlled two-way</span></span></button><button class="b-px__tab" role="tab" id="tab-tfg-vsecure" aria-controls="panel-tfg-vsecure" aria-selected="false" tabindex="-1"><span class="b-px__thumb"><img src="assets/studio/tfg-vsecure.webp" alt=""></span><span class="b-px__tt"><b>TFG-VSecure</b><span>CCTV and video</span></span></button><span class="b-px__ink" aria-hidden="true"></span></div>
+      <div class="b-px__tabs" role="tablist" aria-label="Terafence models"><button class="b-px__tab" role="tab" id="tab-tfg-121" aria-controls="panel-tfg-121" aria-selected="true" tabindex="0"><span class="b-px__thumb"><img src="assets/studio/thumbs/tfg-121.webp" alt="" width="58" height="88" loading="lazy" decoding="async"></span><span class="b-px__tt"><b>TFG-121</b><span>DIN-rail edge</span></span></button><button class="b-px__tab" role="tab" id="tab-tfg-1urp" aria-controls="panel-tfg-1urp" aria-selected="false" tabindex="-1"><span class="b-px__thumb"><img src="assets/studio/thumbs/tfg-1urp.webp" alt="" width="96" height="17" loading="lazy" decoding="async"></span><span class="b-px__tt"><b>TFG-1URP</b><span>Plant boundary</span></span></button><button class="b-px__tab" role="tab" id="tab-tfg121-bf" aria-controls="panel-tfg121-bf" aria-selected="false" tabindex="-1"><span class="b-px__thumb"><img src="assets/studio/thumbs/tfg121-bf.webp" alt="" width="96" height="26" loading="lazy" decoding="async"></span><span class="b-px__tt"><b>TFG121-BF</b><span>Large files</span></span></button><button class="b-px__tab" role="tab" id="tab-tfg121-bsg" aria-controls="panel-tfg121-bsg" aria-selected="false" tabindex="-1"><span class="b-px__thumb"><img src="assets/studio/thumbs/tfg121-bsg.webp" alt="" width="96" height="25" loading="lazy" decoding="async"></span><span class="b-px__tt"><b>TFG121-BSG</b><span>Controlled two-way</span></span></button><button class="b-px__tab" role="tab" id="tab-tfg-vsecure" aria-controls="panel-tfg-vsecure" aria-selected="false" tabindex="-1"><span class="b-px__thumb"><img src="assets/studio/thumbs/tfg-vsecure.webp" alt="" width="96" height="32" loading="lazy" decoding="async"></span><span class="b-px__tt"><b>TFG-VSecure</b><span>CCTV and video</span></span></button><span class="b-px__ink" aria-hidden="true"></span></div>
       <div class="b-px__stage">
       <div class="b-px__panel is-on" role="tabpanel" id="panel-tfg-121" aria-labelledby="tab-tfg-121">
         <div class="b-px__visual b-px__visual--tall">
-          <a class="b-px__obj" href="/products/tfg-121" aria-label="View TFG-121"><img src="assets/studio/tfg-121.webp" alt="TFG-121 DIN-rail data diode"></a>
+          <a class="b-px__obj" href="/products/tfg-121" aria-label="View TFG-121"><img src="assets/studio/tfg-121.webp" alt="TFG-121 DIN-rail data diode" width="661" height="1000" loading="lazy" decoding="async"></a>
           
         </div>
         <div class="b-px__links"><a class="b-pl" href="/contact?topic=quote&amp;model=tfg-121"><span class="b-pl__ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 5h13l5 5v17H7z"/><path d="M20 5v5h5M11 15h10M11 19h10M11 23h6"/></svg></span><span class="b-pl__txt"><b>Get a quote</b><span>Pricing for TFG-121 at your sites</span></span><svg class="b-pl__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a><a class="b-pl" href="/products/tfg-121#specifications"><span class="b-pl__ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="7" width="22" height="18" rx="2"/><path d="M9 12h6M9 16h10M9 20h8M22 12v8"/></svg></span><span class="b-pl__txt"><b>Full specifications</b><span>Interfaces, protocols and ratings</span></span><svg class="b-pl__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a><a class="b-pl" href="/products/compare"><span class="b-pl__ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="8" width="10" height="16" rx="1.5"/><rect x="18" y="8" width="10" height="16" rx="1.5"/><path d="M14 13h4M14 19h4"/></svg></span><span class="b-pl__txt"><b>Compare models</b><span>All four gateways side by side</span></span><svg class="b-pl__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a></div>
@@ -907,7 +912,7 @@ body { font-size: 15.5px; }
         </div>
       </div><div class="b-px__panel" role="tabpanel" id="panel-tfg-1urp" aria-labelledby="tab-tfg-1urp" hidden>
         <div class="b-px__visual">
-          <a class="b-px__obj" href="/products/tfg-1urp" aria-label="View TFG-1URP"><img src="assets/studio/tfg-1urp.webp" alt="TFG-1URP 1U rack-mount data diode"></a>
+          <a class="b-px__obj" href="/products/tfg-1urp" aria-label="View TFG-1URP"><img src="assets/studio/tfg-1urp.webp" alt="TFG-1URP 1U rack-mount data diode" width="1600" height="289" loading="lazy" decoding="async"></a>
           
         </div>
         <div class="b-px__links"><a class="b-pl" href="/contact?topic=quote&amp;model=tfg-1urp"><span class="b-pl__ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 5h13l5 5v17H7z"/><path d="M20 5v5h5M11 15h10M11 19h10M11 23h6"/></svg></span><span class="b-pl__txt"><b>Get a quote</b><span>Pricing for TFG-1URP at your sites</span></span><svg class="b-pl__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a><a class="b-pl" href="/products/tfg-1urp#specifications"><span class="b-pl__ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="7" width="22" height="18" rx="2"/><path d="M9 12h6M9 16h10M9 20h8M22 12v8"/></svg></span><span class="b-pl__txt"><b>Full specifications</b><span>Interfaces, protocols and ratings</span></span><svg class="b-pl__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a><a class="b-pl" href="/products/compare"><span class="b-pl__ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="8" width="10" height="16" rx="1.5"/><rect x="18" y="8" width="10" height="16" rx="1.5"/><path d="M14 13h4M14 19h4"/></svg></span><span class="b-pl__txt"><b>Compare models</b><span>All four gateways side by side</span></span><svg class="b-pl__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a></div>
@@ -923,7 +928,7 @@ body { font-size: 15.5px; }
         </div>
       </div><div class="b-px__panel" role="tabpanel" id="panel-tfg121-bf" aria-labelledby="tab-tfg121-bf" hidden>
         <div class="b-px__visual">
-          <a class="b-px__obj" href="/products/tfg121-bf" aria-label="View TFG121-BF"><img src="assets/studio/tfg121-bf.webp" alt="TFG121-BF large-file transfer gateway"></a>
+          <a class="b-px__obj" href="/products/tfg121-bf" aria-label="View TFG121-BF"><img src="assets/studio/tfg121-bf.webp" alt="TFG121-BF large-file transfer gateway" width="1600" height="426" loading="lazy" decoding="async"></a>
           
         </div>
         <div class="b-px__links"><a class="b-pl" href="/contact?topic=quote&amp;model=tfg121-bf"><span class="b-pl__ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 5h13l5 5v17H7z"/><path d="M20 5v5h5M11 15h10M11 19h10M11 23h6"/></svg></span><span class="b-pl__txt"><b>Get a quote</b><span>Pricing for TFG121-BF at your sites</span></span><svg class="b-pl__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a><a class="b-pl" href="/products/tfg121-bf#specifications"><span class="b-pl__ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="7" width="22" height="18" rx="2"/><path d="M9 12h6M9 16h10M9 20h8M22 12v8"/></svg></span><span class="b-pl__txt"><b>Full specifications</b><span>Interfaces, protocols and ratings</span></span><svg class="b-pl__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a><a class="b-pl" href="/products/compare"><span class="b-pl__ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="8" width="10" height="16" rx="1.5"/><rect x="18" y="8" width="10" height="16" rx="1.5"/><path d="M14 13h4M14 19h4"/></svg></span><span class="b-pl__txt"><b>Compare models</b><span>All four gateways side by side</span></span><svg class="b-pl__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a></div>
@@ -939,7 +944,7 @@ body { font-size: 15.5px; }
         </div>
       </div><div class="b-px__panel" role="tabpanel" id="panel-tfg121-bsg" aria-labelledby="tab-tfg121-bsg" hidden>
         <div class="b-px__visual">
-          <a class="b-px__obj" href="/products/tfg121-bsg" aria-label="View TFG121-BSG"><img src="assets/studio/tfg121-bsg.webp" alt="TFG121-BSG controlled bidirectional gateway"></a>
+          <a class="b-px__obj" href="/products/tfg121-bsg" aria-label="View TFG121-BSG"><img src="assets/studio/tfg121-bsg.webp" alt="TFG121-BSG controlled bidirectional gateway" width="1600" height="420" loading="lazy" decoding="async"></a>
           
         </div>
         <div class="b-px__links"><a class="b-pl" href="/contact?topic=quote&amp;model=tfg121-bsg"><span class="b-pl__ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 5h13l5 5v17H7z"/><path d="M20 5v5h5M11 15h10M11 19h10M11 23h6"/></svg></span><span class="b-pl__txt"><b>Get a quote</b><span>Pricing for TFG121-BSG at your sites</span></span><svg class="b-pl__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a><a class="b-pl" href="/products/tfg121-bsg#specifications"><span class="b-pl__ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="7" width="22" height="18" rx="2"/><path d="M9 12h6M9 16h10M9 20h8M22 12v8"/></svg></span><span class="b-pl__txt"><b>Full specifications</b><span>Interfaces, protocols and ratings</span></span><svg class="b-pl__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a><a class="b-pl" href="/products/compare"><span class="b-pl__ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="8" width="10" height="16" rx="1.5"/><rect x="18" y="8" width="10" height="16" rx="1.5"/><path d="M14 13h4M14 19h4"/></svg></span><span class="b-pl__txt"><b>Compare models</b><span>All four gateways side by side</span></span><svg class="b-pl__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a></div>
@@ -955,7 +960,7 @@ body { font-size: 15.5px; }
         </div>
       </div><div class="b-px__panel" role="tabpanel" id="panel-tfg-vsecure" aria-labelledby="tab-tfg-vsecure" hidden>
         <div class="b-px__visual">
-          <a class="b-px__obj" href="/products/tfg-vsecure" aria-label="View TFG-VSecure"><img src="assets/studio/tfg-vsecure.webp" alt="TFG-VSecure CCTV gateway"></a>
+          <a class="b-px__obj" href="/products/tfg-vsecure" aria-label="View TFG-VSecure"><img src="assets/studio/tfg-vsecure.webp" alt="TFG-VSecure CCTV gateway" width="1600" height="528" loading="lazy" decoding="async"></a>
           
         </div>
         <div class="b-px__links"><a class="b-pl" href="/contact?topic=quote&amp;model=tfg-vsecure"><span class="b-pl__ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 5h13l5 5v17H7z"/><path d="M20 5v5h5M11 15h10M11 19h10M11 23h6"/></svg></span><span class="b-pl__txt"><b>Get a quote</b><span>Pricing for TFG-VSecure at your sites</span></span><svg class="b-pl__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a><a class="b-pl" href="/products/tfg-vsecure#specifications"><span class="b-pl__ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="7" width="22" height="18" rx="2"/><path d="M9 12h6M9 16h10M9 20h8M22 12v8"/></svg></span><span class="b-pl__txt"><b>Full specifications</b><span>Interfaces, protocols and ratings</span></span><svg class="b-pl__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a><a class="b-pl" href="/products/compare"><span class="b-pl__ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="8" width="10" height="16" rx="1.5"/><rect x="18" y="8" width="10" height="16" rx="1.5"/><path d="M14 13h4M14 19h4"/></svg></span><span class="b-pl__txt"><b>Compare models</b><span>All four gateways side by side</span></span><svg class="b-pl__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a></div>
@@ -1217,7 +1222,7 @@ body { font-size: 15.5px; }
 
     <div class="b-sol__grid">
       <a class="b-sol__c tf-reveal" href="/industries/energy-renewables">
-        <div class="b-sol__img"><span class="b-sol__n">01</span><img src="assets/sectors/energy.jpg" alt="Power generation plant" loading="lazy" width="725" height="453"></div>
+        <div class="b-sol__img"><span class="b-sol__n">01</span><img src="assets/sectors/energy.webp" alt="Power generation plant" loading="lazy" width="725" height="453" decoding="async"></div>
         <div class="b-sol__body">
           <h3>Energy and Renewables</h3>
           <p>Generation and renewables data to monitoring, regulators and SOCs.</p>
@@ -1226,7 +1231,7 @@ body { font-size: 15.5px; }
       </a>
 
       <a class="b-sol__c tf-reveal" href="/industries/oil-gas">
-        <div class="b-sol__img"><span class="b-sol__n">02</span><img src="assets/sectors/oil-gas.jpg" alt="Refinery at dusk" loading="lazy" width="900" height="562"></div>
+        <div class="b-sol__img"><span class="b-sol__n">02</span><img src="assets/sectors/oil-gas.webp" alt="Refinery at dusk" loading="lazy" width="900" height="562" decoding="async"></div>
         <div class="b-sol__body">
           <h3>Oil and Gas</h3>
           <p>Wellsite, pipeline and refinery data out, including flare monitoring.</p>
@@ -1235,7 +1240,7 @@ body { font-size: 15.5px; }
       </a>
 
       <a class="b-sol__c tf-reveal" href="/industries/utilities">
-        <div class="b-sol__img"><span class="b-sol__n">03</span><img src="assets/sectors/water.jpg" alt="Water treatment site from the air" loading="lazy" width="445" height="278"></div>
+        <div class="b-sol__img"><span class="b-sol__n">03</span><img src="assets/sectors/water.webp" alt="Water treatment site from the air" loading="lazy" width="445" height="278" decoding="async"></div>
         <div class="b-sol__body">
           <h3>Utilities &ndash; Water / Electric / Gas</h3>
           <p>Water, electric and gas network data to oversight and monitoring, controls out of reach.</p>
@@ -1244,7 +1249,7 @@ body { font-size: 15.5px; }
       </a>
 
       <a class="b-sol__c tf-reveal" href="/industries/defense-government">
-        <div class="b-sol__img"><span class="b-sol__n">04</span><img src="assets/sectors/defense.jpg" alt="Perimeter surveillance camera" loading="lazy" width="388" height="242"></div>
+        <div class="b-sol__img"><span class="b-sol__n">04</span><img src="assets/sectors/defense.webp" alt="Perimeter surveillance camera" loading="lazy" width="388" height="242" decoding="async"></div>
         <div class="b-sol__body">
           <h3>Defense and Government</h3>
           <p>Building-management and CCTV segments sealed, with monitoring retained.</p>
@@ -1253,7 +1258,7 @@ body { font-size: 15.5px; }
       </a>
 
       <a class="b-sol__c tf-reveal" href="/industries/lifescience-pharma">
-        <div class="b-sol__img"><span class="b-sol__n">05</span><img src="assets/sectors/manufacturing.jpg" alt="Pharmaceutical packaging line" loading="lazy" width="495" height="309"></div>
+        <div class="b-sol__img"><span class="b-sol__n">05</span><img src="assets/sectors/manufacturing.webp" alt="Pharmaceutical packaging line" loading="lazy" width="495" height="309" decoding="async"></div>
         <div class="b-sol__body">
           <h3>Lifescience &amp; Pharmaceuticals</h3>
           <p>Production and packaging data for vendors, quality and analytics, lines protected.</p>
@@ -1262,7 +1267,7 @@ body { font-size: 15.5px; }
       </a>
 
       <a class="b-sol__c tf-reveal" href="/industries/industrial-manufacturing">
-        <div class="b-sol__img"><span class="b-sol__n">06</span><img src="assets/sectors/industrial.jpg" alt="Industrial plant at dusk" loading="lazy" width="935" height="565"></div>
+        <div class="b-sol__img"><span class="b-sol__n">06</span><img src="assets/sectors/industrial.webp" alt="Industrial plant at dusk" loading="lazy" width="935" height="565" decoding="async"></div>
         <div class="b-sol__body">
           <h3>Industrial Manufacturing</h3>
           <p>Plant and machine data for vendors and predictive maintenance, controls out of reach.</p>
@@ -1271,7 +1276,7 @@ body { font-size: 15.5px; }
       </a>
 
       <a class="b-sol__c tf-reveal" href="/industries/transportation">
-        <div class="b-sol__img"><span class="b-sol__n">07</span><img src="assets/sectors/transport.jpg" alt="Control cabinet wiring at a transport site" loading="lazy" width="535" height="334"></div>
+        <div class="b-sol__img"><span class="b-sol__n">07</span><img src="assets/sectors/transport.webp" alt="Control cabinet wiring at a transport site" loading="lazy" width="535" height="334" decoding="async"></div>
         <div class="b-sol__body">
           <h3>Transportation</h3>
           <p>Railway, port and vessel OT feeding central systems with no way back.</p>
@@ -1725,13 +1730,19 @@ function productExplorer(root) {
   const tabs = [...root.querySelectorAll(".b-px__tab")], ink = root.querySelector(".b-px__ink");
   const panels = tabs.map(function (t) { return root.querySelector("#" + t.getAttribute("aria-controls")); });
   function moveInk(t) { ink.style.width = t.offsetWidth + "px"; ink.style.height = t.offsetHeight + "px"; ink.style.transform = "translate(" + t.offsetLeft + "px," + t.offsetTop + "px)"; }
-  function select(i, focus) {
+  function select(i, focus, initial) {
     tabs.forEach(function (t, n) {
       const on = n === i; t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1;
       panels[n].hidden = !on; panels[n].classList.toggle("is-on", on);
     });
-    moveInk(tabs[i]); if (focus) tabs[i].focus();
-    if (tabs[i].scrollIntoView && innerWidth < 860) tabs[i].scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+    moveInk(tabs[i]); if (focus) tabs[i].focus({ preventScroll: true });
+    // On phones the tab strip scrolls sideways: centre the chosen tab inside the strip only.
+    // (scrollIntoView also scrolled the whole page, which jumped phone visitors to this
+    // section the moment the page loaded.)
+    const list = tabs[i].parentElement;
+    if (innerWidth < 860 && list.scrollWidth > list.clientWidth) {
+      list.scrollTo({ left: tabs[i].offsetLeft - (list.clientWidth - tabs[i].offsetWidth) / 2, behavior: initial ? "auto" : "smooth" });
+    }
   }
   tabs.forEach(function (t, i) {
     t.addEventListener("click", function () { select(i); });
@@ -1741,7 +1752,7 @@ function productExplorer(root) {
     });
   });
   addEventListener("resize", function () { moveInk(tabs[tabs.findIndex(function (t) { return t.getAttribute("aria-selected") === "true"; })]); });
-  select(0);
+  select(0, false, true);
 }
 /* Facts row: numbers count up once when scrolled into view. */
 function countUp(root) {

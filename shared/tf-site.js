@@ -130,7 +130,7 @@ TF.LEGAL = [["Privacy policy", "/privacy"], ["Terms of use", "/terms"], ["Cookie
 /* Pages not built yet: clicking shows a short notice instead of a 404.
    Set to false once the real pages exist on the server. */
 TF.PLACEHOLDER_LINKS = true;
-TF.LOGO_DARK_BG = "assets/tf-logo-dark-bg.png";
+TF.LOGO_DARK_BG = "assets/tf-logo-dark-bg.webp";
 /* Where the header logo points. "#top" keeps you on the page you are viewing.
    On the live site set this to "/" so it goes to the real home page. */
 TF.LOGO_HREF = "#top";
@@ -165,7 +165,7 @@ TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "index
     el.innerHTML = `
       <div class="tf-util"><div class="tf-wrap"><span class="tf-util__tag">Unbreachable <b>by</b> Design</span>${util}</div></div>
       <div class="tf-bar"><div class="tf-wrap">
-        <a class="tf-logo" href="${TF.LOGO_HREF || "#top"}" aria-label="Terafence USA home"><img src="${TF.LOGO_DARK_BG}" alt="Terafence - Reliable Transformations!"></a>
+        <a class="tf-logo" href="${TF.LOGO_HREF || "#top"}" aria-label="Terafence USA home"><img src="${TF.LOGO_DARK_BG}" alt="Terafence - Reliable Transformations!" width="400" height="106" decoding="async"></a>
         <nav class="tf-nav" aria-label="Main">${items}</nav>
         <div class="tf-bar__actions">
           <a class="tf-btn tf-btn--ghost" href="${TF.CTA.secondary.href}">${TF.CTA.secondary.label}</a>
@@ -176,7 +176,7 @@ TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "index
 
     const mob = document.createElement("div");
     mob.className = "tf-mobile"; mob.setAttribute("aria-label", "Menu");
-    mob.innerHTML = `<div class="tf-mobile__top"><img src="${TF.LOGO_DARK_BG}" alt="Terafence"><button class="tf-mobile__close" aria-label="Close menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
+    mob.innerHTML = `<div class="tf-mobile__top"><img src="${TF.LOGO_DARK_BG}" alt="Terafence" width="400" height="106" decoding="async"><button class="tf-mobile__close" aria-label="Close menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
       ${TF.NAV.map(m => `<details><summary>${m.label}</summary><div class="tf-mobile__group"><a href="${m.intro.link.href}"><strong>${m.intro.link.label}</strong></a>${m.cols.map(c => `<h4>${c.title}</h4>${c.links.map(l => `<a href="${l.href}">${l.label}</a>`).join("")}`).join("")}</div></details>`).join("")}
       <div class="tf-mobile__cta"><a class="tf-btn tf-btn--primary" href="${TF.CTA.primary.href}">${TF.CTA.primary.label}</a><a class="tf-btn tf-btn--ghost" href="${TF.CTA.secondary.href}">${TF.CTA.secondary.label}</a></div>
       <div class="tf-mobile__util">${util}</div>`;
@@ -228,10 +228,23 @@ TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "index
     scrim.addEventListener("click", closeAll);
     // a link chosen in the menu closes it (matters for links to another spot on the same page)
     el.querySelectorAll(".tf-mega a").forEach(l => l.addEventListener("click", closeAll));
-    mob.querySelectorAll("a").forEach(l => l.addEventListener("click", () => mob.classList.remove("is-open")));
-    document.addEventListener("keydown", e => { if (e.key === "Escape") { closeAll(); mob.classList.remove("is-open"); } });
-    el.querySelector(".tf-burger").addEventListener("click", () => mob.classList.add("is-open"));
-    mob.querySelector(".tf-mobile__close").addEventListener("click", () => mob.classList.remove("is-open"));
+    // Mobile menu: a full-screen dialog. While open, the page behind it cannot scroll,
+    // focus moves into the menu, and closing it hands focus back to the burger button.
+    const burger = el.querySelector(".tf-burger");
+    mob.setAttribute("role", "dialog"); mob.setAttribute("aria-modal", "true");
+    burger.setAttribute("aria-expanded", "false");
+    function setMob(on) {
+      if (mob.classList.contains("is-open") === on) return;
+      mob.classList.toggle("is-open", on);
+      burger.setAttribute("aria-expanded", String(on));
+      document.documentElement.classList.toggle("tf-locked", on);
+      (on ? mob.querySelector(".tf-mobile__close") : burger).focus({ preventScroll: true });
+    }
+    mob.querySelectorAll("a").forEach(l => l.addEventListener("click", () => setMob(false)));
+    document.addEventListener("keydown", e => { if (e.key === "Escape") { closeAll(); setMob(false); } });
+    burger.addEventListener("click", () => setMob(true));
+    mob.querySelector(".tf-mobile__close").addEventListener("click", () => setMob(false));
+    addEventListener("resize", () => { if (innerWidth > 1080) setMob(false); });
 
     const onScroll = () => { const y = scrollY; el.classList.toggle("is-solid", y > 40); el.classList.toggle("is-scrolled", y > 120); };
     addEventListener("scroll", onScroll, { passive: true }); onScroll();
@@ -240,7 +253,7 @@ TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "index
   function renderFooter(el) {
     const cols = TF.FOOTER.map(c => `<div><h4>${c.title}</h4><ul>${c.links.map(([l, h]) => `<li><a href="${h}">${l}</a></li>`).join("")}</ul></div>`).join("");
     el.innerHTML = `<div class="tf-wrap"><div class="tf-footer__grid">
-        <div class="tf-footer__brand"><img src="${TF.LOGO_DARK_BG}" alt="Terafence"><p>FPGA-based data diodes and unidirectional gateways that let operational data out while keeping critical systems unreachable.</p>
+        <div class="tf-footer__brand"><img src="${TF.LOGO_DARK_BG}" alt="Terafence" width="400" height="106" loading="lazy" decoding="async"><p>FPGA-based data diodes and unidirectional gateways that let operational data out while keeping critical systems unreachable.</p>
           <p><a href="mailto:info@terafence.us">info@terafence.us</a></p><div class="tf-footer__slogan">Unbreachable <b>by</b> Design.</div></div>
         ${cols}</div>
         <div class="tf-footer__base"><span>&copy; ${new Date().getFullYear()} Terafence USA Inc. All rights reserved.</span><nav>${TF.LEGAL.map(([l, h]) => `<a href="${h}">${l}</a>`).join("")}</nav></div></div>`;

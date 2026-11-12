@@ -1,0 +1,236 @@
+/* =====================================================================
+   Terafence US - phone and tablet layer
+   ---------------------------------------------------------------------
+   Linked LAST on every page (after the page's own <style>), so a rule
+   here wins over the page rule with the same selector. Desktop is never
+   touched: every rule sits inside a max-width or (pointer: coarse) query.
+
+   Page rules are scoped with the class on <body>:
+     pg-home (index.html)     pg-about      pg-addins
+     pg-build (build-your-solution.html)    pg-compare
+     pg-product (tfg-121, tfg-1urp, tfg121-bf, tfg121-bsg)
+
+   1. Whole site    header, type floor, tap targets, swipe rows, footer
+   2. Home          3. About        4. Add-ins
+   5. Build your solution           6. Compare       7. Product pages
+
+   Breakpoints follow the rest of the site: 860px (tablets and below)
+   and 600px (phones).
+   ===================================================================== */
+
+
+/* =====================================================================
+   1. WHOLE SITE
+   ===================================================================== */
+
+/* ---------- Header: a slimmer bar on phones (more room for content) ---------- */
+@media (max-width: 600px) {
+  :root { --tf-header-h: 64px; }
+  .tf-logo img { height: 32px; }
+}
+
+/* ---------- Form fields: 16px stops iPhones zooming in on tap ----------
+   !important on purpose: page styles set smaller sizes on classed fields
+   (e.g. .cx-select at 14px), and this must win on every touch layout. */
+@media (max-width: 860px) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), select, textarea { font-size: 16px !important; }
+}
+
+/* ---------- Smallest text: nothing below about 11.5px on phones ---------- */
+@media (max-width: 600px) {
+  .tf-eyebrow { font-size: 12px; }
+  .tf-footer h4, .tf-mobile__group h4 { font-size: 12px; }
+}
+
+/* ---------- Tap targets ----------
+   Text links and text buttons keep their look but get a larger invisible
+   hit area (about 40px tall), so they are easy to hit with a thumb. */
+@media (max-width: 860px), (pointer: coarse) {
+  .tf-link, .b-px__name, .b-addon__more, .p-rc__go, .p-cta__cmp, .a-person__read, .cx-linkbtn, .cx-prod__name,
+  .cf-bar__clear, .cf-fam__more { position: relative; }
+  .tf-link::after, .b-px__name::after, .b-addon__more::after, .p-rc__go::after, .p-cta__cmp::after, .a-person__read::after,
+  .cx-linkbtn::after, .cx-prod__name::after, .cf-bar__clear::after, .cf-fam__more::after {
+    content: ""; position: absolute; inset: -12px -6px;
+  }
+  /* breadcrumbs: taller links without moving the line */
+  .p-crumb a, .ai-crumb a, .cf-crumb a, .cx-crumb a { display: inline-block; padding: 10px 0; margin: -10px 0; }
+  /* top bar (Support, Partners, email): fill the bar's height */
+  .tf-util a { padding: 7px 0; }
+  .tf-mobile__util { flex-wrap: wrap; gap: 4px 22px; }
+  .tf-mobile__util a { display: inline-block; padding: 8px 0; }
+}
+
+/* ---------- Sideways tab strips: fade the edge so it reads as scrollable ---------- */
+@media (max-width: 860px) {
+  .b-px__tabs, .p-tabs [role="tablist"], .a-anchor nav {
+    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 32px), transparent);
+            mask-image: linear-gradient(90deg, #000 calc(100% - 32px), transparent);
+  }
+  /* end spacer, so the last tab can scroll clear of the fade */
+  .b-px__tabs::after, .p-tabs [role="tablist"]::after, .a-anchor nav::after { content: ""; flex: 0 0 24px; }
+}
+
+/* ---------- Footer ---------- */
+@media (max-width: 860px) {
+  .tf-footer h4 { margin-bottom: 8px; }
+  .tf-footer li { margin-bottom: 0; }
+  .tf-footer li a, .tf-footer__brand p a { display: inline-block; padding: 9px 0; }
+  .tf-footer__base nav { gap: 0 22px; }
+  .tf-footer__base nav a { display: inline-block; padding: 10px 0; }
+}
+@media (max-width: 600px) {
+  .tf-footer { padding-top: 56px; }
+  .tf-footer__grid { gap: 32px 24px; }
+  .tf-footer__base { margin-top: 36px; }
+}
+
+
+/* =====================================================================
+   2. HOME (index.html)
+   ===================================================================== */
+@media (max-width: 860px) {
+  /* product tabs: 44px pills */
+  .pg-home .b-px__tab { padding: 11px 18px; }
+}
+
+@media (max-width: 600px) {
+  /* section rhythm: 60px between sections instead of 80-110px */
+  .pg-home #who { padding: 60px 0 52px; }
+  .pg-home #products { padding: 60px 0 40px; }
+  .pg-home #add-ons { padding: 24px 0 52px; }
+  .pg-home #how-it-works { padding: 52px 0 60px; }
+  .pg-home #solutions, .pg-home #proof, .pg-home #why, .pg-home #pilot, .pg-home #insights { padding: 60px 0; }
+  .pg-home .b-final { padding: 64px 0; }
+  .pg-home .b-head { margin-bottom: 34px; }
+
+  /* hero message dots: bigger tap area, same look */
+  .pg-home .b-hero__dots button { height: 40px; margin-block: -11px; }
+
+  /* smallest labels up to a readable size */
+  .pg-home .b-map__head, .pg-home .b-map__label b, .pg-home .b-px__specs dt,
+  .pg-home .b-hw__cap span, .pg-home .b-hw__out b, .pg-home .b-hw__no b { font-size: 11.5px; }
+  .pg-home .b-px__tag, .pg-home .b-need__n, .pg-home .b-sol__n, .pg-home .b-why__n,
+  .pg-home .b-hw__steps b, .pg-home .b-trust small, .pg-home .b-sol__uses > small,
+  .pg-home .b-std small, .pg-home .b-case small, .pg-home .b-art small,
+  .pg-home .b-lead__cat, .pg-home .b-lead__tags span, .pg-home .b-addon .b-addon__label { font-size: 12px; }
+
+  /* add-in cards: icon beside the title, as a compact list */
+  .pg-home .b-addon { display: grid; grid-template-columns: 46px minmax(0, 1fr); column-gap: 16px; align-items: start;
+    min-height: 0; padding: 22px 20px 20px; }
+  .pg-home .b-addon__txt { margin-top: 0; }
+  .pg-home .b-addon .b-addon__desc { margin-top: 10px; }
+  .pg-home .b-addon__more { padding-top: 12px; }
+
+  /* "How it works" diagram: smaller illustrations, tighter spacing */
+  .pg-home .b-hw__art { min-height: 0; padding-bottom: 16px; }
+  .pg-home .b-hw__art svg { width: min(100%, 220px); }
+  .pg-home .b-hw__cap { padding-bottom: 12px; }
+  .pg-home .b-hw__list { padding-top: 10px; }
+  .pg-home .b-hw__gap { padding: 16px 0; }
+  .pg-home .b-hw__steps { margin-top: 36px; }
+  .pg-home .b-hw__facts { grid-template-columns: 1fr 1fr; gap: 22px 20px; }
+
+  /* FPGA chip illustration: smaller on phones */
+  .pg-home .b-chip, .pg-home .b-chip__cap, .pg-home .b-chip__cta { max-width: 280px; }
+
+  /* ----- Swipe rows: sectors and case studies scroll sideways ----- */
+  .pg-home .b-sol__grid, .pg-home .b-proof__grid {
+    display: flex; gap: 14px; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; scroll-padding-inline: var(--tf-gutter);
+    margin-inline: calc(var(--tf-gutter) * -1); padding: 4px var(--tf-gutter) 16px;
+    scrollbar-width: none;
+  }
+  .pg-home .b-sol__grid::-webkit-scrollbar, .pg-home .b-proof__grid::-webkit-scrollbar { display: none; }
+  /* cards in a swipe row are always visible (no fade-in while swiping) */
+  .pg-home .b-sol__grid > .b-sol__c:nth-child(n),
+  .pg-home .b-proof__grid > .b-case:nth-child(n) { scroll-snap-align: start; opacity: 1; transform: none; }
+
+  /* sectors: 80% wide, so the next card peeks in */
+  .pg-home .b-sol__grid > .b-sol__c:nth-child(n) { flex: 0 0 80%; grid-column: auto; }
+
+  /* case studies: each becomes a card, text first, its data-flow glyph below */
+  .pg-home .b-proof__grid { border-top: 0; }
+  .pg-home .b-proof__grid > .b-case:nth-child(n) {
+    flex: 0 0 84%; grid-template-columns: minmax(0, 1fr); align-content: start; gap: 22px;
+    padding: 24px 20px 26px; border: 1px solid var(--tf-line-dark); border-radius: 12px;
+    background: rgba(124, 139, 230, .06);
+  }
+  .pg-home .b-case__viz { width: 150px; justify-self: center; }
+  .pg-home .b-case__viz .n { font-size: 10.5px; }
+}
+
+
+/* =====================================================================
+   3. ABOUT (about.html)
+   ===================================================================== */
+@media (max-width: 860px), (pointer: coarse) {
+  /* stacked text links get room for a full-size tap area each */
+  .pg-about .a-ch__links { row-gap: 20px; }
+}
+@media (max-width: 600px) {
+  .pg-about .a-ch__body small, .pg-about .a-office small { font-size: 12px; }
+  .pg-about .a-stop small { font-size: 11.5px; }
+}
+
+
+/* =====================================================================
+   4. ADD-INS (add-ins.html)
+   ===================================================================== */
+@media (max-width: 700px) {
+  /* the family bar shows icons only; keep the names for screen readers */
+  .pg-addins .ai-bar nav a span {
+    display: inline; position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+  }
+  .pg-addins .ai-bar nav a { padding: 12px 15px; }
+}
+@media (max-width: 600px) {
+  .pg-addins .ai-bn__cmain small, .pg-addins .ai-bn__cmain em { font-size: 11.5px; }
+  .pg-addins .ai-bn__card small { font-size: 11px; }
+  .pg-addins .ai-fam__tag, .pg-addins .ai-fam__label { font-size: 12px; }
+}
+
+
+/* =====================================================================
+   5. BUILD YOUR SOLUTION (build-your-solution.html)
+   ===================================================================== */
+@media (max-width: 600px) {
+  /* The "Your solution" bar stays pinned while choosing. On phones it was a
+     quarter of the screen; now it is a slim bar: title + count, then buttons.
+     The selection itself is already shown by the ticked cards above. */
+  .pg-build .cf-bar { gap: 10px; padding: 12px 14px; bottom: 8px; border-radius: 12px; }
+  .pg-build .cf-tree { display: none; }
+  .pg-build .cf-bar h2 { font-size: 16px; }
+  .pg-build .cf-bar__top { gap: 2px 10px; }
+  .pg-build .cf-bar__hint { display: none; }
+  .pg-build .cf-bar__hint.is-alert { display: block; font-size: 13px; }
+  .pg-build .cf-node small { font-size: 11px; }
+}
+
+
+/* =====================================================================
+   6. COMPARE (compare.html)
+   ===================================================================== */
+@media (max-width: 600px) {
+  .pg-compare .cx-q__l { font-size: 12px; }
+  .pg-compare .cx-pick select { padding-block: 11px; }
+}
+
+
+/* =====================================================================
+   7. PRODUCT PAGES (tfg-121, tfg-1urp, tfg121-bf, tfg121-bsg)
+   ===================================================================== */
+@media (max-width: 860px), (pointer: coarse) {
+  /* stacked CTA links under the quote box get room for a full-size tap area each */
+  .pg-product .p-cta__cmp + .p-cta__cmp { margin-top: 12px; }
+}
+@media (max-width: 860px) {
+  /* specification group chips: 40px tall */
+  .pg-product .ps-nav > a { padding: 10px 14px; }
+}
+@media (max-width: 600px) {
+  .pg-product .fb__tag, .pg-product .p-core span { font-size: 11px; }
+  .pg-product .p-flow small, .pg-product .p-hl__item small,
+  .pg-product .p-feat-pr__body small, .pg-product .p-rc__body small { font-size: 12px; }
+  .pg-product .p-ai__card small { font-size: 11.5px; }
+}

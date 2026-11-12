@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#04061A">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
 <title>About Terafence USA | FPGA Data Diodes and Unidirectional Gateways</title>
 <meta name="description" content="Terafence designs FPGA-based data diodes and one-way gateways. Founded in 2015, engineered in Israel, built in Taiwan and in service on six continents. Terafence USA Inc. is based in Texas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +41,7 @@ section { position: relative; }
 /* the plant sits on the right and fades into the dark left; everything on it moves very slowly */
 .a-hero__photo { position: absolute; top: 0; right: 0; bottom: 0; width: 56%; overflow: hidden;
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 34%); mask-image: linear-gradient(90deg, transparent 0%, #000 34%); }
-.a-hero__plant { position: absolute; inset: 0; background: url("assets/about-plant.jpg") 62% 50% / cover no-repeat; transform-origin: 70% 60%; animation: aPlant 36s ease-in-out infinite alternate; will-change: transform; }
+.a-hero__plant { position: absolute; inset: 0; background: url("assets/about-plant.webp") 62% 50% / cover no-repeat; transform-origin: 70% 60%; animation: aPlant 36s ease-in-out infinite alternate; will-change: transform; }
 @keyframes aPlant { from { transform: scale(1) translate3d(0, 0, 0); } to { transform: scale(1.08) translate3d(-1.6%, -1%, 0); } }
 .a-hero__lamps { position: absolute; inset: 0; transform-origin: 70% 60%; animation: aPlant 36s ease-in-out infinite alternate; }
 .a-hero__lamps i { position: absolute; width: 11px; height: 11px; margin: -5px 0 0 -5px; border-radius: 50%; opacity: 0;
@@ -341,8 +345,9 @@ a.a-in:hover { background: #004182; transform: translateY(-2px); box-shadow: 0 8
   .a-drawer__panel, .a-drawer__scrim, .a-drawer__body > * { transition: none; }
 }
 </style>
+<link rel="stylesheet" href="shared/tf-mobile.css">
 </head>
-<body>
+<body class="pg-about">
 
 <header class="tf-header" data-tf-header></header>
 
@@ -591,13 +596,13 @@ a.a-in:hover { background: #004182; transform: translateY(-2px); box-shadow: 0 8
    While a name still reads "to be supplied" the page shows a neutral placeholder.
    ===================================================================== */
 TF.TEAM = [
-  { name: "Arvind Deshpande", title: "Managing Director, Terafence USA", linkedin: "", photo: "assets/team/leader-1.jpg", sample: true, summary: "Leads sales, engineering support and customer programmes.",
+  { name: "Arvind Deshpande", title: "Managing Director, Terafence USA", linkedin: "", photo: "assets/team/leader-1.webp", sample: true, summary: "Leads sales, engineering support and customer programmes.",
     bio: ["Leads Terafence USA and sets the direction for sales, engineering support and customer programmes. A veteran of industrial technology and network security, they spend much of their time on site with customers."] },
-  { name: "Meera Iyer", title: "Chief Technology Officer", linkedin: "", photo: "assets/team/leader-2.jpg", sample: true, summary: "Heads engineering and technical support, from design to pilots.",
+  { name: "Meera Iyer", title: "Chief Technology Officer", linkedin: "", photo: "assets/team/leader-2.webp", sample: true, summary: "Heads engineering and technical support, from design to pilots.",
     bio: ["Runs engineering and technical support, from architecture reviews to pilots and acceptance testing. With a background in embedded hardware and control systems, they turn hard technical ideas into tools operations teams can use."] },
-  { name: "Suresh Nambiar", title: "Vice President, Sales and Partnerships", linkedin: "", photo: "assets/team/leader-3.jpg", sample: true, summary: "Builds partnerships with utilities, makers and integrators.",
+  { name: "Suresh Nambiar", title: "Vice President, Sales and Partnerships", linkedin: "", photo: "assets/team/leader-3.webp", sample: true, summary: "Builds partnerships with utilities, makers and integrators.",
     bio: ["Builds partnerships with utilities, manufacturers and integrators across North America. After many years selling security products into regulated industries, they start by listening to the boundary a customer needs to protect."] },
-  { name: "Sanjay Kulkarni", title: "Head of Operations and Customer Success", linkedin: "", photo: "assets/team/leader-4.jpg", sample: true, summary: "Runs operations and delivery, from shipping to support.",
+  { name: "Sanjay Kulkarni", title: "Head of Operations and Customer Success", linkedin: "", photo: "assets/team/leader-4.webp", sample: true, summary: "Runs operations and delivery, from shipping to support.",
     bio: ["Runs operations, delivery and customer success, so every unit ships configured, arrives on time and stays supported. Previously led supply chain and service teams for industrial equipment makers."] }
 ];
 
@@ -710,7 +715,7 @@ TF.LOGO_HREF = "index.html";
   }
 
   function portrait(p) {
-    if (p.photo) return `<img src="${esc(p.photo)}" alt="${esc(p.name)}" loading="lazy">`;
+    if (p.photo) return `<img src="${esc(p.photo)}" alt="${esc(p.name)}" loading="lazy" decoding="async">`;
     return isPlaceholder(p) ? SIL : `<span class="a-person__mono">${esc(initials(p))}</span>`;
   }
   function inButton(p) {
