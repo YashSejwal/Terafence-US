@@ -289,7 +289,7 @@ html.tf-locked, html.tf-locked body { overflow: hidden; }
 .tf-footer__grid { display: grid; grid-template-columns: 1.4fr repeat(5, 1fr); gap: 32px; }
 .tf-footer__brand img { height: 34px; margin-bottom: 18px; }
 .tf-footer__brand p { max-width: 300px; margin-bottom: 16px; }
-.tf-footer__slogan { font-family: var(--tf-font-head); font-weight: 700; color: #fff; font-size: 15px; letter-spacing: .02em; }
+.tf-footer__slogan { font-family: var(--tf-font-head); font-weight: 700; color: #fff; font-size: 15px; letter-spacing: .08em; text-transform: uppercase; }
 .tf-footer__slogan b { color: var(--tf-red); }
 .tf-footer h4 { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #fff; margin-bottom: 16px; }
 .tf-footer ul { list-style: none; padding: 0; margin: 0; }
