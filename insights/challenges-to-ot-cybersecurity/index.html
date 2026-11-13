@@ -84,7 +84,7 @@
   </blockquote>
   <div class="ia-stats">
     <div><b>L1–L2</b><span>Below the network layer</span></div>
-    <div><b>0</b><span>IP / MAC / CPU in core</span></div>
+    <div><b>0</b><span>IP / MAC addresses in FPGA core</span></div>
     <div><b>1 Gbps</b><span>Deterministic throughput</span></div>
   </div>
 </section>
@@ -121,20 +121,20 @@
     <li><strong>Physical security gaps.</strong> Many OT systems sit in remote or physically insecure locations.</li>
   </ul>
 </section>
-<aside class="ins-cta" aria-label="Plan a pilot"><div><p class="ins-cta__k">Prove it on your site</p><p class="ins-cta__t">A signed-off pilot in under two weeks.</p></div><a class="tf-btn tf-btn--primary" href="/contact?topic=pilot" data-track="cta_mid">Plan a pilot <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></aside>
+<aside class="ins-cta" aria-label="Plan a pilot"><div><p class="ins-cta__k">Prove it on your site</p><p class="ins-cta__t">A signed-off pilot in about two weeks.</p></div><a class="tf-btn tf-btn--primary" href="/contact?topic=pilot" data-track="cta_mid">Plan a pilot <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></aside>
 
 <section class="ia-sec">
   <h2 id="why-terafence">Why Terafence</h2>
   <p class="ia-lede">How the Terafence Secure Gateway works: <strong>unidirectional, secure, controlled transfer.</strong></p>
   <p>The Terafence <a data-track="contextual" href="/products/compare">hardware-based data diode</a> enforces one-way communication using immutable hardware logic. Data can only flow from the transmitting side — the OT environment — to the receiving side, eliminating all reverse-flow possibilities.</p>
   <p>The transmitting network initiates non-persistent sessions: it can send, but can never receive in return. The receiving side has no physical or logical channel to communicate back, making bidirectional exploitation or control impossible.</p>
-  <p>The diode is built on FPGA technology and operates solely at OSI layers 1 and 2, providing pure physical-layer control over transmission. It carries no MAC address, no IP address, no CPU and no internal memory, so it cannot be scanned, pinged or attacked in conventional ways. The core requires no software and does not interact with any other device on the network.</p>
+  <p>The diode is built on FPGA technology and operates solely at OSI layers 1 and 2, providing pure physical-layer control over transmission. It carries no IP or MAC address in the FPGA data-path core, so it cannot be scanned, pinged or attacked in conventional ways. The core requires no software and does not interact with any other device on the network.</p>
   <aside class="ia-callout ia-callout--list">
     <p class="ia-callout__k">Risks eliminated</p>
     <ul>
       <li><strong>No reverse channel.</strong> One-way communication is guaranteed physically. There is no backdoor and no software agent to exploit.</li>
       <li><strong>Layer 1 and 2 security.</strong> Hardware-enforced control below the network layer leaves zero room for IP-based attack.</li>
-      <li><strong>No attack surface.</strong> With no IP or MAC, no CPU and no memory, the core is invisible to scans and immune to malware.</li>
+      <li><strong>No attack surface.</strong> The FPGA core on the data path has no IP or MAC address.</li>
       <li><strong>Air-gap equivalence.</strong> Replicates an air-gapped network while still enabling monitoring, telemetry and <a data-track="contextual" href="/insights/secure-patch-software-distribution/">secure patch distribution</a>.</li>
       <li><strong>Supply chain security.</strong> No internal firmware or OS in the core means no hidden software vulnerability to exploit.</li>
     </ul>

@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png">
 <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
 <title>TFG121-BSG Two-Way Layer 2 Security Gateway | Terafence USA</title>
-<meta name="description" content="TFG121-BSG: dual FPGA data diodes in an inline Layer 2 hardware firewall that passes only pre-defined two-way traffic, near real-time. Request a quote.">
+<meta name="description" content="TFG121-BSG: a controlled two-way gateway, not a diode. Sessions start only from the side you choose. Request a quote.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -474,6 +474,7 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
 @media (prefers-reduced-motion: reduce) { .p-panel, .p-wire::after, .pf-line i { animation: none; } .p-tabs__ink { transition: none; } }
 </style>
 <link rel="stylesheet" href="shared/tf-mobile.css">
+<link rel="stylesheet" href="shared/tf-video.css">
 </head>
 <body class="pg-product">
 
@@ -492,7 +493,7 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
       </nav>
       <span class="tf-eyebrow">Bidirectional security gateway &middot; 19-inch rack</span>
       <h1>Why choose the <em>TFG121-BSG</em></h1>
-      <p class="p-hero__lead">Dual FPGA data diodes in an inline Layer-2 hardware firewall. Only pre-defined two-way traffic passes.</p>
+      <p class="p-hero__lead">A controlled two-way gateway, not a diode. Sessions start only from the side you choose.</p>
       <div class="p-hero__cta">
         <a class="tf-btn tf-btn--primary" href="/contact?topic=quote&amp;model=tfg121-bsg" data-arrow>Request a quote</a>
         <a class="tf-btn tf-btn--ghost" href="/products/compare"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1.5" y="3" width="5" height="10" rx="1"/><rect x="9.5" y="3" width="5" height="10" rx="1"/></svg> Compare models</a>
@@ -549,26 +550,12 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
           <span class="tf-eyebrow">Overview &middot; TFG121-BSG</span>
           <h2 class="p-h2">Two-way traffic, <em>pre-defined only</em></h2>
           <div class="p-ov__text" style="margin-top:22px">
-            <p>The TFG121-BSG is a bidirectional security gateway with dual FPGA data diodes, in a 19-inch rack version with a customizable internal configuration.</p>
-            <p>It is an inline Layer-2 hardware firewall for two-way traffic within one network segment. It sits inline within the same network segment only, and only pre-defined traffic passes.</p>
-            <p>It acts as a fully transparent proxy: there are no direct TCP/IP sessions between client and server.</p>
-            <p>Its core security technology is proprietary Terafence FPGA hardware with galvanic isolation and hardware packet filtering. The security core has no OS, MAC or IP.</p>
+            <p>The TFG121-BSG is a controlled two-way gateway, not a diode, in a 19-inch rack version with a customizable internal configuration.</p>
+            <p>Sessions start only from the side you choose. It sits inline within the same network segment only, and only pre-defined traffic passes.</p>
+            <p>Its core security technology is proprietary Terafence FPGA hardware with hardware packet filtering. The FPGA core on the data path has no IP or MAC address.</p>
           </div>
         </div>
-        <div class="p-flow" aria-label="How data moves through the TFG121-BSG">
-          <small>How it works</small>
-          <div class="p-flow__row">
-            <div class="p-node"><b>Critical controllers</b><span>Request / response</span></div>
-            <div class="p-core"><b>Dual FPGA</b><span>pre-defined only</span></div>
-            <div class="p-node"><b>Same segment</b><span>Layer 2, inline</span></div>
-          </div>
-          <div class="p-wire p-wire--two" aria-hidden="true"></div>
-          <div class="p-flow__legend" style="margin-top:24px">
-            <div><i></i>Fully transparent proxy: no direct TCP/IP sessions between client and server.</div>
-            <div><i></i>Hardware packet filtering: only pre-defined traffic passes.</div>
-            <div class="no"><i></i>Same network segment only: no routing between subnets.</div>
-          </div>
-        </div>
+        <figure class="p-overview-video"><div class="p-video-stage"><video controls playsinline preload="metadata" poster="assets/video/terafence-overview-cover-v2.jpg" aria-label="Terafence executive overview"><source src="assets/video/terafence-overview.mp4" type="video/mp4"><track kind="captions" src="assets/video/terafence-overview.vtt" srclang="en" label="English">Your browser does not support embedded video. <a href="assets/video/terafence-overview.mp4">Download the overview video</a>.</video><button class="p-video-play" type="button" aria-label="Play Terafence executive overview"></button></div><figcaption>Terafence executive overview · 5 minutes 22 seconds</figcaption></figure>
       </div>
       <div class="p-hl">
         <div class="p-hl__item">
@@ -585,15 +572,15 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
         </div>
         <div class="p-hl__item">
           <span class="p-hl__ic"><svg class="pf-ic" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="10" width="7" height="12" rx="1.5"/><rect x="22" y="10" width="7" height="12" rx="1.5"/><path d="M10 16h12"/><path class="r" d="M14 12v8M18 12v8"/></svg></span>
-          <small>Proxy</small>
-          <b>Transparent</b>
-          <p>No direct TCP/IP sessions between client and server.</p>
+          <small>Session control</small>
+          <b>Chosen side</b>
+          <p>Sessions start only from the side you choose.</p>
         </div>
         <div class="p-hl__item">
           <span class="p-hl__ic"><svg class="pf-ic" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l4.5 3"/><circle class="rf" cx="16" cy="16" r="1.8"/></svg></span>
           <small>Reliability</small>
-          <b>~10 yr MTBF</b>
-          <p>High availability and long-term operation.</p>
+          <b>No moving parts</b>
+          <p>In the data path.</p>
         </div>
       </div>
     </div>
@@ -611,7 +598,7 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
       <div class="fb-grid">
         <article class="pf-item">
           <div class="pf-item__head"><span class="pf-item__ic"><svg class="pf-ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 11h20M20 7l4 4-4 4"/><path class="r" d="M28 21H8M12 17l-4 4 4 4"/></svg></span><small>01</small></div>
-          <h3>Dual FPGA data diodes</h3><p>A bidirectional security gateway built on dual FPGA data diodes.</p>
+          <h3>Controlled two-way gateway</h3><p>A controlled two-way gateway, not a diode. Sessions start only from the side you choose.</p>
         </article>
         <article class="pf-item">
           <div class="pf-item__head"><span class="pf-item__ic"><svg class="pf-ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h22l-8.5 10v8l-5 2.5V16z"/><path class="r" d="M12 11h8"/></svg></span><small>02</small></div>
@@ -619,11 +606,11 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
         </article>
         <article class="pf-item">
           <div class="pf-item__head"><span class="pf-item__ic"><svg class="pf-ic" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="10" width="7" height="12" rx="1.5"/><rect x="22" y="10" width="7" height="12" rx="1.5"/><path d="M10 16h12"/><path class="r" d="M14 12v8M18 12v8"/></svg></span><small>03</small></div>
-          <h3>Fully transparent proxy</h3><p>No direct TCP/IP sessions between client and server.</p>
+          <h3>Controlled sessions</h3><p>Sessions start only from the side you choose.</p>
         </article>
         <article class="pf-item">
           <div class="pf-item__head"><span class="pf-item__ic"><svg class="pf-ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 16h8M8 12l4 4-4 4"/><path d="M20 16h9M25 12l4 4-4 4"/><path class="r" d="M16 6v20"/></svg></span><small>04</small></div>
-          <h3>Galvanic isolation</h3><p>Proprietary Terafence FPGA hardware with galvanic isolation.</p>
+          <h3>Controlled boundary</h3><p>A controlled two-way gateway, not a diode. Sessions start only from the side you choose.</p>
         </article>
         <article class="pf-item">
           <div class="pf-item__head"><span class="pf-item__ic"><svg class="pf-ic" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="5" width="26" height="20" rx="2"/><path d="M3 10h26"/><rect x="12" y="16" width="8" height="6" rx="1"/><path class="r" d="M13.5 16v-1.5a2.5 2.5 0 0 1 5 0V16"/></svg></span><small>05</small></div>
@@ -636,7 +623,7 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
         <div>
           <small>06</small>
           <h3>No OS, MAC or IP on the core</h3>
-          <p>The security core has no OS, MAC or IP.</p>
+          <p>The FPGA core on the data path has no IP or MAC address.</p>
         </div>
         <div class="pf-nots" aria-hidden="true"><span>No operating system</span><span>No MAC address</span><span>No IP address</span></div>
       </div>
@@ -658,7 +645,7 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
           <a href="#spec-compliance">Reliability</a>
           <span class="ps-nav__more">
             <a class="tf-link" href="/products/compare">Compare models &rarr;</a>
-            <a class="tf-link" href="assets/downloads/Terafence_TFG121_BSG_USA_Inc._Datasheet_Nov2026.pdf" target="_blank" rel="noopener">Download Datasheet &rarr;</a>
+            <a class="tf-link" href="mailto:info@terafence.us?subject=Request%20TFG121-BSG%20datasheet">Request datasheet &rarr;</a>
           </span>
         </nav>
         <div class="ps-body">
@@ -666,12 +653,12 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
           <section class="ps-sec" id="spec-architecture">
             <h3>Architecture</h3>
             <dl class="ps-grid">
-              <div class="ps-item"><dt>Product type</dt><dd>Bidirectional Security Gateway (dual FPGA data diodes)</dd></div>
+              <div class="ps-item"><dt>Product type</dt><dd>Controlled two-way gateway, not a diode</dd></div>
               <div class="ps-item"><dt>Data direction</dt><dd>Two-way (pre-defined traffic only)</dd></div>
               <div class="ps-item"><dt>Network placement</dt><dd>Inline within the same network segment only (Layer 2)</dd></div>
-              <div class="ps-item"><dt>Positioning</dt><dd>Inline Layer-2 hardware firewall for two-way traffic within one network segment</dd></div>
-              <div class="ps-item"><dt>Traffic handling</dt><dd>Fully transparent proxy<small>No direct TCP/IP sessions between client and server; only pre-defined traffic passes</small></dd></div>
-              <div class="ps-item"><dt>Core security technology</dt><dd>Proprietary Terafence FPGA hardware; galvanic isolation; hardware packet filtering<small>Security core has no OS, MAC or IP</small></dd></div>
+              <div class="ps-item"><dt>Positioning</dt><dd>Controlled two-way gateway; sessions start only from the chosen side</dd></div>
+              <div class="ps-item"><dt>Traffic handling</dt><dd>Controlled two-way sessions<small>Sessions start only from the side you choose; only pre-defined traffic passes</small></dd></div>
+              <div class="ps-item"><dt>Core security technology</dt><dd>Proprietary Terafence FPGA hardware; hardware packet filtering<small>The FPGA core on the data path has no IP or MAC address</small></dd></div>
             </dl>
           </section>
 
@@ -717,7 +704,7 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
           <section class="ps-sec" id="spec-compliance">
             <h3>Reliability</h3>
             <dl class="ps-grid">
-              <div class="ps-item"><dt>Reliability</dt><dd>High availability, long-term operation, high MTBF (~10 years)</dd></div>
+              <div class="ps-item"><dt>Reliability</dt><dd>No moving parts in the data path</dd></div>
             </dl>
           </section>
 
@@ -745,7 +732,6 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
         <div class="p-proto"><b>HTTP/S</b><span>Uploads to web / cloud<em class="p-lim">Pre-defined traffic</em></span></div>
         <div class="p-proto"><b>Local SYSLOG</b><span>Local syslog forwarding<em class="p-lim">Pre-defined traffic</em></span></div>
         <div class="p-proto"><b>Modbus</b><span>PLC / HMI<em class="p-lim">Two-way</em></span></div>
-        <div class="p-proto"><b>IEC-104</b><span>Power utilities<em class="p-lim">Two-way</em></span></div>
         <div class="p-proto"><b>MQTT</b><span>Data brokering / publishing<em class="p-lim">Pre-defined traffic</em></span></div>
         <div class="p-proto p-proto--more"><b>+</b><span>Custom protocols: N/A, protocol agnostic. <a class="tf-link" href="/contact?topic=contact&amp;model=tfg121-bsg">Ask about yours</a></span></div>
       </div>
@@ -761,8 +747,8 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
         <div>
           <h3 class="p-uc__h">Best for</h3>
           <ol class="p-uc__best">
-            <li><small>01</small><span>Inline protection of critical controllers needing request / response access (Modbus writes, IEC-104 commands)</span></li>
-            <li><small>02</small><span>Hardware Layer-2 segmentation in front of high-value assets without re-addressing</span></li>
+            <li><small>01</small><span>Inline protection of critical controllers needing request / response access (Modbus writes)</span></li>
+            <li><small>02</small><span>Nothing is installed on your PLCs, HMIs or servers</span></li>
             <li><small>03</small><span>Strictly pre-defined vendor / maintenance access</span></li>
             <li><small>04</small><span>Time-sensitive two-way flows needing near real-time transfer</span></li>
             <li><small>05</small><span>Defense-in-depth layer under existing software firewalls</span></li>
@@ -793,10 +779,10 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
         <h2 class="p-h2">Documents for <em>the TFG121-BSG</em></h2>
       </div>
       <div class="p-dl">
-        <a class="p-file" href="assets/downloads/Terafence_TFG121_BSG_USA_Inc._Datasheet_Nov2026.pdf" target="_blank" rel="noopener">
-          <span class="p-file__ic">PDF</span>
-          <div><h3>TFG121-BSG datasheet</h3><p>November 2026 &middot; 1 page &middot; 203 KB</p></div>
-          <span class="p-file__go"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M4.5 7L8 10.5 11.5 7M3 13h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Download Datasheet</span>
+        <a class="p-file" href="mailto:info@terafence.us?subject=Request%20TFG121-BSG%20datasheet">
+          <span class="p-file__ic">DOC</span>
+          <div><h3>TFG121-BSG datasheet</h3><p>Updated documentation available on request</p></div>
+          <span class="p-file__go"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M4.5 7L8 10.5 11.5 7M3 13h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Request datasheet</span>
         </a>
       </div>
     </div>
@@ -819,19 +805,18 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
       <div class="p-feat-pr__body">
         <small>Bidirectional security gateway</small>
         <b>TFG121-BSG</b>
-        <span class="p-rc__txt">Dual FPGA data diodes in an inline Layer-2 hardware firewall. Only pre-defined two-way traffic passes. Best for inline protection of critical controllers and strictly pre-defined vendor access.</span>
+        <span class="p-rc__txt">A controlled two-way gateway, not a diode. Sessions start only from the side you choose. Best for inline protection of critical controllers and strictly pre-defined vendor access.</span>
         <span class="p-rc__facts"><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.5h9.5L9 3M14 10.5H4.5L7 13"/></svg>Two-way, pre-defined</i><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M8 1.5 14 4.5 8 7.5 2 4.5 8 1.5Z"/><path d="M2 8l6 3 6-3M2 11.5l6 3 6-3"/></svg>Layer 2 inline</i><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="4.5" rx="1"/><rect x="1.5" y="9" width="13" height="4.5" rx="1"/><circle cx="4" cy="4.75" r=".6" fill="currentColor" stroke="none"/><circle cx="4" cy="11.25" r=".6" fill="currentColor" stroke="none"/></svg>1U rack</i></span>
         <a class="p-rc__go" href="#specifications" data-open-tab="specifications">View specifications <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
       </div>
       <div class="p-feat-pr__keys">
         <h3>Key features</h3>
         <ul>
-          <li>Dual FPGA data diodes</li>
+          <li>Controlled two-way gateway</li>
           <li>Hardware packet filtering</li>
-          <li>Fully transparent proxy</li>
-          <li>Galvanic isolation</li>
+          <li>Sessions start only from the chosen side</li>
           <li>HTTPS GUI; port-based management</li>
-          <li>Security core has no OS, MAC or IP</li>
+          <li>The FPGA core on the data path has no IP or MAC address</li>
         </ul>
       </div>
     </div>
@@ -874,7 +859,7 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
           <small>Unidirectional &middot; large files</small>
           <b>TFG121-BF</b>
           <span class="p-rc__txt">A 19-inch rack one-way gateway for large-file and bulk transfer, with a customizable internal configuration.</span>
-          <span class="p-rc__facts"><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3 3.8c0-1 2.2-1.8 5-1.8s5 .8 5 1.8-2.2 1.8-5 1.8-5-.8-5-1.8Z"/><path d="M3 3.8v8.4c0 1 2.2 1.8 5 1.8s5-.8 5-1.8V3.8M3 8c0 1 2.2 1.8 5 1.8s5-.8 5-1.8"/></svg>250GB files tested</i><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="4" width="9" height="8" rx="1.3"/><path d="M10.5 6.8 14 5v6l-3.5-1.8"/></svg>50 CCTV max</i><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="4.5" rx="1"/><rect x="1.5" y="9" width="13" height="4.5" rx="1"/><circle cx="4" cy="4.75" r=".6" fill="currentColor" stroke="none"/><circle cx="4" cy="11.25" r=".6" fill="currentColor" stroke="none"/></svg>1U rack</i></span>
+          <span class="p-rc__facts"><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3 3.8c0-1 2.2-1.8 5-1.8s5 .8 5 1.8-2.2 1.8-5 1.8-5-.8-5-1.8Z"/><path d="M3 3.8v8.4c0 1 2.2 1.8 5 1.8s5-.8 5-1.8V3.8M3 8c0 1 2.2 1.8 5 1.8s5-.8 5-1.8"/></svg>Larger files: TFG121-BF</i><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="4" width="9" height="8" rx="1.3"/><path d="M10.5 6.8 14 5v6l-3.5-1.8"/></svg>50 CCTV max</i><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="4.5" rx="1"/><rect x="1.5" y="9" width="13" height="4.5" rx="1"/><circle cx="4" cy="4.75" r=".6" fill="currentColor" stroke="none"/><circle cx="4" cy="11.25" r=".6" fill="currentColor" stroke="none"/></svg>1U rack</i></span>
           <span class="p-rc__go">View product <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></span>
         </span>
       </a>
@@ -988,5 +973,6 @@ TF.LOGO_HREF = "index.html";
   document.fonts && document.fonts.ready.then(() => moveInk(tabs.find(t => t.getAttribute("aria-selected") === "true")));
 })();
 </script>
+<script src="shared/tf-video.js"></script>
 </body>
 </html>

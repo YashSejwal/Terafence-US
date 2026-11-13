@@ -1,0 +1,313 @@
+WEBVTT
+
+00:00.945 --> 00:03.414
+Welcome to the Terafence
+executive overview.
+
+00:03.444 --> 00:04.959
+Over the next five minutes,
+
+00:04.989 --> 00:09.197
+we’ll look at how industrial and
+critical-infrastructure leaders share live
+
+00:09.227 --> 00:12.818
+operational data with the business,
+AI, vendors, and regulators—
+
+00:12.848 --> 00:15.590
+while keeping plant networks
+unreachable by design.
+
+00:16.371 --> 00:21.096
+Across Energy & Renewables, Oil & Gas,
+Utilities, Defense & Government, Life Sciences,
+
+00:21.126 --> 00:25.575
+and Industrial Manufacturing, we’ll walk
+through the risk, the hardware boundary,
+
+00:25.605 --> 00:28.787
+real deployments, and how to
+validate one on your own site.
+
+00:29.663 --> 00:33.585
+Every day, operational technology—
+the controllers, SCADA systems,
+
+00:33.615 --> 00:38.667
+and historians running physical plants—
+sends data outward for analytics, warranties,
+
+00:38.697 --> 00:39.528
+and compliance.
+
+00:40.288 --> 00:43.126
+The risk is structural:
+those links are two-way.
+
+00:43.156 --> 00:45.579
+Whoever compromises IT, a vendor account,
+
+00:45.609 --> 00:49.983
+or a VPN can follow them back into the
+plant— where the impact is physical.
+
+00:50.746 --> 00:54.424
+A check valve lets water out and
+shuts when anything pushes back.
+
+00:54.454 --> 00:59.320
+Terafence builds that same one-way valve
+into an FPGA chip— making direction hardware,
+
+00:59.350 --> 01:00.422
+not a software rule.
+
+01:01.205 --> 01:04.140
+On the boundary, the business
+still gets every reading.
+
+01:04.170 --> 01:06.838
+Firewalls stay for traffic
+that must go both ways,
+
+01:06.868 --> 01:09.210
+while outbound links
+lose their return path.*
+
+01:10.080 --> 01:10.856
+Why act now?
+
+01:10.886 --> 01:15.866
+Flaws are exploited in hours— often
+before patches exist, and faster with AI—
+
+01:15.896 --> 01:18.418
+while 24/7 plants wait months to patch.
+
+01:18.448 --> 01:22.045
+Hardware isolation protects
+OT across that entire window.
+
+01:22.830 --> 01:25.498
+Ten recent incidents prove the pattern.
+
+01:25.528 --> 01:31.139
+Eight—from Minnesota water to Polish energy
+and exposed PLCs—entered from outside.
+
+01:31.169 --> 01:36.515
+Two—Jaguar Land Rover at £1.9bn and
+Fairlife—began in IT yet halted production.
+
+01:37.288 --> 01:44.796
+Regulators now demand provable segmentation—
+backed by NERC CIP fines, EU CRA rules,
+
+01:44.826 --> 01:50.189
+NIS2 management liability, TSA,
+CMMC, FDA, and SEC mandates.
+
+01:50.219 --> 01:55.253
+CISA, NIST, and the NRC
+explicitly name one-way transfer.
+
+01:56.121 --> 01:58.876
+Watch why software rules
+leave boardroom doubt.
+
+01:58.906 --> 02:01.660
+A firewall runs sessions
+both ways, end to end.
+
+02:01.690 --> 02:06.377
+One stolen VPN login or misconfigured rule
+lets an attacker reach the controller.
+
+02:07.080 --> 02:08.335
+Switch to Terafence.
+
+02:08.365 --> 02:12.443
+Readings keep arriving in IT, but
+inbound attacks stop at Side B—
+
+02:12.473 --> 02:16.115
+because no circuit in the FPGA
+core carries anything back.*
+
+02:16.871 --> 02:21.583
+That answers the board’s hardest question: can
+someone outside change what our plant does?
+
+02:21.613 --> 02:25.667
+Instead of hoping every rule and password
+holds, the return path isn’t there.*
+
+02:26.538 --> 02:31.992
+One chassis houses three parts—with no
+external servers and zero agents on PLCs.
+
+02:32.022 --> 02:35.636
+Side A acquires data, the
+FPGA core moves it one way,
+
+02:35.666 --> 02:38.333
+and Side B serves a clean replica to IT.
+
+02:39.121 --> 02:44.528
+Place it at plant boundaries, between OT
+zones, at remote sites, or on vendor feeds—
+
+02:44.558 --> 02:50.093
+sorting connections into four clear lanes
+across standard file, web, syslog, database,
+
+02:50.123 --> 02:51.157
+and OT protocols.
+
+02:51.913 --> 02:56.695
+Every unit includes a written one-way
+confirmation per serial number,
+
+02:56.725 --> 03:01.161
+an IEC 62443-4-2 SL2 assessment,
+and four independent pen-tests—
+
+03:01.191 --> 03:04.458
+with clear scope on
+separate VPNs and USB paths.
+
+03:05.330 --> 03:10.162
+In December’s Polish grid attack, stolen
+VPN logins reached 30+ renewable sites.
+
+03:10.192 --> 03:11.642
+With a one-way boundary,
+
+03:11.672 --> 03:15.659
+telemetry still leaves while
+captured routers cannot pivot inward—
+
+03:15.689 --> 03:19.465
+and during an IT breach like JLR,
+one less boundary needs proof.
+
+03:20.330 --> 03:25.228
+This same architectural pattern spans six
+critical sectors: Energy & Renewables;
+
+03:25.258 --> 03:29.299
+Oil & Gas; Utilities: Water,
+Electric & Gas; Defense & Government;
+
+03:29.329 --> 03:33.065
+Life Sciences & Pharmaceuticals;
+and Industrial Manufacturing.
+
+03:33.830 --> 03:36.396
+Within each of the six industry editions,
+
+03:36.426 --> 03:40.558
+execution reduces to three clear
+lists: send routine data one way,
+
+03:40.588 --> 03:44.535
+govern true two-way flows, and
+close exposed legacy paths first.
+
+03:45.413 --> 03:48.676
+Now let’s look at real-world
+Terafence box case studies.
+
+03:48.706 --> 03:50.046
+In Energy & Renewables,
+
+03:50.076 --> 03:54.971
+power plants stream live stack emissions
+data through a Terafence box to regulators,
+
+03:55.001 --> 03:56.108
+while in Utilities,
+
+03:56.138 --> 04:00.038
+water treatment plants feed 24/7
+telemetry one way to a national SOC.
+
+04:00.830 --> 04:03.426
+In Life Sciences and
+Industrial Manufacturing,
+
+04:03.456 --> 04:08.762
+a packaging-machine maker builds Terafence one-way
+logic into 2,500+ pharma and food machines,
+
+04:08.792 --> 04:13.477
+while an ammonia plant streams read-only
+Modbus data through a Terafence box to its
+
+04:13.507 --> 04:16.635
+equipment vendor— the same
+pattern used across Oil & Gas.
+
+04:17.413 --> 04:22.144
+And in Defense & Government, military
+sites isolate building controls inside OT,
+
+04:22.174 --> 04:27.201
+a public metro railway segments nine transit
+systems behind dedicated Terafence boxes
+
+04:27.231 --> 04:28.769
+with a systems integrator,
+
+04:28.799 --> 04:32.848
+and a managed security provider feeds
+its cloud SOC with no path back.
+
+04:33.705 --> 04:38.354
+Founded in Israel in 2015 and shipping
+FPGA one-way gateways since 2017,
+
+04:38.384 --> 04:42.905
+Terafence builds industrial-grade
+hardware in Taiwan for Europe, Asia,
+
+04:42.935 --> 04:46.874
+and the Americas— from DIN-rail
+edge units, 1U rack gateways,
+
+04:46.904 --> 04:51.941
+and large-file models to OEM modules,
+database replication, traffic mirroring,
+
+04:51.971 --> 04:54.370
+and the BSG controlled two-way gateway.
+
+04:55.246 --> 04:59.846
+You can prove it without downtime in about
+two weeks: one gateway on one live outbound
+
+04:59.876 --> 05:02.842
+flow, signed off against a
+written Site Acceptance Test.
+
+05:03.663 --> 05:06.206
+Three steps take you
+there: assess and design,
+
+05:06.236 --> 05:09.994
+integrate beside your firewalls
+with nothing installed on your PLCs,
+
+05:10.024 --> 05:12.512
+and validate with your
+own reverse-path test.
+
+05:12.542 --> 05:16.964
+Thank you for listening— to discuss your
+network boundaries or schedule a pilot,
+
+05:16.994 --> 05:19.748
+please reach out to us
+anytime at info@terafence.us.

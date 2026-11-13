@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png">
 <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
 <title>TFG121-BF Data Diode for Large File Transfer | Terafence USA</title>
-<meta name="description" content="TFG121-BF data diode for large files: one-way transfer of backups, VM images and video archives, 250GB tested, up to 1 Gbps. Request a quote.">
+<meta name="description" content="TFG121-BF data diode for large files: one-way transfer of backups, VM images and video archives, Up to SSD capacity, up to 1 Gbps. Request a quote.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -474,6 +474,7 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
 @media (prefers-reduced-motion: reduce) { .p-panel, .p-wire::after, .pf-line i { animation: none; } .p-tabs__ink { transition: none; } }
 </style>
 <link rel="stylesheet" href="shared/tf-mobile.css">
+<link rel="stylesheet" href="shared/tf-video.css">
 </head>
 <body class="pg-product">
 
@@ -550,50 +551,37 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
           <h2 class="p-h2">Data flows out, <em>nothing comes back in</em></h2>
           <div class="p-ov__text" style="margin-top:22px">
             <p>The TFG121-BF is a unidirectional secure gateway and full protocol breaker with an FPGA data diode, in a 19-inch rack version with a customizable internal configuration.</p>
-            <p>It is placed between two segments (OT / IT) and moves data one way only. It acts as a full protocol breaker and proxy server, for Air-Gap-level segmentation.</p>
-            <p>Its core security technology is proprietary Terafence FPGA hardware with galvanic isolation. The security core has no OS, MAC or IP.</p>
-            <p>It is built for large-file and bulk transfer: large-file handling depends on the SSD-M2 size, with 250GB tested.</p>
+            <p>It is placed between two segments (OT / IT) and moves data one way only. It acts as a full protocol breaker and proxy server, providing an alternative to an air gap that still lets the data out.</p>
+            <p>Its core security technology is proprietary Terafence FPGA hardware: an alternative to an air gap that still lets the data out. The FPGA core on the data path has no IP or MAC address.</p>
+            <p>It is built for large-file and bulk transfer: files larger than 10 GB are supported up to its SSD capacity.</p>
           </div>
         </div>
-        <div class="p-flow" aria-label="How data moves through the TFG121-BF">
-          <small>How it works</small>
-          <div class="p-flow__row">
-            <div class="p-node"><b>OT segment</b><span>Source side</span></div>
-            <div class="p-core"><b>FPGA</b><span>one way only</span></div>
-            <div class="p-node"><b>IT segment</b><span>Destination side</span></div>
-          </div>
-          <div class="p-wire" aria-hidden="true"></div>
-          <div class="p-flow__legend" style="margin-top:24px">
-            <div><i></i>Full protocol breaker / proxy server between the two segments.</div>
-            <div><i></i>Galvanic isolation; the security core has no OS, MAC or IP.</div>
-            <div class="no"><i></i>One-way: no data travels back into the source side.</div>
-          </div>
-        </div>
+        <figure class="p-overview-video"><div class="p-video-stage"><video controls playsinline preload="metadata" poster="assets/video/terafence-overview-cover-v2.jpg" aria-label="Terafence executive overview"><source src="assets/video/terafence-overview.mp4" type="video/mp4"><track kind="captions" src="assets/video/terafence-overview.vtt" srclang="en" label="English">Your browser does not support embedded video. <a href="assets/video/terafence-overview.mp4">Download the overview video</a>.</video><button class="p-video-play" type="button" aria-label="Play Terafence executive overview"></button></div><figcaption>Terafence executive overview · 5 minutes 22 seconds</figcaption></figure>
       </div>
       <div class="p-hl">
         <div class="p-hl__item">
           <span class="p-hl__ic"><svg class="pf-ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 16h8M8 12l4 4-4 4"/><path d="M20 16h9M25 12l4 4-4 4"/><path class="r" d="M16 6v20"/></svg></span>
           <small>Isolation</small>
-          <b>Galvanic</b>
-          <p>Proprietary Terafence FPGA hardware with galvanic isolation.</p>
+          <b>One-way</b>
+          <p>Proprietary Terafence FPGA hardware: an alternative to an air gap that still lets the data out.</p>
         </div>
         <div class="p-hl__item">
           <span class="p-hl__ic"><svg class="pf-ic" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="7" width="10" height="18" rx="2"/><rect x="18" y="7" width="10" height="18" rx="2"/><circle class="rf" cx="9" cy="12" r="1.8"/><circle class="rf" cx="23" cy="12" r="1.8"/><path d="M7 20h4M21 20h4"/></svg></span>
           <small>Traffic</small>
           <b>Protocol breaker</b>
-          <p>Acts as full protocol breaker / proxy server, for Air-Gap-level segmentation.</p>
+          <p>An alternative to an air gap that still lets the data out.</p>
         </div>
         <div class="p-hl__item">
           <span class="p-hl__ic"><svg class="pf-ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M8 3h11l6 6v20H8z"/><path d="M19 3v6h6"/><path class="r" d="M12 17h9M12 22h6"/></svg></span>
           <small>Large files</small>
-          <b>250GB tested</b>
+          <b>Up to SSD capacity</b>
           <p>Large-file handling depends on SSD-M2 size.</p>
         </div>
         <div class="p-hl__item">
           <span class="p-hl__ic"><svg class="pf-ic" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l4.5 3"/><circle class="rf" cx="16" cy="16" r="1.8"/></svg></span>
           <small>Reliability</small>
-          <b>~10 yr MTBF</b>
-          <p>High availability and long-term operation.</p>
+          <b>No moving parts</b>
+          <p>In the data path.</p>
         </div>
       </div>
     </div>
@@ -611,7 +599,7 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
       <div class="fb-grid">
         <article class="pf-item">
           <div class="pf-item__head"><span class="pf-item__ic"><svg class="pf-ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 16h8M8 12l4 4-4 4"/><path d="M20 16h9M25 12l4 4-4 4"/><path class="r" d="M16 6v20"/></svg></span><small>01</small></div>
-          <h3>Galvanic isolation</h3><p>Galvanic isolation between the two segments (OT / IT).</p>
+          <h3>An alternative to an air gap</h3><p>An alternative to an air gap that still lets the data out.</p>
         </article>
         <article class="pf-item">
           <div class="pf-item__head"><span class="pf-item__ic"><svg class="pf-ic" viewBox="0 0 32 32" aria-hidden="true"><rect x="9" y="9" width="14" height="14" rx="2"/><path d="M13 4v5M19 4v5M13 23v5M19 23v5M4 13h5M4 19h5M23 13h5M23 19h5"/><rect class="rf" x="13.5" y="13.5" width="5" height="5" rx="1"/></svg></span><small>02</small></div>
@@ -636,7 +624,7 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
         <div>
           <small>06</small>
           <h3>No OS, MAC or IP on the core</h3>
-          <p>The security core has no OS, MAC or IP.</p>
+          <p>The FPGA core on the data path has no IP or MAC address.</p>
         </div>
         <div class="pf-nots" aria-hidden="true"><span>No operating system</span><span>No MAC address</span><span>No IP address</span></div>
       </div>
@@ -658,7 +646,7 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
           <a href="#spec-compliance">Compliance</a>
           <span class="ps-nav__more">
             <a class="tf-link" href="/products/compare">Compare models &rarr;</a>
-            <a class="tf-link" href="assets/downloads/Terafence_TFG121_BF_USA_Inc._Datasheet_Nov2026.pdf" target="_blank" rel="noopener">Download Datasheet &rarr;</a>
+            <a class="tf-link" href="mailto:info@terafence.us?subject=Request%20TFG121-BF%20datasheet">Request datasheet &rarr;</a>
           </span>
         </nav>
         <div class="ps-body">
@@ -669,9 +657,9 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
               <div class="ps-item"><dt>Product type</dt><dd>Unidirectional secure gateway / full protocol breaker with FPGA data diode</dd></div>
               <div class="ps-item"><dt>Data direction</dt><dd>One-way</dd></div>
               <div class="ps-item"><dt>Network placement</dt><dd>Between two segments (OT / IT)</dd></div>
-              <div class="ps-item"><dt>Positioning</dt><dd>Large-file and bulk transfer<small>250GB tested</small></dd></div>
-              <div class="ps-item"><dt>Traffic handling</dt><dd>Full protocol breaker / proxy server<small>Air-Gap-level segmentation</small></dd></div>
-              <div class="ps-item"><dt>Core security technology</dt><dd>Proprietary Terafence FPGA hardware; galvanic isolation<small>Security core has no OS, MAC or IP</small></dd></div>
+              <div class="ps-item"><dt>Positioning</dt><dd>Large-file and bulk transfer<small>Up to SSD capacity</small></dd></div>
+              <div class="ps-item"><dt>Traffic handling</dt><dd>Full protocol breaker / proxy server<small>An alternative to an air gap that still lets the data out</small></dd></div>
+              <div class="ps-item"><dt>Core security technology</dt><dd>Proprietary Terafence FPGA hardware; an alternative to an air gap that still lets the data out<small>The FPGA core on the data path has no IP or MAC address</small></dd></div>
             </dl>
           </section>
 
@@ -680,7 +668,7 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
             <div class="ps-stats">
               <div><b>Up to 1 Gbps</b><span>Throughput</span><small>Auto-negotiation</small></div>
               <div><b>&lt;2 nanoseconds</b><span>Core latency</span><small>Overall latency depends on protocol and data size</small></div>
-              <div><b>250GB tested</b><span>Large-file handling</span><small>Dependent on SSD-M2 size</small></div>
+              <div><b>Up to SSD capacity</b><span>Large-file handling</span><small>Dependent on SSD-M2 size</small></div>
             </div>
           </section>
 
@@ -717,8 +705,8 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
           <section class="ps-sec" id="spec-compliance">
             <h3>Compliance</h3>
             <dl class="ps-grid">
-              <div class="ps-item"><dt>Certifications / compliance</dt><dd><span class="ps-certs"><span>IEC 62443-4-2 SL2</span><span>MIL-STD-810F</span><span>FCC</span><span>CE</span><span>EMI/EMC</span><span>RoHS</span></span></dd></div>
-              <div class="ps-item"><dt>Reliability</dt><dd>High availability, long-term operation, high MTBF (~10 years)</dd></div>
+              <div class="ps-item"><dt>Certifications / compliance</dt><dd>IEC 62443-4-2 assessment, EMC and FCC test documentation available on request.</dd></div>
+              <div class="ps-item"><dt>Reliability</dt><dd>No moving parts in the data path</dd></div>
             </dl>
           </section>
 
@@ -739,14 +727,13 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
         <p>The TFG121-BF runs several protocols simultaneously.</p>
       </div>
       <div class="p-protos">
-        <div class="p-proto"><b>SFTP / FTP / SMB</b><span>File and folder-tree transfer<em class="p-lim">250GB+ files tested</em></span></div>
+        <div class="p-proto"><b>SFTP / FTP / SMB</b><span>File and folder-tree transfer<em class="p-lim">Larger files, up to SSD capacity</em></span></div>
         <div class="p-proto"><b>SMTP</b><span>Email relay</span></div>
         <div class="p-proto"><b>SYSLOG</b><span>Syslog forwarding (event / log transfer)</span></div>
         <div class="p-proto"><b>RTSP / ONVIF</b><span>CCTV live streaming<em class="p-lim">50 CCTV max</em></span></div>
         <div class="p-proto"><b>HTTP/S</b><span>Uploads to web / cloud</span></div>
         <div class="p-proto"><b>Local SYSLOG</b><span>Local syslog forwarding</span></div>
         <div class="p-proto"><b>Modbus</b><span>PLC / HMI<em class="p-lim">One-way only</em></span></div>
-        <div class="p-proto"><b>IEC-104</b><span>Power utilities<em class="p-lim">One-way only</em></span></div>
         <div class="p-proto"><b>MQTT</b><span>Data brokering / publishing</span></div>
         <div class="p-proto p-proto--more"><b>+</b><span>Custom protocols on customer request. <a class="tf-link" href="/contact?topic=contact&amp;model=tfg121-bf">Ask about yours</a></span></div>
       </div>
@@ -765,7 +752,7 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
             <li><small>01</small><span>Backups, disk images, VM snapshots out of isolated networks to IT / DR storage</span></li>
             <li><small>02</small><span>Video-archive export; engineering and design file transfers</span></li>
             <li><small>03</small><span>One-way delivery of patches, AV signatures and updates into air-gapped OT or classified enclaves (depending on orientation)</span></li>
-            <li><small>04</small><span>Defense, government, regulated sites needing IEC 62443-4-2 SL2</span></li>
+            <li><small>04</small><span>Defense, government and regulated sites; assessment documentation available on request</span></li>
             <li><small>05</small><span>Single boundary carrying both large files and telemetry</span></li>
           </ol>
         </div>
@@ -793,10 +780,10 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
         <h2 class="p-h2">Documents for <em>the TFG121-BF</em></h2>
       </div>
       <div class="p-dl">
-        <a class="p-file" href="assets/downloads/Terafence_TFG121_BF_USA_Inc._Datasheet_Nov2026.pdf" target="_blank" rel="noopener">
-          <span class="p-file__ic">PDF</span>
-          <div><h3>TFG121-BF datasheet</h3><p>November 2026 &middot; 1 page &middot; 205 KB</p></div>
-          <span class="p-file__go"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M4.5 7L8 10.5 11.5 7M3 13h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Download Datasheet</span>
+        <a class="p-file" href="mailto:info@terafence.us?subject=Request%20TFG121-BF%20datasheet">
+          <span class="p-file__ic">DOC</span>
+          <div><h3>TFG121-BF datasheet</h3><p>Updated documentation available on request</p></div>
+          <span class="p-file__go"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M4.5 7L8 10.5 11.5 7M3 13h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Request datasheet</span>
         </a>
       </div>
     </div>
@@ -820,18 +807,18 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
         <small>Unidirectional &middot; large files</small>
         <b>TFG121-BF</b>
         <span class="p-rc__txt">A 19-inch rack one-way gateway for large-file and bulk transfer, with a customizable internal configuration. Best for backups, video-archive export and one-way delivery of patches and updates.</span>
-        <span class="p-rc__facts"><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3 3.8c0-1 2.2-1.8 5-1.8s5 .8 5 1.8-2.2 1.8-5 1.8-5-.8-5-1.8Z"/><path d="M3 3.8v8.4c0 1 2.2 1.8 5 1.8s5-.8 5-1.8V3.8M3 8c0 1 2.2 1.8 5 1.8s5-.8 5-1.8"/></svg>250GB files tested</i><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="4" width="9" height="8" rx="1.3"/><path d="M10.5 6.8 14 5v6l-3.5-1.8"/></svg>50 CCTV max</i><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="4.5" rx="1"/><rect x="1.5" y="9" width="13" height="4.5" rx="1"/><circle cx="4" cy="4.75" r=".6" fill="currentColor" stroke="none"/><circle cx="4" cy="11.25" r=".6" fill="currentColor" stroke="none"/></svg>1U rack</i></span>
+        <span class="p-rc__facts"><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3 3.8c0-1 2.2-1.8 5-1.8s5 .8 5 1.8-2.2 1.8-5 1.8-5-.8-5-1.8Z"/><path d="M3 3.8v8.4c0 1 2.2 1.8 5 1.8s5-.8 5-1.8V3.8M3 8c0 1 2.2 1.8 5 1.8s5-.8 5-1.8"/></svg>Larger files: TFG121-BF</i><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="4" width="9" height="8" rx="1.3"/><path d="M10.5 6.8 14 5v6l-3.5-1.8"/></svg>50 CCTV max</i><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="4.5" rx="1"/><rect x="1.5" y="9" width="13" height="4.5" rx="1"/><circle cx="4" cy="4.75" r=".6" fill="currentColor" stroke="none"/><circle cx="4" cy="11.25" r=".6" fill="currentColor" stroke="none"/></svg>1U rack</i></span>
         <a class="p-rc__go" href="#specifications" data-open-tab="specifications">View specifications <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
       </div>
       <div class="p-feat-pr__keys">
         <h3>Key features</h3>
         <ul>
-          <li>Galvanic isolation</li>
+          <li>An alternative to an air gap that still lets the data out</li>
           <li>Proprietary Terafence FPGA hardware</li>
           <li>Two dedicated CPUs, Intel i3 or better</li>
           <li>HTTPS web GUI, secure side only</li>
           <li>Hardened OS on dedicated CPUs</li>
-          <li>Security core has no OS, MAC or IP</li>
+          <li>The FPGA core on the data path has no IP or MAC address</li>
         </ul>
       </div>
     </div>
@@ -873,7 +860,7 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
         <span class="p-rc__body">
           <small>Bidirectional security gateway</small>
           <b>TFG121-BSG</b>
-          <span class="p-rc__txt">Dual FPGA data diodes in an inline Layer-2 hardware firewall. Only pre-defined two-way traffic passes.</span>
+          <span class="p-rc__txt">A controlled two-way gateway, not a diode. Sessions start only from the side you choose.</span>
           <span class="p-rc__facts"><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.5h9.5L9 3M14 10.5H4.5L7 13"/></svg>Two-way, pre-defined</i><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M8 1.5 14 4.5 8 7.5 2 4.5 8 1.5Z"/><path d="M2 8l6 3 6-3M2 11.5l6 3 6-3"/></svg>Layer 2 inline</i><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="4.5" rx="1"/><rect x="1.5" y="9" width="13" height="4.5" rx="1"/><circle cx="4" cy="4.75" r=".6" fill="currentColor" stroke="none"/><circle cx="4" cy="11.25" r=".6" fill="currentColor" stroke="none"/></svg>1U rack</i></span>
           <span class="p-rc__go">View product <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></span>
         </span>
@@ -988,5 +975,6 @@ TF.LOGO_HREF = "index.html";
   document.fonts && document.fonts.ready.then(() => moveInk(tabs.find(t => t.getAttribute("aria-selected") === "true")));
 })();
 </script>
+<script src="shared/tf-video.js"></script>
 </body>
 </html>

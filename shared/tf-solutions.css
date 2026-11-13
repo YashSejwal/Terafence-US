@@ -384,3 +384,9 @@ a.cx-card.cx-card--img:hover { transform: none; box-shadow: 0 22px 44px rgba(10,
 .sx-sector:hover .sx-sector__go svg { transform: translateX(3px); }
 @media (max-width: 1080px) { .sx-sectors { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .sx-sectors { grid-template-columns: 1fr; } }
+
+/* Source PowerPoint visuals in case-study solution sections. */
+.cs-source-visual { margin: clamp(32px, 4vw, 48px) 0 0; }
+.cs-source-visual a { display: block; border-radius: 16px; overflow: hidden; }
+.cs-source-visual img { display: block; width: 100%; height: auto; }
+.cs-source-visual a:focus-visible { outline: 3px solid var(--tf-indigo-glow); outline-offset: 5px; }

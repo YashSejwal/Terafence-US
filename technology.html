@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png">
 <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
 <title>How Data Diodes Work: FPGA One-Way Security | Terafence USA</title>
-<meta name="description" content="What is a data diode? An FPGA design that lets data leave the protected side with no return path, and no IP, MAC or CPU to attack. Compare models.">
+<meta name="description" content="What is a data diode? An FPGA design that lets data leave the protected side with no return path, and no IP or MAC address in the FPGA core. Compare models.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -315,14 +315,14 @@ figure.fl-wrap--dark, figure.tc-dg__row, figure.tc-seg__dg { margin: 0; }
         <a class="tf-btn tf-btn--ghost" href="/products/compare">Compare models</a>
       </div>
     </div>
-    <figure class="tc-hero__vis fl-wrap--dark" role="img" aria-label="Data flows from the OT / ICS network (PLCs, sensors) through the FPGA data diode (Tx logic to Rx logic, no IP, MAC or CPU) to the external network (monitoring, cloud). Return traffic is physically blocked.">
+    <figure class="tc-hero__vis fl-wrap--dark" role="img" aria-label="Data flows from the OT / ICS network (PLCs, sensors) through the FPGA data diode (Tx logic to Rx logic, no IP or MAC address in the FPGA core) to the external network (monitoring, cloud). Return traffic is physically blocked.">
       <div class="fl">
         <div class="fl__n fl__n--in"><b>OT / ICS network</b><span>PLCs, sensors</span></div>
         <div class="fl__a"><i></i></div>
         <div class="fl__box">
           <b>FPGA data diode</b>
           <div class="fl__inner"><div>Tx logic</div><div class="fl__a fl__a--sm"><i style="animation-delay:.8s"></i></div><div>Rx logic</div></div>
-          <span>No IP, MAC or CPU</span>
+          <span>FPGA core: no IP or MAC address</span>
         </div>
         <div class="fl__a"><i style="animation-delay:1.6s"></i></div>
         <div class="fl__n fl__n--out"><b>External network</b><span>Monitoring, cloud</span></div>
@@ -352,7 +352,7 @@ figure.fl-wrap--dark, figure.tc-dg__row, figure.tc-seg__dg { margin: 0; }
       <span class="tf-eyebrow">The one-way principle</span>
       <h2>Overview of the one-way principle</h2>
       <p>Terafence’s data diode uses an FPGA-based design to enforce one-way data flow in hardware. Data can flow outward from the protected side, while incoming data is blocked entirely, which prevents tampering or hacking of connected devices such as OT assets, cameras, sensors and PLCs.</p>
-      <p>Flow direction is embedded in the FPGA, with no MAC, IP or CPU addresses, so data is relayed by physical electrical stimulation rather than by software-controlled networking. The protected side therefore has no addressable stack for an attacker to scan, exploit or reconfigure remotely.</p>
+      <p>Flow direction is embedded in the FPGA. The FPGA core on the data path has no IP or MAC address. Data is relayed through fixed hardware logic.</p>
     </div>
     <div class="tc-pr__cards">
       <div class="tc-card tc-card--vs">
@@ -387,14 +387,14 @@ figure.fl-wrap--dark, figure.tc-dg__row, figure.tc-seg__dg { margin: 0; }
     <h3 class="tc-h3">How it works</h3>
     <ul class="tc-pts">
       <li><span class="tc-tile"><svg class="tc-ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 16h20M18 10l6 6-6 6"/><path d="M28 9v14"/></svg></span><p>Direction is fixed in the FPGA logic: data can leave the protected side, and no return path exists</p></li>
-      <li><span class="tc-tile"><svg class="tc-ic" viewBox="0 0 32 32" aria-hidden="true"><rect x="9" y="9" width="14" height="14" rx="2"/><path d="M13 4v5M19 4v5M13 23v5M19 23v5M4 13h5M4 19h5M23 13h5M23 19h5"/><path d="M5 27L27 5"/></svg></span><p>No MAC, IP or CPU addresses on the data path, so there is nothing to scan, exploit or reconfigure remotely</p></li>
+      <li><span class="tc-tile"><svg class="tc-ic" viewBox="0 0 32 32" aria-hidden="true"><rect x="9" y="9" width="14" height="14" rx="2"/><path d="M13 4v5M19 4v5M13 23v5M19 23v5M4 13h5M4 19h5M23 13h5M23 19h5"/><path d="M5 27L27 5"/></svg></span><p>The FPGA core on the data path has no IP or MAC address</p></li>
       <li><span class="tc-tile"><svg class="tc-ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 16h5l3-8 5 16 4-12 3 4h6"/></svg></span><p>Data moves as physical electrical signals, not routable network traffic</p></li>
       <li><span class="tc-tile"><svg class="tc-ic" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="6" width="24" height="18" rx="2.5"/><path d="M4 11h24M11 28h10"/><path d="M6 26L26 4"/></svg></span><p>No operating system in the data path, so there is no OS to patch or compromise</p></li>
     </ul>
 
     <div class="tc-dg fl-wrap--dark">
-      <figure class="tc-dg__row" role="img" aria-label="FPGA data diode: source to fixed hardware logic (Tx logic to Rx logic) to destination. No IP, MAC or CPU on the data path.">
-        <div class="tc-dg__k"><b>FPGA data diode</b><p>No IP, MAC or CPU on the data path</p></div>
+      <figure class="tc-dg__row" role="img" aria-label="FPGA data diode: source to fixed hardware logic (Tx logic to Rx logic) to destination. The FPGA core on the data path has no IP or MAC address.">
+        <div class="tc-dg__k"><b>FPGA data diode</b><p>The FPGA core on the data path has no IP or MAC address</p></div>
         <div><div class="fl">
           <div class="fl__n fl__n--out"><b>Source</b></div>
           <div class="fl__a"><i></i></div>

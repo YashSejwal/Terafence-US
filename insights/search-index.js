@@ -42,14 +42,14 @@ window.TF_INSIGHTS_INDEX = [
   "slug": "secure-large-file-transfer",
   "url": "/insights/secure-large-file-transfer/",
   "title": "Bridging the Divide, Securely",
-  "excerpt": "Multi-gigabyte transfer across security boundaries at up to 1 Gbps — with galvanic isolation holding the line.",
+  "excerpt": "Multi-gigabyte transfer across security boundaries at up to 1 Gbps — with an alternative to an air gap that still lets the data out.",
   "category": "Secure Data Transfer",
   "category_url": "/insights/category/secure-data-transfer/",
   "type": "Solution brief",
   "tags": [
    "Large file transfer",
    "File transfer",
-   "Galvanic isolation",
+   "Hardware-enforced isolation",
    "Data diode"
   ],
   "date": "2026-09-10",

@@ -81,3 +81,12 @@ The home page no longer has an Insights section (removed 11 Nov 2026 at Robin's 
 
 **Before launch**: set the real domain in `articles.json` (`"site"`, currently https://www.terafence.us) so canonicals, structured data and the sitemap are right;
 reference `sitemap-insights.xml` from the main sitemap or robots.txt; the server must serve `/insights/<slug>/` from `insights/<slug>/index.html` (any standard host does).
+
+
+## Claims corrections, 13 November 2026
+
+The client claims workbook (items 4.1 to 4.15) now governs public wording. Home and About use its recommended six-tile statistics strip. Assessment documentation is an informational selection in Compare, not evidence of certification or a product eligibility filter.
+
+The existing November datasheet PDFs require corrected client versions. Their public download links have been replaced with email requests to info@terafence.us. Restore downloads only after the client supplies corrected PDFs. The enquiry form remains in demo mode.
+
+The upstream Insights generator and articles.json are absent from this checkout and the supplied project files. Claims corrections were applied consistently to the exported article pages, listings, metadata and search-index.js. Carry the same corrections into the upstream article data and bodies before regenerating Insights, to prevent the old claims returning.

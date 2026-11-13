@@ -84,7 +84,7 @@
   </blockquote>
   <div class="ia-stats">
     <div><b>L1–L2</b><span>Below the network layer</span></div>
-    <div><b>0</b><span>IP / MAC / CPU in core</span></div>
+    <div><b>0</b><span>IP / MAC addresses in FPGA core</span></div>
     <div><b>1 Gbps</b><span>Deterministic throughput</span></div>
   </div>
 </section>
@@ -124,13 +124,13 @@
     <cite>On log integrity</cite>
   </blockquote>
 </section>
-<aside class="ins-cta" aria-label="Plan a pilot"><div><p class="ins-cta__k">Prove it on your site</p><p class="ins-cta__t">A signed-off pilot in under two weeks.</p></div><a class="tf-btn tf-btn--primary" href="/contact?topic=pilot" data-track="cta_mid">Plan a pilot <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></aside>
+<aside class="ins-cta" aria-label="Plan a pilot"><div><p class="ins-cta__k">Prove it on your site</p><p class="ins-cta__t">A signed-off pilot in about two weeks.</p></div><a class="tf-btn tf-btn--primary" href="/contact?topic=pilot" data-track="cta_mid">Plan a pilot <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></aside>
 
 <section class="ia-sec">
   <h2 id="why-terafence">Why Terafence</h2>
   <p class="ia-lede">Forward the telemetry. <strong>Leave no route behind it.</strong></p>
   <p>Terafence sits in-line between the OT segment and the monitoring network. Side A receives syslog, events and files from the plant. Side B independently re-publishes that stream to the SIEM, log collector or monitoring platform. Each side terminates its own TCP/IP session, so no session is ever established end to end.</p>
-  <p>The core is FPGA logic operating at OSI layers 1 and 2, with no MAC address, no IP address, no CPU and no internal memory. There is nothing on the protected side for the SIEM — or for anything that has compromised the SIEM — to address, scan or reach.</p>
+  <p>The core is FPGA logic operating at OSI layers 1 and 2, with no IP or MAC address in the FPGA data-path core. There is nothing on the protected side for the SIEM — or for anything that has compromised the SIEM — to address, scan or reach.</p>
   <p>Because the unit stores no raw data, telemetry is forwarded rather than retained. There is nothing to exfiltrate from the gateway itself, and no obligation to secure data at rest inside it.</p>
   <aside class="ia-callout ia-callout--list">
     <p class="ia-callout__k">What this changes</p>
@@ -139,7 +139,7 @@
       <li><strong>No agent exposure.</strong> Nothing inside OT has to accept an inbound connection from the monitoring network.</li>
       <li><strong>Tamper-resistant by construction.</strong> With no network path from the SIEM side back to the source, forwarded records cannot be altered at origin from the IT side.</li>
       <li><strong>Several streams at once.</strong> Syslog, file transfer and broker protocols run simultaneously within 1 Gbps of throughput.</li>
-      <li><strong>Evidence for the reviewer.</strong> IEC 62443-4-2 SL2, CE and FCC Class B, with an isolation claim a port scan can demonstrate rather than assert.</li>
+      <li><strong>Evidence for the reviewer.</strong> IEC 62443-4-2 assessment, EMC and FCC test documentation available on request.</li>
     </ul>
   </aside>
 </section>
@@ -168,7 +168,7 @@
   <a class="ins-card__link" href="/insights/secure-large-file-transfer/" data-track="related_footer">
     <span class="ins-card__cat">Secure Data Transfer</span>
     <h3 class="ins-card__t">Bridging the Divide, Securely</h3>
-    <p class="ins-card__x">Multi-gigabyte transfer across security boundaries at up to 1 Gbps — with galvanic isolation holding the line.</p>
+    <p class="ins-card__x">Multi-gigabyte transfer across security boundaries at up to 1 Gbps — with an alternative to an air gap that still lets the data out.</p>
     <span class="ins-card__meta"><span><time datetime="2026-09-10">September 10, 2026</time></span><span class="ins-dot" aria-hidden="true">&middot;</span><span>3 min read</span></span>
   </a>
 </article></div></section>

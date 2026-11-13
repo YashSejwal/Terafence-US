@@ -9,13 +9,13 @@
 <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16.png">
 <link rel="apple-touch-icon" href="../../assets/favicon/apple-touch-icon.png">
 <title>Large File Transfer: Bridging the Divide | Terafence USA</title>
-<meta name="description" content="Why 70–80 GB transfers widen your attack surface, and how galvanic isolation and one-way flow make large file transfer safe. Read the brief.">
+<meta name="description" content="Why 70–80 GB transfers widen your attack surface, and how a hardware-enforced one-way boundary provides an alternative to an air gap. Read the brief.">
 <link rel="canonical" href="https://www.terafence.us/insights/secure-large-file-transfer/">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Terafence USA">
 <meta property="og:title" content="Large File Transfer: Bridging the Divide | Terafence USA">
-<meta property="og:description" content="Why 70–80 GB transfers widen your attack surface, and how galvanic isolation and one-way flow make large file transfer safe. Read the brief.">
+<meta property="og:description" content="Why 70–80 GB transfers widen your attack surface, and how a hardware-enforced one-way boundary provides an alternative to an air gap. Read the brief.">
 <meta property="og:url" content="https://www.terafence.us/insights/secure-large-file-transfer/">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:image" content="https://www.terafence.us/assets/insights/secure-large-file-transfer.png">
@@ -27,7 +27,7 @@
 <link rel="stylesheet" href="../../shared/tf-form.css">
 <link rel="stylesheet" href="../../shared/tf-insights.css">
 <link rel="stylesheet" href="../../shared/tf-mobile.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Bridging the Divide, Securely", "description": "Why 70–80 GB transfers widen your attack surface, and how galvanic isolation and one-way flow make large file transfer safe. Read the brief.", "datePublished": "2026-09-10", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.terafence.us/insights/secure-large-file-transfer/"}, "articleSection": "Secure Data Transfer", "keywords": "Large file transfer, File transfer, Galvanic isolation, Data diode", "wordCount": 658, "author": {"@type": "Organization", "name": "Terafence USA Inc.", "url": "https://www.terafence.us/"}, "publisher": {"@type": "Organization", "name": "Terafence USA Inc.", "url": "https://www.terafence.us/", "logo": {"@type": "ImageObject", "url": "https://www.terafence.us/assets/tf-logo.png"}}, "image": ["https://www.terafence.us/assets/insights/secure-large-file-transfer.png"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Bridging the Divide, Securely", "description": "Why 70–80 GB transfers widen your attack surface, and how a hardware-enforced one-way boundary provides an alternative to an air gap. Read the brief.", "datePublished": "2026-09-10", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.terafence.us/insights/secure-large-file-transfer/"}, "articleSection": "Secure Data Transfer", "keywords": "Large file transfer, File transfer, Hardware-enforced isolation, Data diode", "wordCount": 658, "author": {"@type": "Organization", "name": "Terafence USA Inc.", "url": "https://www.terafence.us/"}, "publisher": {"@type": "Organization", "name": "Terafence USA Inc.", "url": "https://www.terafence.us/", "logo": {"@type": "ImageObject", "url": "https://www.terafence.us/assets/tf-logo.png"}}, "image": ["https://www.terafence.us/assets/insights/secure-large-file-transfer.png"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.terafence.us/"}, {"@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.terafence.us/insights/"}, {"@type": "ListItem", "position": 3, "name": "Secure Data Transfer", "item": "https://www.terafence.us/insights/category/secure-data-transfer/"}, {"@type": "ListItem", "position": 4, "name": "Bridging the Divide, Securely", "item": "https://www.terafence.us/insights/secure-large-file-transfer/"}]}</script>
 </head>
 <body class="ins-page ins-page--article">
@@ -40,7 +40,7 @@
     <nav class="ins-crumb" aria-label="Breadcrumb"><a href="/" data-track="breadcrumb">Home</a><span class="ins-crumb__sep" aria-hidden="true">/</span><a href="/insights/" data-track="breadcrumb">Insights</a><span class="ins-crumb__sep" aria-hidden="true">/</span><a href="/insights/category/secure-data-transfer/" data-track="breadcrumb">Secure Data Transfer</a><span class="ins-crumb__sep" aria-hidden="true">/</span><span aria-current="page">Bridging the Divide, Securely</span></nav>
     <a class="ins-hero__cat" href="/insights/category/secure-data-transfer/" data-track="topic">Secure Data Transfer</a>
     <h1>Bridging the Divide, Securely</h1>
-    <p class="ins-hero__dek">Multi-gigabyte transfer across security boundaries at up to 1 Gbps — with galvanic isolation holding the line.</p>
+    <p class="ins-hero__dek">Multi-gigabyte transfer across security boundaries at up to 1 Gbps — with an alternative to an air gap that still lets the data out.</p>
     <p class="ins-meta"><span><time datetime="2026-09-10">September 10, 2026</time></span><span class="ins-dot" aria-hidden="true">&middot;</span><span>3 min read</span><span class="ins-dot" aria-hidden="true">&middot;</span><span>Solution brief</span></p>
   </div>
 </section>
@@ -84,7 +84,7 @@
   </blockquote>
   <div class="ia-stats">
     <div><b>L1–L2</b><span>Below the network layer</span></div>
-    <div><b>0</b><span>IP / MAC / CPU in core</span></div>
+    <div><b>0</b><span>IP / MAC addresses in FPGA core</span></div>
     <div><b>1 Gbps</b><span>Deterministic throughput</span></div>
   </div>
 </section>
@@ -117,13 +117,13 @@
   </ul>
   <p>This highlights the critical need for a more sophisticated solution offering automated, secure and reliable data transfer.</p>
 </section>
-<aside class="ins-cta" aria-label="Plan a pilot"><div><p class="ins-cta__k">Prove it on your site</p><p class="ins-cta__t">A signed-off pilot in under two weeks.</p></div><a class="tf-btn tf-btn--primary" href="/contact?topic=pilot" data-track="cta_mid">Plan a pilot <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></aside>
+<aside class="ins-cta" aria-label="Plan a pilot"><div><p class="ins-cta__k">Prove it on your site</p><p class="ins-cta__t">A signed-off pilot in about two weeks.</p></div><a class="tf-btn tf-btn--primary" href="/contact?topic=pilot" data-track="cta_mid">Plan a pilot <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></aside>
 
 <section class="ia-sec">
   <h2 id="why-terafence">Why Terafence</h2>
   <p class="ia-lede">A hardware-based <a data-track="contextual" href="/products/tfg121-bf">Secure Gateway for massive file transfer</a> <strong>across security boundaries.</strong></p>
   <ul class="ia-points">
-    <li><strong>Galvanic isolation.</strong> Physical separation between networks, preventing any potential threat from crossing over.</li>
+    <li><strong>An alternative to an air gap.</strong> Hardware-enforced one-way transfer still lets the data out.</li>
     <li><strong>Unidirectional data flow.</strong> Data moves only from the secure network to the unsecure one, eliminating reverse infiltration.</li>
     <li><strong>High throughput.</strong> Transfer at speeds up to 1 Gbps, ensuring timely delivery of large files.</li>
     <li><strong>Plug-and-play.</strong> Easy to deploy, requiring minimal configuration and no additional software or hardware.</li>
@@ -144,8 +144,8 @@
       </div>
       <section class="ins-next" aria-labelledby="ins-next-h">
   <p class="ins-next__k">Next steps</p>
-  <h2 id="ins-next-h">Move 80 gigabytes. Move nothing back.</h2>
-  <p class="ins-next__x">Tell us your file sizes and your boundary, and we will size the transfer path with you.</p>
+  <h2 id="ins-next-h">Move large files. Move nothing back.</h2>
+  <p class="ins-next__x">Files up to 10 GB; the TFG121-BF handles larger files, up to its SSD capacity. Tell us your file sizes and your boundary, and we will size the transfer path with you.</p>
   <ul class="ins-next__acts"><li><a href="/contact?topic=demo" data-track="next_step">Request a live demonstration<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="/resources/case-studies" data-track="next_step">Read the deployment use cases<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="/contact?topic=contact" data-track="next_step">Book a technical deep-dive<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="/contact?topic=pilot" data-track="next_step">Start a bench evaluation<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li></ul>
 </section>
       <section class="ins-sec ins-relfoot" aria-labelledby="ins-rf-h"><h2 class="ins-sec__label" id="ins-rf-h">Related articles</h2><div class="ins-grid ins-grid--3"><article class="ins-card">

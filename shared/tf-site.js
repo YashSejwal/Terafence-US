@@ -10,15 +10,15 @@ window.TF = window.TF || {};
 TF.NAV = [
   {
     label: "Products",
-    intro: { title: "Products", text: "Four FPGA-based gateways built on one principle: data leaves, nothing comes back. Sized for the cabinet, the rack or the product it goes inside.", link: { label: "All products", href: "/products" } },
+    intro: { title: "Products", text: "Four FPGA-based gateways: three one-way models and one controlled two-way gateway. Sized for the cabinet, the rack or the product it goes inside.", link: { label: "All products", href: "/products" } },
     cols: [
       { title: "One-way (unidirectional)", links: [
         { label: "TFG-121", sub: "DIN-rail, fan-less, -40 to +80 °C edge isolation", href: "/products/tfg-121" },
         { label: "TFG-1URP", sub: "1U rack: plant boundary and SOC ingestion", href: "/products/tfg-1urp" },
-        { label: "TFG121-BF", sub: "1/10 Gbps large-file transfer, beyond 200 GB", href: "/products/tfg121-bf" }
+        { label: "TFG121-BF", sub: "1 Gbps; 10 Gbps versions confirmed per quote", href: "/products/tfg121-bf" }
       ]},
       { title: "Controlled two-way", links: [
-        { label: "TFG121-BSG", sub: "Dual-FPGA Layer-2 firewall where acknowledgement is a must", href: "/products/tfg121-bsg" }
+        { label: "TFG121-BSG", sub: "Controlled two-way gateway, not a diode", href: "/products/tfg121-bsg" }
       ]},
       { title: "Choose", links: [
         { label: "Build your solution", sub: "Choose a gateway, then add what you need", href: "/products/build-your-solution" },
@@ -41,7 +41,7 @@ TF.NAV = [
   },
   {
     label: "Technology",
-    intro: { title: "Technology", text: "Enforcement in silicon at OSI Layers 1-2. No IP address, no MAC address, no CPU on the path.", link: { label: "How it works", href: "/technology" } },
+    intro: { title: "Technology", text: "Enforcement in silicon at OSI Layers 1-2. The FPGA core on the data path has no IP or MAC address.", link: { label: "How it works", href: "/technology" } },
     cols: [
       { title: "How it works", links: [
         { label: "The one-way principle", sub: "Why the return path is absent, not denied", href: "/technology#principle" },
@@ -50,8 +50,8 @@ TF.NAV = [
         { label: "Data diode vs firewall vs air gap", sub: "When to use which", href: "/technology#comparison" }
       ]},
       { title: "Integration", links: [
-        { label: "Protocols and integration", sub: "Modbus, IEC-104, OPC UA, Syslog, SFTP, RTSP and more", href: "/technology/protocols-and-integration" },
-        { label: "Certifications and compliance", sub: "Standards Terafence is designed to support", href: "/resources/certifications-compliance" }
+        { label: "Protocols and integration", sub: "Modbus, Syslog, SFTP, RTSP and more", href: "/technology/protocols-and-integration" },
+        { label: "Certifications and compliance", sub: "Assessment and test documentation on request", href: "/resources/certifications-compliance" }
       ]}
     ]
   },
@@ -86,13 +86,13 @@ TF.NAV = [
       { title: "Library", links: [
         { label: "Case studies", sub: "Real deployments, problem to impact", href: "/resources/case-studies" },
         { label: "Insights", sub: "Articles on OT security and one-way transfer", href: "/insights/" },
-        { label: "Certifications and compliance", sub: "Designed to support", href: "/resources/certifications-compliance" }
+        { label: "Certifications and compliance", sub: "Documentation available on request", href: "/resources/certifications-compliance" }
       ]},
       { title: "Datasheets", links: [
-        { label: "TFG-121", sub: "Download Datasheet (PDF)", href: "/assets/downloads/Terafence_TFG_121_USA_Inc._Datasheet_Nov2026.pdf" },
-        { label: "TFG-1URP", sub: "Download Datasheet (PDF)", href: "/assets/downloads/Terafence_TFG_1URP_USA_Inc._Datasheet_Nov2026.pdf" },
-        { label: "TFG121-BF", sub: "Download Datasheet (PDF)", href: "/assets/downloads/Terafence_TFG121_BF_USA_Inc._Datasheet_Nov2026.pdf" },
-        { label: "TFG121-BSG", sub: "Download Datasheet (PDF)", href: "/assets/downloads/Terafence_TFG121_BSG_USA_Inc._Datasheet_Nov2026.pdf" }
+        { label: "TFG-121", sub: "Documentation available on request", href: "mailto:info@terafence.us?subject=Request%20datasheet" },
+        { label: "TFG-1URP", sub: "Documentation available on request", href: "mailto:info@terafence.us?subject=Request%20datasheet" },
+        { label: "TFG121-BF", sub: "Documentation available on request", href: "mailto:info@terafence.us?subject=Request%20datasheet" },
+        { label: "TFG121-BSG", sub: "Documentation available on request", href: "mailto:info@terafence.us?subject=Request%20datasheet" }
       ]}
     ]
   },
@@ -102,8 +102,7 @@ TF.NAV = [
     cols: [
       { title: "Terafence", links: [
         { label: "About Terafence USA", href: "/about" },
-        { label: "Leadership", href: "/about#leadership" },
-        { label: "Partners", href: "/partners" }
+        { label: "Leadership", href: "/about#leadership" }
       ]},
       { title: "Get in touch", links: [
         { label: "Contact and request a quote", href: "/contact" },
@@ -112,7 +111,7 @@ TF.NAV = [
     ]
   }
 ];
-TF.UTIL = [ { label: "Support", href: "/support" }, { label: "Partners", href: "/partners" }, { label: "info@terafence.us", href: "mailto:info@terafence.us" } ];
+TF.UTIL = [ { label: "Support", href: "/support" }, { label: "info@terafence.us", href: "mailto:info@terafence.us" } ];
 TF.CTA = { primary: { label: "Plan a pilot", href: "/contact?topic=pilot" }, secondary: { label: "Contact", href: "/contact" } };
 
 /* ---------- 2. Rotating hero messages (Banner 1) ---------- */
@@ -128,11 +127,114 @@ TF.HERO_INTERVAL_MS = 6000;
 
 /* ---------- 3. Footer ---------- */
 TF.FOOTER = [
-  { title: "Products", links: [["TFG-121", "/products/tfg-121"], ["TFG-1URP", "/products/tfg-1urp"], ["TFG121-BF", "/products/tfg121-bf"], ["TFG121-BSG", "/products/tfg121-bsg"], ["Compare models", "/products/compare"]] },
-  { title: "Platform", links: [["All platform", "/platform"], ["TeraSecure", "/platform#terasecure"], ["TeraObserve", "/platform#teraobserve"], ["TeraCommunicate", "/platform#teracommunicate"], ["TeraQuantum", "/platform#teraquantum"]] },
-  { title: "Solutions", links: [["Energy and Renewables", "/industries/energy-renewables"], ["Oil and Gas", "/industries/oil-gas"], ["Utilities – Water / Electric / Gas", "/industries/utilities"], ["Defense and Government", "/industries/defense-government"], ["OT data to SIEM", "/insights/ot-data-to-siem/"], ["Associated services", "/services"]] },
-  { title: "Resources", links: [["Resource library", "/resources"], ["Insights", "/insights/"], ["Case studies", "/resources/case-studies"], ["Certifications and compliance", "/resources/certifications-compliance"], ["Protocols and integration", "/technology/protocols-and-integration"]] },
-  { title: "About us", links: [["About Terafence USA", "/about"], ["Leadership", "/about#leadership"], ["Partners", "/partners"], ["Contact", "/contact"], ["Support", "/support"]] }
+  {
+    "title": "Products",
+    "links": [
+      [
+        "TFG-121",
+        "/products/tfg-121"
+      ],
+      [
+        "TFG-1URP",
+        "/products/tfg-1urp"
+      ],
+      [
+        "TFG121-BF",
+        "/products/tfg121-bf"
+      ],
+      [
+        "TFG121-BSG",
+        "/products/tfg121-bsg"
+      ],
+      [
+        "Compare gateways",
+        "/products/compare"
+      ]
+    ]
+  },
+  {
+    "title": "Industries",
+    "links": [
+      [
+        "Energy & Renewables",
+        "/industries/energy-renewables"
+      ],
+      [
+        "Oil & Gas",
+        "/industries/oil-gas"
+      ],
+      [
+        "Utilities – Water / Electric / Gas",
+        "/industries/utilities"
+      ],
+      [
+        "Defense & Government",
+        "/industries/defense-government"
+      ],
+      [
+        "Life Sciences & Pharmaceuticals",
+        "/industries/lifescience-pharma"
+      ],
+      [
+        "Industrial Manufacturing",
+        "/industries/industrial-manufacturing"
+      ]
+    ]
+  },
+  {
+    "title": "Resources",
+    "links": [
+      [
+        "Resource library",
+        "/resources"
+      ],
+      [
+        "Insights",
+        "/insights/"
+      ],
+      [
+        "Case studies",
+        "/resources/case-studies"
+      ],
+      [
+        "Trust Center",
+        "/trust-center"
+      ],
+      [
+        "Conduit Check",
+        "/conduit-check"
+      ],
+      [
+        "Compliance hub",
+        "/compliance"
+      ]
+    ]
+  },
+  {
+    "title": "Company",
+    "links": [
+      [
+        "About Terafence USA",
+        "/about"
+      ],
+      [
+        "Services",
+        "/services"
+      ],
+      [
+        "Support",
+        "/support"
+      ],
+      [
+        "Partners",
+        "/partners"
+      ],
+      [
+        "Contact",
+        "/contact"
+      ]
+    ]
+  }
 ];
 TF.LEGAL = [["Privacy policy", "/privacy"], ["Terms of use", "/terms"], ["Cookie policy", "/cookie"]];
 
@@ -274,10 +376,11 @@ TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "index
   }
 
   function renderFooter(el) {
+    if (!document.querySelector('link[data-tf-footer-style]')) { const sheet=document.createElement("link"); sheet.rel="stylesheet"; sheet.href=TF.ROOT+"shared/tf-footer.css"; sheet.dataset.tfFooterStyle=""; document.head.appendChild(sheet); }
     const cols = TF.FOOTER.map(c => `<div><h4>${c.title}</h4><ul>${c.links.map(([l, h]) => `<li><a href="${h}">${l}</a></li>`).join("")}</ul></div>`).join("");
     el.innerHTML = `<div class="tf-wrap"><div class="tf-footer__grid">
         <div class="tf-footer__brand"><img src="${TF.ROOT + TF.LOGO_DARK_BG}" alt="Terafence" width="400" height="106" loading="lazy" decoding="async"><p>FPGA-based data diodes and unidirectional gateways that let operational data out while keeping critical systems unreachable.</p>
-          <p><a href="mailto:info@terafence.us">info@terafence.us</a></p><div class="tf-footer__slogan">Unbreachable <b>by</b> Design.</div></div>
+          <address>12788 Royal Oaks Lane<br>Farmers Branch, TX 75234<br><a href="tel:+17325015974">+1 (732) 501-5974</a></address><p><a href="mailto:info@terafence.us">info@terafence.us</a></p><div class="tf-social"><span class="tf-social__pending" role="img" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4M3 9h4v12H3zm6 0h4v2c1-2 7-4 8 3v7h-4v-7c0-3-4-3-4 0v7H9z"/></svg><span class="sr-only">LinkedIn</span></span><span class="tf-social__pending" role="img" aria-label="YouTube" title="YouTube"><svg width="28" height="24" viewBox="0 0 28 24" fill="currentColor" aria-hidden="true"><path d="M26 6c-.3-1.4-1.3-2.4-2.7-2.7C20.9 3 7.1 3 4.7 3.3 3.3 3.6 2.3 4.6 2 6c-.6 3-.6 9 0 12 .3 1.4 1.3 2.4 2.7 2.7 2.4.3 16.2.3 18.6 0 1.4-.3 2.4-1.3 2.7-2.7.6-3 .6-9 0-12M11 16V8l7 4z"/></svg></span><span class="tf-social__pending" role="img" aria-label="Twitter / X" title="Twitter / X"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22H17l-4.9-7.4L5.6 22H2.4l8.2-9.5L.8 2h6.4l4.5 6.7L18.9 2M17.6 20h1.7L6 3.9H4.2z"/></svg></span></div><div class="tf-footer__slogan">Unreachable <b>by</b> Design.</div></div>
         ${cols}</div>
         <div class="tf-footer__base"><span>&copy; ${new Date().getFullYear()} Terafence USA Inc. All rights reserved.</span><nav>${TF.LEGAL.map(([l, h]) => `<a href="${h}">${l}</a>`).join("")}</nav></div></div>`;
   }

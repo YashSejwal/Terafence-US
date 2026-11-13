@@ -7,7 +7,7 @@
 window.TF = window.TF || {};
 
 TF.FORM_TOPICS = {
-  pilot:      { kicker: "Pilot",        title: "Plan a pilot",           text: "One TFG-121 on your live site, tested against Terafence's written acceptance procedure and signed off in under two weeks.", button: "Plan my pilot" },
+  pilot:      { kicker: "Pilot",        title: "Plan a pilot",           text: "One TFG-121 on your live site, tested against Terafence's written acceptance procedure and signed off in about two weeks.", button: "Plan my pilot" },
   demo:       { kicker: "Demo",         title: "Request a demo",         text: "See the gateway working with your protocols and systems, and ask an engineer anything.", button: "Request demo" },
   quote:      { kicker: "Quote",        title: "Get a quote",            text: "Tell us about your sites and volumes and we will come back with pricing.", button: "Request quote" },
   datasheet:  { kicker: "Datasheet",    title: "Request the datasheet",  text: "We will send the latest datasheet to your inbox.", button: "Send datasheet" },

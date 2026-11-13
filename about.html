@@ -151,6 +151,8 @@ section[id] { scroll-margin-top: 150px; }
 .a-fig strong { display: block; font-family: var(--tf-font-head); font-size: clamp(30px, 2.9vw, 42px); font-weight: 300; color: var(--tf-indigo); line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums lining-nums; }
 .a-fig span { display: block; margin-top: 12px; font-size: 12.5px; color: var(--tf-muted-light-bg); line-height: 1.5; max-width: 170px; }
 .a-fig--zero strong { color: var(--tf-red); }
+.a-fig strong { overflow-wrap: anywhere; }
+.a-fig:nth-child(4) strong { font-size: clamp(23px, 2.2vw, 32px); line-height: 1.15; }
 
 /* ---------- HOW WE THINK (dark) ---------- */
 .a-think { background: linear-gradient(180deg, var(--tf-navy), var(--tf-ink)); overflow: hidden; }
@@ -392,8 +394,8 @@ a.a-in:hover { background: #004182; transform: translateY(-2px); box-shadow: 0 8
           <div class="a-dial__top"><span><b data-dial-n>01</b> / 04</span><span data-dial-k>What we build</span></div>
           <div class="a-dial__figs">
           <div class="a-dial__item is-on" data-k="0"><strong >1-way</strong><span>The reverse path is absent from the circuit, not denied by a rule.</span></div>
-          <div class="a-dial__item" data-k="1"><strong >2015</strong><span>Founded in Israel. First FPGA data diode to market in 2017.</span></div>
-          <div class="a-dial__item" data-k="2"><strong data-count="2500" data-suffix="+">2,500+</strong><span>OEM machines with Terafence inside.</span></div>
+          <div class="a-dial__item" data-k="1"><strong >2015</strong><span>Founded in Israel. Shipping FPGA-based data diodes since 2017.</span></div>
+          <div class="a-dial__item" data-k="2"><strong>OEM</strong><span>Terafence ships embedded inside OEM machinery.</span></div>
           <div class="a-dial__item" data-k="3"><strong >USA</strong><span>Terafence USA Inc., Farmers Branch, Texas.</span></div>
           </div>
           <div class="a-dial__bar"><button type="button" class="is-on" data-go="0" aria-label="Go to what we build"></button><button type="button" class="" data-go="1" aria-label="Go to where it began"></button><button type="button" class="" data-go="2" aria-label="Go to where it runs"></button><button type="button" class="" data-go="3" aria-label="Go to why we are here"></button></div>
@@ -413,15 +415,15 @@ a.a-in:hover { background: #004182; transform: translateY(-2px); box-shadow: 0 8
         <div class="a-ch__body">
           <small>Where it began</small>
           <h3>Engineered in Israel since 2015</h3>
-          <p>Terafence was founded in 2015 in Israel, where its engineers design the FPGA logic. Its first FPGA data diode reached the market in 2017, and the hardware is manufactured to industrial grade in Taiwan.</p>
+          <p>Terafence was founded in 2015 in Israel, where its engineers design the FPGA logic. It has shipped FPGA-based data diodes since 2017, and the hardware is manufactured to industrial grade in Taiwan.</p>
         </div>
       </li>
       <li class="a-ch" data-ch="2" tabindex="0">
         <span class="a-ch__n">03</span>
         <div class="a-ch__body">
           <small>Where it runs</small>
-          <h3>On six continents, and inside other products</h3>
-          <p>Terafence gateways protect operations on six continents. More than 2,500 OEM machines carry Terafence hardware, reporting to their makers without opening a path into the customer's plant.</p>
+          <h3>Across critical sectors, and inside other products</h3>
+          <p>Terafence gateways protect operations across energy, water, rail, manufacturing, defense and managed security. Terafence ships embedded inside OEM machinery, reporting to its makers without opening a path into the customer's plant.</p>
         </div>
       </li>
       <li class="a-ch" data-ch="3" tabindex="0">
@@ -438,11 +440,11 @@ a.a-in:hover { background: #004182; transform: translateY(-2px); box-shadow: 0 8
 
     <div class="a-figs tf-reveal" data-figs>
       <div class="a-fig"><strong>2015</strong><span>Founded</span></div>
-      <div class="a-fig"><strong>2017</strong><span>First FPGA data diode to market</span></div>
-      <div class="a-fig"><strong data-count="6">6</strong><span>Continents in service</span></div>
-      <div class="a-fig"><strong data-count="2500" data-suffix="+">2,500+</strong><span>OEM machines with Terafence inside</span></div>
-      <div class="a-fig"><strong data-count="20" data-suffix="+">20+</strong><span>Years MTBF, no moving parts</span></div>
-      <div class="a-fig a-fig--zero"><strong>Zero</strong><span>Vulnerabilities in multi-agency penetration tests</span></div>
+      <div class="a-fig"><strong>2017</strong><span>Shipping FPGA-based data diodes</span></div>
+      <div class="a-fig"><strong>4</strong><span>Gateways: three one-way, one controlled two-way</span></div>
+      <div class="a-fig"><strong>About 2 weeks</strong><span>To a signed-off pilot</span></div>
+      <div class="a-fig"><strong>No</strong><span>moving parts in the data path</span></div>
+      <div class="a-fig a-fig--zero"><strong>Zero</strong><span>Exploitable findings in independent penetration tests, in the scope tested</span></div>
     </div>
   </div>
 </section>
