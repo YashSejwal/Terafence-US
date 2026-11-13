@@ -195,18 +195,6 @@ TF.FOOTER = [
       [
         "Case studies",
         "/resources/case-studies"
-      ],
-      [
-        "Trust Center",
-        "/trust-center"
-      ],
-      [
-        "Conduit Check",
-        "/conduit-check"
-      ],
-      [
-        "Compliance hub",
-        "/compliance"
       ]
     ]
   },
@@ -224,10 +212,6 @@ TF.FOOTER = [
       [
         "Support",
         "/support"
-      ],
-      [
-        "Partners",
-        "/partners"
       ],
       [
         "Contact",
