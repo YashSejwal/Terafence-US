@@ -270,7 +270,7 @@ TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "index
         </div></div>`;
     }).join("");
     el.innerHTML = `
-      <div class="tf-util"><div class="tf-wrap"><span class="tf-util__tag">Unbreachable <b>by</b> Design</span>${util}</div></div>
+      <div class="tf-util"><div class="tf-wrap"><span class="tf-util__tag">Unreachable <b>by</b> Design</span>${util}</div></div>
       <div class="tf-bar"><div class="tf-wrap">
         <a class="tf-logo" href="${TF.LOGO_HREF || "#top"}" aria-label="Terafence USA home"><img src="${TF.ROOT + TF.LOGO_DARK_BG}" alt="Terafence - Reliable Transformations!" width="400" height="106" decoding="async"></a>
         <nav class="tf-nav" aria-label="Main">${items}</nav>
