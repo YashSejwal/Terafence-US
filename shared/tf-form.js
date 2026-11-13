@@ -36,7 +36,23 @@ TF.FORM_ENDPOINT = null;
           <h3 id="tf-fm-title" data-t></h3>
           <span class="tf-fm__model" data-m></span>
           <p data-x></p>
-          <p class="tf-fm__mail">Prefer email? <a href="mailto:info@terafence.us">info@terafence.us</a></p>
+          <div class="tf-fm__channels">
+            <div class="tf-fm__chan">
+              <strong>Technical Support</strong>
+              <span>Product assistance and debugging</span>
+              <a href="mailto:support@terafence.us">support@terafence.us</a>
+            </div>
+            <div class="tf-fm__chan">
+              <strong>Sales Inquiries</strong>
+              <span>Demos and product information</span>
+              <a href="mailto:sales@terafence.us">sales@terafence.us</a>
+            </div>
+            <div class="tf-fm__chan">
+              <strong>General Inquiries</strong>
+              <span>Partnership opportunities and QnA</span>
+              <a href="mailto:info@terafence.us">info@terafence.us</a>
+            </div>
+          </div>
         </aside>
         <div class="tf-fm__main">
           <form class="tf-fm__form" novalidate>
@@ -51,7 +67,7 @@ TF.FORM_ENDPOINT = null;
               <span class="tf-cap__brand"><b>Verified</b>Privacy &middot; Terms</span>
             </div>
             <button class="tf-btn tf-btn--primary tf-fm__submit" type="submit"><span data-b>Submit</span> ${AR}</button>
-            <p class="tf-fm__legal">By submitting you agree to our <a href="/privacy">privacy policy</a>.</p>
+            <p class="tf-fm__legal">By submitting you agree to our <a href="${(TF.ROOT || "") + "privacy.html"}">privacy policy</a>.</p>
           </form>
           <div class="tf-fm__done" aria-live="polite">
             <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>

@@ -41,6 +41,12 @@
 .tf-fm__side p { font-size: 14.5px; color: #D7DCF6; line-height: 1.6; }
 .tf-fm__mail { margin-top: 28px; font-size: 13px; color: #B7C0F5; }
 .tf-fm__mail a { color: #fff; }
+.tf-fm__channels { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.14); display: grid; gap: 13px; }
+.tf-fm__chan { display: flex; flex-direction: column; gap: 2px; }
+.tf-fm__chan strong { font-family: var(--tf-font-head); font-size: 13.5px; font-weight: 600; color: #fff; }
+.tf-fm__chan span { font-size: 12.5px; color: #B7C0F5; line-height: 1.4; }
+.tf-fm__chan a { font-size: 13px; font-weight: 500; color: #fff; text-decoration: underline; text-underline-offset: 2px; width: fit-content; }
+.tf-fm__chan a:hover { color: #C9D0F7; }
 
 /* right: form */
 .tf-fm__main { padding: 40px 38px 34px; }
@@ -99,6 +105,7 @@ body.tf-noscroll { overflow: hidden; }
   .tf-fm__side { padding: 26px 22px 22px; }
   .tf-fm__side h3 { font-size: 21px; margin: 10px 0 6px; }
   .tf-fm__side p, .tf-fm__mail { display: none; }
+  .tf-fm__channels { margin-top: 14px; padding-top: 12px; gap: 10px; }
   .tf-fm__model { margin-bottom: 0; }
   .tf-fm__main { padding: 24px 22px 28px; }
   .tf-fm__close { background: rgba(255,255,255,.18); color: #fff; }
