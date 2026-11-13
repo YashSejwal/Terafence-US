@@ -15,6 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared/tf-base.css">
 <link rel="stylesheet" href="shared/tf-form.css">
+<link rel="stylesheet" href="shared/tf-video.css">
 <style>
 /* =====================================================================
    ABOUT US. Dark carries the statements (hero, principles, leadership);
@@ -172,6 +173,14 @@ section[id] { scroll-margin-top: 150px; }
 .a-idea h3 { font-size: clamp(20px, 2vw, 26px); font-weight: 700; line-height: 1.22; letter-spacing: -0.015em; color: #fff; margin: 20px 0 14px; }
 .a-idea p { font-size: 15.5px; line-height: 1.75; color: var(--tf-muted-dark-bg); }
 .a-think__foot { margin-top: clamp(40px, 4.6vw, 64px); }
+.a-watch-btn { background: none; border: 0; padding: 0; cursor: pointer; }
+.a-vmodal { position: fixed; inset: 0; z-index: 320; display: grid; place-items: center; padding: 20px; visibility: hidden; opacity: 0; transition: opacity .35s ease, visibility 0s linear .35s; }
+.a-vmodal.is-open { visibility: visible; opacity: 1; transition: opacity .35s ease, visibility 0s; }
+.a-vmodal__scrim { position: absolute; inset: 0; background: rgba(4,6,26,.78); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.a-vmodal__box { position: relative; z-index: 1; width: min(920px, 100%); transform: translateY(18px) scale(.97); transition: transform .4s var(--tf-ease); }
+.a-vmodal.is-open .a-vmodal__box { transform: none; }
+.a-vmodal__close { position: absolute; top: -44px; right: 0; width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,.22); background: rgba(8,13,46,.85); color: #fff; cursor: pointer; display: grid; place-items: center; transition: background .25s, transform .25s; }
+.a-vmodal__close:hover { background: var(--tf-red); border-color: var(--tf-red); transform: rotate(90deg); }
 
 /* ---------- WHERE WE WORK ---------- */
 .a-where__head { max-width: 800px; margin-bottom: clamp(46px, 5vw, 70px); }
@@ -476,7 +485,7 @@ a.a-in:hover { background: #004182; transform: translateY(-2px); box-shadow: 0 8
       </article>
     </div>
     <div class="a-think__foot tf-reveal">
-      <a class="tf-link" href="/#how-it-works">See how a one-way boundary works <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      <button type="button" class="tf-link a-watch-btn" data-open-video>Watch a video <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></button>
     </div>
   </div>
 </section>
@@ -569,10 +578,20 @@ a.a-in:hover { background: #004182; transform: translateY(-2px); box-shadow: 0 8
   </aside>
 </div>
 
+<!-- Video popup modal (same overview video as product pages) -->
+<div class="a-vmodal" data-vmodal role="dialog" aria-modal="true" aria-label="Terafence executive overview video" aria-hidden="true">
+  <div class="a-vmodal__scrim" data-vmodal-close></div>
+  <div class="a-vmodal__box">
+    <button type="button" class="a-vmodal__close" aria-label="Close video" data-vmodal-close><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.8"/></svg></button>
+    <figure class="p-overview-video"><div class="p-video-stage"><video controls playsinline preload="metadata" poster="assets/video/terafence-overview-cover-v2.jpg" aria-label="Terafence executive overview"><source src="assets/video/terafence-overview.mp4" type="video/mp4"><track kind="captions" src="assets/video/terafence-overview.vtt" srclang="en" label="English">Your browser does not support embedded video. <a href="assets/video/terafence-overview.mp4">Download the overview video</a>.</video><button class="p-video-play" type="button" aria-label="Play Terafence executive overview"></button></div><figcaption>Terafence executive overview &middot; 5 minutes 22 seconds</figcaption></figure>
+  </div>
+</div>
+
 <footer class="tf-footer" data-tf-footer></footer>
 
 <script src="shared/tf-site.js"></script>
 <script src="shared/tf-form.js"></script>
+<script src="shared/tf-video.js"></script>
 <script>
 /* =====================================================================
    EDIT HERE: the leadership team. One block per person, in the order shown.
@@ -835,6 +854,31 @@ TF.LOGO_HREF = "index.html";
   /* ---- reveal for the elements this page adds after load, and the line-draw sections ---- */
   const drawIO = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add("is-in"); drawIO.unobserve(en.target); } }), { threshold: .25 }) : null;
   document.querySelectorAll(".a-idea, .a-route, .a-figs").forEach(el => drawIO ? drawIO.observe(el) : el.classList.add("is-in"));
+
+  /* ---- video popup modal ---- */
+  const vmodal = document.querySelector("[data-vmodal]");
+  const openBtn = document.querySelector("[data-open-video]");
+  if (vmodal && openBtn) {
+    const vid = vmodal.querySelector("video");
+    let vFocus = null;
+    function openVideo() {
+      vFocus = document.activeElement;
+      vmodal.setAttribute("aria-hidden", "false");
+      vmodal.classList.add("is-open");
+      document.body.classList.add("tf-noscroll");
+      if (vid) { const p = vid.play(); if (p && p.catch) p.catch(() => {}); }
+    }
+    function closeVideo() {
+      vmodal.classList.remove("is-open");
+      vmodal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("tf-noscroll");
+      if (vid) vid.pause();
+      if (vFocus) vFocus.focus({ preventScroll: true });
+    }
+    openBtn.addEventListener("click", openVideo);
+    vmodal.querySelectorAll("[data-vmodal-close]").forEach(b => b.addEventListener("click", closeVideo));
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && vmodal.classList.contains("is-open")) closeVideo(); });
+  }
 
 })();
 </script>
