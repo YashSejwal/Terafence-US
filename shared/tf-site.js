@@ -118,9 +118,7 @@ TF.CTA = { primary: { label: "Plan a pilot", href: "/contact?topic=pilot" }, sec
 TF.HERO_MESSAGES = [
   { kicker: "Hardware-enforced one-way gateways", title: "Data Out.<br>Nothing Back In.", text: "Operational data reaches the people and systems that use it. The systems that produce it stay out of reach, enforced in hardware." },
   { kicker: "Operational visibility", title: "Share the data.<br>Keep the boundary.", text: "Monitoring, maintenance and reporting continue as normal. The route back into your plant does not exist." },
-  { kicker: "Reachability is the risk", title: "If they can reach it,<br>they can disrupt it.", text: "Every sabotage case began with a control system reachable from outside. Terafence removes that path in hardware." },
   { kicker: "A different question", title: "Can the attack path<br>physically exist?", text: "Firewalls decide what to let in. Terafence removes the inbound path in silicon, below the network stack." },
-  { kicker: "Regulatory reporting", title: "The regulator reads.<br>Nobody writes back.", text: "Emissions, water and flare data reach authorities in real time, while the plant network stays unreachable." },
   { kicker: "Worst case, by design", title: "Lost telemetry.<br>Never lost control.", text: "With no reverse circuit to open, the worst outcome is a missed reading, not a compromised process." }
 ];
 TF.HERO_INTERVAL_MS = 6000;
