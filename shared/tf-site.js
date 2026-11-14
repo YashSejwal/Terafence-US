@@ -119,7 +119,7 @@ TF.HERO_MESSAGES = [
   { kicker: "Hardware-enforced one-way gateways", title: "Data Out.<br>Nothing Back In.", text: "Send live plant data to historians, the cloud, OEMs, SOCs and regulators while the control network stays unreachable, enforced in FPGA hardware." },
   { kicker: "Operational visibility", title: "Share the data.<br>Keep the boundary.", text: "Monitoring, maintenance and reporting continue as normal. The route back into your plant does not exist." },
   { kicker: "A different question", title: "Can the attack path<br>physically exist?", text: "Firewalls decide what to let in. Terafence removes the inbound path in silicon, below the network stack." },
-  { kicker: "Worst case, by design", title: "Lost telemetry.<br>Never lost control.", text: "With no reverse circuit to open, the worst outcome is a missed reading, not a compromised process." }
+  { kicker: "Worst case, by design", title: "Maintain operational isolation<br>while sharing essential data.", text: "With no reverse circuit to open, the worst outcome is a missed reading, not a compromised process." }
 ];
 TF.HERO_INTERVAL_MS = 6000;
 
