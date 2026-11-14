@@ -120,7 +120,7 @@
   .pg-home .b-map__head, .pg-home .b-map__label b, .pg-home .b-px__specs dt,
   .pg-home .b-hw__cap span, .pg-home .b-hw__out b, .pg-home .b-hw__no b { font-size: 11.5px; }
   .pg-home .b-px__tag, .pg-home .b-need__n, .pg-home .b-sol__n, .pg-home .b-why__n,
-  .pg-home .b-hw__steps b, .pg-home .b-sol__uses > small,
+  .pg-home .b-hw__steps b, .pg-home .b-trust small, .pg-home .b-sol__uses > small,
   .pg-home .b-std small, .pg-home .b-case small, .pg-home .b-addon .b-addon__label { font-size: 12px; }
 
   /* add-in cards: icon beside the title, as a compact list */
@@ -141,6 +141,10 @@
 
   /* FPGA chip illustration: smaller on phones */
   .pg-home .b-chip, .pg-home .b-chip__cap, .pg-home .b-chip__cta { max-width: 280px; }
+
+  /* "Deployed with and for" logo strip: logos at three quarters size, tighter gaps */
+  .pg-home .b-ticker__set { gap: 44px; padding-right: 44px; }
+  .pg-home .b-ticker__set img { height: calc(var(--h, 40px) * .75); }
 
   /* ----- Swipe rows: sectors and case studies scroll sideways ----- */
   .pg-home .b-sol__grid, .pg-home .b-proof__grid {
