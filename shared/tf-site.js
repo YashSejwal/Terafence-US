@@ -13,7 +13,7 @@ TF.NAV = [
     intro: { title: "Products", text: "Four FPGA-based gateways: three one-way models and one controlled two-way gateway. Sized for the cabinet, the rack or the product it goes inside.", link: { label: "All products", href: "/products" } },
     cols: [
       { title: "One-way (unidirectional)", links: [
-        { label: "TFG-121", sub: "DIN-rail, fan-less, -40 to +80 °C edge isolation", href: "/products/tfg-121" },
+        { label: "TFG-121", sub: "DIN-rail, fan-less, 32 °F to 113 °F (0 °C to 45 °C) edge isolation", href: "/products/tfg-121" },
         { label: "TFG-1URP", sub: "1U rack: plant boundary and SOC ingestion", href: "/products/tfg-1urp" },
         { label: "TFG121-BF", sub: "1 Gbps; 10 Gbps versions confirmed per quote", href: "/products/tfg121-bf" }
       ]},
@@ -98,7 +98,7 @@ TF.NAV = [
   },
   {
     label: "About us",
-    intro: { title: "About us", text: "Founded in 2015. FPGA engineering in Israel, industrial manufacturing in Taiwan, sales and support across the Americas, Europe and Asia.", link: { label: "About Terafence USA", href: "/about" } },
+    intro: { title: "About us", text: "Founded in 2015. FPGA engineering in Israel, sales and support across the Americas, Europe and Asia.", link: { label: "About Terafence USA", href: "/about" } },
     cols: [
       { title: "Terafence", links: [
         { label: "About Terafence USA", href: "/about" },

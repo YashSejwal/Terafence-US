@@ -569,6 +569,9 @@ a.b-px__obj { cursor: pointer; }
 .b-chip::after { content: ""; position: absolute; left: 50%; top: 50%; width: 76%; height: 76%; transform: translate(-50%, -50%); pointer-events: none;
   background: radial-gradient(circle, rgba(41,58,146,.16), rgba(41,58,146,0) 68%); }
 .b-chip svg { position: relative; z-index: 1; width: 100%; height: 100%; display: block; }
+/* chip animation video: it has its own grid and glow, so the box's ones are switched off */
+.b-chip--video::before, .b-chip--video::after { display: none; }
+.b-chip video { position: relative; z-index: 1; width: 100%; height: 100%; display: block; object-fit: cover; }
 .b-chip .trace { fill: none; stroke: rgba(41,58,146,.26); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
 .b-chip .via { fill: rgba(41,58,146,.3); }
 .b-chip .pin { stroke: rgba(41,58,146,.55); stroke-width: 2.4; stroke-linecap: round; }
@@ -881,6 +884,8 @@ body { font-size: 15.5px; }
             <img src="assets/logos/haifa.webp" alt="City of Haifa" style="--h:58px" width="38" height="58" decoding="async">
             <img src="assets/logos/bureau-of-immigration.webp" alt="Bureau of Immigration, India" style="--h:58px" width="58" height="58" decoding="async">
             <img src="assets/logos/ima.webp" alt="IMA" style="--h:29px" width="120" height="29" decoding="async">
+            <img src="assets/logos/urcs.webp" alt="U R Rao Satellite Centre" style="--h:45px" width="75" height="45" decoding="async">
+            <img src="assets/logos/sac.webp" alt="Space Applications Centre" style="--h:48px" width="71" height="48" decoding="async">
           </div>
         </div>
       </div>
@@ -1446,69 +1451,10 @@ body { font-size: 15.5px; }
 
     <div class="b-why__split">
       <div class="tf-reveal">
-        <div class="b-chip">
-          <svg viewBox="0 0 400 400" role="img" aria-label="Illustration of the FPGA enforcing core on a circuit board">
-            <defs>
-              <linearGradient id="dieGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#3D51B5"/><stop offset=".52" stop-color="#293A92"/><stop offset="1" stop-color="#141D55"/>
-              </linearGradient>
-            </defs>
-            <g class="trace">
-              <path d="M122 152H86V100H40"/>
-              <path d="M122 180H62V56"/>
-              <path d="M122 220H70V300H30"/>
-              <path d="M122 248H96V340"/>
-              <path d="M278 152H320V92H366"/>
-              <path d="M278 186H344V140"/>
-              <path d="M278 214H330V300H380"/>
-              <path d="M278 244H306V356"/>
-              <path d="M152 122V80H100"/>
-              <path d="M186 122V48"/>
-              <path d="M214 122V66H290"/>
-              <path d="M248 122V96H320"/>
-              <path d="M152 278V330H92"/>
-              <path d="M186 278V368"/>
-              <path d="M214 278V318H300"/>
-              <path d="M248 278V352H330"/>
-            </g>
-            <g class="via">
-              <circle cx="86" cy="100" r="3"/>
-              <circle cx="62" cy="56" r="3"/>
-              <circle cx="70" cy="300" r="3"/>
-              <circle cx="96" cy="340" r="3"/>
-              <circle cx="320" cy="92" r="3"/>
-              <circle cx="344" cy="140" r="3"/>
-              <circle cx="330" cy="300" r="3"/>
-              <circle cx="306" cy="356" r="3"/>
-              <circle cx="100" cy="80" r="3"/>
-              <circle cx="290" cy="66" r="3"/>
-              <circle cx="320" cy="96" r="3"/>
-              <circle cx="92" cy="330" r="3"/>
-              <circle cx="300" cy="318" r="3"/>
-              <circle cx="330" cy="352" r="3"/>
-            </g>
-            <!-- data enters on one side, crosses the core and leaves on the other -->
-            <path class="pulse" d="M-20 164H72V200H420"/>
-            <path class="pulse pulse--b" d="M-20 238H98V212H420"/>
-            <g class="pin">
-              <path d="M146 123v7M156 123v7M166 123v7M176 123v7M186 123v7M196 123v7M206 123v7M216 123v7M226 123v7M236 123v7M246 123v7"/>
-              <path d="M146 270v7M156 270v7M166 270v7M176 270v7M186 270v7M196 270v7M206 270v7M216 270v7M226 270v7M236 270v7M246 270v7"/>
-              <path d="M123 146h7M123 156h7M123 166h7M123 176h7M123 186h7M123 196h7M123 206h7M123 216h7M123 226h7M123 236h7M123 246h7"/>
-              <path d="M270 146h7M270 156h7M270 166h7M270 176h7M270 186h7M270 196h7M270 206h7M270 216h7M270 226h7M270 236h7M270 246h7"/>
-            </g>
-            <rect class="pkg" x="130" y="130" width="140" height="140" rx="7"/>
-            <circle class="trace" cx="145" cy="145" r="4.5"/>
-            <rect class="glow" x="152" y="152" width="96" height="96" rx="4"/>
-            <rect class="die" x="158" y="158" width="84" height="84" rx="4"/>
-            <g class="dieline">
-              <path d="M166 170h68"/>
-              <path d="M166 178h68"/>
-              <path d="M166 222h68"/>
-              <path d="M166 230h68"/>
-              <path d="M186 158v12M214 158v12M186 230v12M214 230v12"/>
-            </g>
-            <text class="label" x="201" y="205">FPGA</text>
-          </svg>
+        <div class="b-chip b-chip--video">
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/video/fpga-chip-no-return-path.webp" aria-label="Animation: data reaches the FPGA core, and the return path is blocked" data-chip-video>
+            <source src="assets/video/fpga-chip-no-return-path.mp4" type="video/mp4">
+          </video>
         </div>
         <p class="b-chip__cap">Conceptual illustration of the enforcing core.</p>
         <div class="b-chip__cta">
@@ -1723,6 +1669,8 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll("[data-figs]").forEach(countUp);
   document.querySelectorAll("[data-px]").forEach(productExplorer);
   document.querySelectorAll("[data-ticker]").forEach(logoTicker);
+  // chip animation: visitors who turn off motion see the still frame only
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) document.querySelectorAll("[data-chip-video]").forEach(function (v) { v.removeAttribute("autoplay"); v.pause(); });
   TF.heroRotator(document.querySelector("[data-hero]"));
   heroStreams(document.querySelector("[data-flow]"), document.querySelector("[data-photo]"));
 });
