@@ -51,7 +51,7 @@ TF.NAV = [
       ]},
       { title: "Integration", links: [
         { label: "Protocols and integration", sub: "Modbus, Syslog, SFTP, RTSP and more", href: "/technology/protocols-and-integration" },
-        { label: "Certifications and compliance", sub: "Assessment and test documentation on request", href: "/resources/certifications-compliance" }
+        { label: "Certifications and compliance", sub: "Assessment and test documentation on request", href: "mailto:info@terafence.us?subject=Request%20certifications%20and%20compliance%20documentation" }
       ]}
     ]
   },
@@ -83,7 +83,7 @@ TF.NAV = [
       { title: "Library", links: [
         { label: "Case studies", sub: "Real deployments, problem to impact", href: "/resources/case-studies" },
         { label: "Insights", sub: "Articles on OT security and one-way transfer", href: "/insights/" },
-        { label: "Certifications and compliance", sub: "Documentation available on request", href: "/resources/certifications-compliance" }
+        { label: "Certifications and compliance", sub: "Documentation available on request", href: "mailto:info@terafence.us?subject=Request%20certifications%20and%20compliance%20documentation" }
       ]},
       { title: "Datasheets", links: [
         { label: "TFG-121", sub: "Documentation available on request", href: "mailto:info@terafence.us?subject=Request%20datasheet" },
