@@ -390,3 +390,7 @@ a.cx-card.cx-card--img:hover { transform: none; box-shadow: 0 22px 44px rgba(10,
 .cs-source-visual a { display: block; border-radius: 16px; overflow: hidden; }
 .cs-source-visual img { display: block; width: 100%; height: auto; }
 .cs-source-visual a:focus-visible { outline: 3px solid var(--tf-indigo-glow); outline-offset: 5px; }
+/* Industry pages: related case studies and the way back to Solutions */
+.sx-related .cx-grid { margin-top: clamp(24px, 3vw, 40px); }
+.sx-related__foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 28px; margin-top: clamp(22px, 2.6vw, 32px); }
+.sx-related__foot .tf-link svg { width: 16px; height: 16px; }

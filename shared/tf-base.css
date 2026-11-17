@@ -82,7 +82,7 @@ p { margin: 0; }
   display: inline-flex; align-items: center; gap: 10px;
   font-family: var(--tf-font-head); font-weight: 600; font-size: 15px;
   padding: 14px 24px; border-radius: var(--tf-radius);
-  text-decoration: none; cursor: pointer; border: 1px solid transparent;
+  text-decoration: none; cursor: pointer; border: 1px solid transparent; background: transparent;
   transition: background .2s, color .2s, border-color .2s, transform .2s;
   white-space: nowrap;
 }
@@ -147,7 +147,7 @@ p { margin: 0; }
 .tf-nav__trigger {
   font-family: var(--tf-font-head); font-weight: 600; font-size: 15px;
   color: var(--tf-text-dark-bg); background: none; border: 0; cursor: pointer;
-  padding: 0 18px; display: flex; align-items: center; gap: 6px; position: relative; white-space: nowrap;
+  padding: 0 18px; display: flex; align-items: center; gap: 6px; position: relative; white-space: nowrap; text-decoration: none;
 }
 /* six menu items (Platform added 12 Nov 2026): tighten spacing as the screen narrows so nothing wraps */
 @media (max-width: 1480px) { .tf-nav__trigger { padding: 0 14px; } .tf-nav__trigger::after { left: 14px; right: 14px; } .tf-bar .tf-wrap { gap: 22px; } }

@@ -9,13 +9,13 @@ window.TF = window.TF || {};
 /* ---------- 1. Navigation (main bar + BASF-style black layer) ---------- */
 TF.NAV = [
   {
-    label: "Products",
+    label: "Products", href: "/products",
     intro: { title: "Products", text: "Four FPGA-based gateways: three one-way models and one controlled two-way gateway. Sized for the cabinet, the rack or the product it goes inside.", link: { label: "All products", href: "/products" } },
     cols: [
       { title: "One-way (unidirectional)", links: [
         { label: "TFG-121", sub: "DIN-rail, fan-less, 32 °F to 113 °F (0 °C to 45 °C) edge isolation", href: "/products/tfg-121" },
         { label: "TFG-1URP", sub: "1U rack: plant boundary and SOC ingestion", href: "/products/tfg-1urp" },
-        { label: "TFG121-BF", sub: "1 Gbps; 10 Gbps versions confirmed per quote", href: "/products/tfg121-bf" }
+        { label: "TFG121-BF", sub: "1-10 Gbps, 10 Gbps versions confirmed per quote", href: "/products/tfg121-bf" }
       ]},
       { title: "Controlled two-way", links: [
         { label: "TFG121-BSG", sub: "Controlled two-way gateway, not a diode", href: "/products/tfg121-bsg" }
@@ -27,7 +27,7 @@ TF.NAV = [
     ]
   },
   {
-    label: "Platform",
+    label: "Platform", href: "/platform",
     intro: { title: "Platform", text: "Four families of software and hardware services that extend the Terafence core.", link: { label: "All platform", href: "/platform" } },
     cols: [
       { title: "Platform", links: [
@@ -40,7 +40,7 @@ TF.NAV = [
     ]
   },
   {
-    label: "Technology",
+    label: "Technology", href: "/technology",
     intro: { title: "Technology", text: "Enforcement in silicon at OSI Layers 1-2. The FPGA core on the data path has no IP or MAC address.", link: { label: "How it works", href: "/technology" } },
     cols: [
       { title: "How it works", links: [
@@ -56,7 +56,7 @@ TF.NAV = [
     ]
   },
   {
-    label: "Solutions",
+    label: "Solutions", href: "/solutions",
     intro: { title: "Solutions", text: "One principle applied wherever operational data must leave and nothing may return.", link: { label: "Solutions overview", href: "/solutions" } },
     cols: [
       { title: "By industry", links: [
@@ -73,14 +73,11 @@ TF.NAV = [
         { label: "Secure file transfer into isolated networks", href: "/insights/secure-patch-software-distribution/" },
         { label: "OT data to the cloud", href: "/insights/ot-data-to-cloud/" },
         { label: "CCTV and video export", href: "/insights/reinforcing-cctv-security/" }
-      ]},
-      { title: "Services", links: [
-        { label: "Associated services", sub: "Assess, integrate, validate and support", href: "/services" }
       ]}
     ]
   },
   {
-    label: "Resources",
+    label: "Resources", href: "/resources",
     intro: { title: "Resources", text: "Datasheets, technical specifications, white papers, case studies and articles.", link: { label: "Resource library", href: "/resources" } },
     cols: [
       { title: "Library", links: [
@@ -97,8 +94,8 @@ TF.NAV = [
     ]
   },
   {
-    label: "About us",
-    intro: { title: "About us", text: "Founded in 2015. FPGA engineering in Israel, sales and support across the Americas, Europe and Asia.", link: { label: "About Terafence USA", href: "/about" } },
+    label: "About us", href: "/about",
+    intro: { title: "About us", text: "Founded in 2015. FPGA engineering in Israel, industrial manufacturing in Taiwan, sales and support across the Americas, Europe and Asia.", link: { label: "About Terafence USA", href: "/about" } },
     cols: [
       { title: "Terafence", links: [
         { label: "About Terafence USA", href: "/about" },
@@ -204,10 +201,6 @@ TF.FOOTER = [
         "/about"
       ],
       [
-        "Services",
-        "/services"
-      ],
-      [
         "Support",
         "/support"
       ],
@@ -237,7 +230,7 @@ TF.REAL_PREFIXES = ["/insights"];
 /* Pages inside sub-folders (e.g. insights/) set TF.ROOT = "../" or "../../" so the
    logo and the links above still point at the right files. Top-level pages leave it empty. */
 TF.ROOT = TF.ROOT || "";
-TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "index.html#products", "/products/tfg-1urp": "tfg-1urp.html", "/products/tfg-121": "tfg-121.html", "/products/build-your-solution": "build-your-solution.html", "/platform": "platform.html", "/technology": "technology.html", "/industries/oil-gas": "industry-oil-gas.html", "/industries/energy-renewables": "industry-energy-renewables.html", "/industries/utilities": "industry-utilities.html", "/industries/lifescience-pharma": "industry-lifescience-pharma.html", "/industries/industrial-manufacturing": "industry-industrial-manufacturing.html", "/industries/defense-government": "industry-defense-government.html", "/solutions": "solutions.html", "/case-studies/railway-ot-it": "case-railway-ot-it.html", "/resources/case-studies": "case-studies.html", "/case-studies/power-plant-emissions": "case-power-plant-emissions.html", "/case-studies/water-syslog-soc": "case-water-syslog-soc.html", "/case-studies/defense-bms-segmentation": "case-defense-bms-segmentation.html", "/case-studies/engine-turbine-modbus": "case-engine-turbine-modbus.html", "/case-studies/managed-soc": "case-managed-soc.html", "/case-studies/pharma-machinery-oem": "case-pharma-machinery-oem.html", "/case-studies/water-smtp-telemetry": "case-water-smtp-telemetry.html", "/case-studies/defense-cctv-japan": "case-defense-cctv-japan.html", "/case-studies/petrochemical-gas-flare": "case-petrochemical-gas-flare.html", "/products/tfg121-bf": "tfg121-bf.html", "/products/tfg121-bsg": "tfg121-bsg.html", "/products/compare": "compare.html", "/privacy": "privacy.html", "/terms": "terms.html", "/cookie": "cookie.html", "/support": "support.html" };
+TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "products.html", "/resources": "resources.html", "/products/tfg-1urp": "tfg-1urp.html", "/products/tfg-121": "tfg-121.html", "/products/build-your-solution": "build-your-solution.html", "/platform": "platform.html", "/technology": "technology.html", "/industries/oil-gas": "industry-oil-gas.html", "/industries/energy-renewables": "industry-energy-renewables.html", "/industries/utilities": "industry-utilities.html", "/industries/lifescience-pharma": "industry-lifescience-pharma.html", "/industries/industrial-manufacturing": "industry-industrial-manufacturing.html", "/industries/defense-government": "industry-defense-government.html", "/solutions": "solutions.html", "/case-studies/railway-ot-it": "case-railway-ot-it.html", "/resources/case-studies": "case-studies.html", "/case-studies/power-plant-emissions": "case-power-plant-emissions.html", "/case-studies/water-syslog-soc": "case-water-syslog-soc.html", "/case-studies/defense-bms-segmentation": "case-defense-bms-segmentation.html", "/case-studies/engine-turbine-modbus": "case-engine-turbine-modbus.html", "/case-studies/managed-soc": "case-managed-soc.html", "/case-studies/pharma-machinery-oem": "case-pharma-machinery-oem.html", "/case-studies/water-smtp-telemetry": "case-water-smtp-telemetry.html", "/case-studies/defense-cctv-japan": "case-defense-cctv-japan.html", "/case-studies/petrochemical-gas-flare": "case-petrochemical-gas-flare.html", "/products/tfg121-bf": "tfg121-bf.html", "/products/tfg121-bsg": "tfg121-bsg.html", "/products/compare": "compare.html", "/privacy": "privacy.html", "/terms": "terms.html", "/cookie": "cookie.html", "/support": "support.html" };
 
 /* =====================================================================
    Below this line: behaviour. No content to edit.
@@ -261,7 +254,7 @@ TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "index
       const cols = m.cols.map(c => `<div class="tf-mega__col"><h4>${c.title}</h4>${c.links.map(l => `<a href="${l.href}"><strong>${l.label}</strong>${l.sub ? `<span>${l.sub}</span>` : ""}</a>`).join("")}</div>`).join("");
       const feat = m.feature ? `<div class="tf-mega__feature"><small>${m.feature.kicker}</small><p>${m.feature.text}</p><a class="tf-link" href="${m.feature.link.href}">${m.feature.link.label} ${ARROW}</a></div>` : "";
       return `<div class="tf-nav__item" data-i="${i}">
-        <button class="tf-nav__trigger" aria-expanded="false" aria-controls="tf-mega-${i}">${m.label} ${CHEV}</button>
+        <a class="tf-nav__trigger" href="${m.href}" aria-expanded="false" aria-controls="tf-mega-${i}">${m.label} ${CHEV}</a>
         <div class="tf-mega" id="tf-mega-${i}" role="region" aria-label="${m.label}">
           <div class="tf-mega__inner">
             <div class="tf-mega__intro"><h3>${m.intro.title}</h3><p>${m.intro.text}</p><a class="tf-link" href="${m.intro.link.href}">${m.intro.link.label} ${ARROW}</a></div>
@@ -324,10 +317,20 @@ TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "index
         else openTimer = setTimeout(() => { open(n); hoverOpenedAt = Date.now(); }, 90);
       });
       n.addEventListener("pointerleave", e => { if (!isMouse(e)) return; clearTimeout(openTimer); closeTimer = setTimeout(closeAll, 260); });
+      // A click on the menu word goes to its page; hovering opens the dropdown.
+      // On touch there is no hover, so the first tap opens the dropdown and a second tap goes to the page.
+      let lastPointer = "mouse";
+      t.addEventListener("pointerdown", e => { lastPointer = e.pointerType; });
       t.addEventListener("click", e => {
-        // a mouse click right after hover-open keeps the menu open instead of toggling it shut
-        if (n.classList.contains("is-active")) { if (Date.now() - hoverOpenedAt > 600 || e.detail === 0) closeAll(); }
-        else open(n);
+        if (lastPointer === "touch" && !n.classList.contains("is-active")) { e.preventDefault(); open(n); }
+        lastPointer = "mouse";
+      });
+      // keyboard: Enter goes to the page, Space or Arrow Down opens the dropdown
+      t.addEventListener("keydown", e => {
+        if (e.key === " " || e.key === "ArrowDown") {
+          e.preventDefault(); open(n);
+          const first = n.querySelector(".tf-mega a"); if (first) setTimeout(() => first.focus({ preventScroll: true }), 60);
+        }
       });
     });
     bg.addEventListener("pointerenter", () => clearTimeout(closeTimer));

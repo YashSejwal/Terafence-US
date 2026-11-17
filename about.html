@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png">
 <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
 <title>About Terafence USA | The Team Behind the One-Way Gateway</title>
-<meta name="description" content="Terafence USA brings FPGA data diodes, engineered in Israel, to US critical infrastructure. Meet the leadership team.">
+<meta name="description" content="Terafence USA brings FPGA data diodes, engineered in Israel and built in Taiwan, to US critical infrastructure. Meet the leadership team.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -91,6 +91,7 @@ section[id] { scroll-margin-top: 150px; }
    and the panel on the left shows that chapter's figure. */
 .a-story { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(40px, 6vw, 104px); align-items: start; }
 .a-story__aside { position: sticky; top: 150px; }
+.a-who__lead { font-size: 16px; line-height: 1.65; color: var(--tf-muted-light-bg); margin: 0; max-width: 46ch; }
 /* during a click-triggered glide the panel rides with the page instead of pinning
    (see smoothScrollTo); otherwise it freezes and releases in the slow last stretch */
 .a-story__aside.is-riding { position: relative; top: 0; }
@@ -174,18 +175,11 @@ section[id] { scroll-margin-top: 150px; }
 .a-idea p { font-size: 15.5px; line-height: 1.75; color: var(--tf-muted-dark-bg); }
 .a-think__foot { margin-top: clamp(40px, 4.6vw, 64px); }
 .a-watch-btn { background: none; border: 0; padding: 0; cursor: pointer; }
-.a-vmodal { position: fixed; inset: 0; z-index: 320; display: grid; place-items: center; padding: 20px; visibility: hidden; opacity: 0; transition: opacity .35s ease, visibility 0s linear .35s; }
-.a-vmodal.is-open { visibility: visible; opacity: 1; transition: opacity .35s ease, visibility 0s; }
-.a-vmodal__scrim { position: absolute; inset: 0; background: rgba(4,6,26,.78); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
-.a-vmodal__box { position: relative; z-index: 1; width: min(920px, 100%); transform: translateY(18px) scale(.97); transition: transform .4s var(--tf-ease); }
-.a-vmodal.is-open .a-vmodal__box { transform: none; }
-.a-vmodal__close { position: absolute; top: -44px; right: 0; width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,.22); background: rgba(8,13,46,.85); color: #fff; cursor: pointer; display: grid; place-items: center; transition: background .25s, transform .25s; }
-.a-vmodal__close:hover { background: var(--tf-red); border-color: var(--tf-red); transform: rotate(90deg); }
 
 /* ---------- WHERE WE WORK ---------- */
 .a-where__head { max-width: 800px; margin-bottom: clamp(46px, 5vw, 70px); }
 .a-where__head p { margin-top: 18px; font-size: 16.5px; line-height: 1.75; color: var(--tf-muted-light-bg); max-width: 640px; }
-.a-route { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px, 2.4vw, 40px); }
+.a-route { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(18px, 2.4vw, 40px); }
 .a-route::before { content: ""; position: absolute; left: 7px; right: 0; top: 7px; height: 1px; background: var(--tf-line-light); }
 .a-route::after { content: ""; position: absolute; left: 7px; top: 7px; height: 1px; width: calc(100% - 7px);
   background: linear-gradient(90deg, var(--tf-indigo), rgba(41,58,146,.15)); transform: scaleX(0); transform-origin: left; transition: transform 1.6s var(--tf-ease); }
@@ -398,17 +392,9 @@ a.a-in:hover { background: #004182; transform: translateY(-2px); box-shadow: 0 8
     <div class="a-story" data-story>
       <div class="a-story__aside tf-reveal">
         <span class="tf-eyebrow">Who we are</span>
-        <h2 class="a-h2">One idea, <em>built into the hardware</em></h2>
-        <div class="a-dial" aria-hidden="true">
-          <div class="a-dial__top"><span><b data-dial-n>01</b> / 04</span><span data-dial-k>What we build</span></div>
-          <div class="a-dial__figs">
-          <div class="a-dial__item is-on" data-k="0"><strong >One-way</strong><span>The reverse path is absent from the circuit, not denied by a rule.</span></div>
-          <div class="a-dial__item" data-k="1"><strong >2015</strong><span>Founded in Israel. Shipping FPGA-based data diodes since 2017.</span></div>
-          <div class="a-dial__item" data-k="2"><strong>OEM</strong><span>Terafence ships embedded inside OEM machinery.</span></div>
-          <div class="a-dial__item" data-k="3"><strong >USA</strong><span>Terafence USA Inc., Farmers Branch, Texas.</span></div>
-          </div>
-          <div class="a-dial__bar"><button type="button" class="is-on" data-go="0" aria-label="Go to what we build"></button><button type="button" class="" data-go="1" aria-label="Go to where it began"></button><button type="button" class="" data-go="2" aria-label="Go to where it runs"></button><button type="button" class="" data-go="3" aria-label="Go to why we are here"></button></div>
-        </div>
+        <h2 class="a-h2">Get to Know Terafence</h2>
+        <p class="a-who__lead">Discover how Terafence approaches critical infrastructure security through FPGA-based hardware, physical isolation and one-way data flow. Watch our story.</p>
+        <button type="button" class="tf-vtile" data-open-video aria-label="Play the Terafence overview video"><img src="assets/video/terafence-overview-cover-v2.jpg" alt="" width="1672" height="941" loading="lazy" decoding="async"></button>
       </div>
       <ol class="a-story__list">
       <li class="a-ch is-on" data-ch="0" tabindex="0">
@@ -424,7 +410,7 @@ a.a-in:hover { background: #004182; transform: translateY(-2px); box-shadow: 0 8
         <div class="a-ch__body">
           <small>Where it began</small>
           <h3>Engineered in Israel since 2015</h3>
-          <p>Terafence was founded in 2015 in Israel, where its engineers design the FPGA logic. It has shipped FPGA-based data diodes since 2017.</p>
+          <p>Terafence was founded in 2015 in Israel, where its engineers design the FPGA logic. It has shipped FPGA-based data diodes since 2017, and the hardware is manufactured to industrial grade in Taiwan.</p>
         </div>
       </li>
       <li class="a-ch" data-ch="2" tabindex="0">
@@ -497,11 +483,12 @@ a.a-in:hover { background: #004182; transform: translateY(-2px); box-shadow: 0 8
   <div class="tf-wrap">
     <div class="a-where__head tf-reveal">
       <span class="tf-eyebrow">Where we work</span>
-      <h2 class="a-h2">Engineered in Israel. <em>Supported worldwide</em></h2>
+      <h2 class="a-h2">Engineered in Israel. Built in Taiwan. <em>Supported worldwide</em></h2>
       <p>Each region does the job it is best placed to do, and the Americas team is growing.</p>
     </div>
     <div class="a-route tf-reveal">
       <div class="a-stop"><span class="a-flag" title="Israel"><svg viewBox="0 0 30 20" role="img" aria-label="Flag of Israel"><clipPath id="fcisrael"><rect width="30" height="20" rx="2.5"/></clipPath><g clip-path="url(#fcisrael)"><rect width="30" height="20" fill="#fff"/><rect y="2.2" width="30" height="3" fill="#0038B8"/><rect y="14.8" width="30" height="3" fill="#0038B8"/><g fill="none" stroke="#0038B8" stroke-width=".9"><polygon points="15,6.4 18.1,11.8 11.9,11.8"/><polygon points="15,13.6 11.9,8.2 18.1,8.2"/></g></g></svg></span><small>Founded 2015</small><h3>Israel</h3><p>R&amp;D, FPGA logic and engineering.</p></div>
+      <div class="a-stop"><span class="a-flag" title="Taiwan"><svg viewBox="0 0 30 20" role="img" aria-label="Flag of Taiwan"><clipPath id="fctaiwan"><rect width="30" height="20" rx="2.5"/></clipPath><g clip-path="url(#fctaiwan)"><rect width="30" height="20" fill="#FE0000"/><rect width="15" height="10" fill="#000095"/><polygon points="7.50,1.40 8.07,2.87 9.30,1.88 9.06,3.44 10.62,3.20 9.63,4.43 11.10,5.00 9.63,5.57 10.62,6.80 9.06,6.56 9.30,8.12 8.07,7.13 7.50,8.60 6.93,7.13 5.70,8.12 5.94,6.56 4.38,6.80 5.37,5.57 3.90,5.00 5.37,4.43 4.38,3.20 5.94,3.44 5.70,1.88 6.93,2.87" fill="#fff"/><circle cx="7.5" cy="5" r="2" fill="#000095"/><circle cx="7.5" cy="5" r="1.6" fill="#fff"/></g></svg></span><small>Manufacturing</small><h3>Taiwan</h3><p>Hardware manufacturing at industrial grade.</p></div>
       <div class="a-stop"><span class="a-flag a-flag--globe" title="Europe and Asia"><svg viewBox="0 0 30 20" role="img" aria-label="Europe and Asia"><rect width="30" height="20" rx="2.5" fill="#293A92"/><g fill="none" stroke="#fff" stroke-width="1" opacity=".95"><circle cx="15" cy="10" r="6.4"/><ellipse cx="15" cy="10" rx="2.8" ry="6.4"/><path d="M8.6 10h12.8M9.6 6.6h10.8M9.6 13.4h10.8"/></g></svg></span><small>Sales and support</small><h3>Europe and Asia</h3><p>Sales, engineering and support close to the customer.</p></div>
       <div class="a-stop a-stop--us"><span class="a-flag" title="the United States"><svg viewBox="0 0 30 20" role="img" aria-label="Flag of the United States"><clipPath id="fcstates"><rect width="30" height="20" rx="2.5"/></clipPath><g clip-path="url(#fcstates)"><rect y="0.000" width="30" height="1.538" fill="#B22234"/><rect y="1.538" width="30" height="1.538" fill="#fff"/><rect y="3.077" width="30" height="1.538" fill="#B22234"/><rect y="4.615" width="30" height="1.538" fill="#fff"/><rect y="6.154" width="30" height="1.538" fill="#B22234"/><rect y="7.692" width="30" height="1.538" fill="#fff"/><rect y="9.231" width="30" height="1.538" fill="#B22234"/><rect y="10.769" width="30" height="1.538" fill="#fff"/><rect y="12.308" width="30" height="1.538" fill="#B22234"/><rect y="13.846" width="30" height="1.538" fill="#fff"/><rect y="15.385" width="30" height="1.538" fill="#B22234"/><rect y="16.923" width="30" height="1.538" fill="#fff"/><rect y="18.462" width="30" height="1.538" fill="#B22234"/><rect width="12" height="10.769" fill="#3C3B6E"/><circle cx="1.20" cy="1.10" r=".38" fill="#fff"/><circle cx="3.20" cy="1.10" r=".38" fill="#fff"/><circle cx="5.20" cy="1.10" r=".38" fill="#fff"/><circle cx="7.20" cy="1.10" r=".38" fill="#fff"/><circle cx="9.20" cy="1.10" r=".38" fill="#fff"/><circle cx="11.20" cy="1.10" r=".38" fill="#fff"/><circle cx="2.15" cy="2.40" r=".38" fill="#fff"/><circle cx="4.15" cy="2.40" r=".38" fill="#fff"/><circle cx="6.15" cy="2.40" r=".38" fill="#fff"/><circle cx="8.15" cy="2.40" r=".38" fill="#fff"/><circle cx="10.15" cy="2.40" r=".38" fill="#fff"/><circle cx="1.20" cy="3.70" r=".38" fill="#fff"/><circle cx="3.20" cy="3.70" r=".38" fill="#fff"/><circle cx="5.20" cy="3.70" r=".38" fill="#fff"/><circle cx="7.20" cy="3.70" r=".38" fill="#fff"/><circle cx="9.20" cy="3.70" r=".38" fill="#fff"/><circle cx="11.20" cy="3.70" r=".38" fill="#fff"/><circle cx="2.15" cy="5.00" r=".38" fill="#fff"/><circle cx="4.15" cy="5.00" r=".38" fill="#fff"/><circle cx="6.15" cy="5.00" r=".38" fill="#fff"/><circle cx="8.15" cy="5.00" r=".38" fill="#fff"/><circle cx="10.15" cy="5.00" r=".38" fill="#fff"/><circle cx="1.20" cy="6.30" r=".38" fill="#fff"/><circle cx="3.20" cy="6.30" r=".38" fill="#fff"/><circle cx="5.20" cy="6.30" r=".38" fill="#fff"/><circle cx="7.20" cy="6.30" r=".38" fill="#fff"/><circle cx="9.20" cy="6.30" r=".38" fill="#fff"/><circle cx="11.20" cy="6.30" r=".38" fill="#fff"/><circle cx="2.15" cy="7.60" r=".38" fill="#fff"/><circle cx="4.15" cy="7.60" r=".38" fill="#fff"/><circle cx="6.15" cy="7.60" r=".38" fill="#fff"/><circle cx="8.15" cy="7.60" r=".38" fill="#fff"/><circle cx="10.15" cy="7.60" r=".38" fill="#fff"/><circle cx="1.20" cy="8.90" r=".38" fill="#fff"/><circle cx="3.20" cy="8.90" r=".38" fill="#fff"/><circle cx="5.20" cy="8.90" r=".38" fill="#fff"/><circle cx="7.20" cy="8.90" r=".38" fill="#fff"/><circle cx="9.20" cy="8.90" r=".38" fill="#fff"/><circle cx="11.20" cy="8.90" r=".38" fill="#fff"/><circle cx="2.15" cy="10.20" r=".38" fill="#fff"/><circle cx="4.15" cy="10.20" r=".38" fill="#fff"/><circle cx="6.15" cy="10.20" r=".38" fill="#fff"/><circle cx="8.15" cy="10.20" r=".38" fill="#fff"/><circle cx="10.15" cy="10.20" r=".38" fill="#fff"/></g></svg></span><small>Terafence USA Inc.</small><h3>The Americas</h3><p>An expanding sales, engineering and support presence.</p></div>
     </div>
@@ -804,12 +791,12 @@ TF.LOGO_HREF = "index.html";
       chs.forEach((c, n) => c.classList.toggle("is-on", n === i));
       items.forEach((c, n) => c.classList.toggle("is-on", n === i));
       bars.forEach((b, n) => { b.classList.toggle("is-on", n === i); b.classList.toggle("is-done", n < i); });
-      numEl.textContent = String(i + 1).padStart(2, "0");
-      kEl.textContent = chs[i].querySelector("small").textContent;
+      if (numEl) numEl.textContent = String(i + 1).padStart(2, "0");
+      if (kEl) kEl.textContent = chs[i].querySelector("small").textContent;
       const dot = chs[i].offsetTop + (i === 0 ? 10 : parseFloat(getComputedStyle(chs[i]).paddingTop) + 10);
       list.style.setProperty("--p", dot + "px");
-      dial.style.setProperty("--gx", (i % 2 ? -60 : 0) + "px"); dial.style.setProperty("--gy", (i * 22) + "px");
-      countUp(items[i].querySelector("strong"));
+      if (dial) { dial.style.setProperty("--gx", (i % 2 ? -60 : 0) + "px"); dial.style.setProperty("--gy", (i * 22) + "px"); }
+      if (items[i]) countUp(items[i].querySelector("strong"));
     }
     if ("IntersectionObserver" in window) {
       const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) setActive(chs.indexOf(en.target)); }), { rootMargin: "-42% 0px -48% 0px" });
@@ -854,30 +841,6 @@ TF.LOGO_HREF = "index.html";
   const drawIO = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add("is-in"); drawIO.unobserve(en.target); } }), { threshold: .25 }) : null;
   document.querySelectorAll(".a-idea, .a-route, .a-figs").forEach(el => drawIO ? drawIO.observe(el) : el.classList.add("is-in"));
 
-  /* ---- video popup modal ---- */
-  const vmodal = document.querySelector("[data-vmodal]");
-  const openBtn = document.querySelector("[data-open-video]");
-  if (vmodal && openBtn) {
-    const vid = vmodal.querySelector("video");
-    let vFocus = null;
-    function openVideo() {
-      vFocus = document.activeElement;
-      vmodal.setAttribute("aria-hidden", "false");
-      vmodal.classList.add("is-open");
-      document.body.classList.add("tf-noscroll");
-      if (vid) { const p = vid.play(); if (p && p.catch) p.catch(() => {}); }
-    }
-    function closeVideo() {
-      vmodal.classList.remove("is-open");
-      vmodal.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("tf-noscroll");
-      if (vid) vid.pause();
-      if (vFocus) vFocus.focus({ preventScroll: true });
-    }
-    openBtn.addEventListener("click", openVideo);
-    vmodal.querySelectorAll("[data-vmodal-close]").forEach(b => b.addEventListener("click", closeVideo));
-    document.addEventListener("keydown", e => { if (e.key === "Escape" && vmodal.classList.contains("is-open")) closeVideo(); });
-  }
 
 })();
 </script>
