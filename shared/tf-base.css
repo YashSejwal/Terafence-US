@@ -355,3 +355,6 @@ html.tf-locked, html.tf-locked body { overflow: hidden; }
 /* menu and footer entries with no page yet (no href): plain text, not a link */
 .tf-mega a:not([href]), .tf-mobile a:not([href]) { cursor: default; }
 .tf-mega a:not([href]):hover, .tf-mobile a:not([href]):hover { background: none; color: inherit; }
+
+/* hero headings: second phrase in indigo, as on the Products banner */
+.a-hero h1 em, .cf-hero h1 em, .sp-hero h1 em, .cs-top h1 em, .sx-hero h1 em, .ins-hero h1 em { font-style: normal; color: var(--tf-indigo-glow); }
