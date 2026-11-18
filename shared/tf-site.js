@@ -114,7 +114,7 @@ TF.CTA = { primary: { label: "Plan a pilot", href: "/contact?topic=pilot" }, sec
 
 /* ---------- 2. Rotating hero messages (Banner 1) ---------- */
 TF.HERO_MESSAGES = [
-  { long: true, title: "IMAGINE<br>UNINTERRUPTED<br>ISOLATION of every connected IT / IoT &amp; OT device on the planet", text: "Our patent-protected solutions physically isolate IT / IoT and OT devices while maintaining data flow and control uninterrupted." },
+  { title: "Imagine<br>uninterrupted<br>isolation of every connected IT / IoT &amp; OT device on the planet", text: "Our patent-protected solutions physically isolate IT / IoT and OT devices while maintaining data flow and control uninterrupted." },
   { title: "Transform your security with Terafence Gateway Protection", text: "Next-Gen solutions that protect your most vulnerable assets with unidirectional data flow technology" },
   { title: "Protecting Critical Infrastructure", text: "Cutting-edge cybersecurity solutions designed for mission-critical environments in the modern threat landscape" }
 ];

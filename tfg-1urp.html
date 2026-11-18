@@ -375,7 +375,7 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
 
 /* two wide cards: image beside text */
 .p-rel { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-.p-rel { grid-template-columns: repeat(3, 1fr); }
+.p-rel { grid-template-columns: repeat(4, 1fr); }
 .p-rel .p-rc__img { height: 190px; border-bottom: 1px solid var(--tf-line-light); }
 .p-rel .p-rc__img img { max-height: 132px; }
 .p-rel .p-rc__img--tall img { max-height: 150px; }
@@ -392,7 +392,7 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
   .p-feat-pr { grid-template-columns: .9fr 1.2fr; }
   .p-feat-pr__keys { grid-column: 1 / -1; margin: 0; padding: 24px clamp(24px, 2.8vw, 36px) 28px; border-left: 0; border-top: 1px solid var(--tf-line-light); }
   .p-feat-pr__keys ul { grid-template-columns: repeat(2, 1fr); column-gap: 28px; }
-  .p-rel { gap: 14px; }
+  .p-rel { gap: 14px; grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 600px) {
   .p-feat-pr, .p-rel { grid-template-columns: 1fr; }
@@ -849,6 +849,15 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
           <span class="p-rc__go">View product <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></span>
         </span>
       </a>
+      <div class="p-rc">
+        <span class="p-rc__img"><img src="assets/studio/tfg-vsecure.webp" alt="Terafence TFG-VSecure CCTV gateway" loading="lazy" width="1600" height="528" decoding="async"></span>
+        <span class="p-rc__body">
+          <small>Unidirectional &middot; CCTV and video</small>
+          <b>TFG-VSecure</b>
+          <span class="p-rc__txt">Isolates IP cameras and lifts video out of the protected segment, so a compromised camera cannot reach the network behind it.</span>
+          <span class="p-rc__facts"><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9h3l2-5 3 8 2-5h2"/></svg>1-10 Gbps</i><i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="4.5" rx="1"/><rect x="1.5" y="9" width="13" height="4.5" rx="1"/><circle cx="4" cy="4.75" r=".6" fill="currentColor" stroke="none"/><circle cx="4" cy="11.25" r=".6" fill="currentColor" stroke="none"/></svg>1U rack or cabinet</i></span>
+        </span>
+      </div>
     </div>
 
   </div>
