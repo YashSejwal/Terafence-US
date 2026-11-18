@@ -48,7 +48,7 @@
 .cf-step__head .tf-link svg { width: 15px; height: 15px; }
 
 /* step 1: gateways in one row */
-.cf-gws { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.cf-gws { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
 .cf-gw { position: relative; display: flex; flex-direction: column; overflow: hidden; border-radius: 14px; background: #fff; border: 1.5px solid var(--tf-line-light); cursor: pointer; transition: border-color .25s, box-shadow .25s; }
 .cf-gw input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
 .cf-gw:hover { border-color: rgba(41,58,146,.4); }
@@ -215,6 +215,12 @@
           <span class="cf-gw__tick" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.4l2.9 2.9 6-6.4"/></svg></span>
           <span class="cf-gw__img"><img src="assets/tfg121-bsg.webp" alt="" loading="lazy" width="1250" height="244" decoding="async"></span>
           <span class="cf-gw__body"><b>TFG121-BSG</b><small>Bidirectional security gateway</small><i>Two-way, pre-defined</i></span>
+        </label>
+        <label class="cf-gw">
+          <input type="radio" name="gateway" value="tfg-vsecure" data-name="TFG-VSecure">
+          <span class="cf-gw__tick" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.4l2.9 2.9 6-6.4"/></svg></span>
+          <span class="cf-gw__img"><img src="assets/studio/tfg-vsecure.webp" alt="" loading="lazy" width="1600" height="528" decoding="async"></span>
+          <span class="cf-gw__body"><b>TFG-VSecure</b><small>Unidirectional &middot; CCTV and video</small><i>1-10 Gbps</i></span>
         </label>
       </div>
     </fieldset>

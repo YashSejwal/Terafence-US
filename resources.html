@@ -52,6 +52,8 @@ a.lp-row:hover { border-color: var(--tf-indigo-glow); transform: translateX(3px)
 @media (max-width: 1080px) { .lp-hero__in { grid-template-columns: 1fr; } }
 .lp-grid, .lp-list, .pg-resources .cx-grid { margin-top: clamp(24px, 3vw, 40px); }
 .lp-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.pg-products .lp-grid:not(.lp-grid--2) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.lp-panel__grid .lp-tile:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .lp-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .lp-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .lp-card { display: flex; flex-direction: column; padding: 24px; border-radius: 16px; background: #fff; border: 1px solid var(--tf-line-light); color: var(--tf-text-light-bg); text-decoration: none; transition: border-color .25s, transform .3s var(--tf-ease), box-shadow .3s; }
@@ -67,12 +69,12 @@ a.lp-card:hover { border-color: var(--tf-indigo); transform: translateY(-3px); b
 .lp-card .cx-card__go { margin-top: auto; padding-top: 18px; }
 .lp-meta { margin-top: 14px; font-size: 13.5px; color: var(--tf-muted-light-bg); }
 .lp-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.lp-list a { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 22px; border-radius: 12px; background: #fff; border: 1px solid var(--tf-line-light); color: var(--tf-text-light-bg); text-decoration: none; transition: border-color .25s; }
+.lp-list a, .lp-list__item { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 22px; border-radius: 12px; background: #fff; border: 1px solid var(--tf-line-light); color: var(--tf-text-light-bg); text-decoration: none; transition: border-color .25s; }
 .lp-list a:hover { border-color: var(--tf-indigo); }
 .lp-list b { font-family: var(--tf-font-head); font-weight: 600; } .lp-list span { font-size: 13.5px; color: var(--tf-muted-light-bg); text-align: right; }
 .lp-more { margin-top: clamp(20px, 2.4vw, 28px); }
-@media (max-width: 1080px) { .lp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 760px) { .lp-grid, .lp-grid--3, .lp-grid--2, .lp-list { grid-template-columns: 1fr; } .lp-list a { flex-direction: column; align-items: flex-start; } .lp-list span { text-align: left; } }
+@media (max-width: 1080px) { .lp-grid, .pg-products .lp-grid:not(.lp-grid--2) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .lp-grid, .lp-grid--3, .lp-grid--2, .lp-list, .pg-products .lp-grid:not(.lp-grid--2) { grid-template-columns: 1fr; } .lp-list a, .lp-list__item { flex-direction: column; align-items: flex-start; } .lp-list span { text-align: left; } }
 </style>
 </head>
 <body class="pg-resources">
@@ -90,7 +92,7 @@ a.lp-card:hover { border-color: var(--tf-indigo); transform: translateY(-3px); b
         <a class="tf-btn tf-btn--ghost" href="/resources/case-studies">Read the case studies</a>
       </div>
     </div>
-    <figure class="lp-hero__vis" aria-label="What is in the resource library"><div class="lp-panel"><a class="lp-row" href="/resources/case-studies"><strong>10</strong><span><b>Case studies</b><small>Real deployments, problem to impact</small></span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a><a class="lp-row" href="/insights/"><strong>6</strong><span><b>Insights</b><small>Articles on OT security and one-way transfer</small></span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a><a class="lp-row" href="#datasheets"><strong>4</strong><span><b>Product datasheets</b><small>Documentation available on request</small></span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a></div></figure>
+    <figure class="lp-hero__vis" aria-label="What is in the resource library"><div class="lp-panel"><a class="lp-row" href="/resources/case-studies"><strong>10</strong><span><b>Case studies</b><small>Real deployments, problem to impact</small></span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a><a class="lp-row" href="/insights/"><strong>6</strong><span><b>Insights</b><small>Articles on OT security and one-way transfer</small></span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a><a class="lp-row" href="#datasheets"><strong>5</strong><span><b>Product datasheets</b><small>Documentation available on request</small></span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a></div></figure>
   </div>
 </section>
 
@@ -120,7 +122,7 @@ a.lp-card:hover { border-color: var(--tf-indigo); transform: translateY(-3px); b
 <section class="sx-sec sx-mist" id="datasheets">
   <div class="tf-wrap">
     <div class="sx-head"><span class="tf-eyebrow">Datasheets</span><h2>Product datasheets</h2></div>
-    <div class="lp-list"><a href="mailto:info@terafence.us?subject=Request%20datasheet"><b>TFG-121</b><span>Documentation available on request</span></a><a href="mailto:info@terafence.us?subject=Request%20datasheet"><b>TFG-1URP</b><span>Documentation available on request</span></a><a href="mailto:info@terafence.us?subject=Request%20datasheet"><b>TFG121-BF</b><span>Documentation available on request</span></a><a href="mailto:info@terafence.us?subject=Request%20datasheet"><b>TFG121-BSG</b><span>Documentation available on request</span></a></div>
+    <div class="lp-list"><a href="mailto:info@terafence.us?subject=Request%20datasheet"><b>TFG-121</b><span>Documentation available on request</span></a><a href="mailto:info@terafence.us?subject=Request%20datasheet"><b>TFG-1URP</b><span>Documentation available on request</span></a><a href="mailto:info@terafence.us?subject=Request%20datasheet"><b>TFG121-BF</b><span>Documentation available on request</span></a><a href="mailto:info@terafence.us?subject=Request%20datasheet"><b>TFG121-BSG</b><span>Documentation available on request</span></a><div class="lp-list__item"><b>TFG-VSecure</b><span>Documentation available on request</span></div></div>
   </div>
 </section>
 

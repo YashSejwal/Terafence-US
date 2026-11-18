@@ -10,12 +10,13 @@ window.TF = window.TF || {};
 TF.NAV = [
   {
     label: "Products", href: "/products",
-    intro: { title: "Products", text: "Four FPGA-based gateways: three one-way models and one controlled two-way gateway. Sized for the cabinet, the rack or the product it goes inside.", link: { label: "All products", href: "/products" } },
+    intro: { title: "Products", text: "Five FPGA-based gateways: four one-way models and one controlled two-way gateway. Sized for the cabinet, the rack or the product it goes inside.", link: { label: "All products", href: "/products" } },
     cols: [
       { title: "One-way (unidirectional)", links: [
         { label: "TFG-121", sub: "DIN-rail, fan-less, 32 °F to 113 °F (0 °C to 45 °C) edge isolation", href: "/products/tfg-121" },
         { label: "TFG-1URP", sub: "1U rack: plant boundary and SOC ingestion", href: "/products/tfg-1urp" },
-        { label: "TFG121-BF", sub: "1-10 Gbps, 10 Gbps versions confirmed per quote", href: "/products/tfg121-bf" }
+        { label: "TFG121-BF", sub: "1-10 Gbps, 10 Gbps versions confirmed per quote", href: "/products/tfg121-bf" },
+        { label: "TFG-VSecure", sub: "CCTV gateway for RTSP / ONVIF video" }
       ]},
       { title: "Controlled two-way", links: [
         { label: "TFG121-BSG", sub: "Controlled two-way gateway, not a diode", href: "/products/tfg121-bsg" }
@@ -113,10 +114,9 @@ TF.CTA = { primary: { label: "Plan a pilot", href: "/contact?topic=pilot" }, sec
 
 /* ---------- 2. Rotating hero messages (Banner 1) ---------- */
 TF.HERO_MESSAGES = [
-  { kicker: "Hardware-enforced one-way gateways", title: "Data Out.<br>Nothing Back In.", text: "Send live plant data to historians, the cloud, OEMs, SOCs and regulators while the control network stays unreachable, enforced in FPGA hardware." },
-  { kicker: "Operational visibility", title: "Share the data.<br>Keep the boundary.", text: "Monitoring, maintenance and reporting continue as normal. The route back into your plant does not exist." },
-  { kicker: "A different question", title: "Can the attack path<br>physically exist?", text: "Firewalls decide what to let in. Terafence removes the inbound path in silicon, below the network stack." },
-  { kicker: "Worst case, by design", title: "Maintain operational isolation<br>while sharing essential data.", text: "With no reverse circuit to open, the worst outcome is a missed reading, not a compromised process." }
+  { long: true, title: "IMAGINE<br>UNINTERRUPTED<br>ISOLATION of every connected IT / IoT &amp; OT device on the planet", text: "Our patent-protected solutions physically isolate IT / IoT and OT devices while maintaining data flow and control uninterrupted." },
+  { title: "Transform your security with Terafence Gateway Protection", text: "Next-Gen solutions that protect your most vulnerable assets with unidirectional data flow technology" },
+  { title: "Protecting Critical Infrastructure", text: "Cutting-edge cybersecurity solutions designed for mission-critical environments in the modern threat landscape" }
 ];
 TF.HERO_INTERVAL_MS = 6000;
 
@@ -140,6 +140,10 @@ TF.FOOTER = [
       [
         "TFG121-BSG",
         "/products/tfg121-bsg"
+      ],
+      [
+        "TFG-VSecure",
+        ""
       ],
       [
         "Compare gateways",
@@ -251,7 +255,7 @@ TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "produ
   function renderHeader(el) {
     const util = TF.UTIL.map(u => `<a href="${u.href}">${u.label}</a>`).join("");
     const items = TF.NAV.map((m, i) => {
-      const cols = m.cols.map(c => `<div class="tf-mega__col"><h4>${c.title}</h4>${c.links.map(l => `<a href="${l.href}"><strong>${l.label}</strong>${l.sub ? `<span>${l.sub}</span>` : ""}</a>`).join("")}</div>`).join("");
+      const cols = m.cols.map(c => `<div class="tf-mega__col"><h4>${c.title}</h4>${c.links.map(l => `<a${l.href ? ` href="${l.href}"` : ""}><strong>${l.label}</strong>${l.sub ? `<span>${l.sub}</span>` : ""}</a>`).join("")}</div>`).join("");
       const feat = m.feature ? `<div class="tf-mega__feature"><small>${m.feature.kicker}</small><p>${m.feature.text}</p><a class="tf-link" href="${m.feature.link.href}">${m.feature.link.label} ${ARROW}</a></div>` : "";
       return `<div class="tf-nav__item" data-i="${i}">
         <a class="tf-nav__trigger" href="${m.href}" aria-expanded="false" aria-controls="tf-mega-${i}">${m.label} ${CHEV}</a>
@@ -277,7 +281,7 @@ TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "produ
     const mob = document.createElement("div");
     mob.className = "tf-mobile"; mob.setAttribute("aria-label", "Menu");
     mob.innerHTML = `<div class="tf-mobile__top"><img src="${TF.ROOT + TF.LOGO_DARK_BG}" alt="Terafence" width="400" height="106" decoding="async"><button class="tf-mobile__close" aria-label="Close menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.8"/></svg></button></div>
-      ${TF.NAV.map(m => `<details><summary>${m.label}</summary><div class="tf-mobile__group"><a href="${m.intro.link.href}"><strong>${m.intro.link.label}</strong></a>${m.cols.map(c => `<h4>${c.title}</h4>${c.links.map(l => `<a href="${l.href}">${l.label}</a>`).join("")}`).join("")}</div></details>`).join("")}
+      ${TF.NAV.map(m => `<details><summary>${m.label}</summary><div class="tf-mobile__group"><a href="${m.intro.link.href}"><strong>${m.intro.link.label}</strong></a>${m.cols.map(c => `<h4>${c.title}</h4>${c.links.map(l => `<a${l.href ? ` href="${l.href}"` : ""}>${l.label}</a>`).join("")}`).join("")}</div></details>`).join("")}
       <div class="tf-mobile__cta"><a class="tf-btn tf-btn--primary" href="${TF.CTA.primary.href}">${TF.CTA.primary.label}</a><a class="tf-btn tf-btn--ghost" href="${TF.CTA.secondary.href}">${TF.CTA.secondary.label}</a></div>
       <div class="tf-mobile__util">${util}</div>`;
     document.body.appendChild(mob);
@@ -362,7 +366,7 @@ TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "produ
 
   function renderFooter(el) {
     if (!document.querySelector('link[data-tf-footer-style]')) { const sheet=document.createElement("link"); sheet.rel="stylesheet"; sheet.href=TF.ROOT+"shared/tf-footer.css"; sheet.dataset.tfFooterStyle=""; document.head.appendChild(sheet); }
-    const cols = TF.FOOTER.map(c => `<div><h4>${c.title}</h4><ul>${c.links.map(([l, h]) => `<li><a href="${h}">${l}</a></li>`).join("")}</ul></div>`).join("");
+    const cols = TF.FOOTER.map(c => `<div><h4>${c.title}</h4><ul>${c.links.map(([l, h]) => h ? `<li><a href="${h}">${l}</a></li>` : `<li><span>${l}</span></li>`).join("")}</ul></div>`).join("");
     el.innerHTML = `<div class="tf-wrap"><div class="tf-footer__grid">
         <div class="tf-footer__brand"><img src="${TF.ROOT + TF.LOGO_DARK_BG}" alt="Terafence" width="400" height="106" loading="lazy" decoding="async"><p>FPGA-based data diodes and unidirectional gateways that let operational data out while keeping critical systems unreachable.</p>
           <address>12788 Royal Oaks Lane<br>Farmers Branch, TX 75234<br><a href="tel:+17325015974">+1 (732) 501-5974</a></address><p><a href="mailto:info@terafence.us">info@terafence.us</a></p><div class="tf-social"><span class="tf-social__pending" role="img" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4M3 9h4v12H3zm6 0h4v2c1-2 7-4 8 3v7h-4v-7c0-3-4-3-4 0v7H9z"/></svg><span class="sr-only">LinkedIn</span></span><span class="tf-social__pending" role="img" aria-label="YouTube" title="YouTube"><svg width="28" height="24" viewBox="0 0 28 24" fill="currentColor" aria-hidden="true"><path d="M26 6c-.3-1.4-1.3-2.4-2.7-2.7C20.9 3 7.1 3 4.7 3.3 3.3 3.6 2.3 4.6 2 6c-.6 3-.6 9 0 12 .3 1.4 1.3 2.4 2.7 2.7 2.4.3 16.2.3 18.6 0 1.4-.3 2.4-1.3 2.7-2.7.6-3 .6-9 0-12M11 16V8l7 4z"/></svg></span><span class="tf-social__pending" role="img" aria-label="Twitter / X" title="Twitter / X"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22H17l-4.9-7.4L5.6 22H2.4l8.2-9.5L.8 2h6.4l4.5 6.7L18.9 2M17.6 20h1.7L6 3.9H4.2z"/></svg></span></div><div class="tf-footer__slogan">UNREACHABLE <b>BY</b> DESIGN</div></div>
@@ -414,7 +418,7 @@ TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "produ
       i = (j + M.length) % M.length;
       box.classList.add("is-out");
       setTimeout(() => {
-        k.textContent = M[i].kicker; ti.innerHTML = M[i].title; tx.textContent = M[i].text;
+        if (k) k.textContent = M[i].kicker || ""; ti.innerHTML = M[i].title; ti.classList.toggle("is-long", !!M[i].long); tx.textContent = M[i].text;
         box.classList.remove("is-out");
       }, 380);
       btns.forEach((b, n) => b.classList.toggle("is-on", n === i));
@@ -422,7 +426,7 @@ TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "produ
       if (!matchMedia("(prefers-reduced-motion: reduce)").matches) timer = setTimeout(() => show(i + 1), TF.HERO_INTERVAL_MS);
     }
     btns.forEach((b, n) => b.addEventListener("click", () => show(n)));
-    k.textContent = M[0].kicker; ti.innerHTML = M[0].title; tx.textContent = M[0].text;
+    if (k) k.textContent = M[0].kicker || ""; ti.innerHTML = M[0].title; ti.classList.toggle("is-long", !!M[0].long); tx.textContent = M[0].text;
     btns[0].classList.add("is-on");
     if (!matchMedia("(prefers-reduced-motion: reduce)").matches) timer = setTimeout(() => show(1), TF.HERO_INTERVAL_MS);
   };

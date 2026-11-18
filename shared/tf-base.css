@@ -351,3 +351,7 @@ html.tf-locked, html.tf-locked body { overflow: hidden; }
   .tf-cta__btns .tf-btn { min-width: 0; width: 100%; }
   .tf-cta__btns .tf-btn { white-space: normal; text-align: left; }
 }
+
+/* menu and footer entries with no page yet (no href): plain text, not a link */
+.tf-mega a:not([href]), .tf-mobile a:not([href]) { cursor: default; }
+.tf-mega a:not([href]):hover, .tf-mobile a:not([href]):hover { background: none; color: inherit; }
