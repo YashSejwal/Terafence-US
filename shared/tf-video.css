@@ -13,3 +13,10 @@ body.tf-noscroll { overflow: hidden; }
 .tf-vtile img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
 .tf-vtile:hover { transform: translateY(-3px); box-shadow: 0 24px 54px rgba(10,15,44,.3); }
 .tf-vtile:focus-visible { outline: 3px solid var(--tf-red, #EE1C2E); outline-offset: 4px; }
+/* red play button, drawn here (the old cover image had it built in) */
+.p-video-play{background:#EE1C2E;box-shadow:0 0 0 10px rgba(238,28,46,.18),0 12px 30px rgba(0,0,0,.35);max-width:96px;min-width:56px;transition:transform .25s}
+.p-video-play::after{content:"";position:absolute;left:54%;top:50%;transform:translate(-50%,-50%);border-style:solid;border-width:.62em 0 .62em 1.05em;border-color:transparent transparent transparent #fff;font-size:clamp(14px,1.6vw,22px)}
+.p-video-play:hover{transform:translate(-50%,-50%) scale(1.06)}
+.tf-vtile{position:relative}
+.tf-vtile::before{content:"";position:absolute;left:50%;top:50%;width:clamp(56px,7vw,84px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:#EE1C2E;box-shadow:0 0 0 10px rgba(238,28,46,.18),0 12px 30px rgba(0,0,0,.35);z-index:1}
+.tf-vtile::after{content:"";position:absolute;left:51%;top:50%;transform:translate(-50%,-50%);border-style:solid;border-width:13px 0 13px 22px;border-color:transparent transparent transparent #fff;z-index:2}
