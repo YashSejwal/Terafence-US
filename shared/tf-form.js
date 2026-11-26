@@ -11,18 +11,31 @@ TF.FORM_TOPICS = {
   demo:       { kicker: "Demo",         title: "Request a demo",         text: "See the gateway working with your protocols and systems, and ask an engineer anything.", button: "Request demo" },
   quote:      { kicker: "Quote",        title: "Get a quote",            text: "Tell us about your sites and volumes and we will come back with pricing.", button: "Request quote" },
   datasheet:  { kicker: "Datasheet",    title: "Request the datasheet",  text: "We will send the latest datasheet to your inbox.", button: "Send datasheet" },
+  certifications: { kicker: "Certifications", title: "Certifications and compliance", text: "Tell us who you are and we will send the assessment and test documentation.", button: "Send request" },
+  custom:     { kicker: "Custom build", title: "Custom build", text: "Tell us the protocol, workload or constraint that does not fit a standard box. Our engineers will come back to you.", button: "Send requirement" },
   contact:    { kicker: "Contact",      title: "Talk to Terafence",      text: "Tell us where your boundary sits and what has to cross it. We will help you choose the right device.", button: "Send" }
 };
 TF.FORM_MODELS = { "tfg-121": "TFG-121", "tfg-1urp": "TFG-1URP", "tfg121-bf": "TFG121-BF", "tfg121-bsg": "TFG121-BSG", "tfg-vsecure": "TFG-VSecure" };
 
-/* Where submissions go. null = demo mode (shows the thank-you message, sends nothing).
-   Set to a form endpoint URL (e.g. Formspree, HubSpot, or Terafence's own) to send for real. */
-TF.FORM_ENDPOINT = null;
+/* Where submissions go: forms/send.php on the same server, found relative to this script
+   so it works from sub-folders too. Set to null for demo mode (shows the thank-you, sends nothing). */
+TF.FORM_ENDPOINT = (function () { try { return new URL("../forms/send.php", document.currentScript.src).href; } catch (e) { return null; } })();
+TF.FORM_ERROR = 'Sorry, your request did not go through. Please try again, or email info@terafence.us.';
+
+/* Shared sender used by the popup and the Support page form. Resolves with the server's reply or rejects. */
+TF.sendForm = function (data) {
+  if (!TF.FORM_ENDPOINT) return new Promise(res => setTimeout(() => res({ ok: true, ref: "TF-" + (Math.floor(Math.random() * 900000) + 100000) }), 900));
+  const ctl = "AbortController" in window ? new AbortController() : null;
+  const timer = ctl && setTimeout(() => ctl.abort(), 25000);
+  return fetch(TF.FORM_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(Object.assign({ page: location.href.split("#")[0] }, data)), signal: ctl ? ctl.signal : undefined })
+    .then(r => r.json().catch(() => ({})).then(j => { if (!r.ok || !j.ok) throw new Error(j.error || r.status); return j; }))
+    .finally(() => timer && clearTimeout(timer));
+};
 
 (function () {
   const CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
   const AR = '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg>';
-  let root, form, lastFocus;
+  let root, form, lastFocus, openedAt = Date.now();
 
   function build() {
     root = document.createElement("div");
@@ -40,17 +53,17 @@ TF.FORM_ENDPOINT = null;
             <div class="tf-fm__chan">
               <strong>Technical Support</strong>
               <span>Product assistance and debugging</span>
-              <a href="mailto:support@terafence.us">support@terafence.us</a>
+              <b class="tf-mail">support@terafence.us</b>
             </div>
             <div class="tf-fm__chan">
               <strong>Sales Inquiries</strong>
               <span>Demos and product information</span>
-              <a href="mailto:sales@terafence.us">sales@terafence.us</a>
+              <b class="tf-mail">sales@terafence.us</b>
             </div>
             <div class="tf-fm__chan">
               <strong>General Inquiries</strong>
               <span>Partnership opportunities and QnA</span>
-              <a href="mailto:info@terafence.us">info@terafence.us</a>
+              <b class="tf-mail">info@terafence.us</b>
             </div>
           </div>
         </aside>
@@ -59,6 +72,7 @@ TF.FORM_ENDPOINT = null;
             <h4>Your details</h4>
             <p class="tf-fm__sub">Three fields. A Terafence engineer will be in touch.</p>
             <input type="hidden" name="topic"><input type="hidden" name="model">
+            <div class="tf-hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
             <div class="tf-fld"><input id="tf-fn" name="first_name" type="text" placeholder=" " autocomplete="given-name" required><label for="tf-fn">First name</label><span class="tf-fld__ok">${CHECK}</span><span class="tf-fld__err" aria-live="polite"></span></div>
             <div class="tf-fld"><input id="tf-em" name="email" type="email" placeholder=" " autocomplete="email" required><label for="tf-em">Work email</label><span class="tf-fld__ok">${CHECK}</span><span class="tf-fld__err" aria-live="polite"></span></div>
             <div class="tf-fld"><input id="tf-org" name="organization" type="text" placeholder=" " autocomplete="organization" required><label for="tf-org">Organization name</label><span class="tf-fld__ok">${CHECK}</span><span class="tf-fld__err" aria-live="polite"></span></div>
@@ -67,6 +81,7 @@ TF.FORM_ENDPOINT = null;
               <span class="tf-cap__brand"><b>Verified</b>Privacy &middot; Terms</span>
             </div>
             <button class="tf-btn tf-btn--primary tf-fm__submit" type="submit"><span data-b>Submit</span> ${AR}</button>
+            <p class="tf-fm__err" role="alert" hidden></p>
             <p class="tf-fm__legal">By submitting you agree to our <a href="${(TF.ROOT || "") + "privacy.html"}">privacy policy</a>.</p>
           </form>
           <div class="tf-fm__done" aria-live="polite">
@@ -115,8 +130,12 @@ TF.FORM_ENDPOINT = null;
       const capOk = cap.classList.contains("is-done");
       if (!capOk) cap.classList.add("is-error");
       if (!ok || !capOk) { const bad = form.querySelector(".tf-fld.is-error input"); if (bad) bad.focus(); return; }
-      const btn = form.querySelector(".tf-fm__submit"); btn.disabled = true; btn.classList.add("is-busy");
+      const btn = form.querySelector(".tf-fm__submit"), err = form.querySelector(".tf-fm__err");
+      if (btn.disabled) return;
+      btn.disabled = true; btn.classList.add("is-busy"); err.hidden = true;
       const data = Object.fromEntries(new FormData(form).entries());
+      data.elapsed = Date.now() - openedAt;
+      const fail = () => { btn.disabled = false; btn.classList.remove("is-busy"); err.innerHTML = TF.FORM_ERROR; err.hidden = false; };
       const done = () => {
         btn.disabled = false; btn.classList.remove("is-busy");
         const t = TF.FORM_TOPICS[data.topic] || TF.FORM_TOPICS.contact;
@@ -124,10 +143,7 @@ TF.FORM_ENDPOINT = null;
         root.querySelector("[data-thx-text]").textContent = `We have your ${t.title.toLowerCase().replace(/^(request|get|plan) (a |the )?/, "")} request${data.model ? " for " + (TF.FORM_MODELS[data.model] || data.model) : ""}. A Terafence engineer will contact you at ${data.email.trim()}.`;
         root.classList.add("is-sent");
       };
-      if (TF.FORM_ENDPOINT) {
-        fetch(TF.FORM_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(data) })
-          .then(done).catch(done);
-      } else setTimeout(done, 900);
+      TF.sendForm(data).then(done, fail);
     });
   }
 
@@ -136,6 +152,8 @@ TF.FORM_ENDPOINT = null;
     const t = TF.FORM_TOPICS[topic] || TF.FORM_TOPICS.contact;
     root.classList.remove("is-sent");
     form.reset();
+    openedAt = Date.now();
+    const er = form.querySelector(".tf-fm__err"); er.hidden = true; er.textContent = "";
     form.querySelectorAll(".tf-fld").forEach(f => { f.classList.remove("is-valid", "is-error"); f.querySelector(".tf-fld__err").textContent = ""; });
     const cap = root.querySelector("[data-cap]"); cap.classList.remove("is-done", "is-loading", "is-error"); cap.querySelector("button").setAttribute("aria-checked", "false");
     root.querySelector("[data-k]").textContent = t.kicker;

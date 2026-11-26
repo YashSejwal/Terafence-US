@@ -409,6 +409,13 @@
   width: 100%;
   justify-content: center;
 }
+.sp-submit[disabled] {
+  opacity: .6;
+  cursor: progress;
+}
+.sp-err {
+  margin: 0 0 16px;
+}
 .sp-success {
   display: none;
   padding: 32px 24px;
@@ -534,7 +541,7 @@
         </div>
         <h3>Technical Support</h3>
         <p>Product assistance and debugging</p>
-        <a href="mailto:support@terafence.us">support@terafence.us &rarr;</a>
+        <span class="tf-mail">support@terafence.us</span>
       </div>
 
       <div class="sp-qcard">
@@ -543,7 +550,7 @@
         </div>
         <h3>Sales Inquiries</h3>
         <p>Demos and product information</p>
-        <a href="mailto:sales@terafence.us">sales@terafence.us &rarr;</a>
+        <span class="tf-mail">sales@terafence.us</span>
       </div>
 
       <div class="sp-qcard">
@@ -552,7 +559,7 @@
         </div>
         <h3>General Inquiries</h3>
         <p>Partnership opportunities and QnA</p>
-        <a href="mailto:info@terafence.us">info@terafence.us &rarr;</a>
+        <span class="tf-mail">info@terafence.us</span>
       </div>
     </div>
 
@@ -568,7 +575,7 @@
             </div>
             <div>
               <h3>Email Support</h3>
-              <p><a href="mailto:support@terafence.us">support@terafence.us</a></p>
+              <p><span class="tf-mail">support@terafence.us</span></p>
               <small>24-hour response time</small>
             </div>
           </div>
@@ -674,6 +681,8 @@
               <span>I agree to the <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a></span>
             </label>
 
+            <div class="tf-hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+            <p class="tf-fm__err sp-err" role="alert" hidden></p>
             <button type="submit" class="tf-btn tf-btn--primary sp-submit" data-arrow>Submit Support Request</button>
           </form>
 
@@ -740,17 +749,32 @@ TF.LOGO_HREF = "index.html";
   var ok = document.getElementById("sp-success");
   var ref = document.getElementById("sp-ref");
   if (!form) return;
+  var openedAt = Date.now(), btn = form.querySelector(".sp-submit"), err = form.querySelector(".sp-err");
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    ref.textContent = "TF-" + (Math.floor(Math.random() * 900000) + 100000);
+    if (btn.disabled) return;
+    btn.disabled = true; err.hidden = true;
+    var data = Object.fromEntries(new FormData(form).entries());
+    data.form = "support"; data.elapsed = Date.now() - openedAt;
+    TF.sendForm(data).then(function (r) {
+      btn.disabled = false;
+      ref.textContent = r.ref;
+      success();
+    }, function () {
+      btn.disabled = false;
+      err.innerHTML = TF.FORM_ERROR; err.hidden = false;
+    });
+  });
+  function success() {
     form.style.display = "none";
     ok.classList.add("is-on");
     setTimeout(function () {
       ok.classList.remove("is-on");
       form.reset();
       form.style.display = "";
+      openedAt = Date.now();
     }, 5000);
-  });
+  }
 })();
 </script>
 </body>

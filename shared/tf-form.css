@@ -47,6 +47,7 @@
 .tf-fm__chan span { font-size: 12.5px; color: #B7C0F5; line-height: 1.4; }
 .tf-fm__chan a { font-size: 13px; font-weight: 500; color: #fff; text-decoration: underline; text-underline-offset: 2px; width: fit-content; }
 .tf-fm__chan a:hover { color: #C9D0F7; }
+.tf-fm__chan .tf-mail { font-size: 13px; font-weight: 500; color: #fff; }
 
 /* right: form */
 .tf-fm__main { padding: 40px 38px 34px; }
@@ -82,6 +83,9 @@
 .tf-fm__submit[disabled] { cursor: progress; }
 .tf-fm__submit.is-busy span, .tf-fm__submit.is-busy svg { opacity: 0; }
 .tf-fm__submit.is-busy::after { content: ""; position: absolute; width: 20px; height: 20px; border: 2px solid rgba(255,255,255,.4); border-top-color: #fff; border-radius: 50%; animation: tfSpin .7s linear infinite; }
+.tf-hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
+.tf-fm__err { margin-top: 12px; padding: 10px 12px; border-radius: 8px; background: #FDECEE; color: #B0101F; font-size: 13px; line-height: 1.45; }
+.tf-fm__err a { color: inherit; font-weight: 600; text-decoration: underline; }
 .tf-fm__legal { margin-top: 12px; font-size: 12px; color: #8A8FA8; text-align: center; }
 .tf-fm__legal a { color: var(--tf-indigo); }
 
