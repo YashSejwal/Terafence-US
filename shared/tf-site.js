@@ -106,10 +106,10 @@ TF.NAV = [
   },
   {
     label: "About us", href: "/about",
-    intro: { title: "About us", text: "Founded in 2015. FPGA engineering in Israel, sales and support across the Americas, Europe and Asia.", link: { label: "About Terafence USA", href: "/about" } },
+    intro: { title: "About us", text: "Founded in 2015. FPGA engineering in Israel, sales and support across the Americas, Europe and Asia.", link: { label: "About Terafence", href: "/about" } },
     cols: [
       { title: "Terafence", links: [
-        { label: "About Terafence USA", href: "/about" }
+        { label: "About Terafence", href: "/about" }
       ]},
       { title: "Get in touch", links: [
         { label: "Contact and request a quote", href: "/contact" },

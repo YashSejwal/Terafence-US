@@ -343,7 +343,7 @@ html.tf-locked, html.tf-locked body { overflow: hidden; }
 .tf-cta h2 { margin: 0; font-family: var(--tf-font-head); font-size: clamp(25px, 2.6vw, 36px); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; color: #fff; }
 .tf-cta p { margin: 14px 0 0; font-size: 16.5px; line-height: 1.7; color: #BFC5E2; max-width: 520px; }
 .tf-cta__btns { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
-.tf-cta__btns .tf-btn { min-width: 250px; justify-content: space-between; }
+.tf-cta__btns .tf-btn { min-width: 280px; justify-content: space-between; gap: 24px; padding: 17px 30px; }
 .tf-cta__link { margin-top: 4px; font-family: var(--tf-font-head); font-size: 14px; font-weight: 600; color: #C3CBF2; text-decoration: none; border-bottom: 1px solid rgba(195,203,242,.35); padding-bottom: 2px; transition: color .2s, border-color .2s; }
 .tf-cta__link:hover { color: #fff; border-color: #fff; }
 .tf-cta__mail { margin-top: 6px; font-size: 14px; color: #8F97BE; }
