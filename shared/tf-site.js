@@ -100,7 +100,8 @@ TF.NAV = [
         { label: "TFG-121", sub: "Documentation available on request", href: "/contact?topic=datasheet&model=tfg-121" },
         { label: "TFG-1URP", sub: "Documentation available on request", href: "/contact?topic=datasheet&model=tfg-1urp" },
         { label: "TFG121-BF", sub: "Documentation available on request", href: "/contact?topic=datasheet&model=tfg121-bf" },
-        { label: "TFG121-BSG", sub: "Documentation available on request", href: "/contact?topic=datasheet&model=tfg121-bsg" }
+        { label: "TFG121-BSG", sub: "Documentation available on request", href: "/contact?topic=datasheet&model=tfg121-bsg" },
+        { label: "TFG-VSecure", sub: "Documentation available on request", href: "/contact?topic=datasheet&model=tfg-vsecure" }
       ]}
     ]
   },
