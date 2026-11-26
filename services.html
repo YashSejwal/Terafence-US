@@ -183,8 +183,8 @@ TF.LOGO_HREF = "index.html";
       if (n !== null) { e.preventDefault(); show(n, true); }
     });
   });
-  function fromHash() { const h = location.hash.slice(1), i = tabs.findIndex(t => t.id === "tab-" + h); if (i >= 0) show(i); }
-  window.addEventListener("hashchange", fromHash); fromHash();
+  function fromHash(scroll) { const h = location.hash.slice(1), i = tabs.findIndex(t => t.id === "tab-" + h); if (i >= 0) { show(i); if (scroll) { root.style.scrollMarginTop = "110px"; root.scrollIntoView({ behavior: "smooth", block: "start" }); } } }
+  window.addEventListener("hashchange", () => fromHash(true)); fromHash(false); if (location.hash) window.addEventListener("load", () => fromHash(true));
 })();
 </script>
 </body>
