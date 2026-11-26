@@ -121,6 +121,7 @@ p { margin: 0; }
 .tf-util .tf-wrap { display: flex; align-items: center; justify-content: flex-end; height: 100%; gap: 24px; }
 .tf-util a { text-decoration: none; color: inherit; }
 .tf-util a:hover { color: #fff; }
+.tf-util__plain { color: inherit; }
 .tf-util__tag { margin-right: auto; font-family: var(--tf-font-head); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; font-size: 11px; color: #8890B5; }
 .tf-util__tag b { color: var(--tf-red); font-weight: 700; }
 
@@ -152,6 +153,7 @@ p { margin: 0; }
 /* six menu items (Platform added 12 Nov 2026): tighten spacing as the screen narrows so nothing wraps */
 @media (max-width: 1480px) { .tf-nav__trigger { padding: 0 14px; } .tf-nav__trigger::after { left: 14px; right: 14px; } .tf-bar .tf-wrap { gap: 22px; } }
 @media (max-width: 1300px) { .tf-nav__trigger { padding: 0 10px; font-size: 14px; } .tf-nav__trigger::after { left: 10px; right: 10px; } .tf-nav { margin-left: 4px; } }
+@media (max-width: 1300px) { .tf-bar__actions .tf-btn--ghost { display: none; } }
 @media (max-width: 1180px) { .tf-nav__trigger { padding: 0 8px; font-size: 13.5px; } .tf-nav__trigger::after { left: 8px; right: 8px; } .tf-bar .tf-wrap { gap: 16px; } }
 .tf-nav__trigger svg { width: 10px; height: 10px; opacity: .6; transition: transform .25s; }
 .tf-nav__trigger::after {
@@ -270,7 +272,7 @@ html.tf-locked, html.tf-locked body { overflow: hidden; }
 .tf-mobile__util { margin-top: 24px; display: flex; gap: 20px; font-size: 14px; color: #9CA3C4; }
 .tf-mobile__util a { color: inherit; text-decoration: none; }
 
-@media (max-width: 1080px) {
+@media (max-width: 1200px) {
   .tf-nav, .tf-bar__actions .tf-btn--ghost { display: none; }
   .tf-burger { display: block; }
   .tf-bar__actions { gap: 4px; }

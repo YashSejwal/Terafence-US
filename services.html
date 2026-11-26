@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#04061A">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+<title>Services | Terafence USA</title>
+<meta name="description" content="Advisory, cloud, workplace, network, cybersecurity and service integration services for enterprises across the Americas, Europe and Asia-Pacific.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/tf-base.css">
+<link rel="stylesheet" href="shared/tf-form.css">
+<link rel="stylesheet" href="shared/tf-solutions.css">
+<link rel="stylesheet" href="shared/tf-mobile.css">
+<style>
+/* Products and Resources landing pages */
+/* banner: same layout and sizes as the Technology and Platform banners */
+.lp-dark { position: relative; overflow: hidden; color: #fff; background-color: var(--tf-navy);
+  background-image: linear-gradient(rgba(124,139,230,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(124,139,230,.045) 1px, transparent 1px),
+    radial-gradient(ellipse 60% 80% at 72% 40%, rgba(41,58,146,.6), rgba(41,58,146,0) 72%);
+  background-size: 54px 54px, 54px 54px, 100% 100%; }
+.lp-hero__in { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(32px, 5vw, 72px); align-items: center;
+  padding-top: calc(var(--tf-header-h) + var(--tf-util-h) + 44px); padding-bottom: clamp(60px, 6.5vw, 96px); }
+.lp-crumb { display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px; color: #8F97BE; margin-bottom: 24px; }
+.lp-crumb a { color: #BFC5E2; text-decoration: none; }
+.lp-hero h1 { margin-top: 14px; font-size: clamp(32px, 3.4vw, 48px); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; }
+.lp-hero h1 em { font-style: normal; color: var(--tf-indigo-glow); }
+.lp-hero__in > div > p { margin-top: 18px; max-width: 500px; font-size: clamp(15.5px, 1.3vw, 17.5px); line-height: 1.7; color: #C3C9E6; }
+.lp-hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.lp-hero__vis { position: relative; margin: 0; }
+.lp-hero__vis::before { content: ""; position: absolute; left: 50%; top: 20%; width: 80%; height: 60%; transform: translateX(-50%); border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(74,92,196,.4), rgba(74,92,196,0)); filter: blur(24px); pointer-events: none; }
+.lp-panel { position: relative; padding: clamp(18px, 2vw, 26px); border-radius: 18px; border: 1px solid rgba(124,139,230,.35); background: linear-gradient(180deg, rgba(41,58,146,.42), rgba(14,22,69,.55)); box-shadow: 0 30px 60px rgba(4,6,26,.45); }
+.lp-panel__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.lp-tile { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 18px 14px 16px; border-radius: 12px; background: rgba(8,13,46,.55); border: 1px solid rgba(124,139,230,.22); color: #fff; text-decoration: none; transition: border-color .25s, transform .3s var(--tf-ease); }
+a.lp-tile:hover { border-color: var(--tf-indigo-glow); transform: translateY(-2px); }
+.lp-tile img { height: 78px; width: auto; max-width: 100%; object-fit: contain; }
+.lp-tile b { font-family: var(--tf-font-head); font-size: 15px; font-weight: 600; }
+.lp-tile span { font-family: var(--tf-font-head); font-size: 10.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--tf-indigo-glow); text-align: center; }
+.lp-row { display: flex; align-items: center; gap: 18px; padding: 18px 20px; border-radius: 12px; background: rgba(8,13,46,.55); border: 1px solid rgba(124,139,230,.22); color: #fff; text-decoration: none; transition: border-color .25s, transform .3s var(--tf-ease); }
+.lp-row + .lp-row { margin-top: 12px; }
+a.lp-row:hover { border-color: var(--tf-indigo-glow); transform: translateX(3px); }
+.lp-row strong { min-width: 56px; font-family: var(--tf-font-head); font-size: 36px; font-weight: 600; line-height: 1; color: #fff; }
+.lp-row b { display: block; font-family: var(--tf-font-head); font-size: 16px; font-weight: 600; }
+.lp-row small { display: block; margin-top: 4px; font-size: 13.5px; color: #C3C9E6; }
+.lp-row svg { width: 18px; height: 18px; margin-left: auto; color: var(--tf-indigo-glow); flex: 0 0 auto; }
+@media (max-width: 1080px) { .lp-hero__in { grid-template-columns: 1fr; } }
+.lp-grid, .lp-list, .pg-resources .cx-grid { margin-top: clamp(24px, 3vw, 40px); }
+.lp-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.pg-products .lp-grid:not(.lp-grid--2) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.lp-panel__grid .lp-tile:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.lp-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.lp-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.lp-card { display: flex; flex-direction: column; padding: 24px; border-radius: 16px; background: #fff; border: 1px solid var(--tf-line-light); color: var(--tf-text-light-bg); text-decoration: none; transition: border-color .25s, transform .3s var(--tf-ease), box-shadow .3s; }
+a.lp-card:hover { border-color: var(--tf-indigo); transform: translateY(-3px); box-shadow: 0 18px 40px rgba(10,15,44,.08); }
+.lp-card__img { display: grid; place-items: center; height: 150px; margin: -4px -4px 18px; border-radius: 12px; background: var(--tf-mist); }
+.lp-card__img img { max-width: 86%; max-height: 120px; width: auto; height: auto; object-fit: contain; }
+.lp-card small { font-family: var(--tf-font-head); font-size: 11.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--tf-red); }
+.lp-card h3 { margin-top: 8px; font-family: var(--tf-font-head); font-size: 19px; font-weight: 600; line-height: 1.3; color: var(--tf-text-light-bg); }
+.lp-card p { margin-top: 10px; font-size: 14.5px; line-height: 1.6; color: var(--tf-muted-light-bg); }
+.lp-card dl { margin: 16px 0 0; display: grid; gap: 6px; font-size: 13.5px; }
+.lp-card dl div { display: flex; justify-content: space-between; gap: 12px; padding-top: 6px; border-top: 1px solid var(--tf-line-light); }
+.lp-card dt { color: var(--tf-muted-light-bg); } .lp-card dd { margin: 0; font-weight: 600; text-align: right; }
+.lp-card .cx-card__go { margin-top: auto; padding-top: 18px; }
+.lp-meta { margin-top: 14px; font-size: 13.5px; color: var(--tf-muted-light-bg); }
+.lp-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.lp-list a, .lp-list__item { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 22px; border-radius: 12px; background: #fff; border: 1px solid var(--tf-line-light); color: var(--tf-text-light-bg); text-decoration: none; transition: border-color .25s; }
+.lp-list a:hover { border-color: var(--tf-indigo); }
+.lp-list b { font-family: var(--tf-font-head); font-weight: 600; } .lp-list span { font-size: 13.5px; color: var(--tf-muted-light-bg); text-align: right; }
+.lp-more { margin-top: clamp(20px, 2.4vw, 28px); }
+@media (max-width: 1080px) { .lp-grid, .pg-products .lp-grid:not(.lp-grid--2) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .lp-grid, .lp-grid--3, .lp-grid--2, .lp-list, .pg-products .lp-grid:not(.lp-grid--2) { grid-template-columns: 1fr; } .lp-list a, .lp-list__item { flex-direction: column; align-items: flex-start; } .lp-list span { text-align: left; } }
+</style>
+<style>
+.sv-wrap{margin-top:clamp(24px,3vw,40px)}
+.sv-tabs{display:flex;flex-wrap:wrap;gap:8px;padding-bottom:18px;border-bottom:1px solid var(--tf-line-light)}
+.sv-tab{display:inline-flex;align-items:center;gap:10px;padding:11px 18px;border-radius:999px;border:1px solid var(--tf-line-light);background:#fff;font:600 14.5px var(--tf-font-head);color:var(--tf-text-light-bg);cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+.sv-tab svg{width:18px;height:18px;flex:0 0 auto;color:var(--tf-indigo)}
+.sv-tab:hover{border-color:var(--tf-indigo)}
+.sv-tab[aria-selected="true"]{background:var(--tf-indigo);border-color:var(--tf-indigo);color:#fff}
+.sv-tab[aria-selected="true"] svg{color:#fff}
+.sv-tab:focus-visible{outline:3px solid var(--tf-red,#EE1C2E);outline-offset:3px}
+.sv-panel{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,4vw,64px);padding-top:clamp(28px,3.4vw,44px);align-items:start}
+.sv-panel[hidden]{display:none}
+.sv-panel h2{font-size:clamp(25px,2.6vw,36px);font-weight:600;line-height:1.2;letter-spacing:-.01em;color:var(--tf-text-light-bg)}
+.sv-panel__lead{margin-top:16px;font-size:clamp(16px,1.3vw,18px);line-height:1.75;color:var(--tf-muted-light-bg)}
+.sv-points{display:grid;gap:12px}
+.sv-point{display:flex;gap:16px;align-items:flex-start;padding:20px 22px;border-radius:14px;background:#fff;border:1px solid var(--tf-line-light)}
+.sv-point__n{flex:0 0 auto;font:300 28px/1 var(--tf-font-head);color:var(--tf-indigo)}
+.sv-point b{display:block;font-family:var(--tf-font-head);font-size:17px;font-weight:600;color:var(--tf-text-light-bg)}
+.sv-point span{display:block;margin-top:6px;font-size:15px;line-height:1.6;color:var(--tf-muted-light-bg)}
+.sv-tile svg{width:26px;height:26px;color:var(--tf-indigo-glow)}
+.lp-panel__grid a.lp-tile{align-items:flex-start;text-align:left}
+@media (max-width:1080px){.sv-panel{grid-template-columns:1fr}}
+@media (max-width:760px){.sv-tab{padding:10px 14px;font-size:14px}}
+</style>
+</head>
+<body class="pg-services">
+<header class="tf-header" data-tf-header></header>
+<main>
+<section class="lp-dark lp-hero" id="top">
+  <div class="tf-wrap lp-hero__in">
+    <div>
+      <nav class="lp-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Services</span></nav>
+      <span class="tf-eyebrow">Services</span>
+      <h1>Technology services<br><em>for global enterprises</em></h1>
+      <p>Advisory, cloud, workplace, network, cybersecurity and service integration for enterprises across the Americas, Europe and Asia-Pacific.</p>
+      <div class="lp-hero__cta">
+        <a class="tf-btn tf-btn--primary" href="/contact?topic=contact">Talk to our team <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      </div>
+    </div>
+    <figure class="lp-hero__vis" aria-label="Terafence services"><div class="lp-panel"><div class="lp-panel__grid"><a class="lp-tile sv-tile" href="/services#advisory"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg><b>Advisory &amp; Consulting</b></a><a class="lp-tile sv-tile" href="/services#cloud"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.5-8A6 6 0 0 1 18 9.5 3.5 3.5 0 0 1 17.5 18z"/></svg><b>Cloud Services</b></a><a class="lp-tile sv-tile" href="/services#workplace"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg><b>Workplace Services</b></a><a class="lp-tile sv-tile" href="/services#network"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v5M12 12l-6 5M12 12l6 5"/></svg><b>Network Services</b></a><a class="lp-tile sv-tile" href="/services#cybersecurity"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg><b>Cybersecurity</b></a><a class="lp-tile sv-tile" href="/services#integration"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg><b>Service Integration</b></a></div></div></figure>
+  </div>
+</section>
+
+<section class="sx-sec sx-light">
+  <div class="tf-wrap">
+    <div class="sv-wrap" data-tabs>
+      <div class="sv-tabs" role="tablist" aria-label="Services"><button class="sv-tab" role="tab" id="tab-advisory" aria-controls="panel-advisory" aria-selected="true" tabindex="0" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg>Advisory &amp; Consulting</button><button class="sv-tab" role="tab" id="tab-cloud" aria-controls="panel-cloud" aria-selected="false" tabindex="-1" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.5-8A6 6 0 0 1 18 9.5 3.5 3.5 0 0 1 17.5 18z"/></svg>Cloud Services</button><button class="sv-tab" role="tab" id="tab-workplace" aria-controls="panel-workplace" aria-selected="false" tabindex="-1" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>Workplace Services</button><button class="sv-tab" role="tab" id="tab-network" aria-controls="panel-network" aria-selected="false" tabindex="-1" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v5M12 12l-6 5M12 12l6 5"/></svg>Network Services</button><button class="sv-tab" role="tab" id="tab-cybersecurity" aria-controls="panel-cybersecurity" aria-selected="false" tabindex="-1" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg>Cybersecurity</button><button class="sv-tab" role="tab" id="tab-integration" aria-controls="panel-integration" aria-selected="false" tabindex="-1" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>Service Integration</button></div>
+    <div class="sv-panel" role="tabpanel" id="panel-advisory" aria-labelledby="tab-advisory">
+      <div><span class="tf-eyebrow">Advisory &amp; Consulting</span><h2>Strategic Technology Transformation</h2><p class="sv-panel__lead">Terafence helps global enterprises align technology with business growth. Our advisory practice enables organizations across North America, Europe and Asia-Pacific to modernize infrastructure, optimize IT spending and accelerate digital transformation.</p></div>
+      <div class="sv-points"><div class="sv-point"><span class="sv-point__n">01</span><div><b>Digital Strategy</b><span>Enterprise technology roadmaps aligned with business growth.</span></div></div><div class="sv-point"><span class="sv-point__n">02</span><div><b>Risk &amp; Compliance Advisory</b><span>Security and governance frameworks aligned to global standards.</span></div></div><div class="sv-point"><span class="sv-point__n">03</span><div><b>Enterprise Architecture</b><span>Future ready architecture for scalable global platforms.</span></div></div></div>
+    </div>
+    <div class="sv-panel" role="tabpanel" id="panel-cloud" aria-labelledby="tab-cloud" hidden>
+      <div><span class="tf-eyebrow">Cloud Services</span><h2>Enterprise Cloud Platforms at Global Scale</h2><p class="sv-panel__lead">We design, migrate and operate secure cloud platforms across AWS, Azure and GCP enabling global enterprises to scale digital platforms across Americas, Europe and Asia-Pacific.</p></div>
+      <div class="sv-points"><div class="sv-point"><span class="sv-point__n">01</span><div><b>Cloud Migration</b><span>Secure migration across hybrid and multi-cloud environments.</span></div></div><div class="sv-point"><span class="sv-point__n">02</span><div><b>Cloud Native Platforms</b><span>Kubernetes and microservices architectures for modern applications.</span></div></div><div class="sv-point"><span class="sv-point__n">03</span><div><b>FinOps Optimization</b><span>Cost governance and resource optimization for cloud infrastructure.</span></div></div></div>
+    </div>
+    <div class="sv-panel" role="tabpanel" id="panel-workplace" aria-labelledby="tab-workplace" hidden>
+      <div><span class="tf-eyebrow">Workplace Services</span><h2>Secure Digital Collaboration for Global Teams</h2><p class="sv-panel__lead">Terafence delivers modern digital workplaces enabling unified collaboration, secure endpoints and seamless productivity for distributed global teams.</p></div>
+      <div class="sv-points"><div class="sv-point"><span class="sv-point__n">01</span><div><b>Endpoint Management</b><span>Unified management across enterprise endpoints.</span></div></div><div class="sv-point"><span class="sv-point__n">02</span><div><b>Unified Collaboration</b><span>Enterprise collaboration platforms for distributed teams.</span></div></div><div class="sv-point"><span class="sv-point__n">03</span><div><b>Workspace Security</b><span>Identity driven security across digital workplaces.</span></div></div></div>
+    </div>
+    <div class="sv-panel" role="tabpanel" id="panel-network" aria-labelledby="tab-network" hidden>
+      <div><span class="tf-eyebrow">Network Services</span><h2>Global Enterprise Connectivity</h2><p class="sv-panel__lead">Design and deploy enterprise networks connecting global operations across data centers, campuses and cloud environments.</p></div>
+      <div class="sv-points"><div class="sv-point"><span class="sv-point__n">01</span><div><b>Campus Networks</b><span>Secure enterprise LAN infrastructure.</span></div></div><div class="sv-point"><span class="sv-point__n">02</span><div><b>SD WAN</b><span>Software defined networking connecting global offices.</span></div></div><div class="sv-point"><span class="sv-point__n">03</span><div><b>Zero Trust Networking</b><span>Identity driven secure networking architecture.</span></div></div></div>
+    </div>
+    <div class="sv-panel" role="tabpanel" id="panel-cybersecurity" aria-labelledby="tab-cybersecurity" hidden>
+      <div><span class="tf-eyebrow">Cybersecurity</span><h2>Threat Intelligence. Identity Security. XDR.</h2><p class="sv-panel__lead">Terafence delivers modern cybersecurity platforms including threat intelligence, XDR, EDR, identity security and enterprise SOC operations.</p></div>
+      <div class="sv-points"><div class="sv-point"><span class="sv-point__n">01</span><div><b>Threat Intelligence</b><span>Advanced IOC monitoring and dark web intelligence.</span></div></div><div class="sv-point"><span class="sv-point__n">02</span><div><b>XDR &amp; EDR</b><span>Enterprise detection platforms including CrowdStrike and SentinelOne.</span></div></div><div class="sv-point"><span class="sv-point__n">03</span><div><b>Identity Security</b><span>IAM, Active Directory security and privileged access management.</span></div></div></div>
+    </div>
+    <div class="sv-panel" role="tabpanel" id="panel-integration" aria-labelledby="tab-integration" hidden>
+      <div><span class="tf-eyebrow">Service Integration</span><h2>Unified IT Operations</h2><p class="sv-panel__lead">Integrate ITSM, observability and AIOps platforms into a unified enterprise operations framework.</p></div>
+      <div class="sv-points"><div class="sv-point"><span class="sv-point__n">01</span><div><b>ITSM Platforms</b><span>ServiceNow, Jira Service Management and BMC Helix.</span></div></div><div class="sv-point"><span class="sv-point__n">02</span><div><b>AIOps</b><span>AI driven anomaly detection and remediation.</span></div></div><div class="sv-point"><span class="sv-point__n">03</span><div><b>Observability</b><span>Application and infrastructure monitoring platforms.</span></div></div></div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="tf-cta-wrap" style="background:#fff">
+  <div class="tf-wrap">
+    <div class="tf-cta">
+      <div><h2>Tell us what you need</h2><p>Say where your technology needs to go next. We will come back to you.</p></div>
+      <div class="tf-cta__btns">
+        <a class="tf-btn tf-btn--primary" href="/contact?topic=contact">Talk to our team <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="tf-footer" data-tf-footer></footer>
+<script src="shared/tf-site.js"></script>
+<script src="shared/tf-form.js"></script>
+<script>
+TF.LOGO_HREF = "index.html";
+(function () {
+  const root = document.querySelector("[data-tabs]"); if (!root) return;
+  const tabs = [...root.querySelectorAll('[role="tab"]')], panels = [...root.querySelectorAll('[role="tabpanel"]')];
+  function show(i, focus) {
+    tabs.forEach((t, j) => { t.setAttribute("aria-selected", j === i ? "true" : "false"); t.tabIndex = j === i ? 0 : -1; });
+    panels.forEach((p, j) => { p.hidden = j !== i; });
+    if (focus) tabs[i].focus();
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener("click", () => { show(i); history.replaceState(null, "", "#" + t.id.replace("tab-", "")); });
+    t.addEventListener("keydown", e => {
+      let n = null;
+      if (e.key === "ArrowRight") n = (i + 1) % tabs.length; else if (e.key === "ArrowLeft") n = (i - 1 + tabs.length) % tabs.length;
+      else if (e.key === "Home") n = 0; else if (e.key === "End") n = tabs.length - 1;
+      if (n !== null) { e.preventDefault(); show(n, true); }
+    });
+  });
+  function fromHash() { const h = location.hash.slice(1), i = tabs.findIndex(t => t.id === "tab-" + h); if (i >= 0) show(i); }
+  window.addEventListener("hashchange", fromHash); fromHash();
+})();
+</script>
+</body>
+</html>

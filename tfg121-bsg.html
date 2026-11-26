@@ -301,6 +301,17 @@ section { position: relative; }
 .p-proto span { font-size: 14.5px; line-height: 1.55; color: var(--tf-text-light-bg); padding-top: 4px; }
 .p-proto--more { border-style: dashed; background: transparent; }
 .p-proto--more span { color: var(--tf-muted-light-bg); }
+.p-protos__line { margin-top: 18px; font-size: 16px; line-height: 1.6; color: var(--tf-text-light-bg); }
+.p-protos__line a { color: var(--tf-indigo); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.p-certs { margin-top: 28px; padding: clamp(20px, 2.4vw, 30px); border-radius: 14px; background: linear-gradient(160deg, #1A2466, #080D2E); color: #fff; }
+.p-certs h3 { font-family: var(--tf-font-head); font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #C3C9E6; }
+.p-certs__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
+.p-cert { padding: 14px 16px; border-radius: 10px; background: rgba(255,255,255,.07); border: 1px solid rgba(124,139,230,.22); }
+.p-cert small { display: block; font-family: var(--tf-font-head); font-size: 10.5px; font-weight: 600; letter-spacing: .14em; color: var(--tf-indigo-glow); }
+.p-cert b { display: block; margin-top: 6px; font-family: var(--tf-font-head); font-size: 15.5px; font-weight: 600; line-height: 1.3; }
+.p-cert span { display: block; margin-top: 4px; font-size: 12.5px; line-height: 1.45; color: #C3C9E6; }
+@media (max-width: 1080px) { .p-certs__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .p-certs__grid { grid-template-columns: 1fr; } }
 
 .p-table .p-grp th { padding: 30px 0 10px; border-top: 0; font-size: 11.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--tf-indigo); }
 .p-table tr.p-grp:first-child th { padding-top: 0; border-top: 0; }
@@ -496,7 +507,6 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
       <p class="p-hero__lead">Not a diode. Sessions start only from the side you choose.</p>
       <div class="p-hero__cta">
         <a class="tf-btn tf-btn--primary" href="/contact?topic=quote&amp;model=tfg121-bsg" data-arrow>Request a quote</a>
-        <a class="tf-btn tf-btn--ghost" href="/products/compare"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1.5" y="3" width="5" height="10" rx="1"/><rect x="9.5" y="3" width="5" height="10" rx="1"/></svg> Compare models</a>
       </div>
     </div>
     <div class="fb__vis fb__vis--two" aria-label="Pre-defined traffic moves both ways between critical controllers and the same network segment, through the TFG121-BSG">
@@ -641,11 +651,9 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
           <a href="#spec-architecture" class="is-on">Architecture</a>
           <a href="#spec-performance">Performance</a>
           <a href="#spec-hardware">Hardware</a>
-          <a href="#spec-power">Power &amp; environment</a>
           <a href="#spec-compliance">Reliability</a>
           <span class="ps-nav__more">
-            <a class="tf-link" href="/products/compare">Compare models &rarr;</a>
-            <a class="tf-link" href="mailto:info@terafence.us?subject=Request%20TFG121-BSG%20datasheet">Request datasheet &rarr;</a>
+            <a class="tf-link" href="/contact?topic=datasheet&amp;model=tfg121-bsg">Request datasheet &rarr;</a>
           </span>
         </nav>
         <div class="ps-body">
@@ -680,25 +688,12 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
                 <div class="ps-item"><dt>Form factor / mounting</dt><dd>1U, 19-inch rack mount</dd></div>
                 <div class="ps-item"><dt>Dimensions</dt><dd>500 &times; 440.2 &times; 44.2 mm (1U)</dd></div>
                 <div class="ps-item"><dt>Processor</dt><dd>Intel i3 or better</dd></div>
-                <div class="ps-item"><dt>RAM / local storage</dt><dd>Customizable per requirement</dd></div>
-                <div class="ps-item"><dt>Operating system</dt><dd>Hardened OS on dedicated CPUs</dd></div>
                 <div class="ps-item"><dt>Management</dt><dd>HTTPS GUI; port-based management</dd></div>
                 <div class="ps-item"><dt>Cooling</dt><dd>Dual fan cooling</dd></div>
                 <div class="ps-item"><dt>Chassis</dt><dd>IP30 protection, SECC, black metal</dd></div>
               </dl>
               <div class="ps-hw__img"><img src="assets/tfg121-bsg.webp" alt="Terafence TFG121-BSG" loading="lazy" width="1250" height="244" decoding="async"></div>
             </div>
-          </section>
-
-          <section class="ps-sec" id="spec-power">
-            <h3>Power &amp; environment</h3>
-            <dl class="ps-grid ps-grid--3">
-              <div class="ps-item"><dt>Power supply</dt><dd>100 to 240 VAC, 50/60 Hz<small>Dual redundant, hot-swappable internal PSUs</small></dd></div>
-              <div class="ps-item"><dt>Operating temperature</dt><dd>32 &deg;F to 113 &deg;F<small>About 0 &deg;C to 45 &deg;C</small></dd></div>
-              <div class="ps-item"><dt>Storage temperature</dt><dd>&minus;40 &deg;F to 185 &deg;F<small>About &minus;40 &deg;C to 85 &deg;C</small></dd></div>
-              <div class="ps-item"><dt>Relative humidity</dt><dd>5 to 95% at 131 &deg;F (55 &deg;C), non-condensing</dd></div>
-              <div class="ps-item"><dt>Environment</dt><dd>Indoor use only</dd></div>
-            </dl>
           </section>
 
           <section class="ps-sec" id="spec-compliance">
@@ -708,11 +703,11 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
             </dl>
           </section>
 
+
         </div>
       </div>
       <div class="ps-fit">
         <b>Check the fit for your network</b>
-        <a class="tf-link" href="/products/compare">Compare models &rarr;</a>
         <a class="tf-btn tf-btn--primary" href="/contact?topic=contact&amp;model=tfg121-bsg">Talk to an engineer <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
       </div>
     </div>
@@ -733,8 +728,8 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
         <div class="p-proto"><b>Local SYSLOG</b><span>Local syslog forwarding<em class="p-lim">Pre-defined traffic</em></span></div>
         <div class="p-proto"><b>Modbus</b><span>PLC / HMI<em class="p-lim">Two-way</em></span></div>
         <div class="p-proto"><b>MQTT</b><span>Data brokering / publishing<em class="p-lim">Pre-defined traffic</em></span></div>
-        <div class="p-proto p-proto--more"><b>+</b><span>Custom protocols: N/A, protocol agnostic. <a class="tf-link" href="/contact?topic=contact&amp;model=tfg121-bsg">Ask about yours</a></span></div>
-      </div>
+        <div class="p-proto"><b>NTP</b><span>Delivered to IT, SOC and cloud services<em class="p-lim">Pre-defined traffic</em></span></div><div class="p-proto"><b>HDMI screen replication</b><span>Delivered to IT, SOC and cloud services<em class="p-lim">Pre-defined traffic</em></span></div><div class="p-proto"><b>HTTP/S REST API</b><span>Delivered to IT, SOC and cloud services<em class="p-lim">Pre-defined traffic</em></span></div><div class="p-proto"><b>OPC UA</b><span>Delivered to IT, SOC and cloud services<em class="p-lim">Pre-defined traffic</em></span></div><div class="p-proto"><b>IEC-104</b><span>Read from controllers and field devices<em class="p-lim">Pre-defined traffic</em></span></div><div class="p-proto"><b>UDP streaming</b><span>Read from controllers and field devices<em class="p-lim">Pre-defined traffic</em></span></div><div class="p-proto"><b>SNMP trap forwarding</b><span>Read from controllers and field devices<em class="p-lim">Pre-defined traffic</em></span></div><div class="p-proto p-proto--more"><b>+</b><span>Custom protocols: N/A, protocol agnostic. <a class="tf-link" href="/contact?topic=contact&amp;model=tfg121-bsg">Ask about yours</a></span></div>
+      </div><p class="p-protos__line">We support over 200+ protocols, for further info <a href="/contact?topic=contact&amp;model=tfg121-bsg">contact our team</a>.</p><div class="p-certs"><h3>Certifications &amp; approvals</h3><div class="p-certs__grid"><div class="p-cert"><small>CYBER</small><b>IEC 62443-4-2 SL2</b><span>CC EAL4+ (pending)</span></div><div class="p-cert"><small>SAFETY</small><b>UL / IEC (CB) 62368-1:2014</b></div><div class="p-cert"><small>EMI</small><b>FCC Part 15 B, Class A</b><span>EN 55032 Class A &middot; EN 61000-3-2 / -3-3 / -6-4</span></div><div class="p-cert"><small>EMS</small><b>EN 55024</b><span>EN 61000-6-2</span></div><div class="p-cert"><small>RUGGED</small><b>MIL-STD-810F</b><span>Shock &amp; drop (516.5) &middot; vibration (514.5)</span></div><div class="p-cert"><small>LIFETIME</small><b>20-year MTBF</b><span>RoHS compliant</span></div></div></div>
     </div>
 
     <!-- USE CASES -->
@@ -767,7 +762,6 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
               <li>Projects needing certification documented on datasheet</li>
             </ul>
           </div>
-          <a class="tf-link" href="/products/compare">Compare models to find the right fit &rarr;</a>
         </div>
       </div>
     </div>
@@ -779,7 +773,7 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
         <h2 class="p-h2">Documents for <em>the TFG121-BSG</em></h2>
       </div>
       <div class="p-dl">
-        <a class="p-file" href="mailto:info@terafence.us?subject=Request%20TFG121-BSG%20datasheet">
+        <a class="p-file" href="/contact?topic=datasheet&amp;model=tfg121-bsg">
           <span class="p-file__ic">DOC</span>
           <div><h3>TFG121-BSG datasheet</h3><p>Updated documentation available on request</p></div>
           <span class="p-file__go"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8M4.5 7L8 10.5 11.5 7M3 13h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Request datasheet</span>
@@ -828,7 +822,6 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
         <h2 class="p-h2">Explore More <em>Gateways</em></h2>
         <p>Other Terafence solutions for secure, one-way and controlled data transfer.</p>
       </div>
-      <a class="tf-btn tf-btn--ghost-dark" href="/products/compare">Compare <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
     </div>
 
     <!-- other gateways -->
@@ -911,7 +904,6 @@ a.p-rc:hover { border-color: rgba(41,58,146,.26); transform: translateY(-4px); b
       <div class="tf-cta__btns">
         <a class="tf-btn tf-btn--primary" href="/contact?topic=quote&amp;model=tfg121-bsg" data-arrow>Request a quote</a>
         <a class="tf-btn tf-btn--ghost" href="/contact?topic=pilot&amp;model=tfg121-bsg">Plan a pilot</a>
-        <a class="tf-cta__link" href="/products/compare">Compare models &rarr;</a>
         <a class="tf-cta__link" href="/products/build-your-solution#model=tfg121-bsg">Configure &rarr;</a>
       </div>
     </div>

@@ -21,9 +21,9 @@ TF.NAV = [
       { title: "Controlled two-way", links: [
         { label: "TFG121-BSG", sub: "Controlled two-way gateway, not a diode", href: "/products/tfg121-bsg" }
       ]},
-      { title: "Choose", links: [
-        { label: "Build your solution", sub: "Choose a gateway, then add what you need", href: "/products/build-your-solution" },
-        { label: "Compare models", sub: "Throughput, form factor and flow side by side", href: "/products/compare" }
+      { title: "Custom", links: [
+        { label: "Custom Build", sub: "Your protocols and workloads, built on FPGA", href: "/products/custom-build" },
+        { label: "Build your solution", sub: "Choose a gateway, then add what you need", href: "/products/build-your-solution" }
       ]}
     ]
   },
@@ -49,10 +49,6 @@ TF.NAV = [
         { label: "Why FPGA hardware", sub: "Immutable logic, deterministic throughput", href: "/technology#fpga" },
         { label: "Where diodes sit in a network", sub: "Zone boundary and asset boundary", href: "/technology#placement" },
         { label: "Data diode vs firewall vs air gap", sub: "When to use which", href: "/technology#comparison" }
-      ]},
-      { title: "Integration", links: [
-        { label: "Protocols and integration", sub: "Modbus, Syslog, SFTP, RTSP and more", href: "/technology/protocols-and-integration" },
-        { label: "Certifications and compliance", sub: "Assessment and test documentation on request", href: "mailto:info@terafence.us?subject=Request%20certifications%20and%20compliance%20documentation" }
       ]}
     ]
   },
@@ -78,19 +74,33 @@ TF.NAV = [
     ]
   },
   {
+    label: "Services", href: "/services",
+    intro: { title: "Services", text: "Advisory, cloud, workplace, network, cybersecurity and service integration for global enterprises.", link: { label: "All services", href: "/services" } },
+    cols: [
+      { title: "Services", links: [
+        { label: "Advisory & Consulting", sub: "Strategic Technology Transformation", href: "/services#advisory" },
+        { label: "Cloud Services", sub: "Enterprise Cloud Platforms at Global Scale", href: "/services#cloud" },
+        { label: "Workplace Services", sub: "Secure Digital Collaboration for Global Teams", href: "/services#workplace" },
+        { label: "Network Services", sub: "Global Enterprise Connectivity", href: "/services#network" },
+        { label: "Cybersecurity", sub: "Threat Intelligence. Identity Security. XDR.", href: "/services#cybersecurity" },
+        { label: "Service Integration", sub: "Unified IT Operations", href: "/services#integration" }
+      ]}
+    ]
+  },
+  {
     label: "Resources", href: "/resources",
     intro: { title: "Resources", text: "Datasheets, technical specifications, white papers, case studies and articles.", link: { label: "Resource library", href: "/resources" } },
     cols: [
       { title: "Library", links: [
         { label: "Case studies", sub: "Real deployments, problem to impact", href: "/resources/case-studies" },
         { label: "Insights", sub: "Articles on OT security and one-way transfer", href: "/insights/" },
-        { label: "Certifications and compliance", sub: "Documentation available on request", href: "mailto:info@terafence.us?subject=Request%20certifications%20and%20compliance%20documentation" }
+        { label: "Certifications and compliance", sub: "Documentation available on request", href: "/contact?topic=certifications" }
       ]},
       { title: "Datasheets", links: [
-        { label: "TFG-121", sub: "Documentation available on request", href: "mailto:info@terafence.us?subject=Request%20datasheet" },
-        { label: "TFG-1URP", sub: "Documentation available on request", href: "mailto:info@terafence.us?subject=Request%20datasheet" },
-        { label: "TFG121-BF", sub: "Documentation available on request", href: "mailto:info@terafence.us?subject=Request%20datasheet" },
-        { label: "TFG121-BSG", sub: "Documentation available on request", href: "mailto:info@terafence.us?subject=Request%20datasheet" }
+        { label: "TFG-121", sub: "Documentation available on request", href: "/contact?topic=datasheet&model=tfg-121" },
+        { label: "TFG-1URP", sub: "Documentation available on request", href: "/contact?topic=datasheet&model=tfg-1urp" },
+        { label: "TFG121-BF", sub: "Documentation available on request", href: "/contact?topic=datasheet&model=tfg121-bf" },
+        { label: "TFG121-BSG", sub: "Documentation available on request", href: "/contact?topic=datasheet&model=tfg121-bsg" }
       ]}
     ]
   },
@@ -99,8 +109,7 @@ TF.NAV = [
     intro: { title: "About us", text: "Founded in 2015. FPGA engineering in Israel, sales and support across the Americas, Europe and Asia.", link: { label: "About Terafence USA", href: "/about" } },
     cols: [
       { title: "Terafence", links: [
-        { label: "About Terafence USA", href: "/about" },
-        { label: "Leadership", href: "/about#leadership" }
+        { label: "About Terafence USA", href: "/about" }
       ]},
       { title: "Get in touch", links: [
         { label: "Contact and request a quote", href: "/contact" },
@@ -109,7 +118,7 @@ TF.NAV = [
     ]
   }
 ];
-TF.UTIL = [ { label: "Support", href: "/support" }, { label: "info@terafence.us", href: "mailto:info@terafence.us" } ];
+TF.UTIL = [ { label: "Support", href: "/support" }, { label: "info@terafence.us" } ];
 TF.CTA = { primary: { label: "Plan a pilot", href: "/contact?topic=pilot" }, secondary: { label: "Contact", href: "/contact" } };
 
 /* ---------- 2. Rotating hero messages (Banner 1) ---------- */
@@ -144,10 +153,6 @@ TF.FOOTER = [
       [
         "TFG-VSecure",
         ""
-      ],
-      [
-        "Compare gateways",
-        "/products/compare"
       ]
     ]
   },
@@ -234,7 +239,7 @@ TF.REAL_PREFIXES = ["/insights"];
 /* Pages inside sub-folders (e.g. insights/) set TF.ROOT = "../" or "../../" so the
    logo and the links above still point at the right files. Top-level pages leave it empty. */
 TF.ROOT = TF.ROOT || "";
-TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "products.html", "/resources": "resources.html", "/products/tfg-1urp": "tfg-1urp.html", "/products/tfg-121": "tfg-121.html", "/products/build-your-solution": "build-your-solution.html", "/platform": "platform.html", "/technology": "technology.html", "/industries/oil-gas": "industry-oil-gas.html", "/industries/energy-renewables": "industry-energy-renewables.html", "/industries/utilities": "industry-utilities.html", "/industries/lifescience-pharma": "industry-lifescience-pharma.html", "/industries/industrial-manufacturing": "industry-industrial-manufacturing.html", "/industries/defense-government": "industry-defense-government.html", "/solutions": "solutions.html", "/case-studies/railway-ot-it": "case-railway-ot-it.html", "/resources/case-studies": "case-studies.html", "/case-studies/power-plant-emissions": "case-power-plant-emissions.html", "/case-studies/water-syslog-soc": "case-water-syslog-soc.html", "/case-studies/defense-bms-segmentation": "case-defense-bms-segmentation.html", "/case-studies/engine-turbine-modbus": "case-engine-turbine-modbus.html", "/case-studies/managed-soc": "case-managed-soc.html", "/case-studies/pharma-machinery-oem": "case-pharma-machinery-oem.html", "/case-studies/water-smtp-telemetry": "case-water-smtp-telemetry.html", "/case-studies/defense-cctv-japan": "case-defense-cctv-japan.html", "/case-studies/petrochemical-gas-flare": "case-petrochemical-gas-flare.html", "/products/tfg121-bf": "tfg121-bf.html", "/products/tfg121-bsg": "tfg121-bsg.html", "/products/compare": "compare.html", "/privacy": "privacy.html", "/terms": "terms.html", "/cookie": "cookie.html", "/support": "support.html" };
+TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "products.html", "/resources": "resources.html", "/products/tfg-1urp": "tfg-1urp.html", "/products/tfg-121": "tfg-121.html", "/products/build-your-solution": "build-your-solution.html", "/products/custom-build": "custom-build.html", "/services": "services.html", "/platform": "platform.html", "/technology": "technology.html", "/industries/oil-gas": "industry-oil-gas.html", "/industries/energy-renewables": "industry-energy-renewables.html", "/industries/utilities": "industry-utilities.html", "/industries/lifescience-pharma": "industry-lifescience-pharma.html", "/industries/industrial-manufacturing": "industry-industrial-manufacturing.html", "/industries/defense-government": "industry-defense-government.html", "/solutions": "solutions.html", "/case-studies/railway-ot-it": "case-railway-ot-it.html", "/resources/case-studies": "case-studies.html", "/case-studies/power-plant-emissions": "case-power-plant-emissions.html", "/case-studies/water-syslog-soc": "case-water-syslog-soc.html", "/case-studies/defense-bms-segmentation": "case-defense-bms-segmentation.html", "/case-studies/engine-turbine-modbus": "case-engine-turbine-modbus.html", "/case-studies/managed-soc": "case-managed-soc.html", "/case-studies/pharma-machinery-oem": "case-pharma-machinery-oem.html", "/case-studies/water-smtp-telemetry": "case-water-smtp-telemetry.html", "/case-studies/defense-cctv-japan": "case-defense-cctv-japan.html", "/case-studies/petrochemical-gas-flare": "case-petrochemical-gas-flare.html", "/products/tfg121-bf": "tfg121-bf.html", "/products/tfg121-bsg": "tfg121-bsg.html", "/products/compare": "compare.html", "/privacy": "privacy.html", "/terms": "terms.html", "/cookie": "cookie.html", "/support": "support.html" };
 
 /* =====================================================================
    Below this line: behaviour. No content to edit.
@@ -253,7 +258,7 @@ TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "produ
   const esc = s => String(s);
 
   function renderHeader(el) {
-    const util = TF.UTIL.map(u => `<a href="${u.href}">${u.label}</a>`).join("");
+    const util = TF.UTIL.map(u => u.href ? `<a href="${u.href}">${u.label}</a>` : `<span class="tf-util__plain">${u.label}</span>`).join("");
     const items = TF.NAV.map((m, i) => {
       const cols = m.cols.map(c => `<div class="tf-mega__col"><h4>${c.title}</h4>${c.links.map(l => `<a${l.href ? ` href="${l.href}"` : ""}><strong>${l.label}</strong>${l.sub ? `<span>${l.sub}</span>` : ""}</a>`).join("")}</div>`).join("");
       const feat = m.feature ? `<div class="tf-mega__feature"><small>${m.feature.kicker}</small><p>${m.feature.text}</p><a class="tf-link" href="${m.feature.link.href}">${m.feature.link.label} ${ARROW}</a></div>` : "";
@@ -358,7 +363,7 @@ TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "produ
     document.addEventListener("keydown", e => { if (e.key === "Escape") { closeAll(); setMob(false); } });
     burger.addEventListener("click", () => setMob(true));
     mob.querySelector(".tf-mobile__close").addEventListener("click", () => setMob(false));
-    addEventListener("resize", () => { if (innerWidth > 1080) setMob(false); });
+    addEventListener("resize", () => { if (innerWidth > 1200) setMob(false); });
 
     const onScroll = () => { const y = scrollY; el.classList.toggle("is-solid", y > 40); el.classList.toggle("is-scrolled", y > 120); };
     addEventListener("scroll", onScroll, { passive: true }); onScroll();
@@ -369,7 +374,7 @@ TF.REAL_PAGES = { "/about": "about.html", "/": "index.html", "/products": "produ
     const cols = TF.FOOTER.map(c => `<div><h4>${c.title}</h4><ul>${c.links.map(([l, h]) => h ? `<li><a href="${h}">${l}</a></li>` : `<li><span>${l}</span></li>`).join("")}</ul></div>`).join("");
     el.innerHTML = `<div class="tf-wrap"><div class="tf-footer__grid">
         <div class="tf-footer__brand"><img src="${TF.ROOT + TF.LOGO_DARK_BG}" alt="Terafence" width="400" height="106" loading="lazy" decoding="async"><p>FPGA-based data diodes and unidirectional gateways that let operational data out while keeping critical systems unreachable.</p>
-          <address>12788 Royal Oaks Lane<br>Farmers Branch, TX 75234</address><p><a href="mailto:info@terafence.us">info@terafence.us</a></p><div class="tf-social"><a class="tf-social__pending" href="https://www.linkedin.com/company/terafence-usa/" target="_blank" rel="noopener" aria-label="Terafence USA on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4M3 9h4v12H3zm6 0h4v2c1-2 7-4 8 3v7h-4v-7c0-3-4-3-4 0v7H9z"/></svg><span class="sr-only">LinkedIn</span></a><a class="tf-social__pending" href="https://www.youtube.com/@TerafenceUSA" target="_blank" rel="noopener" aria-label="Terafence USA on YouTube" title="YouTube"><svg width="28" height="24" viewBox="0 0 28 24" fill="currentColor" aria-hidden="true"><path d="M26 6c-.3-1.4-1.3-2.4-2.7-2.7C20.9 3 7.1 3 4.7 3.3 3.3 3.6 2.3 4.6 2 6c-.6 3-.6 9 0 12 .3 1.4 1.3 2.4 2.7 2.7 2.4.3 16.2.3 18.6 0 1.4-.3 2.4-1.3 2.7-2.7.6-3 .6-9 0-12M11 16V8l7 4z"/></svg></a><span class="tf-social__pending" role="img" aria-label="Twitter / X" title="Twitter / X"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22H17l-4.9-7.4L5.6 22H2.4l8.2-9.5L.8 2h6.4l4.5 6.7L18.9 2M17.6 20h1.7L6 3.9H4.2z"/></svg></span></div><div class="tf-footer__slogan">UNREACHABLE <b>BY</b> DESIGN</div></div>
+          <address>12788 Royal Oaks Lane<br>Farmers Branch, TX 75234</address><p class="tf-mail">info@terafence.us</p><div class="tf-social"><a class="tf-social__pending" href="https://www.linkedin.com/company/terafence-usa/" target="_blank" rel="noopener" aria-label="Terafence USA on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M5 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4M3 9h4v12H3zm6 0h4v2c1-2 7-4 8 3v7h-4v-7c0-3-4-3-4 0v7H9z"/></svg><span class="sr-only">LinkedIn</span></a><a class="tf-social__pending" href="https://www.youtube.com/@TerafenceUSA" target="_blank" rel="noopener" aria-label="Terafence USA on YouTube" title="YouTube"><svg width="28" height="24" viewBox="0 0 28 24" fill="currentColor" aria-hidden="true"><path d="M26 6c-.3-1.4-1.3-2.4-2.7-2.7C20.9 3 7.1 3 4.7 3.3 3.3 3.6 2.3 4.6 2 6c-.6 3-.6 9 0 12 .3 1.4 1.3 2.4 2.7 2.7 2.4.3 16.2.3 18.6 0 1.4-.3 2.4-1.3 2.7-2.7.6-3 .6-9 0-12M11 16V8l7 4z"/></svg></a><span class="tf-social__pending" role="img" aria-label="Twitter / X" title="Twitter / X"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22H17l-4.9-7.4L5.6 22H2.4l8.2-9.5L.8 2h6.4l4.5 6.7L18.9 2M17.6 20h1.7L6 3.9H4.2z"/></svg></span></div><div class="tf-footer__slogan">UNREACHABLE <b>BY</b> DESIGN</div></div>
         ${cols}</div>
         <div class="tf-footer__base"><span>&copy; ${new Date().getFullYear()} Terafence USA Inc. All rights reserved.</span><nav>${TF.LEGAL.map(([l, h]) => `<a href="${h}">${l}</a>`).join("")}</nav></div></div>`;
   }
